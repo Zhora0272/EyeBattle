@@ -13,13 +13,13 @@ public class MergeController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     private void Awake()
     {
-        MaxWeaponLevel.Value = PlayerPrefs.GetInt(PlayerPrefsEnum.AvatarSelectedIndex.ToString());
+       /* MaxWeaponLevel.Value = PlayerPrefs.GetInt(PlayerPrefsEnum.AvatarSelectedIndex.ToString());
 
         MaxWeaponLevel.Subscribe(value =>
             {
                 PlayerPrefs.SetInt(PlayerPrefsEnum.AvatarSelectedIndex.ToString(), value);
             })
-            .AddTo(this);
+            .AddTo(this);*/
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -68,9 +68,9 @@ public class MergeController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                         
                         if (state.GetUpgradeIndex() > MaxWeaponLevel.Value)
                         {
-                            PlayerPrefs.SetInt(PlayerPrefsEnum.WeaponUpdateLevel.ToString(),
+                            /*PlayerPrefs.SetInt(PlayerPrefsEnum.WeaponUpdateLevel.ToString(),
                                 state.GetUpgradeIndex());
-                            MaxWeaponLevel.Value = state.GetUpgradeIndex();
+                            MaxWeaponLevel.Value = state.GetUpgradeIndex();*/
                         }
                     }
                     else

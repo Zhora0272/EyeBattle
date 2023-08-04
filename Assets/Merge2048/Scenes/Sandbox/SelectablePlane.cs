@@ -1,27 +1,14 @@
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
 public class SelectablePlane : MonoBehaviour, ISelectableManager
 {
     private SelectableGrid[] _selectableGrid;
+    [SerializeField] public Data2048 Data { get; private set; }
 
-    [SerializeField] private TextMeshProUGUI _upgradePrice;
-    [SerializeField] private GameObject[] _upgradeDisableObjects;
-    
-    [SerializeField] private Button _buyElement;
-    [SerializeField] public Button _fight;
-
-    [SerializeField] private int[] _weaponBuy;
-    
-
-    private void OnEnable()
-    {
-        foreach (var item in _upgradeDisableObjects)
-        {
-            item.SetActive(false);
-        }
-    }
+    public Action MergeCallback { get; private set; }
 
     private enum PlayerPrefsEnum
     {
@@ -32,25 +19,9 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
     private void Awake()
     {
         var mergeCount = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeBuyCount.ToString(), 0);
-        
-        _fight.onClick.AddListener(() =>
-        {
-            foreach (var item in _upgradeDisableObjects)
-            {
-                item.SetActive(true);
-            }
-            
-            foreach (var item in _upgradeDisableObjects)
-            {
-                if (item)
-                {
-                    item.SetActive(true);
-                }
-            }
-            
-            gameObject.transform.parent.gameObject.SetActive(false);
-        });
-        
+
+        MergeCallback = () => { };
+
         _selectableGrid = GetComponentsInChildren<SelectableGrid>();
     }
 
@@ -98,7 +69,8 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
     }
 }
 
-interface ISelectableManager
+public interface ISelectableManager
 {
     public Data2048 Data { get; }
+    public Action MergeCallback { get; }  
 }
