@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a87c051582ec41778009f8c43e7e716, type: 3}
+  m_Name: ResolutionsTable
+  m_EditorClassIdentifier: 
+  items:
+  - name: iPhone6.5
+    width: 1242
+    height: 2688
+  - name: iPhone5.5
+    width: 1242
+    height: 2208
+  - name: iPad2&3
+    width: 2048
+    height: 2732
+  - name: iPhone6.5_Landscape
+    width: 2688
+    height: 1242

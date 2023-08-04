@@ -1,0 +1,16 @@
+{
+    "name": "TrustedTime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d7ea347f20a084005aa61a3766dead87"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

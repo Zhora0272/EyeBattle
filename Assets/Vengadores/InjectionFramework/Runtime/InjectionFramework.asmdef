@@ -1,0 +1,16 @@
+{
+    "name": "InjectionFramework",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e8a168f415b9403589f06f2ff5224ada"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

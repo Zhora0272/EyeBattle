@@ -1,0 +1,20 @@
+{
+    "name": "AudioFramework",
+    "rootNamespace": "",
+    "references": [
+        "GUID:92b856d81f61dc04cac90e49b556d440",
+        "GUID:2345a369f424d7f44be24678ee511551",
+        "GUID:fb127fb096d27f141b85a087d1ac542d",
+        "GUID:18ce861f0f037c940857d5df17083c7a",
+        "GUID:e8a168f415b9403589f06f2ff5224ada"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

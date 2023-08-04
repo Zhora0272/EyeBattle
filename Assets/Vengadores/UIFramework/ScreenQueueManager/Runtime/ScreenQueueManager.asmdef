@@ -1,0 +1,18 @@
+{
+    "name": "ScreenQueueManager",
+    "rootNamespace": "",
+    "references": [
+        "GUID:9206c8c4b42f1492a89c8ef9bb35a5bb",
+        "GUID:2345a369f424d7f44be24678ee511551",
+        "GUID:002a851ad111fad4392341ac25f2ff6a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

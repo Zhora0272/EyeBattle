@@ -1,0 +1,22 @@
+{
+    "name": "UIFrameworkPlayModeTests",
+    "rootNamespace": "",
+    "references": [
+        "guid:27619889b8ba8c24980f49ee34dbb44a",
+        "guid:0acc523941302664db1f4e527237feb3",
+        "guid:002a851ad111fad4392341ac25f2ff6a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
