@@ -11,17 +11,6 @@ public class MergeController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public ReactiveProperty<int> MaxWeaponLevel = new();
 
-    private void Awake()
-    {
-       /* MaxWeaponLevel.Value = PlayerPrefs.GetInt(PlayerPrefsEnum.AvatarSelectedIndex.ToString());
-
-        MaxWeaponLevel.Subscribe(value =>
-            {
-                PlayerPrefs.SetInt(PlayerPrefsEnum.AvatarSelectedIndex.ToString(), value);
-            })
-            .AddTo(this);*/
-    }
-
     public void OnPointerDown(PointerEventData eventData)
     {
         _canMoveObject = true;
@@ -29,8 +18,6 @@ public class MergeController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         if (Physics.Raycast(_camera.transform.position, pos.direction, out RaycastHit hit))
         {
-            print(hit.transform.gameObject.layer);
-
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Selectable"))
             {
                 _selectableGrid = hit.transform.GetComponent<SelectableGrid>();
@@ -67,13 +54,13 @@ public class MergeController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                             _canMoveObject = false;
                             _selectableGrid.CallToBack();
                         }
-                        
-                        if (state.GetUpgradeIndex() > MaxWeaponLevel.Value)
+
+                        /*if (state.GetUpgradeIndex() > MaxWeaponLevel.Value)
                         {
                             /*PlayerPrefs.SetInt(PlayerPrefsEnum.WeaponUpdateLevel.ToString(),
                                 state.GetUpgradeIndex());
-                            MaxWeaponLevel.Value = state.GetUpgradeIndex();*/
-                        }
+                            MaxWeaponLevel.Value = state.GetUpgradeIndex();#1#
+                        }*/
                     }
                     else
                     {

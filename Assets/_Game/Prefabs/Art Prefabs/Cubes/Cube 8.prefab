@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3015338965365898787}
   m_Layer: 0
-  m_Name: Cube 6
+  m_Name: Cube 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,11 +28,11 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4839029528848971088}
+  - {fileID: 5195377767021135055}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3088946638713214658
+--- !u!1001 &2441016557544515421
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -41,11 +41,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7593411609065102299, guid: b1306f53df553904fb10b81cedaad2e6, type: 3}
       propertyPath: m_text
-      value: 64
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 7593411609065102299, guid: b1306f53df553904fb10b81cedaad2e6, type: 3}
       propertyPath: m_fontSize
-      value: 0.8
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 7636287671895614354, guid: b1306f53df553904fb10b81cedaad2e6, type: 3}
       propertyPath: m_RootOrder
@@ -98,11 +98,11 @@ PrefabInstance:
     - target: {fileID: 8668206757553881149, guid: b1306f53df553904fb10b81cedaad2e6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 365f622c941e077458d9874b857f6dba, type: 2}
+      objectReference: {fileID: 2100000, guid: e035abb5bde62fe4b895694411ba4b49, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1306f53df553904fb10b81cedaad2e6, type: 3}
---- !u!4 &4839029528848971088 stripped
+--- !u!4 &5195377767021135055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7636287671895614354, guid: b1306f53df553904fb10b81cedaad2e6, type: 3}
-  m_PrefabInstance: {fileID: 3088946638713214658}
+  m_PrefabInstance: {fileID: 2441016557544515421}
   m_PrefabAsset: {fileID: 0}

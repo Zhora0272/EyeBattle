@@ -15,28 +15,41 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
     {
         WeaponMergeBuyCount,
         WeaponMergeSaveIndex,
+        InitialStart
     }
 
     private void Awake()
     {
         _selectableGrid = GetComponentsInChildren<SelectableGrid>();
+    }
 
+    private void Start()
+    { 
+        var initialState = PlayerPrefs.GetInt(PlayerPrefsEnum.InitialStart.ToString());
+        
         for (int i = 0; i < _selectableGrid.Length; i++)
         {
-            //var index = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeSaveIndex.ToString() + i, -1);
-
             _selectableGrid[i].SetManager(this, Data);
-
-            /*if (index != -1)
-            {
-                _selectableGrid[i].SetObject(index);
-            }*/
         }
 
-        var mergeCount = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeBuyCount.ToString(), 0);
-
-        _selectableGrid[0].SetObject();
-        _selectableGrid[Random.Range(1, _selectableGrid.Length - 1)].SetObject();
+        if (initialState == 1)
+        {
+            PlayerPrefs.SetInt(PlayerPrefsEnum.InitialStart.ToString(), 1);
+            
+            for (int i = 0; i < _selectableGrid.Length; i++)
+            {
+                var index = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeSaveIndex.ToString() + i, -1);
+                if (index != -1)
+                {
+                    _selectableGrid[i].SetObject(index);
+                }
+            }
+        }
+        else
+        {
+            _selectableGrid[0].SetObject();
+            _selectableGrid[Random.Range(1, _selectableGrid.Length - 1)].SetObject();   
+        }
 
         MergeCallback = () =>
         {
@@ -50,11 +63,8 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
                 
             }).AddTo(this);
         };
-    }
-
-    private void Start()
-    { 
-        var mergeCount = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeBuyCount.ToString(), 0);
+        
+        /*var mergeCount = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeBuyCount.ToString(), 0);
         
         if (mergeCount == 0)
         {
@@ -71,7 +81,7 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
             {
                 _selectableGrid[0].SetObject();
             }
-        }
+        }*/
     }
 
     private void OnDisable()
