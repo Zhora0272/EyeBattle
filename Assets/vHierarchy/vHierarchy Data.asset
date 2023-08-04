@@ -18,6 +18,7 @@ MonoBehaviour:
     - ea27fbb4d974444e5b2c046b4a53c7f4
     - 28a3479bd518f462c98184e7b177d03d
     - 
+    - 2cda990e2423bbf4892e6590ba056729
     values:
     - goDatasByGlobalId:
         keys:
@@ -55,3 +56,12 @@ MonoBehaviour:
     - goDatasByGlobalId:
         keys: []
         values: []
+    - goDatasByGlobalId:
+        keys:
+        - GlobalObjectId_V1-2-2cda990e2423bbf4892e6590ba056729-919132149155446097-1446749819
+        - GlobalObjectId_V1-2-2cda990e2423bbf4892e6590ba056729-2141695376-0
+        values:
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: 
