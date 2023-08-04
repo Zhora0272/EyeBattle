@@ -11,7 +11,7 @@ public class SelectableGrid : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI _weaponLevel;
     [SerializeField] private GameObject _gridObject;
     //[SerializeField] private GameObject _panel;
-    
+
     private int _stayObjectIndex = -1;
     private Data2048 _data;
     private ISelectableManager _manager;
@@ -20,8 +20,6 @@ public class SelectableGrid : MonoBehaviour
     {
         return _stayObjectIndex;
     }
-
-
 
     private void OnMouseEnter()
     {
@@ -32,27 +30,22 @@ public class SelectableGrid : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        //_weaponLevel.text = "";
-    }
-
     private void OnMouseExit()
     {
         DeActivate();
     }
-    
+
     public void Activate()
     {
         //_panel.transform.DOLocalMove(new Vector3(0,5,0), 0.5f);
     }
-    
+
     public void DeActivate()
     {
         //_panel.transform.DOLocalMove(new Vector3(0,0,0), 0.5f);
     }
 
-    
+
     public bool GetObject(out GameObject item, bool activateState = true)
     {
         if (activateState)
@@ -91,7 +84,7 @@ public class SelectableGrid : MonoBehaviour
 
             if (_gridObject)
             {
-                _gridObject.transform.DOMove(transform.position + transform.up * 0.2f, 0.2f);
+                _gridObject.transform.DOMove(transform.position, 0.2f);
                 DeActivate();
             }
 
@@ -106,30 +99,33 @@ public class SelectableGrid : MonoBehaviour
             {
                 HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
             }).AddTo(this);
-            
+
             var equalState = _stayObjectIndex == index;
             if (equalState)
             {
-               /* if (_mergeParticle)
-                {
-                    _mergeParticle.Play();
-                }*/
+                /* if (_mergeParticle)
+                 {
+                     _mergeParticle.Play();
+                 }*/
 
-                Destroy(obj);
+                obj.transform.DOScale(0, 0.5f).SetEase(Ease.OutBack);
+                obj.transform.DOMove(_gridObject.transform.position, 0.2f).OnComplete(() =>
+                {
+                    Destroy(obj);
+                    _stayObjectIndex++;
+                    //_weaponLevel.text = (_stayObjectIndex + 1).ToString();
+
+                    if (_gridObject)
+                    {
+                        _gridObject.transform.DOMove(transform.position, 0.2f).SetEase(Ease.OutBack);
+                        DeActivate();
+                    }
+
+                    SetObject(_stayObjectIndex);
+                });
                 Destroy(_gridObject);
-                
-                _stayObjectIndex++;
-                //_weaponLevel.text = (_stayObjectIndex + 1).ToString();
-
-                if (_gridObject)
-                {
-                    _gridObject.transform.DOMove(transform.position + transform.up * 0.2f, 0.2f);
-                    DeActivate();
-                }
-
-                SetObject(_stayObjectIndex);
             }
-            
+
             return equalState;
         }
     }
@@ -146,7 +142,7 @@ public class SelectableGrid : MonoBehaviour
         {
             if (_gridObject)
             {
-                _gridObject.transform.DOMove(transform.position + transform.up * 0.2f, 0.2f);
+                _gridObject.transform.DOMove(transform.position, 0.2f);
             }
 
             //_weaponLevel.text = (_stayObjectIndex + 1).ToString();
@@ -165,14 +161,20 @@ public class SelectableGrid : MonoBehaviour
         {
             //_mergeParticle.Play();
         }*/
-        
+
         _stayObjectIndex = index;
-        
+
         //_weaponLevel.text = (_stayObjectIndex + 1).ToString();
-        
+
         _gridObject = Instantiate(_data.GridObject[index]);
-        
+
         _gridObject.transform.SetParent(transform);
+
+        var size = _gridObject.transform.localScale;
+
+        _gridObject.transform.localScale = Vector3.zero;
+
+        _gridObject.transform.DOScale(size, 1).SetEase(Ease.OutBack);
 
         _gridObject.transform.localPosition = Vector3.zero;
 

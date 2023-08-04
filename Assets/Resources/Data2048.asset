@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Data2048
   m_EditorClassIdentifier: 
   GridObject:
-  - {fileID: 3053256098707018403, guid: f82538e0f2b464849a8a2b34712ed0af, type: 3}
+  - {fileID: 3053256098707018403, guid: 83247e885f80a3c42a89fa6b3f3e918f, type: 3}
   - {fileID: 3053256098707018403, guid: 4daae8f78c2e1954b8bf34c4f01fb594, type: 3}
   - {fileID: 3053256098707018403, guid: 6d97e26a2ef47724aafadf688f57c7c2, type: 3}
   - {fileID: 3053256098707018403, guid: 7fb24c5e5f5034a448ede6f26cac5532, type: 3}

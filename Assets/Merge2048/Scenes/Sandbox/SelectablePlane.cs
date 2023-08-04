@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Linq;
+using UniRx;
 using Random = UnityEngine.Random;
 
 public class SelectablePlane : MonoBehaviour, ISelectableManager
@@ -37,15 +38,18 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
         _selectableGrid[0].SetObject();
         _selectableGrid[Random.Range(1, _selectableGrid.Length - 1)].SetObject();
 
-        MergeCallback = () => 
+        MergeCallback = () =>
         {
-            var freeGrides = from item in _selectableGrid where (!item.CheckObject()) select (item);
-            var count = freeGrides.Count();
-            var randomIndex = Random.Range(0, count - 1);
+            Observable.Timer(TimeSpan.FromSeconds(Random.Range(0.2f, 1f))).Subscribe(_ =>
+            {
+                var freeGrides = from item in _selectableGrid where (!item.CheckObject()) select (item);
+                var count = freeGrides.Count();
+                var randomIndex = Random.Range(0, count - 1);
 
-            freeGrides.ToArray()[randomIndex].SetObject();
+                freeGrides.ToArray()[randomIndex].SetObject();
+                
+            }).AddTo(this);
         };
-
     }
 
     private void Start()
