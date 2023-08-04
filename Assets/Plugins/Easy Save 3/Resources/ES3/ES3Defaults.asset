@@ -32,13 +32,13 @@ MonoBehaviour:
     - UniRx
     - Assembly-CSharp-firstpass
     - StompyRobot.SRF
+    - Assembly-CSharp
     - StompyRobot.SRDebugger
     - WebRequestUtility
     - Lofelt.NiceVibrations.Demo
     - Cinemachine
     - Tayx.Graphy
     - Autodesk.Fbx
-    - Assembly-CSharp
     - SignalHub
     - UIFrameworkPlayModeTests
     - Lofelt.NiceVibrations

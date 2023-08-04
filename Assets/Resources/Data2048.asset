@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ce4f7bc77618545b10f9d4e43b0236, type: 3}
+  m_Name: Data2048
+  m_EditorClassIdentifier: 
+  GridObject:
+  - {fileID: 3053256098707018403, guid: f82538e0f2b464849a8a2b34712ed0af, type: 3}
+  - {fileID: 3053256098707018403, guid: 4daae8f78c2e1954b8bf34c4f01fb594, type: 3}
+  - {fileID: 3053256098707018403, guid: 6d97e26a2ef47724aafadf688f57c7c2, type: 3}
+  - {fileID: 3053256098707018403, guid: 7fb24c5e5f5034a448ede6f26cac5532, type: 3}
+  - {fileID: 3053256098707018403, guid: 0a7253b9108d1c94a8f655ca5510c197, type: 3}
+  - {fileID: 3053256098707018403, guid: 8fa211217e029464cb89b759cbf230d8, type: 3}
+  - {fileID: 3053256098707018403, guid: 248915801374dcc4499010284b02a4fc, type: 3}

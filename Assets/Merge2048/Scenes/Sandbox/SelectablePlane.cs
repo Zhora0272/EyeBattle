@@ -1,12 +1,12 @@
-using TMPro;
-using UnityEngine.UI;
 using UnityEngine;
 using System;
+using System.Linq;
+using Random = UnityEngine.Random;
 
 public class SelectablePlane : MonoBehaviour, ISelectableManager
 {
     private SelectableGrid[] _selectableGrid;
-    [SerializeField] public Data2048 Data { get; private set; }
+    [field:SerializeField] public Data2048 Data { get; private set; }
 
     public Action MergeCallback { get; private set; }
 
@@ -18,27 +18,38 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
 
     private void Awake()
     {
+        _selectableGrid = GetComponentsInChildren<SelectableGrid>();
+
+        for (int i = 0; i < _selectableGrid.Length; i++)
+        {
+            //var index = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeSaveIndex.ToString() + i, -1);
+
+            _selectableGrid[i].SetManager(this, Data);
+
+            /*if (index != -1)
+            {
+                _selectableGrid[i].SetObject(index);
+            }*/
+        }
+
         var mergeCount = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeBuyCount.ToString(), 0);
 
-        MergeCallback = () => { };
+        _selectableGrid[0].SetObject();
+        _selectableGrid[Random.Range(1, _selectableGrid.Length - 1)].SetObject();
 
-        _selectableGrid = GetComponentsInChildren<SelectableGrid>();
+        MergeCallback = () => 
+        {
+            var freeGrides = from item in _selectableGrid where (!item.CheckObject()) select (item);
+            var count = freeGrides.Count();
+            var randomIndex = Random.Range(0, count - 1);
+
+            freeGrides.ToArray()[randomIndex].SetObject();
+        };
+
     }
 
     private void Start()
-    {
-        for (int i = 0; i < _selectableGrid.Length; i++)
-        {
-            var index = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeSaveIndex.ToString() + i, -1);
-
-            _selectableGrid[i].SetManager(this);
-
-            if (index != -1)
-            {
-                _selectableGrid[i].SetObject(index);
-            }
-        }
-        
+    { 
         var mergeCount = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeBuyCount.ToString(), 0);
         
         if (mergeCount == 0)

@@ -81,7 +81,9 @@ public class SelectableGrid : MonoBehaviour
     public bool MoveToObject(GameObject obj, int index = 0)
     {
         if (obj == _gridObject) return false;
-        
+
+        _manager.MergeCallback.Invoke();
+
         if (_gridObject == null)
         {
             _stayObjectIndex = index;
@@ -98,7 +100,6 @@ public class SelectableGrid : MonoBehaviour
         }
         else
         {
-            
             HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
 
             Observable.Timer(TimeSpan.FromSeconds(0.3f)).Subscribe(_ =>
@@ -109,7 +110,6 @@ public class SelectableGrid : MonoBehaviour
             var equalState = _stayObjectIndex == index;
             if (equalState)
             {
-                _manager.MergeCallback.Invoke();
                /* if (_mergeParticle)
                 {
                     _mergeParticle.Play();
@@ -134,6 +134,11 @@ public class SelectableGrid : MonoBehaviour
         }
     }
 
+    public bool CheckObject()
+    {
+        return _gridObject != null;
+    }
+
     public void CallToBack()
     {
         DeActivate();
@@ -148,8 +153,9 @@ public class SelectableGrid : MonoBehaviour
         }
     }
 
-    public void SetManager(ISelectableManager manager)
+    public void SetManager(ISelectableManager manager, Data2048 data2048)
     {
+        _data = data2048;
         _manager = manager;
     }
 
@@ -166,9 +172,10 @@ public class SelectableGrid : MonoBehaviour
         
         _gridObject = Instantiate(_data.GridObject[index]);
         
-        _gridObject.transform.SetParent(transform.parent.transform.parent);
-        
-        _gridObject.transform.localScale *= 0.07f; 
-        _gridObject.transform.localEulerAngles = new Vector3(-0.434f,-41.959f,10);
+        _gridObject.transform.SetParent(transform);
+
+        _gridObject.transform.localPosition = Vector3.zero;
+
+        _gridObject.transform.localRotation = Quaternion.identity;
     }
 }
