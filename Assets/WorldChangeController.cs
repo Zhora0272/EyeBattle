@@ -7,7 +7,6 @@ public class WorldChangeController : MonoBehaviour
 {
     [SerializeField] private Data2048[] _datas;
 
-
     [SerializeField] private Transform _worldUpTransform;
     [SerializeField] private Transform _worldButtomTransform;
 
@@ -45,10 +44,10 @@ public class WorldChangeController : MonoBehaviour
 
     public void SetWorld(Data2048 data)
     {
-        Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+        Observable.Timer(TimeSpan.FromSeconds(0.5f)).Subscribe(_ =>
         {
             _currentWorld = Instantiate(data.WorldPrefab, GetWorldSpawntransform());
-
+            
             _currentWorld.transform.localPosition = new Vector3(-2.5f, 0, 0);
             _currentWorld.transform.localRotation = Quaternion.identity;
 

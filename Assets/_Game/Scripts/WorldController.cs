@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class WorldController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Activate()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DeActivate()
     {
-        
+
     }
 }
