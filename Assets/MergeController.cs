@@ -29,10 +29,11 @@ public class MergeController : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         if (Physics.Raycast(_camera.transform.position, pos.direction, out RaycastHit hit))
         {
-
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Selectable"))
             {
                 _selectableGrid = hit.transform.GetComponent<SelectableGrid>();
+
+                _selectableGrid.ShakeObject();
             }
             else
             {

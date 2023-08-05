@@ -33,10 +33,10 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
             _selectableGrid[i].SetManager(this, Data);
         }
 
+        PlayerPrefs.SetInt(PlayerPrefsEnum.InitialStart.ToString(), 1);
+        
         if (initialState == 1)
         {
-            PlayerPrefs.SetInt(PlayerPrefsEnum.InitialStart.ToString(), 1);
-            
             for (int i = 0; i < _selectableGrid.Length; i++)
             {
                 var index = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeSaveIndex.ToString() + i, -1);

@@ -7,7 +7,8 @@ using UniRx;
 
 public class SelectableGrid : MonoBehaviour
 {
-    //[SerializeField] private ParticleSystem _mergeParticle;
+    [SerializeField] private ParticleSystem _mergeParticle;
+
     //[SerializeField] private TextMeshProUGUI _weaponLevel;
     [SerializeField] private GameObject _gridObject;
     //[SerializeField] private GameObject _panel;
@@ -45,6 +46,13 @@ public class SelectableGrid : MonoBehaviour
     }
 
 
+    public void ShakeObject()
+    {
+        if (_gridObject)
+        {
+            _gridObject.transform.DOShakeScale(0.5f, 0.2f).SetEase(Ease.InBounce);
+        }
+    }
     public bool GetObject(out GameObject item, bool activateState = true)
     {
         if (activateState)
@@ -102,16 +110,15 @@ public class SelectableGrid : MonoBehaviour
             var equalState = _stayObjectIndex == index;
             if (equalState)
             {
-                /* if (_mergeParticle)
-                 {
-                     _mergeParticle.Play();
-                 }*/
+                if (_mergeParticle)
+                {
+                    _mergeParticle.Play();
+                }
 
                 obj.transform.DOScale(0, 0.5f).SetEase(Ease.OutBack);
-                obj.transform.DOMove(_gridObject.transform.position, 0.2f).OnComplete(() =>
+                obj.transform.DOMove(_gridObject.transform.position, 0.5f).OnComplete(() =>
                 {
                     Destroy(obj);
-                    _stayObjectIndex++;
                     //_weaponLevel.text = (_stayObjectIndex + 1).ToString();
 
                     if (_gridObject)
@@ -119,9 +126,14 @@ public class SelectableGrid : MonoBehaviour
                         _gridObject.transform.DOMove(transform.position, 0.2f).SetEase(Ease.OutBack);
                         DeActivate();
                     }
-
-                    SetObject(_stayObjectIndex);
                 });
+
+                Observable.Timer(TimeSpan.FromSeconds(0.2f)).Subscribe(_ =>
+                {
+                    _stayObjectIndex++;
+                    SetObject(_stayObjectIndex);
+                }).AddTo(this);
+                
                 Destroy(_gridObject);
             }
 
@@ -173,7 +185,7 @@ public class SelectableGrid : MonoBehaviour
 
         _gridObject.transform.localScale = Vector3.zero;
 
-        _gridObject.transform.DOScale(size, 1).SetEase(Ease.OutBack);
+        _gridObject.transform.DOScale(size, 0.5f).SetEase(Ease.OutBack);
 
         _gridObject.transform.localPosition = Vector3.zero;
 
