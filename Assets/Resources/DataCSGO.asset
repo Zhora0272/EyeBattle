@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ce4f7bc77618545b10f9d4e43b0236, type: 3}
+  m_Name: DataCSGO
+  m_EditorClassIdentifier: 
+  GridObject:
+  - {fileID: 5293187385110952118, guid: 2573d2f03a765164c9ebb977e05f9a12, type: 3}
+  - {fileID: 5293187385110952118, guid: 2573d2f03a765164c9ebb977e05f9a12, type: 3}
+  - {fileID: 5293187385110952118, guid: 2573d2f03a765164c9ebb977e05f9a12, type: 3}
+  - {fileID: 5293187385110952118, guid: 2573d2f03a765164c9ebb977e05f9a12, type: 3}
+  WorldPrefab: {fileID: -4039661731936818704, guid: d559572c4117e5c41b4badb5f7b2a883, type: 3}
