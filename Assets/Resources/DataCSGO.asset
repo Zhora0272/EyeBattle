@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GridObject:
   - {fileID: 5293187385110952118, guid: 2573d2f03a765164c9ebb977e05f9a12, type: 3}
-  - {fileID: 5293187385110952118, guid: 2573d2f03a765164c9ebb977e05f9a12, type: 3}
-  - {fileID: 5293187385110952118, guid: 2573d2f03a765164c9ebb977e05f9a12, type: 3}
-  - {fileID: 5293187385110952118, guid: 2573d2f03a765164c9ebb977e05f9a12, type: 3}
+  - {fileID: 5293187385110952118, guid: 9cfc6ab95e29fdc488cca1f10c1c0cb2, type: 3}
+  - {fileID: 5293187385110952118, guid: cb620e9933b56694c80567a57fa9f09a, type: 3}
+  - {fileID: 5293187385110952118, guid: 6277f26f74b49cd47b14d38929554267, type: 3}
   WorldPrefab: {fileID: -4039661731936818704, guid: d559572c4117e5c41b4badb5f7b2a883, type: 3}
