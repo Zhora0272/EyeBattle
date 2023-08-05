@@ -18,11 +18,11 @@ public class WorldChangeController : MonoBehaviour
     {
         ChangeTheme(0);
 
-        Observable.Timer(TimeSpan.FromSeconds(5)).Subscribe(_ =>
+        /*Observable.Timer(TimeSpan.FromSeconds(5)).Subscribe(_ =>
         {
             ChangeTheme(0);
 
-        }).AddTo(this);
+        }).AddTo(this);*/
     }
 
     public void ChangeTheme(int index)
