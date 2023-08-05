@@ -16,7 +16,7 @@ public class WorldChangeController : MonoBehaviour
 
     private void Awake()
     {
-        ChangeTheme(0);
+        ChangeTheme(1);
 
         /*Observable.Timer(TimeSpan.FromSeconds(5)).Subscribe(_ =>
         {

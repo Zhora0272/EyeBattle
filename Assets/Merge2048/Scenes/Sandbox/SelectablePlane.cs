@@ -1,21 +1,30 @@
 using UnityEngine;
 using System;
 using System.Linq;
+using TMPro;
 using UniRx;
 using Random = UnityEngine.Random;
 
 public class SelectablePlane : MonoBehaviour, ISelectableManager
 {
+    [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _mergeCountText;
+    [SerializeField] private TextMeshProUGUI _bestScoreText;
+    
     private SelectableGrid[] _selectableGrid;
     [field:SerializeField] public Data2048 Data { get; private set; }
-
     public Action MergeCallback { get; private set; }
+    
+    private int _score;
+    private int _mergeCount;
+    private int _bestScore;
 
     private enum PlayerPrefsEnum
     {
-        WeaponMergeBuyCount,
         WeaponMergeSaveIndex,
-        InitialStart
+        InitialStart,
+        BestScore,
+        Score
     }
 
     private void Awake()
@@ -43,8 +52,12 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
                 if (index != -1)
                 {
                     _selectableGrid[i].SetObject(index);
+
+                    _score += index;
                 }
             }
+
+            _scoreText.text = _score.ToString();
         }
         else
         {
@@ -104,7 +117,10 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
         var count = freeGrides.Count();
         var randomIndex = Random.Range(0, count - 1);
 
-        freeGrides.ToArray()[randomIndex].SetObject();
+        if (freeGrides.Count() > 0)
+        {
+            freeGrides.ToArray()[randomIndex].SetObject();
+        }
     }
 
     private void OnDisable()

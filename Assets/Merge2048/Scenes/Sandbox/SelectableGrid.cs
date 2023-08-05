@@ -189,6 +189,6 @@ public class SelectableGrid : MonoBehaviour
 
         _gridObject.transform.localPosition = Vector3.zero;
 
-        _gridObject.transform.localRotation = Quaternion.identity;
+        //_gridObject.transform.localRotation = Quaternion.identity;
     }
 }
