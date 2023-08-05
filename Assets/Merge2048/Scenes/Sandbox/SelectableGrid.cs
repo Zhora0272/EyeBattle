@@ -23,7 +23,6 @@ public class SelectableGrid : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
         if (!_gridObject)
         {
             Activate();
@@ -75,7 +74,7 @@ public class SelectableGrid : MonoBehaviour
     {
         if (obj == _gridObject) return false;
 
-        _manager.MergeCallback.Invoke();
+        _manager.MergeCallback?.Invoke();
 
         if (_gridObject == null)
         {

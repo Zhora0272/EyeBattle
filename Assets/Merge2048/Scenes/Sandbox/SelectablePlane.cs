@@ -23,6 +23,7 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
         _selectableGrid = GetComponentsInChildren<SelectableGrid>();
     }
 
+    private bool _skipSpawn;
     private void Start()
     { 
         var initialState = PlayerPrefs.GetInt(PlayerPrefsEnum.InitialStart.ToString());
@@ -51,19 +52,28 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
             _selectableGrid[Random.Range(1, _selectableGrid.Length - 1)].SetObject();   
         }
 
+        Observable.Interval(TimeSpan.FromSeconds(Random.Range(3f,5f))).Subscribe(_ =>
+        {
+            if (_skipSpawn)
+            {
+                _skipSpawn = false;
+                return;
+            }
+
+            RandomSpawn();
+
+        }).AddTo(this);
+
+        
         MergeCallback = () =>
         {
-            Observable.Timer(TimeSpan.FromSeconds(Random.Range(0.2f, 1f))).Subscribe(_ =>
+            Observable.Timer(TimeSpan.FromSeconds(Random.Range(0.2f, 0.8f))).Subscribe(_ =>
             {
-                var freeGrides = from item in _selectableGrid where (!item.CheckObject()) select (item);
-                var count = freeGrides.Count();
-                var randomIndex = Random.Range(0, count - 1);
+                RandomSpawn();
 
-                freeGrides.ToArray()[randomIndex].SetObject();
-                
             }).AddTo(this);
         };
-        
+
         /*var mergeCount = PlayerPrefs.GetInt(PlayerPrefsEnum.WeaponMergeBuyCount.ToString(), 0);
         
         if (mergeCount == 0)
@@ -82,6 +92,19 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
                 _selectableGrid[0].SetObject();
             }
         }*/
+    }
+
+    private float _lastSpawnTime;
+    private void RandomSpawn()
+    {
+        if (Time.time - _lastSpawnTime < 1) return;
+        _lastSpawnTime = Time.time;
+
+        var freeGrides = from item in _selectableGrid where (!item.CheckObject()) select (item);
+        var count = freeGrides.Count();
+        var randomIndex = Random.Range(0, count - 1);
+
+        freeGrides.ToArray()[randomIndex].SetObject();
     }
 
     private void OnDisable()

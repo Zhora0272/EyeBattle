@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ce4f7bc77618545b10f9d4e43b0236, type: 3}
+  m_Name: Data2048 JapanMode
+  m_EditorClassIdentifier: 
+  GridObject:
+  - {fileID: 106962, guid: 0f1d1fa774f34b4458bf0ee3c2476096, type: 3}
+  - {fileID: 151898, guid: ecead0f58d6742241a8457b647b1975c, type: 3}
+  - {fileID: 185594, guid: f40a83cfa3c5d8c4d955d7e76fb0193e, type: 3}
+  - {fileID: 185594, guid: f40a83cfa3c5d8c4d955d7e76fb0193e, type: 3}
+  - {fileID: 100878, guid: 955505b7031ac2f4dbf5bb79221a8e23, type: 3}
+  - {fileID: 113406, guid: 8b17dbd29b0c2474d958f6a2aa5d3aa2, type: 3}
+  - {fileID: 160070, guid: 4109edd8a1bd35e4eb35249f1b4faf16, type: 3}
+  - {fileID: 180328, guid: 06b5940575014be46abc00d90a2f7df4, type: 3}
+  - {fileID: 106688, guid: bdba843079c59ec429328fed611dd78f, type: 3}
+  - {fileID: 135514, guid: d67f4999b725fe24695e6ed8e1195e37, type: 3}
+  - {fileID: 114206, guid: 3779803d8affb994da10deee9fff242d, type: 3}
+  - {fileID: 191282, guid: ac86ad5d13ce0634a85fbe190a2fc446, type: 3}
+  - {fileID: 101212, guid: 1c27fc5dfeb904f4caf5e6ea0fe6b01d, type: 3}
+  - {fileID: 131728, guid: 3de94979711fb59429961a7394b2df03, type: 3}
