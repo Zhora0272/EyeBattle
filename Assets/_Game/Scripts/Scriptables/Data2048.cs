@@ -6,4 +6,6 @@ public class Data2048 : ScriptableObject
     public GameObject[] GridObject;   
 
     public WorldController WorldPrefab;
+
+    public Sprite WorldScreen;
 }

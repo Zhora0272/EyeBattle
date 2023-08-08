@@ -8,10 +8,9 @@ using UniRx;
 public class SelectableGrid : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _mergeParticle;
-
-    //[SerializeField] private TextMeshProUGUI _weaponLevel;
     [SerializeField] private GameObject _gridObject;
-    //[SerializeField] private GameObject _panel;
+
+    private Vector3 _size;
 
     private int _stayObjectIndex = -1;
     private Data2048 _data;
@@ -154,9 +153,8 @@ public class SelectableGrid : MonoBehaviour
             if (_gridObject)
             {
                 _gridObject.transform.DOMove(transform.position, 0.2f);
+                _gridObject.transform.DOScale(_size, 0.5f).SetEase(Ease.OutBack);
             }
-
-            //_weaponLevel.text = (_stayObjectIndex + 1).ToString();
         }
     }
 
@@ -181,11 +179,11 @@ public class SelectableGrid : MonoBehaviour
 
         _gridObject.transform.SetParent(transform);
 
-        var size = _gridObject.transform.localScale;
+        _size = _gridObject.transform.localScale;
 
         _gridObject.transform.localScale = Vector3.zero;
 
-        _gridObject.transform.DOScale(size, 0.5f).SetEase(Ease.OutBack);
+        _gridObject.transform.DOScale(_size, 0.5f).SetEase(Ease.OutBack);
 
         _gridObject.transform.localPosition = Vector3.zero;
 

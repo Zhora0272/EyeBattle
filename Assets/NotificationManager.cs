@@ -1,8 +1,8 @@
 using _Project.Scripts.Utilities;
 using DG.Tweening;
 using System;
-using System.Reflection;
 using TMPro;
+using UniRx;
 using UnityEngine;
 
 public class NotificationManager : MonoBehaviour
@@ -16,15 +16,21 @@ public class NotificationManager : MonoBehaviour
 
     public void Activate(string message)
     {
-        _notification.text = message;
-        ActivateNotification();
+        _notificationTextAlpha.DOFade(0, 0.5f);
+
+        Observable.Timer(TimeSpan.FromSeconds(0.5f)).Subscribe(_ =>
+        {
+            _notification.text = message;
+            ActivateNotification();
+
+        }).AddTo(this);
+        
     }
 
     public void Activate(string[] message, Action callBack)
     {
         StartCoroutine(Helpers.RepeatWithDelayStringArgument(
-            message.Length,
-            1,
+            message.Length, 3,
             Activate,
             message,
             () =>
@@ -34,7 +40,6 @@ public class NotificationManager : MonoBehaviour
         }));
     }
 
-    int index = 0;
     private void ActivateNotification()
     {
         _notificationAlpha.DOFade(1, 0.2f);
