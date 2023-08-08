@@ -28,4 +28,4 @@ MonoBehaviour:
   - {fileID: 6600038058783208440, guid: a36788a47c7eee14a807e920fa8fdd6f, type: 3}
   - {fileID: 113680332547036537, guid: d5e55cff1d09ff54e932d51bfb3ba97e, type: 3}
   WorldPrefab: {fileID: -4039661731936818704, guid: 43368e3684b92164a99d7f9346ac7630, type: 3}
-  WorldScreen: {fileID: 0}
+  WorldScreen: {fileID: 21300000, guid: 82729cac9ed8d3145a7523a4447538be, type: 3}
