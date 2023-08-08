@@ -81,6 +81,8 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
 
         MergeCallback = () =>
         {
+            if (Time.frameCount % 2 == 0) return;
+
             Observable.Timer(
                 TimeSpan.FromSeconds(
                     Random.Range(0.2f, 0.8f))
@@ -97,7 +99,7 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
     private void StartSpawnRandomElements()
     {
         _spawnElementDisposable = Observable.Interval(
-            TimeSpan.FromSeconds(Random.Range(3f, 5f))
+            TimeSpan.FromSeconds(Random.Range(5f, 10f))
             ).Subscribe(_ =>
         {
             if (_skipSpawn)
