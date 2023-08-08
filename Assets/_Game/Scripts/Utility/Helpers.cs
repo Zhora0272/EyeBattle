@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace _Project.Scripts.Utilities
@@ -27,6 +28,37 @@ namespace _Project.Scripts.Utilities
             var diff = Math.Abs(x - y);
             return diff <= tolerance ||
                    diff <= Math.Max(Math.Abs(x), Math.Abs(y)) * tolerance;
+        }
+
+        public static IEnumerator RepeatWithDelay(int repeatCount, float interval, Action action, Action finishCallBack = null)
+        {
+            var time = new WaitForSeconds(interval);
+
+            for (int i = 0; i < repeatCount; i++)
+            {
+                action.Invoke();
+                yield return time;
+            }
+
+            finishCallBack?.Invoke();
+        }
+
+        public static IEnumerator RepeatWithDelayStringArgument(
+            int repeatCount,
+            float interval,
+            Action<string> action,
+            string[] message,
+            Action finishCallBack = null)
+        {
+            var time = new WaitForSeconds(interval);
+
+            for (int i = 0; i < repeatCount; i++)
+            {
+                action?.Invoke(message[i]);
+                yield return time;
+            }
+
+            finishCallBack.Invoke();
         }
     }
 }

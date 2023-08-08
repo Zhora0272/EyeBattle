@@ -10,6 +10,11 @@ public class PageOpenButton : MonoBehaviour
 
     private void Awake()
     {
+        _button = GetComponent<Button>();
+    }
+
+    private void Start()
+    {
         _button.onClick.AddListener(() =>
         {
             MainManager.GetManager<UIManager>().Activte(_pageType);

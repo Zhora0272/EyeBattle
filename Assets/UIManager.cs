@@ -4,7 +4,7 @@ public class UIManager : MonoManager
 {
     [SerializeField] private UIPage[] _pages;
 
-    private void Awake()
+    private void Start()
     {
         _pages = GetComponentsInChildren<UIPage>(true);
     }
