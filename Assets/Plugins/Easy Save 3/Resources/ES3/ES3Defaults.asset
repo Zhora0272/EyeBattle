@@ -59,7 +59,6 @@ MonoBehaviour:
     - PlayerPrefsEditor
     - InjectionFrameworkPlayModeTests
     - TrustedTime
-    - Purchasing.Common
     - ToolbarExtender.Editor
     - PsdPlugin
     - StompyRobot.SRF.Editor
@@ -74,6 +73,7 @@ MonoBehaviour:
     - InventoryFrameworkEditModeTests
     - Lofelt.NiceVibrations.Editor
     - Sirenix.OdinInspector.Modules.UnityMathematics
+    - GoogleMobileAds.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
