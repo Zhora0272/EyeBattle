@@ -59,6 +59,7 @@ MonoBehaviour:
     - PlayerPrefsEditor
     - InjectionFrameworkPlayModeTests
     - TrustedTime
+    - Purchasing.Common
     - ToolbarExtender.Editor
     - PsdPlugin
     - StompyRobot.SRF.Editor

@@ -16,13 +16,18 @@ public class WorldChangeController : MonoBehaviour
 
     private void Awake()
     {
-        ChangeTheme(1);
+        var index = PlayerPrefs.GetInt(ShopParameters.ShopSelectedTheme.ToString());
+        ChangeTheme(index);
+    }
 
-        /*Observable.Timer(TimeSpan.FromSeconds(5)).Subscribe(_ =>
-        {
-            ChangeTheme(0);
-
-        }).AddTo(this);*/
+    private void Start()
+    {
+        MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.Shop,
+       () =>
+       {
+           var index = PlayerPrefs.GetInt(ShopParameters.ShopSelectedTheme.ToString());
+           ChangeTheme(index);
+       });
     }
 
     public void ChangeTheme(int index)
@@ -31,7 +36,11 @@ public class WorldChangeController : MonoBehaviour
 
         transform.DORotate(_worldInverseState ? Vector3.zero : new Vector3(180, 0, 0), 0.7f);
 
-        SetWorld(_datas[index]);
+       Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+       {
+           SetWorld(_datas[index]);
+
+       }).AddTo(this);
     }
 
 
@@ -44,6 +53,16 @@ public class WorldChangeController : MonoBehaviour
 
     public void SetWorld(Data2048 data)
     {
+        if (_currentWorld)
+        {
+            _currentWorld.transform.DOScale(0, 0.45f);
+            Observable.Timer(TimeSpan.FromSeconds(0.45f)).Subscribe(_ =>
+            {
+                Destroy(_currentWorld.gameObject);
+
+            }).AddTo(this);
+        }
+
         Observable.Timer(TimeSpan.FromSeconds(0.5f)).Subscribe(_ =>
         {
             _currentWorld = Instantiate(data.WorldPrefab, GetWorldSpawntransform());
