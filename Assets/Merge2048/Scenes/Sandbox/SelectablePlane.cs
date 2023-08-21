@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UniRx;
 using Random = UnityEngine.Random;
+using Unity.VisualScripting;
 
 public class SelectablePlane : MonoBehaviour, ISelectableManager
 {
@@ -17,9 +18,9 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
 
     private IDisposable _spawnElementDisposable;
     
-    private int _score;
     private int _mergeCount;
     private int _bestScore;
+    private int _currentScore;
 
     private enum PlayerPrefsEnum
     {
@@ -43,6 +44,11 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
         MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.Shop,
             () => { StartSpawnRandomElements(); });
 
+        _scoreText.text = "0";
+
+        _bestScore = PlayerPrefs.GetInt(PlayerPrefsEnum.Score.ToString());
+
+        _bestScoreText.text = _bestScore.ToString();
 
         StartGameProcess();
     }
@@ -67,11 +73,14 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
                 {
                     _selectableGrid[i].SetObject(index);
 
-                    _score += index;
+                    if (_currentScore == -1) continue;
+                    _currentScore += index;
                 }
             }
 
-            _scoreText.text = _score.ToString();
+            _currentScore *= 10;
+
+            _scoreText.text = _currentScore.ToString();
         }
         else
         {
@@ -81,6 +90,10 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
 
         MergeCallback = () =>
         {
+            _currentScore = 0;
+
+            _mergeCount++;
+
             if (Time.frameCount % 2 == 0) return;
 
             Observable.Timer(
@@ -91,9 +104,37 @@ public class SelectablePlane : MonoBehaviour, ISelectableManager
                     RandomSpawn();
 
                 }).AddTo(this);
+
+
+           
+            foreach (var item in _selectableGrid)
+            {
+                if (_currentScore == -1) continue;
+
+                _currentScore += item._stayObjectIndex;
+            }
+
+            _currentScore *= 10;
+
+            if(_currentScore > _bestScore)
+            {
+                _bestScore = _currentScore;
+            }
+
+            _bestScoreText.text = _bestScore.ToString();
+
+            _mergeCountText.text = _mergeCount.ToString();
+
+            _scoreText.text = _currentScore.ToString();
+
         };
 
         StartSpawnRandomElements();
+    }
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetInt(PlayerPrefsEnum.Score.ToString(), _currentScore);
     }
 
     private void StartSpawnRandomElements()

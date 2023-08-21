@@ -12,7 +12,7 @@ public class SelectableGrid : MonoBehaviour
 
     private Vector3 _size;
 
-    private int _stayObjectIndex = -1;
+    public int _stayObjectIndex = -1;
     private Data2048 _data;
     private ISelectableManager _manager;
 
