@@ -29,52 +29,52 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - UniRx
     - Assembly-CSharp-firstpass
     - StompyRobot.SRF
-    - Assembly-CSharp
     - StompyRobot.SRDebugger
-    - WebRequestUtility
-    - Lofelt.NiceVibrations.Demo
-    - Cinemachine
+    - UniRx
     - Tayx.Graphy
     - Autodesk.Fbx
-    - SignalHub
-    - UIFrameworkPlayModeTests
+    - Cinemachine
+    - Assembly-CSharp
     - Lofelt.NiceVibrations
+    - Lofelt.NiceVibrations.Demo
     - InjectionFramework
     - InventoryFramework
     - ScreenQueueManagerPlayModeTests
     - UniRx.Examples
-    - ObjectPoolingPlayModeTests
-    - UIFramework
-    - DataFramework
     - LogWrapper
-    - ScreenQueueManager
+    - UIFramework
+    - Purchasing.Common
     - ObjectPooling
+    - PlayerPrefsEditor
+    - DataFramework
+    - WebRequestUtility
     - AudioFramework
+    - ScreenQueueManager
+    - TrustedTime
+    - SignalHub
+    - UIFrameworkPlayModeTests
+    - ObjectPoolingPlayModeTests
     - FbxBuildTestAssets
     - AudioFrameworkPlayModeTests
     - IdGeneration
-    - PlayerPrefsEditor
     - InjectionFrameworkPlayModeTests
-    - TrustedTime
-    - Purchasing.Common
-    - ToolbarExtender.Editor
     - PsdPlugin
     - StompyRobot.SRF.Editor
     - Tayx.Graphy.Editor
     - StompyRobot.SRDebugger.Editor
     - InjectionFrameworkEditModeTests
+    - ToolbarExtender.Editor
     - PlayerPrefsEditor.Editor
-    - Autodesk.Fbx.Editor
     - SignalHubEditModeTests
-    - DataFrameworkEditModeTests
     - ObjectPoolingEditModeTests
     - InventoryFrameworkEditModeTests
-    - Lofelt.NiceVibrations.Editor
-    - Sirenix.OdinInspector.Modules.UnityMathematics
+    - DataFrameworkEditModeTests
     - GoogleMobileAds.Editor
+    - Sirenix.OdinInspector.Modules.UnityMathematics
+    - Autodesk.Fbx.Editor
+    - Lofelt.NiceVibrations.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
