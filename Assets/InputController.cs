@@ -1,16 +1,22 @@
 using UnityEngine;
+using System;
 
 public class InputController : MonoBehaviour
 {
-    [SerializeField] private FloatingJoystick joystick;
+    [SerializeField] private FloatingJoystick _joystick;
 
-    private void Awake()
+    private Action<Vector2> _joystickDirection;
+
+    private void Update()
     {
-        
+        if(_joystickDirection != null)
+        {
+            _joystickDirection.Invoke(_joystick.Direction);
+        }
     }
 
-    private void Start()
+    public void RegisterJoysticData(Action<Vector2> joystickDirection) 
     {
-        
+        _joystickDirection += joystickDirection;
     }
 }
