@@ -1,47 +1,56 @@
-using System;
-using UniRx;
 using UnityEngine;
 
-public class EyePlayerController : MonoBehaviour
+public abstract class EyeBaseController : MonoBehaviour 
 {
-    [SerializeField] private BrokenEyePartsController _brokenEyePartsController;
-
-    [SerializeField] private InputController _inputController;
-
+    [SerializeField] protected BrokenEyePartsController _brokenEyePartsController;
+    [SerializeField] protected Rigidbody Rb;
+    [SerializeField] protected int Hp;
+    [Space]
+    [SerializeField] private Material _material;
     [SerializeField] private MeshRenderer _meshRenderer;
-
     [SerializeField] private SphereCollider _sphereCollider;
 
-    [SerializeField] private Rigidbody _rb;
+    protected Vector2 _moveDirection;
 
-    [SerializeField] private Transform _directionObject;
-
-    [SerializeField] private Material _material;
-
-    private Vector2 _joystickDirection;
-    private Vector3 _lastPosition;
-
-    private void Awake()
+    protected virtual void OnCollisionEnter(Collision collision)
     {
-        _rb = GetComponent<Rigidbody>();
-
-        _inputController.RegisterJoysticData(data =>
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Eye"))
         {
-            _joystickDirection = data;
-
-        });
+            if(collision.gameObject.TryGetComponent<EyeBaseController>(out var result))
+            {
+                result.Attack(Rb.mass * Rb.velocity.magnitude);
+            }
+        }
     }
 
-    private void Start()
+    protected virtual void Attack(float force)
     {
-        /*Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ => 
+        if(Hp < force)
         {
             _brokenEyePartsController.Activate(_material);
             _sphereCollider.enabled = false;
             _meshRenderer.enabled = false;
-            _rb.isKinematic = true;
+            Rb.isKinematic = true;
+        }
+    }
 
-        }).AddTo(this);*/
+}
+
+public class EyePlayerController : EyeBaseController
+{
+    [SerializeField] private InputController _inputController;
+   
+    private Vector3 _lastPosition;
+
+    private void Awake()
+    {
+        Rb = GetComponent<Rigidbody>();
+
+        _inputController.RegisterJoysticData(data =>
+        {
+            _moveDirection = data;
+
+        });
     }
 
     private void Update()
@@ -51,10 +60,10 @@ public class EyePlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_joystickDirection != Vector2.zero)
+        if (_moveDirection != Vector2.zero)
         {
-            _rb.AddTorque(
-                new Vector3(_joystickDirection.y, 0, -_joystickDirection.x)
+            Rb.AddTorque(
+                new Vector3(_moveDirection.y, 0, -_moveDirection.x)
                 * 50,
                 ForceMode.Acceleration);
         }
@@ -63,10 +72,6 @@ public class EyePlayerController : MonoBehaviour
     private void DirectionCalculation()
     {
         var lastDirection = _lastPosition - transform.position;
-
-        _directionObject.transform.position = transform.position + Vector3.up * 3;
-
-        _directionObject.LookAt(lastDirection);
 
         _lastPosition = transform.position;
     }
