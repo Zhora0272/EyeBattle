@@ -20,7 +20,7 @@ public class EyeBotController : EyeBaseController
         {
             Rb.AddTorque(
                 new Vector3(_moveDirection.y, 0, -_moveDirection.x)
-                * 50,
+                * Speed,
                 ForceMode.Acceleration);
         }
     }
