@@ -27,6 +27,12 @@ public abstract class EyeBaseController : MonoBehaviour
         }
     }
 
+    protected virtual void Update()
+    {
+        Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.deltaTime);
+        Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.deltaTime);
+    }
+
     protected virtual void Attack(float force)
     {
         if(Hp < force)

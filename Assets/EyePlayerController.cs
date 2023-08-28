@@ -17,11 +17,6 @@ public class EyePlayerController : EyeBaseController
         });
     }
 
-    private void Update()
-    {
-        DirectionCalculation();
-    }
-
     private void FixedUpdate()
     {
         if (_moveDirection != Vector2.zero)
