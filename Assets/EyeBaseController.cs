@@ -21,8 +21,6 @@ public abstract class EyeBaseController : MonoBehaviour
             if(collision.gameObject.TryGetComponent<EyeBaseController>(out var result))
             {
                 result.Attack(Rb.mass * Rb.velocity.magnitude);
-
-                Debug.Log(Rb.mass * Rb.velocity.magnitude);
             }
         }
     }

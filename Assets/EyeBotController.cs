@@ -18,9 +18,6 @@ public class EyeBotController : EyeBaseController
     {
         if (_moveDirection != Vector2.zero)
         {
-            print(new Vector3(_moveDirection.y, 0, -_moveDirection.x)
-                * Speed);
-
             Rb.AddTorque(
                 new Vector3(_moveDirection.y, 0, -_moveDirection.x)
                 * Speed,
