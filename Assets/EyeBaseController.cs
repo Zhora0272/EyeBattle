@@ -11,6 +11,8 @@ public abstract class EyeBaseController : MonoBehaviour
     [SerializeField] protected SphereCollider _sphereCollider;
     [Space]
     [SerializeField] protected float Speed;
+    [Space]
+    [field:SerializeField] public float Size;
 
     protected Vector2 _moveDirection;
 
