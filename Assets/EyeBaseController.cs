@@ -7,12 +7,13 @@ public abstract class EyeBaseController : MonoBehaviour
     [SerializeField] protected int Hp;
     [Space]
     [SerializeField] protected Material _material;
-    [SerializeField] protected MeshRenderer _meshRenderer;
+    [SerializeField] protected GameObject _meshRenderer;
     [SerializeField] protected SphereCollider _sphereCollider;
     [Space]
     [SerializeField] protected float Speed;
-    [Space]
-    [field:SerializeField] public float Size;
+    
+    [field:SerializeField] public float Size { protected set; get; }
+    [field:SerializeField] public bool IsDeath { protected set; get; }
 
     protected Vector2 _moveDirection;
 
@@ -37,9 +38,10 @@ public abstract class EyeBaseController : MonoBehaviour
     {
         if(Hp < force)
         {
+            IsDeath = true;
             _brokenEyePartsController.Activate(_material);
             _sphereCollider.enabled = false;
-            _meshRenderer.enabled = false;
+            _meshRenderer.SetActive(false);
             Rb.isKinematic = true;
         }
     }

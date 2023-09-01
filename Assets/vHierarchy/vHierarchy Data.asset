@@ -21,28 +21,28 @@ MonoBehaviour:
     values:
     - goDatasByGlobalId:
         keys:
-        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-642308357-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-260280764-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1649253508-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-213413355-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1433356118-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-177638-1761174700
-        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-45673439-0
+        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-230670331-0
+        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1368244454-0
         values:
-        - iColor: 4
-          icon: Folder Icon
         - iColor: 6
           icon: 
         - iColor: 0
           icon: Camera Icon
         - iColor: 0
           icon: Light Icon
-        - iColor: 1
+        - iColor: 5
           icon: 
         - iColor: 0
           icon: 
-        - iColor: 1
-          icon: PreMatCube
+        - iColor: 9
+          icon: 
+        - iColor: 0
+          icon: 
     - goDatasByGlobalId:
         keys: []
         values: []

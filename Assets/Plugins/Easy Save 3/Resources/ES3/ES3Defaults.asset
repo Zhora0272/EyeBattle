@@ -30,6 +30,7 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - UniRx
+    - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - StompyRobot.SRF
     - StompyRobot.SRDebugger
@@ -38,7 +39,6 @@ MonoBehaviour:
     - Cinemachine
     - Tayx.Graphy
     - Autodesk.Fbx
-    - Assembly-CSharp
     - SignalHub
     - UIFrameworkPlayModeTests
     - Lofelt.NiceVibrations
@@ -59,6 +59,7 @@ MonoBehaviour:
     - PlayerPrefsEditor
     - InjectionFrameworkPlayModeTests
     - TrustedTime
+    - Coffee.SoftMaskForUGUI
     - ToolbarExtender.Editor
     - PsdPlugin
     - StompyRobot.SRF.Editor
@@ -73,6 +74,7 @@ MonoBehaviour:
     - InventoryFrameworkEditModeTests
     - Lofelt.NiceVibrations.Editor
     - Sirenix.OdinInspector.Modules.UnityMathematics
+    - Coffee.SoftMaskForUGUI.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
