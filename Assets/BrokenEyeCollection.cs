@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class BrokenEyeCollection : MonoBehaviour
 {
+    public IObservable<float> BrokenPartsCollectionStream => _breokenPartCollectionSubject;
+    private Subject<float> _breokenPartCollectionSubject = new();
+
     private IDisposable _updateDisposable;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("BrokenEye"))
@@ -16,7 +20,9 @@ public class BrokenEyeCollection : MonoBehaviour
 
                 var eyeTransform = other.transform;
 
-                result.Collect();
+                var value = result.Collect();
+
+                _breokenPartCollectionSubject.OnNext(value);
 
                 _updateDisposable = Observable.EveryUpdate().Subscribe(_ =>
                 {

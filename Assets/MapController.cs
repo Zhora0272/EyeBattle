@@ -38,8 +38,6 @@ public class MapController : MonoBehaviour
 
         Observable.Interval(TimeSpan.FromSeconds(5)).Subscribe(_ => 
         {
-            print(_elements.Count);
-
             var count = _mapElements.Count;
 
             foreach (var element in _elements)

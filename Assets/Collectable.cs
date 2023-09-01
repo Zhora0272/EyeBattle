@@ -7,8 +7,9 @@ public class Collectable : MonoBehaviour
 
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private MeshCollider _collider;
+    [SerializeField] private float _value;
 
-    public void Collect()
+    public float Collect()
     {
         _rb.isKinematic = true;
         _collider.enabled = false;
@@ -17,6 +18,8 @@ public class Collectable : MonoBehaviour
         {
             gameObject.SetActive(false);
         };
+
+        return _value;
     }
 }
 
