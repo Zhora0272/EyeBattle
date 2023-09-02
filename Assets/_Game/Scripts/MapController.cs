@@ -80,12 +80,12 @@ public class MapController : MonoBehaviour
 
                 element.Value.anchoredPosition = new Vector2(newPos.x, newPos.z) * _distance;
 
-                if (element.Key.Size.Value * 15 != element.Value.sizeDelta.x)
+                /*if (element.Key.Size.Value * 15 != element.Value.sizeDelta.x)
                 {
                     var newSizeDelta = new Vector2(element.Key.Size.Value, element.Key.Size.Value);
 
                     element.Value.DOSizeDelta(newSizeDelta * 15, 1);
-                }
+                }*/
             }
         }
     }

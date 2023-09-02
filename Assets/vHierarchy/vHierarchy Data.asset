@@ -18,6 +18,7 @@ MonoBehaviour:
     - ea27fbb4d974444e5b2c046b4a53c7f4
     - 28a3479bd518f462c98184e7b177d03d
     - 
+    - 2cda990e2423bbf4892e6590ba056729
     values:
     - goDatasByGlobalId:
         keys:
@@ -25,9 +26,10 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1649253508-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-213413355-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1433356118-0
-        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-177638-1761174700
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-230670331-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1368244454-0
+        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-103481803-0
+        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1220294206-0
         values:
         - iColor: 6
           icon: 
@@ -37,12 +39,14 @@ MonoBehaviour:
           icon: Light Icon
         - iColor: 5
           icon: 
-        - iColor: 0
-          icon: 
         - iColor: 9
           icon: 
         - iColor: 0
-          icon: 
+          icon: Settings Icon
+        - iColor: 0
+          icon: Settings Icon
+        - iColor: 0
+          icon: Settings Icon
     - goDatasByGlobalId:
         keys: []
         values: []
@@ -52,6 +56,9 @@ MonoBehaviour:
         values:
         - iColor: 4
           icon: cs Script Icon
+    - goDatasByGlobalId:
+        keys: []
+        values: []
     - goDatasByGlobalId:
         keys: []
         values: []

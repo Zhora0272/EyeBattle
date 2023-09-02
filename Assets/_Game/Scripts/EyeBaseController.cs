@@ -1,5 +1,5 @@
-﻿using _Project.Scripts.Utilities;
-using DG.Tweening;
+﻿using DG.Tweening;
+using System;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -70,7 +70,9 @@ public abstract class EyeBaseController : MonoBehaviour
         if(Hp < force)
         {
             IsDeath = true;
-            _brokenEyePartsController.Activate(_material);
+
+            _brokenEyePartsController.Activate(_material, transform.position);
+
             _sphereCollider.enabled = false;
             _meshRenderer.SetActive(false);
             Rb.isKinematic = true;

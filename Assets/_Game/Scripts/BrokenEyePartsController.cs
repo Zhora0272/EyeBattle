@@ -6,7 +6,7 @@ public class BrokenEyePartsController : MonoBehaviour
     [SerializeField] private Rigidbody[] _partsRb;
     [SerializeField] private Renderer[] _partsMaterial;
 
-    public void Activate(Material mat)
+    public void Activate(Material mat, Vector3 activatePosition)
     {
         gameObject.SetActive(true);
 
@@ -14,6 +14,8 @@ public class BrokenEyePartsController : MonoBehaviour
         {
             _partsRb[i].isKinematic = false;
             _partsMaterial[i].material = mat;
+
+            //_partsRb[i].AddRelativeForce(Vector3.up * 150, ForceMode.Impulse);
         }
     }
 }
