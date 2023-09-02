@@ -33,6 +33,7 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - StompyRobot.SRF
+    - Coffee.SoftMaskForUGUI
     - StompyRobot.SRDebugger
     - WebRequestUtility
     - Lofelt.NiceVibrations.Demo
@@ -59,7 +60,6 @@ MonoBehaviour:
     - PlayerPrefsEditor
     - InjectionFrameworkPlayModeTests
     - TrustedTime
-    - Coffee.SoftMaskForUGUI
     - ToolbarExtender.Editor
     - PsdPlugin
     - StompyRobot.SRF.Editor
@@ -67,6 +67,7 @@ MonoBehaviour:
     - StompyRobot.SRDebugger.Editor
     - InjectionFrameworkEditModeTests
     - PlayerPrefsEditor.Editor
+    - Coffee.SoftMaskForUGUI.Editor
     - Autodesk.Fbx.Editor
     - SignalHubEditModeTests
     - DataFrameworkEditModeTests
@@ -74,7 +75,6 @@ MonoBehaviour:
     - InventoryFrameworkEditModeTests
     - Lofelt.NiceVibrations.Editor
     - Sirenix.OdinInspector.Modules.UnityMathematics
-    - Coffee.SoftMaskForUGUI.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
