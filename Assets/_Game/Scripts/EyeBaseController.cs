@@ -60,18 +60,18 @@ public abstract class EyeBaseController : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent<EyeBaseController>(out var result))
             {
-                result.Attack(Rb.mass * Rb.velocity.magnitude);
+                result.Attack(Rb.mass * Rb.velocity.magnitude, transform.position);
             }
         }
     }
 
-    protected virtual void Attack(float force)
+    protected virtual void Attack(float force, Vector3 attackPosition)
     {
         if(Hp < force)
         {
             IsDeath = true;
 
-            _brokenEyePartsController.Activate(_material, transform.position);
+            _brokenEyePartsController.Activate(_material, attackPosition);
 
             _sphereCollider.enabled = false;
             _meshRenderer.SetActive(false);

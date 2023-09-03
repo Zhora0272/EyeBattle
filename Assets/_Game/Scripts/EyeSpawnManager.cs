@@ -21,7 +21,7 @@ public class EyeSpawnManager : MonoManager
     //need pooling system
     private void Start()
     {
-        Observable.Interval(TimeSpan.FromSeconds(5)).Subscribe(_ => 
+        Observable.Interval(TimeSpan.FromSeconds(3)).Subscribe(_ => 
         {
             var position = _playerTransform.transform.position;
 

@@ -16,24 +16,43 @@ public class BrokenEyeCollection : MonoBehaviour
         {
             if (other.TryGetComponent<Collectable>(out var result))
             {
-                other.transform.DOMove(other.transform.position + Vector3.up, 0.5f);
+                if (result.CollectState) return;
 
-                var eyeTransform = other.transform;
-
-                var value = result.Collect();
-
-                _breokenPartCollectionSubject.OnNext(value);
-
-                _updateDisposable = Observable.EveryUpdate().Subscribe(_ =>
+                if (Time.time - result.BrokenTime < 1)
                 {
-                    eyeTransform.position = Vector3.Lerp(eyeTransform.position,
-                        transform.position,
-                        Time.deltaTime * 3);
-
-                }).AddTo(this);
-
+                    Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+                    {
+                        Collect(result, other, 1);
+                    }).AddTo(this);
+                }
+                else
+                {
+                    Collect(result, other, 0.3f);
+                }
             }
         }
+    }
+
+    private void Collect(Collectable result, Collider other, float duration)
+    {
+        float value = 0;
+
+        other.transform.DOMove(other.transform.position + Vector3.up * 3, duration).onComplete = () =>
+        {
+            value = result.Collect(transform.position);
+
+            var eyeTransform = other.transform;
+
+            _breokenPartCollectionSubject.OnNext(value);
+
+            _updateDisposable = Observable.EveryUpdate().Subscribe(_ =>
+            {
+                eyeTransform.position = Vector3.Lerp(eyeTransform.position,
+                    transform.position,
+                    Time.deltaTime * 10);
+
+            }).AddTo(result);
+        };
     }
 
     private void OnDisable()

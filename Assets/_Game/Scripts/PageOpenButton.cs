@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class PageOpenButton : MonoBehaviour
 {
     [SerializeField] private UIPageType _pageType;

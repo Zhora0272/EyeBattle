@@ -15,7 +15,7 @@ public class BrokenEyePartsController : MonoBehaviour
             _partsRb[i].isKinematic = false;
             _partsMaterial[i].material = mat;
 
-            //_partsRb[i].AddRelativeForce(Vector3.up * 150, ForceMode.Impulse);
+            _partsRb[i].AddRelativeForce((transform.position - activatePosition) + Vector3.up * 2, ForceMode.VelocityChange);
         }
     }
 }

@@ -1,4 +1,6 @@
 using DG.Tweening;
+using System;
+using UniRx;
 using UnityEngine;
 
 public class Collectable : MonoBehaviour
@@ -9,12 +11,21 @@ public class Collectable : MonoBehaviour
     [SerializeField] private MeshCollider _collider;
     [SerializeField] private float _value;
 
-    public float Collect()
-    {
-        _rb.isKinematic = true;
-        _collider.enabled = false;
+    public bool CollectState { private set; get; }
+    public float BrokenTime{ private set; get; }
 
-        transform.DOScale(0, 2).onComplete = () =>
+    private void OnEnable()
+    {
+        BrokenTime = Time.time;
+    }
+
+    public float Collect(Vector3 collectPosition)
+    {
+        CollectState = true;
+
+        _collider.enabled = false;
+        _rb.isKinematic = true;
+        transform.DOScale(0, 0.5f).onComplete = () =>
         {
             gameObject.SetActive(false);
         };
