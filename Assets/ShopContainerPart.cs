@@ -43,8 +43,9 @@ namespace Shop.Container
         {
             IsActivate = true;
 
+            _deactivateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack).onComplete = () => { _deactivateCanvasGroup.blocksRaycasts = false; };
             _activateCanvasGroup.DOFade(1, 0.5f).SetEase(Ease.OutBack);
-            _deactivateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack);
+            _activateCanvasGroup.blocksRaycasts = true;
 
             _rectTransform.DOSizeDelta(new Vector2(0, _rectHeightSize), 0.5f);
 
@@ -55,8 +56,9 @@ namespace Shop.Container
         {
             IsActivate = false;
 
-            _activateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack);
+            _activateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack).onComplete = () => { _deactivateCanvasGroup.blocksRaycasts = false; };
             _deactivateCanvasGroup.DOFade(1, 0.5f).SetEase(Ease.OutBack);
+            _deactivateCanvasGroup.blocksRaycasts = true;
 
             _rectTransform.DOSizeDelta(new Vector2(0, _originalRectHeightSize), 0.5f);
 
