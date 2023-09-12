@@ -2909,11 +2909,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550121896}
   m_CullTransparentMesh: 1
---- !u!1 &601314406 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2509413003133941968, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
-  m_PrefabInstance: {fileID: 8382609805435347788}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &616294862
 GameObject:
   m_ObjectHideFlags: 0
@@ -6775,21 +6770,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6657752547082988523, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
   m_PrefabInstance: {fileID: 8382609805435347788}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2895838331650394285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601314406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72f5c9e1e063ef44a83d776aea05dbf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eyeMaterial: {fileID: 2100000, guid: adda495f72919c144b74cf48c09511a7, type: 2}
-  _textureSize: 512
-  _newTexture: {fileID: 2800000, guid: 26fffb652c12937418c68a9c12473ab8, type: 3}
 --- !u!1001 &4337501301203295112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7378,6 +7358,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -8.8
       objectReference: {fileID: 0}
+    - target: {fileID: 3695560724055761729, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8348c94d59ffe38469ea4aafd23adba3, type: 2}
     - target: {fileID: 6657752547082988523, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_RootOrder
       value: 4

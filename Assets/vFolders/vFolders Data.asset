@@ -112,6 +112,7 @@ MonoBehaviour:
     - bb6263afc4dda5544bb4f953f722a33d
     - fd5581f30e9ccc14ca2209bb0e8f5901
     - 57d8ff029f6e5ae4fb3af68fe05b45d1
+    - 4a86a4e7b8afff149b4f1e4617dac5b5
     values:
     - guid: 00000000000000001000000000000000
       iColor: 0
@@ -602,4 +603,9 @@ MonoBehaviour:
       iColor: 3
       autoIcon: 
       customIcon: Rigidbody Icon
+      autoIconDirty: 0
+    - guid: 4a86a4e7b8afff149b4f1e4617dac5b5
+      iColor: 6
+      autoIcon: Shader Icon
+      customIcon: LightProbes Icon
       autoIconDirty: 0
