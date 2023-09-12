@@ -33,7 +33,6 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - StompyRobot.SRF
-    - Coffee.SoftMaskForUGUI
     - StompyRobot.SRDebugger
     - WebRequestUtility
     - Lofelt.NiceVibrations.Demo
@@ -67,7 +66,6 @@ MonoBehaviour:
     - StompyRobot.SRDebugger.Editor
     - InjectionFrameworkEditModeTests
     - PlayerPrefsEditor.Editor
-    - Coffee.SoftMaskForUGUI.Editor
     - Autodesk.Fbx.Editor
     - SignalHubEditModeTests
     - DataFrameworkEditModeTests
