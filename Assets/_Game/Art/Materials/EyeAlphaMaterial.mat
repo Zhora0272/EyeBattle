@@ -60,6 +60,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_65f53288698e4806a00fcf66c82a3271_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 158feaf80f2979648b8c2abfdb595cd8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_91be4b95840c471a94219b53c78d6ad2_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 372fe04232d5ed94d8d71524616c1543, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture:
         m_Texture: {fileID: 2800000, guid: 158feaf80f2979648b8c2abfdb595cd8, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -72,17 +80,17 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _BibeSize: 5.44
+    - _BibeSize: 2.27
     - _BumpScale: 1
     - _Contrast: 1.13
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EyeSpherize: 0.63
+    - _EyeSpherize: -0.89
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metalic: 0.35
+    - _Metalic: 0.5
     - _Metallic: 0
     - _Mode: 0
     - _Occlusion: 0.22
@@ -91,7 +99,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TextureSize: 1.49
+    - _TextureSize: -2.85
     - _TwirlEffect: 0
     - _UVSec: 0
     - _ZWrite: 1
@@ -99,7 +107,7 @@ Material:
     - _BottomColor: {r: 0, g: 0.8178544, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EyeBackColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EyeBackColor: {r: 1, g: 1, b: 1, a: 0}
     - _Tilling: {r: 2.09, g: 2.09, b: 0, a: 0}
     - _TopColor: {r: 1, g: 0, b: 0.09952593, a: 1}
   m_BuildTextureStacks: []

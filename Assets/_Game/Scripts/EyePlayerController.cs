@@ -38,7 +38,9 @@ public class EyePlayerController : EyeBaseController
                 Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
                 transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 4);
 
-                _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed * 4) /*/ (Mathf.Clamp((Size.Value % 100) / 2, 1, 10) / 4)*/, 0, 0);
+                _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed * 4), 0, 0);
+                var newRotation = _eyeModelTransform.eulerAngles;
+                _eyeModelTransform.rotation = Quaternion.Lerp(_eyeModelTransform.rotation, Quaternion.Euler(newRotation.x,0,0), Time.deltaTime);
 
             }).AddTo(this);
 
