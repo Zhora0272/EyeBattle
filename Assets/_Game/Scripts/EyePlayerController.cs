@@ -18,10 +18,7 @@ public class EyePlayerController : EyeBaseController
     {
         Rb = GetComponent<Rigidbody>();
 
-        _inputController.RegisterJoysticData(data =>
-        {
-            _moveDirection = data;
-        });
+        _inputController.RegisterJoysticData(data => { _moveDirection = data; });
 
 
         _inputController.PointerDownStream.Subscribe(_ =>
@@ -35,44 +32,43 @@ public class EyePlayerController : EyeBaseController
 
             _updateDisposable = Observable.EveryUpdate().Subscribe(_ =>
             {
-                Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
-                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 4);
-
+                if ((transform.position - _lastPosition) != Vector3.zero)
+                {
+                    Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 4);
+                }
+                    
                 _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed * 4), 0, 0);
-                var newRotation = _eyeModelTransform.eulerAngles;
-                _eyeModelTransform.rotation = Quaternion.Lerp(_eyeModelTransform.rotation, Quaternion.Euler(newRotation.x,0,0), Time.deltaTime);
-
+                    
             }).AddTo(this);
-
+            
         }).AddTo(this);
 
 
         _inputController.PointerUpStream.Subscribe(_ =>
         {
-            _moveDirection = Vector2.zero;
-
             _handlerState = false;
-
+            
+            _moveDirection = Vector2.zero;
             _pointerUpDisposable?.Dispose();
             _updateDisposable.Dispose();
             _eyeModelTransform.DOKill();
-
-            _pointerUpDisposable = Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+                
+            _pointerUpDisposable = Observable.Timer(TimeSpan.FromSeconds(0.5f)).Subscribe(_ =>
             {
                 if (!_handlerState)
                 {
                     _eyeModelTransform.DORotate(new Vector3(65, 180, 0), 1);
                     transform.DORotate(new Vector3(0, 180, 0), 1);
-
                 }
-
             }).AddTo(this);
 
+            
         }).AddTo(this);
     }
 
     private void FixedUpdate()
-    { 
+    {
         _lastPosition = transform.position;
 
         if (_moveDirection != Vector2.zero)
@@ -81,7 +77,6 @@ public class EyePlayerController : EyeBaseController
                 new Vector3(_moveDirection.x, 0, _moveDirection.y)
                 * Speed,
                 ForceMode.Acceleration);
-
         }
     }
 
