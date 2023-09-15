@@ -27,13 +27,13 @@ namespace Shop.Container
         {
             foreach (ShopContainerPart part in _containers)
             {
-                if (part.IsActivate)
+                if (part.IsActivated.Value)
                 {
                     part.Deactivate();
                 }
             }
 
-            if (container && !container.IsActivate)
+            if (container && !container.IsActivated.Value)
             {
                 container.Activate();
             }

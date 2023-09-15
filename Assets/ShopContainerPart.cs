@@ -1,4 +1,6 @@
+using System;
 using DG.Tweening;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +13,10 @@ namespace Shop.Container
         [SerializeField] private CanvasGroup _activateCanvasGroup;
         [SerializeField] private CanvasGroup _deactivateCanvasGroup;
 
-        [SerializeField] RectTransform _indicatorArrow;
+        [SerializeField] private RectTransform _indicatorArrow;
+        
+        public IReactiveProperty<bool> IsActivated => _isActivated;
+        private readonly ReactiveProperty<bool> _isActivated = new();
 
         private RectTransform _rectTransform;
         private ShopContainerManager _manager;
@@ -19,14 +24,20 @@ namespace Shop.Container
         private float _originalRectHeightSize;
         private Button _button;
 
-        internal bool IsActivate { get; private set; }
-
         private void Awake()
         {
             _button = GetComponent<Button>();
             _rectTransform = GetComponent<RectTransform>();
 
             _originalRectHeightSize = _rectTransform.sizeDelta.y;
+        }
+
+        private void Start()
+        {
+            IsActivated.Subscribe(state =>
+            {
+                _button.enabled = !state;
+            }).AddTo(this);
         }
 
         internal void SetManager(ShopContainerManager ShopContainerManager)
@@ -41,7 +52,7 @@ namespace Shop.Container
 
         internal void Activate()
         {
-            IsActivate = true;
+            _isActivated.Value = true;
 
             _deactivateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack).onComplete = () => { _deactivateCanvasGroup.blocksRaycasts = false; };
             _activateCanvasGroup.DOFade(1, 0.5f).SetEase(Ease.OutBack);
@@ -54,7 +65,7 @@ namespace Shop.Container
 
         internal void Deactivate()
         {
-            IsActivate = false;
+            _isActivated.Value = false;
 
             _activateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack).onComplete = () => { _deactivateCanvasGroup.blocksRaycasts = false; };
             _deactivateCanvasGroup.DOFade(1, 0.5f).SetEase(Ease.OutBack);

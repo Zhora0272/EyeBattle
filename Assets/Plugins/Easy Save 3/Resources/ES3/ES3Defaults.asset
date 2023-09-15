@@ -32,6 +32,7 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - StompyRobot.SRF
+    - Coffee.SoftMaskForUGUI
     - StompyRobot.SRDebugger
     - UniRx
     - Tayx.Graphy
@@ -70,6 +71,7 @@ MonoBehaviour:
     - ObjectPoolingEditModeTests
     - InventoryFrameworkEditModeTests
     - DataFrameworkEditModeTests
+    - Coffee.SoftMaskForUGUI.Editor
     - Sirenix.OdinInspector.Modules.UnityMathematics
     - Autodesk.Fbx.Editor
     - Lofelt.NiceVibrations.Editor
