@@ -80,7 +80,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _BibeSize: -2.39
+    - _BibeSize: 2
     - _BumpScale: 1
     - _Contrast: 1.13
     - _Cutoff: 0.5

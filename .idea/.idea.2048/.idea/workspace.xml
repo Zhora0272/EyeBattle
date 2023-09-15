@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ShopEyeColorItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ShopEyeColorItem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeColorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeColorData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeAlphaMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeAlphaMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/EyeColorItem.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/EyeColorItem.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/container.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/container.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/ShopEyeDecoreScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/ShopEyeDecorScriptable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/ShopEyeDecoreScriptable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/ShopEyeDecorScriptable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/ShopEyeSizeScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/ShopEyeSizeScriptable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +75,7 @@
       <updated>1694683874943</updated>
       <workItem from="1694683888197" duration="5615000" />
       <workItem from="1694753926599" duration="1017000" />
-      <workItem from="1694761068838" duration="14619000" />
+      <workItem from="1694761068838" duration="16396000" />
     </task>
     <servers />
   </component>
@@ -88,6 +85,17 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

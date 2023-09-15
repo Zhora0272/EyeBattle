@@ -506,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Name
-      value: container (2)
+      value: '[container] eye size'
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924164, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Pivot.x
@@ -1501,7 +1501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Name
-      value: container (3)
+      value: '[container] eye texture'
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924164, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Pivot.x
@@ -2416,7 +2416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Name
-      value: container (1)
+      value: '[container] eye type'
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924164, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Pivot.x
@@ -3196,6 +3196,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &666655269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+  m_PrefabInstance: {fileID: 384494976}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &666655274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666655269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3bb169a9b2dca4da8a51a2d568f150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &750460268
 GameObject:
   m_ObjectHideFlags: 0
@@ -4239,6 +4256,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076274168}
   m_CullTransparentMesh: 1
+--- !u!1 &1107179061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+  m_PrefabInstance: {fileID: 244089243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1107179066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107179061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4f92f1419e1d7458963a96e5c566fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1193014583
 GameObject:
   m_ObjectHideFlags: 0
@@ -4251,7 +4285,7 @@ GameObject:
   - component: {fileID: 1193014586}
   - component: {fileID: 1193014585}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: '[image] gradient'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4291,7 +4325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.37647063, g: 0.43921572, b: 0.5019608, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4376,7 +4410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2509413003133941968, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player Vitrine
       objectReference: {fileID: 0}
     - target: {fileID: 2509413003133941968, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_IsActive
@@ -4873,6 +4907,23 @@ MonoBehaviour:
   _prefabRectTransform: {fileID: 6738368297310813060, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
   _actiavtedContent: {fileID: 4337501301203295113}
   _deactiavtedContent: {fileID: 1655303745}
+--- !u!1 &1494875989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+  m_PrefabInstance: {fileID: 92429559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1494875994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494875989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240a7aeeffe9e3a43b36bec06ab213ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1534188145
 GameObject:
   m_ObjectHideFlags: 0
@@ -5448,7 +5499,7 @@ GameObject:
   - component: {fileID: 1667870073}
   - component: {fileID: 1667870075}
   m_Layer: 5
-  m_Name: '[RawImage] eye render view'
+  m_Name: '[raw_image] eye render view'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5523,6 +5574,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 2
   m_AspectRatio: 1
+--- !u!1 &1673657587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+  m_PrefabInstance: {fileID: 1967932085}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1739346422
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,7 +6081,7 @@ GameObject:
   - component: {fileID: 1822178019}
   - component: {fileID: 1822178018}
   m_Layer: 5
-  m_Name: Image
+  m_Name: '[image] top line'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6608,7 +6664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Name
-      value: container (4)
+      value: '[container] decor'
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924164, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Pivot.x
@@ -6696,7 +6752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300373413888, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_text
-      value: Decore
+      value: Decor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337501300373413902, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+      propertyPath: m_Name
+      value: '[text] header'
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300626337824, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6949,6 +7009,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4337501300280924164, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
   m_PrefabInstance: {fileID: 1967932085}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1967932091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673657587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e259cfd81cad04789f056c7ca3891e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1987009015
 GameObject:
   m_ObjectHideFlags: 0
@@ -7270,7 +7342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Name
-      value: container
+      value: '[container] eye color'
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924164, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Pivot.x
