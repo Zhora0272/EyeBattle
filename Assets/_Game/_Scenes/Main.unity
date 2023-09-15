@@ -3617,7 +3617,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 87743503}
   m_HandleRect: {fileID: 87743502}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4870,7 +4870,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eyeColorScriptable: {fileID: 11400000, guid: 2f0b7f207a748c14390b2f4849fcc28a, type: 2}
-  _prefabRectTransform: {fileID: 0}
+  _prefabRectTransform: {fileID: 6738368297310813060, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
+  _actiavtedContent: {fileID: 4337501301203295113}
+  _deactiavtedContent: {fileID: 1655303745}
 --- !u!1 &1534188145
 GameObject:
   m_ObjectHideFlags: 0
@@ -5428,6 +5430,11 @@ MonoBehaviour:
   _offset: {x: 0, y: 1, z: -1}
   _distance: 4
   _smooth: 5
+--- !u!224 &1655303745 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4337501300884483195, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+  m_PrefabInstance: {fileID: 4337501301203295112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1667870071
 GameObject:
   m_ObjectHideFlags: 0
@@ -7089,6 +7096,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 671557169034982222, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+      propertyPath: m_Name
+      value: '[content]'
+      objectReference: {fileID: 0}
     - target: {fileID: 810372134460157546, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7381,6 +7392,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4337501300884483194, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+      propertyPath: m_Name
+      value: '[content] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337501300884483196, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+      propertyPath: m_ChildControlHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4337501300884483197, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Color.a
       value: 0.4509804
@@ -7643,6 +7662,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+--- !u!224 &4337501301203295113 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8676549187189695738, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+  m_PrefabInstance: {fileID: 4337501301203295112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8382609805435347788
 PrefabInstance:
   m_ObjectHideFlags: 0
