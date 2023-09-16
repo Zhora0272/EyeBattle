@@ -3678,6 +3678,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833092626}
   m_CullTransparentMesh: 1
+--- !u!1 &833809227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2509413003133941968, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+  m_PrefabInstance: {fileID: 8382609805435347788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &870827237
 GameObject:
   m_ObjectHideFlags: 0
@@ -7113,6 +7118,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6657752547082988523, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
   m_PrefabInstance: {fileID: 8382609805435347788}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2895838331650394285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833809227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f5c9e1e063ef44a83d776aea05dbf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eyeSize: 0
+  _eyeType: 0
+  _eyeColor: {r: 0, g: 0, b: 0, a: 0}
+  _eyeTexture: {fileID: 0}
+  _eyeDecore: {fileID: 0}
+  _eyeMaterial: {fileID: 0}
+  _eyeMeshRenderer: {fileID: 0}
 --- !u!1001 &4337501301203295112
 PrefabInstance:
   m_ObjectHideFlags: 0
