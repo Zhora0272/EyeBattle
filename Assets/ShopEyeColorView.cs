@@ -2,28 +2,37 @@ using UnityEngine;
 
 namespace Shop
 {
-    public class ShopEyeColorView : MonoBehaviour
+    public class ShopEyeColorView : ShopViewBase
     {
+        [Header("Data")]
         [SerializeField] private ShopEyeColorScriptable _eyeColorScriptable;
-        [SerializeField] private ShopEyeColorItem _prefabRectTransform;
-        [SerializeField] private RectTransform _actiavtedContent;
-        [SerializeField] private RectTransform _deactiavtedContent;
+        
+        protected override void InitData(int[] saveIndex)
+        {
+            
+        }
 
-        private void Start()
+        protected override void Init()
         {
             for (int i = 0; i < 3; i++)
             {
-                var color = _eyeColorScriptable.Colors[i];
+                var configs = _eyeColorScriptable.Colors[i];
+                var color = configs.Colors;
                 var item = Instantiate(_prefabRectTransform, _deactiavtedContent);
+                
+                _shopEyeItems.Add(item);
+                
                 item.SetColor(new Color(color.r, color.b, color.g,1));
             }
         
-            foreach (var color in _eyeColorScriptable.Colors)
+            foreach (var configs in _eyeColorScriptable.Colors)
             {
                 var item = Instantiate(_prefabRectTransform, _actiavtedContent);
+                
+                var color = configs.Colors;
                 item.SetColor(new Color(color.r, color.b, color.g,1));
                 item.SetManager(ColorSelectAction);
-            }
+            }   
         }
 
         private void ColorSelectAction(Color color)

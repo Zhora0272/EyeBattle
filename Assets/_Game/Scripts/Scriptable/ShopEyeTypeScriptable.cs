@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class ShopEyeTypeScriptable : MonoBehaviour
+[CreateAssetMenu(fileName = "ShopEyeSizeData", menuName = "Data/Shop/EyeSizeData")]
+public class ShopEyeTypeScriptable : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [field:SerializeField] public EyeTypeParameters[] TypeParameters { get; private set; }
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[Serializable]
+public class EyeTypeParameters
+{
+    [field:SerializeField] public float EyeType { get; private set; }
+    [field:SerializeField] public Texture EyeTypeTexture { get; private set; }
 }

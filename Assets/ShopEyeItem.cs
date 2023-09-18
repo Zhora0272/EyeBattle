@@ -4,15 +4,16 @@ using UnityEngine.UI;
 
 namespace Shop
 {
-    public class ShopEyeColorItem : MonoBehaviour
+    public class ShopEyeItem : MonoBehaviour
     {
         [SerializeField] private Button _button;
-        [SerializeField] private Image _image;
+        [SerializeField] private RawImage _image;
 
         [SerializeField] private GameObject _selectedState;
         [SerializeField] private GameObject _buyState;
         
         internal void SetColor(Color color) => _image.color = color;
+        internal void SetTexture(Texture texture) => _image.texture = texture;
     
         internal void SetManager(Action<Color> action)
         {
