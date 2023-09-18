@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ShopEyeSizeData", menuName = "Data/Shop/EyeSizeData")]
+[CreateAssetMenu(fileName = "ShopEyeTypeData", menuName = "Data/Shop/EyeTypeData")]
 public class ShopEyeTypeScriptable : ScriptableObject
 {
     [field:SerializeField] public EyeTypeParameters[] TypeParameters { get; private set; }
