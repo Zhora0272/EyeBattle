@@ -32,7 +32,6 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - StompyRobot.SRF
-    - Coffee.SoftMaskForUGUI
     - StompyRobot.SRDebugger
     - UniRx
     - Tayx.Graphy
@@ -60,6 +59,7 @@ MonoBehaviour:
     - AudioFrameworkPlayModeTests
     - IdGeneration
     - InjectionFrameworkPlayModeTests
+    - Coffee.SoftMaskForUGUI
     - PsdPlugin
     - StompyRobot.SRF.Editor
     - Tayx.Graphy.Editor
@@ -71,10 +71,10 @@ MonoBehaviour:
     - ObjectPoolingEditModeTests
     - InventoryFrameworkEditModeTests
     - DataFrameworkEditModeTests
-    - Coffee.SoftMaskForUGUI.Editor
     - Sirenix.OdinInspector.Modules.UnityMathematics
     - Autodesk.Fbx.Editor
     - Lofelt.NiceVibrations.Editor
+    - Coffee.SoftMaskForUGUI.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
