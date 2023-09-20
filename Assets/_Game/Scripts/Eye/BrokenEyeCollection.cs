@@ -5,15 +5,24 @@ using UnityEngine;
 
 public class BrokenEyeCollection : MonoBehaviour
 {
+    [SerializeField] private CanvasGroup _loadBarCanvasGroup;
+
     public IObservable<float> BrokenPartsCollectionStream => _breokenPartCollectionSubject;
     private Subject<float> _breokenPartCollectionSubject = new();
 
     private IDisposable _updateDisposable;
 
+    private IDisposable _indicatorHideDisposable;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("BrokenEye"))
         {
+            _indicatorHideDisposable?.Dispose();
+
+            _loadBarCanvasGroup.DOKill();
+            _loadBarCanvasGroup.DOFade(1, 1).SetEase(Ease.OutBack);
+
             if (other.TryGetComponent<Collectable>(out var result))
             {
                 if (result.CollectState) return;
@@ -53,6 +62,11 @@ public class BrokenEyeCollection : MonoBehaviour
 
             }).AddTo(result);
         };
+
+        _indicatorHideDisposable = Observable.Timer(TimeSpan.FromSeconds(3)).Subscribe(_ =>
+        {
+            _loadBarCanvasGroup.DOFade(0, 1).SetEase(Ease.OutBack);
+        }).AddTo(this);
     }
 
     private void OnDisable()

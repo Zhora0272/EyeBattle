@@ -68,6 +68,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 372fe04232d5ed94d8d71524616c1543, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_f8e96b08e1c44c8f808e345b38febced_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 8945e4ff131f65d43a6d8487ad673903, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -80,7 +84,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _BibeSize: 1
+    - _BibeSize: 1.63
     - _BumpScale: 1
     - _Contrast: 1.13
     - _Cutoff: 0.5
@@ -91,7 +95,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metalic: 0.5
+    - _Metalic: 0.94
     - _Metallic: 0
     - _Mode: 0
     - _Occlusion: 0.22
@@ -109,8 +113,8 @@ Material:
     - _BottomColor: {r: 1, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EyeBackColor: {r: 0.44416523, g: 0, b: 1, a: 0}
-    - _EyeColor: {r: 0.86146283, g: 1, b: 0, a: 0}
+    - _EyeBackColor: {r: 1, g: 1, b: 1, a: 0}
+    - _EyeColor: {r: 0, g: 1, b: 0.31509495, a: 0}
     - _Tilling: {r: 2.09, g: 2.09, b: 0, a: 0}
     - _TopColor: {r: 1, g: 0, b: 0.054911137, a: 1}
   m_BuildTextureStacks: []

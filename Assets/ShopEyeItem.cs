@@ -7,6 +7,8 @@ namespace Shop
     public class ShopEyeItem : MonoBehaviour
     {
         [SerializeField] private Button _button;
+        [SerializeField] private Image _buttonImage;
+
         [SerializeField] private RawImage _image;
 
         [SerializeField] private GameObject _selectedState;
@@ -14,6 +16,11 @@ namespace Shop
         
         internal void SetColor(Color color) => _image.color = color;
         internal void SetTexture(Texture texture) => _image.texture = texture;
+
+        internal void SetRaycastState(bool state)
+        {
+            _buttonImage.raycastTarget = state;
+        }
     
         internal void SetManager(Action<Color> action)
         {

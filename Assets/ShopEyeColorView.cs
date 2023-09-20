@@ -28,7 +28,9 @@ namespace Shop
                 var configs = _eyeColorScriptable.Colors[i];
                 var color = configs.Colors;
                 var item = Instantiate(_prefabRectTransform, _deactiavtedContent);
-                
+
+                item.SetRaycastState(false);
+
                 _shopEyeItems.Add(item);
                 
                 item.SetColor(Helpers.AlphaToMax(color));
