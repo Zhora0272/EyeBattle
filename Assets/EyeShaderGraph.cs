@@ -9,26 +9,29 @@ public static class EyeShaderGraph
     /// <returns></returns>
     public static Material GetMaterial(EyeCustomizeModel model)
     {
-        var mat = new Material("EyeShaderGraph");
-        
-        mat.SetFloat("EyeSize", (float)model._eyeSize);
-        mat.SetInt("EyeType", (int)model._eyeType);
-        mat.SetColor("EyeColor", (Color)model._eyeColor);
-        mat.SetColor("EyeBackColor", (Color)model._eyeBackColor);
-        mat.SetTexture("EyeTexture", model._eyeTexture);
+        var shader = Shader.Find("Shader Graphs/EyeShaderGraph");
+        var material = new Material(shader);
 
-        return mat;
+        ChangeParameters(model, material);
+
+        //mat.SetTexture("EyeTexture", model._eyeTexture);
+        //mat.SetInt("EyeType", (int)model._eyeType);
+
+        return material;
     }
 
-    public static Material ChangeMaterial(EyeCustomizeModel model, Material oldMaterial)
+    public static void ChangeMaterial(EyeCustomizeModel model, Material oldMaterial)
     {
-        if(model._eyeSize != null) oldMaterial.SetFloat("EyeSize", (float)model._eyeSize);
-        if(model._eyeType != null) oldMaterial.SetInt("EyeType", (int)model._eyeType);
-        if(model._eyeColor != null) oldMaterial.SetColor("EyeColor", (Color)model._eyeColor);
-        if(model._eyeBackColor != null) oldMaterial.SetColor("EyeBackColor", (Color)model._eyeBackColor);
-        if(model._eyeTexture != null) oldMaterial.SetTexture("EyeTexture", model._eyeTexture);
-        
-        return oldMaterial;
+        ChangeParameters(model, oldMaterial);
+    }
+
+    private static void ChangeParameters(EyeCustomizeModel model, Material material)
+    {
+        if (model._eyeSize != null) material.SetFloat("_EyeSize", (float) model._eyeSize);
+        if (model._eyeType != null) material.SetInt("_EyeType", (int) model._eyeType);
+        if (model._eyeColor != null) material.SetColor("_EyeColor", (Color) model._eyeColor);
+        if (model._eyeBackColor != null) material.SetColor("_EyeBackColor", (Color) model._eyeBackColor);
+        if (model._eyeTexture != null) material.SetTexture("_EyeTexture", model._eyeTexture);
     }
 
     public enum EyeParameterType

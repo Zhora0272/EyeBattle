@@ -10,12 +10,10 @@ namespace Shop
         [SerializeField] protected RectTransform _deactiavtedContent;
 
         protected List<ShopEyeItem> _shopEyeItems = new();
+        protected IManager<ShopCustomizeManager, EyeCustomizeModel> _manager;
 
-        private void Awake()
-        {
-            Init();
-        }
-
+        public void SetManager(IManager<ShopCustomizeManager, EyeCustomizeModel> manager) => _manager = manager;
+        private void Awake() => Init();
         protected virtual void InitData(int[] saveIndex)
         {
             

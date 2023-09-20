@@ -4498,6 +4498,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4f92f1419e1d7458963a96e5c566fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &1142132463 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4297366258155584576, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+  m_PrefabInstance: {fileID: 8382609805435347788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1156266294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2509413003133941968, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+  m_PrefabInstance: {fileID: 1226312062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1193014583
 GameObject:
   m_ObjectHideFlags: 0
@@ -4641,6 +4651,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4297366258155584576, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d664d40dd1b51b48a3d0449f4d68250, type: 2}
     - target: {fileID: 6450092618946858521, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -4761,6 +4775,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6657752547082988523, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
   m_PrefabInstance: {fileID: 1226312062}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1226312064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156266294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0c68f3fc0152b44ba9d9ae087be56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eyeCustomizeController: {fileID: 2895838331650394285}
+  _meshRenderer: {fileID: 2072952606}
 --- !u!1 &1268954541
 GameObject:
   m_ObjectHideFlags: 0
@@ -7337,6 +7365,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3dfbef859ccd74b9b2defe87876306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &2072952606 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4297366258155584576, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+  m_PrefabInstance: {fileID: 1226312062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2895838331650394279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6657752547082988523, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
@@ -7357,7 +7390,8 @@ MonoBehaviour:
   _eyeTexture: {fileID: 0}
   _eyeDecore: {fileID: 0}
   _eyeMaterial: {fileID: 0}
-  _eyeMeshRenderer: {fileID: 0}
+  _eyeMeshRenderer: {fileID: 1142132463}
+  _decorGamobject: {fileID: 0}
 --- !u!1001 &4337501301203295112
 PrefabInstance:
   m_ObjectHideFlags: 0

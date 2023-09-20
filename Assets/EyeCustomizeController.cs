@@ -1,13 +1,23 @@
 using UnityEngine;
 
-public class EyeCustomizeController : EyeCustomizeModel
+public class EyeCustomizeController : MonoBehaviour
 {
     [SerializeField] private Material _eyeMaterial;
     [SerializeField] private MeshRenderer _eyeMeshRenderer;
+    [SerializeField] private GameObject _decorGamobject;
 
     private void Awake()
     {
-        _eyeMeshRenderer.material = EyeShaderGraph.GetMaterial(default);
+        var model = new EyeCustomizeModel();
+        
+        model._eyeColor = Color.blue;
+        model._eyeBackColor = Color.red;
+        model._eyeSize = 2;
+        
+        _eyeMaterial = EyeShaderGraph.GetMaterial(model);
+        _eyeMeshRenderer.material = _eyeMaterial;
     }
     
+    public Material GetMaterial() => _eyeMaterial;
+    public GameObject GetDecor() => _decorGamobject;
 }

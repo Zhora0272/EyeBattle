@@ -28,19 +28,18 @@ namespace Shop
         
             foreach (var configs in _eyeColorScriptable.Colors)
             {
-                var item = Instantiate(_prefabRectTransform, _actiavtedContent);
-                
+                var item = Instantiate(_prefabRectTransform, _actiavtedContent);                
                 var color = configs.Colors;
 
                 item.SetColor(Helpers.AlphaToMax(color));
-                
                 item.SetManager(ColorSelectAction);
             }   
         }
 
         private void ColorSelectAction(Color color)
         {
-            
+            var item = new EyeCustomizeModel(eyeColor:color);
+            _manager.CallBack.Value = item;
         }
     }
 }
