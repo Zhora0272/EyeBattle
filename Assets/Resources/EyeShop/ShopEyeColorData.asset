@@ -13,13 +13,30 @@ MonoBehaviour:
   m_Name: ShopEyeColorData
   m_EditorClassIdentifier: 
   <Colors>k__BackingField:
-  - {r: 0.5965191, g: 0.9433962, b: 0.0925596, a: 0}
-  - {r: 0.050943315, g: 1, b: 0.8288876, a: 0}
-  - {r: 1, g: 0.5786572, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0.17910287, g: 0.5509331, b: 0.8113208, a: 0}
-  - {r: 0.7282097, g: 0.13755782, b: 0.7924528, a: 0}
-  - {r: 1, g: 0.325, b: 0.83337045, a: 0}
-  - {r: 0.8113208, g: 0.43933785, b: 0.6822893, a: 0}
-  - {r: 1, g: 1, b: 1, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
+  - <Colors>k__BackingField: {r: 0.69411767, g: 0.7686275, b: 0.854902, a: 0}
+    <Index>k__BackingField: 9
+    <ItemState>k__BackingField: 2
+  - <Colors>k__BackingField: {r: 0.25973654, g: 0.42482075, b: 0.7169812, a: 0}
+    <Index>k__BackingField: 5
+    <ItemState>k__BackingField: 0
+  - <Colors>k__BackingField: {r: 0.54220366, g: 0.7830189, b: 0.6030721, a: 0}
+    <Index>k__BackingField: 8
+    <ItemState>k__BackingField: 0
+  - <Colors>k__BackingField: {r: 0.22442149, g: 0.6037736, b: 0.59977895, a: 0}
+    <Index>k__BackingField: 6
+    <ItemState>k__BackingField: 0
+  - <Colors>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+    <Index>k__BackingField: 2
+    <ItemState>k__BackingField: 0
+  - <Colors>k__BackingField: {r: 0, g: 1, b: 0, a: 0}
+    <Index>k__BackingField: 3
+    <ItemState>k__BackingField: 0
+  - <Colors>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+    <Index>k__BackingField: 1
+    <ItemState>k__BackingField: 0
+  - <Colors>k__BackingField: {r: 1, g: 0.53333336, b: 0, a: 1}
+    <Index>k__BackingField: 4
+    <ItemState>k__BackingField: 0
+  - <Colors>k__BackingField: {r: 0.7169812, g: 0.09740117, b: 0.5263292, a: 0}
+    <Index>k__BackingField: 7
+    <ItemState>k__BackingField: 0

@@ -11,17 +11,31 @@ namespace Shop
         {
             for (int i = 0; i < 3; i++)
             {
-                var texture = _eyeTypeScriptable.TypeParameters[i].EyeTypeTexture;
                 var item = Instantiate(_prefabRectTransform, _deactiavtedContent);
-                item.SetTexture(texture);
+                
+                var texture = _eyeTypeScriptable.TypeParameters[i].EyeTypeTexture;
+                
+                SetEyeItemTextureAndColor(item, texture, Color.white);
             }
         
             foreach (var config in _eyeTypeScriptable.TypeParameters)
             {
                 var item = Instantiate(_prefabRectTransform, _actiavtedContent);
-                item.SetTexture(config.EyeTypeTexture);
+                
                 item.SetManager(TextureSelectAction);
+
+                SetEyeItemTextureAndColor(item, config.EyeTypeTexture, Color.white);
             }   
+        }
+
+        private void SetEyeItemTextureAndColor(
+            ShopEyeItem item,
+            Texture texture,
+            Color color
+            )
+        {
+            item.SetTexture(texture);
+            item.SetColor(color);
         }
         
         private void TextureSelectAction(Color color)

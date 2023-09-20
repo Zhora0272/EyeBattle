@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b784319481b9a4f8333331e770990e, type: 3}
   m_Name: ShopEyeTypeData
   m_EditorClassIdentifier: 
-  <TypeParameters>k__BackingField: []
+  <TypeParameters>k__BackingField:
+  - <EyeType>k__BackingField: 0
+    <EyeTypeTexture>k__BackingField: {fileID: 0}
+    <Index>k__BackingField: 0
+  - <EyeType>k__BackingField: 1
+    <EyeTypeTexture>k__BackingField: {fileID: 0}
+    <Index>k__BackingField: 1
+  - <EyeType>k__BackingField: 0
+    <EyeTypeTexture>k__BackingField: {fileID: 0}
+    <Index>k__BackingField: 2

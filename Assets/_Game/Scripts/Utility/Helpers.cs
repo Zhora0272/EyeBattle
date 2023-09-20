@@ -5,6 +5,11 @@ namespace _Project.Scripts.Utilities
 {
     public static class Helpers
     {
+        public static Color AlphaToMax(Color color)
+        {
+            return new Color(color.r, color.g, color.b, 1);
+        }
+        
         public static Vector2 xz(this Vector3 vv)
         {
             return new Vector2(vv.x, vv.z);

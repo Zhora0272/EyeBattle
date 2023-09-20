@@ -1,3 +1,4 @@
+using _Project.Scripts.Utilities;
 using UnityEngine;
 
 namespace Shop
@@ -22,7 +23,7 @@ namespace Shop
                 
                 _shopEyeItems.Add(item);
                 
-                item.SetColor(new Color(color.r, color.b, color.g,1));
+                item.SetColor(Helpers.AlphaToMax(color));
             }
         
             foreach (var configs in _eyeColorScriptable.Colors)
@@ -30,7 +31,9 @@ namespace Shop
                 var item = Instantiate(_prefabRectTransform, _actiavtedContent);
                 
                 var color = configs.Colors;
-                item.SetColor(new Color(color.r, color.b, color.g,1));
+
+                item.SetColor(Helpers.AlphaToMax(color));
+                
                 item.SetManager(ColorSelectAction);
             }   
         }

@@ -38,12 +38,5 @@ namespace Shop
             }
         }
     }
-
-    enum ShopItemState
-    {
-        Empty,
-        Selected,
-        Sale,
-    }
 }
 
