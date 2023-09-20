@@ -5,8 +5,16 @@ namespace Shop
 {
     public class ShopEyeColorView : ShopViewBase
     {
+        enum EyeColorType
+        {
+            EyeFront,
+            EyeBack,
+        }
+
         [Header("Data")]
         [SerializeField] private ShopEyeColorScriptable _eyeColorScriptable;
+
+        [SerializeField] private EyeColorType _eyeColorType;
         
         protected override void InitData(int[] saveIndex)
         {
@@ -38,7 +46,18 @@ namespace Shop
 
         private void ColorSelectAction(Color color)
         {
-            var item = new EyeCustomizeModel(eyeColor:color);
+            EyeCustomizeModel item = null;
+
+            switch (_eyeColorType)
+            {
+                case EyeColorType.EyeFront:
+                    item = new EyeCustomizeModel(eyeColor: color); 
+                    break; 
+                case EyeColorType.EyeBack:
+                    item = new EyeCustomizeModel(eyeBackColor: color); 
+                    break;
+            }
+
             _manager.CallBack.Value = item;
         }
     }

@@ -1,15 +1,27 @@
 using UnityEngine;
 using UniRx;
 using Shop;
+using static UnityEngine.Rendering.DebugUI;
 
 public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager, EyeCustomizeModel>
 {
     [SerializeField] private MeshRenderer _vetrineEyeMeshRenderer;
+    [SerializeField] private MeshRenderer _playerEyemeshRenderer;
+    
     private ShopViewBase[] _containers;
+
+    private Material _material;
 
     private void Awake()
     {
         CallBack = new ReactiveProperty<EyeCustomizeModel>();
+        
+    }
+
+    private void OnEnable()
+    {
+        _material = _playerEyemeshRenderer.material;
+        _vetrineEyeMeshRenderer.material = _material;
     }
 
     private void Start()
@@ -23,8 +35,8 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
 
         CallBack.Skip(1).Subscribe(value =>
         {
-            _vetrineEyeMeshRenderer.material = EyeShaderGraph.GetMaterial(value);
-            EyeShaderGraph.ChangeMaterial(value,_vetrineEyeMeshRenderer.material);
+            _playerEyemeshRenderer.material = EyeShaderGraph.ChangeMaterial(value, _material);
+
         }).AddTo(this);
     }
 

@@ -20,18 +20,20 @@ public static class EyeShaderGraph
         return material;
     }
 
-    public static void ChangeMaterial(EyeCustomizeModel model, Material oldMaterial)
+    public static Material ChangeMaterial(EyeCustomizeModel model, Material oldMaterial)
     {
-        ChangeParameters(model, oldMaterial);
+        return ChangeParameters(model, oldMaterial);
     }
 
-    private static void ChangeParameters(EyeCustomizeModel model, Material material)
+    private static Material ChangeParameters(EyeCustomizeModel model, Material material)
     {
         if (model._eyeSize != null) material.SetFloat("_EyeSize", (float) model._eyeSize);
         if (model._eyeType != null) material.SetInt("_EyeType", (int) model._eyeType);
         if (model._eyeColor != null) material.SetColor("_EyeColor", (Color) model._eyeColor);
         if (model._eyeBackColor != null) material.SetColor("_EyeBackColor", (Color) model._eyeBackColor);
         if (model._eyeTexture != null) material.SetTexture("_EyeTexture", model._eyeTexture);
+
+        return material;
     }
 
     public enum EyeParameterType
