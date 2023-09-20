@@ -3959,6 +3959,7 @@ GameObject:
   - component: {fileID: 883260380}
   - component: {fileID: 883260379}
   - component: {fileID: 883260381}
+  - component: {fileID: 883260382}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -4043,6 +4044,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088a33c90b7cfd94b8418010d254d336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &883260382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883260377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c942f97de54b241a27852ee42f2868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vetrineEyeMeshRenderer: {fileID: 2072952606}
 --- !u!1 &973561006
 GameObject:
   m_ObjectHideFlags: 0
@@ -7387,8 +7401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f5c9e1e063ef44a83d776aea05dbf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eyeTexture: {fileID: 0}
-  _eyeDecore: {fileID: 0}
   _eyeMaterial: {fileID: 0}
   _eyeMeshRenderer: {fileID: 1142132463}
   _decorGamobject: {fileID: 0}
