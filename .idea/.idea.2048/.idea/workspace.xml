@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/EyeShopCustomizeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/EyeShopCustomizeController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/IManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/IManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ShopCustomizeManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ShopCustomizeManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EyeCustomizeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EyeCustomizeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeShaderGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EyeShaderGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Resources/ES3/ES3Defaults.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Resources/ES3/ES3Defaults.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopContainerPart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopContainerPart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopViewBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopViewBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeAlphaMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeAlphaMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
-    </list>
+    <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +66,7 @@
       <workItem from="1694683888197" duration="5615000" />
       <workItem from="1694753926599" duration="1017000" />
       <workItem from="1694761068838" duration="32025000" />
-      <workItem from="1695105117478" duration="17783000" />
+      <workItem from="1695105117478" duration="18380000" />
     </task>
     <servers />
   </component>
