@@ -5,23 +5,28 @@ using Random = UnityEngine.Random;
 
 public class EyeBotController : EyeBaseController
 {
+    [SerializeField] private BotBattleParticipant _battleParticipant;
+
+    private IEyeParameters _mineParameters;
+
+    private void Awake()
+    {
+        _mineParameters = this;
+    }
+
     private void Start()
     {
         Observable.Interval(TimeSpan.FromSeconds(Random.Range(1f,2f))).Subscribe(_ =>
         {
-            _moveDirection = new Vector2(Random.Range(-1f,1), Random.Range(-1f, 1f));
+            if (_battleParticipant.GetClosestElement(out var result))
+            {
+                if (_mineParameters.Hp.Value >= result.Hp.Value)
+                {
+                    _moveDirection =  transform.position - result.Position;
+                }
+            }
 
         }).AddTo(this);
     }
-
-    private void FixedUpdate()
-    {
-        if (_moveDirection != Vector2.zero)
-        {
-            Rb.AddTorque(
-                new Vector3(_moveDirection.y, 0, -_moveDirection.x)
-                * Speed,
-                ForceMode.VelocityChange);
-        }
-    }
+    
 }

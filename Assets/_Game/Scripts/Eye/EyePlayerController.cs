@@ -37,23 +37,21 @@ public class EyePlayerController : EyeBaseController
                     Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
                     transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 4);
                 }
-                    
-                _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed * 4), 0, 0);
-                    
+
+                _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
             }).AddTo(this);
-            
         }).AddTo(this);
 
 
         _inputController.PointerUpStream.Subscribe(_ =>
         {
             _handlerState = false;
-            
+
             _moveDirection = Vector2.zero;
             _pointerUpDisposable?.Dispose();
             _updateDisposable.Dispose();
             _eyeModelTransform.DOKill();
-                
+
             _pointerUpDisposable = Observable.Timer(TimeSpan.FromSeconds(0.5f)).Subscribe(_ =>
             {
                 if (!_handlerState)
@@ -62,22 +60,13 @@ public class EyePlayerController : EyeBaseController
                     transform.DORotate(new Vector3(0, 180, 0), 1);
                 }
             }).AddTo(this);
-
-            
         }).AddTo(this);
     }
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
         _lastPosition = transform.position;
-
-        if (_moveDirection != Vector2.zero)
-        {
-            Rb.AddForce(
-                new Vector3(_moveDirection.x, 0, _moveDirection.y)
-                * Speed,
-                ForceMode.Acceleration);
-        }
+        base.FixedUpdate();
     }
 
     // random look position after any time idle standing 

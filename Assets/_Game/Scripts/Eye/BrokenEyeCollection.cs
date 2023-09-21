@@ -6,7 +6,7 @@ using UnityEngine;
 public class BrokenEyeCollection : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _loadBarCanvasGroup;
-
+    
     public IObservable<float> BrokenPartsCollectionStream => _breokenPartCollectionSubject;
     private Subject<float> _breokenPartCollectionSubject = new();
 

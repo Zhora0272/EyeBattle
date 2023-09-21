@@ -3,38 +3,51 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class EyeBaseController : MonoBehaviour 
+public interface IEyeParameters
 {
+    public IReactiveProperty<int> Hp { get; }
+    public IReactiveProperty<float> Speed { get; }
+    public IReactiveProperty<float> Force { get; }
+    public Vector3 Position { get; }
+}
+
+public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
+{
+    public IReactiveProperty<int> Hp => _hp;
+    public IReactiveProperty<float> Speed => _speed;
+    public IReactiveProperty<float> Force => _force;
+    public Vector3 Position => transform.position;
+    
+    //readonly reactive properties
+    private readonly ReactiveProperty<int> _hp = new();
+    private readonly ReactiveProperty<float> _speed = new();
+    private readonly ReactiveProperty<float> _force = new();
+    //
+    
+    [Space]
     [SerializeField] protected BrokenEyePartsController _brokenEyePartsController;
     [SerializeField] protected BrokenEyeCollection _brokenEyeCollector;
-
     [SerializeField] protected Rigidbody Rb;
-    [SerializeField] protected int Hp;
-    [Space]
+    [Space] 
     [SerializeField] protected Material _material;
     [SerializeField] protected GameObject _meshRenderer;
     [SerializeField] protected SphereCollider _sphereCollider;
     [Space]
     [SerializeField] protected Image _loadbar;
-    [Space]
-    [SerializeField] protected float Speed;
-    
-    [field:SerializeField] public ReactiveProperty<float> Size { protected set; get; }
-    [field:SerializeField] public bool IsDeath { protected set; get; }
+
+    [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
+    [field: SerializeField] public bool IsDeath { protected set; get; }
 
     protected Vector2 _moveDirection;
 
     private void Start()
     {
         _brokenEyeCollector.BrokenPartsCollectionStream.Subscribe(value =>
-        {
-            Size.Value += value;
-
-        }).AddTo(this);
+            { Size.Value += value; }).AddTo(this);
 
         Size.Subscribe(value =>
         {
-            _loadbar.DOFillAmount(((int)(value / 100) + 1) - ((float)value / 100), 1);
+            _loadbar.DOFillAmount(((int) (value / 100) + 1) - ((float) value / 100), 1);
 
             if (value % 100 == 0)
             {
@@ -43,7 +56,6 @@ public abstract class EyeBaseController : MonoBehaviour
                 _loadbar.DOKill();
                 _loadbar.DOFillAmount(0, 1);
             }
-
         }).AddTo(this);
     }
 
@@ -51,6 +63,17 @@ public abstract class EyeBaseController : MonoBehaviour
     {
         Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.deltaTime);
         Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.deltaTime);
+    }
+    
+    protected  virtual void FixedUpdate()
+    {
+        if (_moveDirection != Vector2.zero)
+        {
+            Rb.AddTorque(
+                new Vector3(_moveDirection.y, 0, -_moveDirection.x)
+                * Speed.Value,
+                ForceMode.Acceleration);
+        }
     }
 
     protected virtual void OnCollisionEnter(Collision collision)
@@ -66,7 +89,7 @@ public abstract class EyeBaseController : MonoBehaviour
 
     protected virtual void Attack(float force, Vector3 attackPosition)
     {
-        if(Hp < force)
+        if (Hp.Value < force)
         {
             IsDeath = true;
 
@@ -77,5 +100,4 @@ public abstract class EyeBaseController : MonoBehaviour
             Rb.isKinematic = true;
         }
     }
-
 }
