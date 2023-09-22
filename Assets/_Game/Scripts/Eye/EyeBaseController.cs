@@ -37,6 +37,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
 
     protected Vector2 _moveDirection;
 
+    #region UnityEvents
     protected virtual void Start()
     {
         _brokenEyeCollector.BrokenPartsCollectionStream.Subscribe(value => { Size.Value += value; }).AddTo(this);
@@ -54,23 +55,18 @@ public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
             }
         }).AddTo(this);
     }
-
     protected virtual void Update()
     {
         Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.deltaTime);
         Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.deltaTime);
     }
-
     protected virtual void FixedUpdate()
     {
-        if (_moveDirection != Vector2.zero)
-        {
-            Rb.AddTorque(
-                new Vector3(_moveDirection.y, 0, -_moveDirection.x)
-                * Speed.Value,
-                ForceMode.VelocityChange);
-        }
+        Move();
     }
+    #endregion
+
+    protected abstract void Move();
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
@@ -96,4 +92,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
             Rb.isKinematic = true;
         }
     }
+
+    
 }

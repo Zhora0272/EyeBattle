@@ -14,22 +14,22 @@ public class EyePlayerController : EyeBaseController
     private Vector3 _lastPosition;
     private bool _handlerState;
 
+    private IMoveableRigidbody _moveableRigidbody;
+
     private void Awake()
     {
         Rb = GetComponent<Rigidbody>();
 
+        _moveableRigidbody = new MoveWithRbAddForce();
     }
 
     protected override void Start()
     {
         base.Start();
-        
+
         //joystick update subscribe
-        _inputController.RegisterJoysticData(data =>
-        {
-            _moveDirection = data;
-        });
-        
+        _inputController.RegisterJoysticData(data => { _moveDirection = data; });
+
         _inputController.PointerDownStream.Subscribe(_ =>
         {
             //
@@ -72,11 +72,13 @@ public class EyePlayerController : EyeBaseController
         }).AddTo(this);
     }
 
-    protected override void FixedUpdate()
+    protected override void Move()
     {
         _lastPosition = transform.position;
-        base.FixedUpdate();
+
+        _moveableRigidbody.Move(Rb, _moveDirection, Speed.Value);
     }
+
 
     // random look position after any time idle standing 
 }
