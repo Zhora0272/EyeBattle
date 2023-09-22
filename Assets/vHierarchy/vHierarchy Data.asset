@@ -30,6 +30,8 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1368244454-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-103481803-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1220294206-0
+        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1301025972-0
+        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-280009755-0
         values:
         - iColor: 6
           icon: 
@@ -47,6 +49,10 @@ MonoBehaviour:
           icon: Settings Icon
         - iColor: 0
           icon: Settings Icon
+        - iColor: 0
+          icon: PreMatSphere
+        - iColor: 8
+          icon: 
     - goDatasByGlobalId:
         keys: []
         values: []

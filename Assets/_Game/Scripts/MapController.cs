@@ -35,6 +35,8 @@ public class MapController : MonoBehaviour
     //bad code need optimization
     private void Start()
     {
+        return;
+        
         _elements = MainManager.GetManager<EyeSpawnManager>()._spawnEyes;
 
         Observable.Interval(TimeSpan.FromSeconds(5)).Subscribe(_ => 

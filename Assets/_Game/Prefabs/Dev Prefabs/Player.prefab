@@ -903,12 +903,10 @@ MonoBehaviour:
   _brokenEyePartsController: {fileID: 8688687115766232335}
   _brokenEyeCollector: {fileID: 2509413003133941998}
   Rb: {fileID: 2509413003133941970}
-  Hp: 100
   _material: {fileID: 2100000, guid: adda495f72919c144b74cf48c09511a7, type: 2}
   _meshRenderer: {fileID: 7504300693401385834}
   _sphereCollider: {fileID: 2509413003133941971}
   _loadbar: {fileID: 8382609804393249976}
-  Speed: 20
   <Size>k__BackingField:
     value: 0
   <IsDeath>k__BackingField: 0
@@ -926,6 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d98e36b8e57b548915f3c9a4e9f070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _loadBarCanvasGroup: {fileID: 1076935985}
 --- !u!114 &2895838331650394285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1761,7 +1760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2533271549176136118
 Transform:
   m_ObjectHideFlags: 0
@@ -3031,6 +3030,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 407ac73546f49b44098a2676e6074bcf, type: 3}
       propertyPath: m_Name
       value: hat
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 407ac73546f49b44098a2676e6074bcf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 407ac73546f49b44098a2676e6074bcf, type: 3}

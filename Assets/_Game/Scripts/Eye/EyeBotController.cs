@@ -22,7 +22,7 @@ public class EyeBotController : EyeBaseController
             {
                 if (_mineParameters.Hp.Value >= result.Hp.Value)
                 {
-                    _moveDirection =  transform.position - result.Position;
+                    _moveDirection =  result.Position - transform.position;
                 }
             }
 

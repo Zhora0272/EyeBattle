@@ -18,9 +18,18 @@ public class EyePlayerController : EyeBaseController
     {
         Rb = GetComponent<Rigidbody>();
 
-        _inputController.RegisterJoysticData(data => { _moveDirection = data; });
+    }
 
-
+    protected override void Start()
+    {
+        base.Start();
+        
+        //joystick update subscribe
+        _inputController.RegisterJoysticData(data =>
+        {
+            _moveDirection = data;
+        });
+        
         _inputController.PointerDownStream.Subscribe(_ =>
         {
             //

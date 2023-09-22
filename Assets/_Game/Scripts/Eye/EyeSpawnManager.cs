@@ -21,7 +21,7 @@ public class EyeSpawnManager : MonoManager
     //need pooling system
     private void Start()
     {
-        Observable.Interval(TimeSpan.FromSeconds(3)).Subscribe(_ => 
+        _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(3)).Subscribe(_ => 
         {
             var position = _playerTransform.transform.position;
 
@@ -34,6 +34,17 @@ public class EyeSpawnManager : MonoManager
 
             _spawnEyes.Add(item);
 
+            _index++;
+
+            if (_index == 5)
+            {
+                _spawnBotDisposable.Dispose();
+                _index = 0;
+            }
+            
         }).AddTo(this);
     }
+
+    private IDisposable _spawnBotDisposable;
+    private int _index;
 }
