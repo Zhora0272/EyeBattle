@@ -4,9 +4,8 @@ public class MoveWithRbAddTorque : IMoveableRigidbody
 {
     void IMoveableRigidbody.Move(Rigidbody rb, Vector3 direction, float speed)
     {
-        rb.AddTorque(
-            new Vector3(direction.x, 0, direction.y)
-            * speed,
+        rb.AddTorque(direction + Vector3.right
+                     * speed,
             ForceMode.Acceleration);
     }
 }

@@ -35,8 +35,6 @@ public class MapController : MonoBehaviour
     //bad code need optimization
     private void Start()
     {
-        return;
-        
         _elements = MainManager.GetManager<EyeSpawnManager>()._spawnEyes;
 
         Observable.Interval(TimeSpan.FromSeconds(5)).Subscribe(_ => 
@@ -58,7 +56,7 @@ public class MapController : MonoBehaviour
                     _mapElements.TryAdd(element, indicator);
                 }
 
-                if(element.IsDeath)
+                if(element.IsDeath.Value)
                 {
                     if(_mapElements.TryGetValue(element, out var result))
                     {

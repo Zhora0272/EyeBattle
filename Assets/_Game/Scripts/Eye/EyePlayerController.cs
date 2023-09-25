@@ -20,7 +20,7 @@ public class EyePlayerController : EyeBaseController
     {
         Rb = GetComponent<Rigidbody>();
 
-        _moveableRigidbody = new MoveWithRbAddForce();
+        _moveableRigidbody = new MoveWithRbAddForce(xyzState:false);
     }
 
     protected override void Start()
@@ -76,9 +76,8 @@ public class EyePlayerController : EyeBaseController
     {
         _lastPosition = transform.position;
 
-        _moveableRigidbody.Move(Rb, _moveDirection, Speed.Value);
+        _moveableRigidbody.Move(Rb, _moveDirection, 0.5f);
     }
-
 
     // random look position after any time idle standing 
 }

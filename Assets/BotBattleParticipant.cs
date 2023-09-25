@@ -1,9 +1,23 @@
+using UniRx;
 using UnityEngine;
 
 public class BotBattleParticipant : BaseBattleParticipant
 {
     [SerializeField] private EyeBaseController _eyeBaseController;
-    private void Awake() => EyeParameters = _eyeBaseController;
+
+    private void Awake()
+    {
+        EyeParameters = _eyeBaseController;
+
+        _eyeBaseController.IsDeath.Subscribe(value =>
+        {
+            if (value)
+            {
+                UnRegister();
+            }
+
+        }).AddTo(this);
+    }
 
     public bool GetClosestElement(out IEyeParameters param)
     {
@@ -16,4 +30,6 @@ public class BotBattleParticipant : BaseBattleParticipant
         param = null;
         return false;
     }
+    
+    
 }

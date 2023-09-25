@@ -3,7 +3,7 @@
 public class BaseBattleParticipant : MonoBehaviour
 {
     public IEyeParameters EyeParameters;
-    
+
     protected BattleParticipantsManager _manager;
 
     public virtual void Start()
@@ -18,7 +18,7 @@ public class BaseBattleParticipant : MonoBehaviour
         _manager.Register(EyeParameters);
     }
 
-    private void OnDisable()
+    protected void UnRegister()
     {
         _manager.UnRegister(EyeParameters);
     }

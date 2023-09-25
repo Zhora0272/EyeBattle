@@ -19,16 +19,17 @@ public class EyeSpawnManager : MonoManager
     }
 
     //need pooling system
+
     private void Start()
     {
-        _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(3)).Subscribe(_ => 
+        _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(7)).Subscribe(_ =>
         {
             var position = _playerTransform.transform.position;
 
             var randomPosition = new Vector3(
-                position.x + Random.Range(-14,14),
+                position.x + Random.Range(-5, -14),
                 0,
-                position.z + Random.Range(-14, 14));
+                position.z + Random.Range(-5, -14));
 
             var item = Instantiate(_botPrrefab, randomPosition, Quaternion.identity);
 
@@ -38,10 +39,8 @@ public class EyeSpawnManager : MonoManager
 
             if (_index == 5)
             {
-                _spawnBotDisposable.Dispose();
-                _index = 0;
+                //_spawnBotDisposable.Dispose();
             }
-            
         }).AddTo(this);
     }
 

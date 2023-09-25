@@ -1,4 +1,3 @@
-using _Project.Scripts.Utilities;
 using UnityEngine;
 
 namespace Shop

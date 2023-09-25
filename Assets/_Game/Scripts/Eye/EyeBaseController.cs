@@ -1,26 +1,30 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
 public interface IEyeParameters
 {
-    public IReactiveProperty<int> Hp { get; }
+    public IReactiveProperty<int> Mass { get; }
     public IReactiveProperty<float> Speed { get; }
     public IReactiveProperty<float> Force { get; }
-    public Vector3 Position { get; }
+    public Transform EyeTransform { get; }
 }
 
 public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
 {
-    public IReactiveProperty<int> Hp => _hp;
+    [SerializeField] private TextMeshProUGUI _forceText;
+    public IReactiveProperty<int> Mass => _hp;
     public IReactiveProperty<float> Speed => _speed;
     public IReactiveProperty<float> Force => _force;
-    public Vector3 Position => transform.position;
+    public Transform EyeTransform => transform;
 
     //readonly reactive properties
     private readonly ReactiveProperty<int> _hp = new(100);
     private readonly ReactiveProperty<float> _speed = new(25);
+
     private readonly ReactiveProperty<float> _force = new();
     //
 
@@ -33,11 +37,12 @@ public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
     [Space] [SerializeField] protected Image _loadbar;
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
-    [field: SerializeField] public bool IsDeath { protected set; get; }
+    [field: SerializeField] public ReactiveProperty<bool> IsDeath { protected set; get; }
 
-    protected Vector2 _moveDirection;
+    protected Vector3 _moveDirection;
 
     #region UnityEvents
+
     protected virtual void Start()
     {
         _brokenEyeCollector.BrokenPartsCollectionStream.Subscribe(value => { Size.Value += value; }).AddTo(this);
@@ -55,20 +60,24 @@ public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
             }
         }).AddTo(this);
     }
+
     protected virtual void Update()
     {
         Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.deltaTime);
         Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.deltaTime);
     }
+
     protected virtual void FixedUpdate()
     {
         Move();
+        _forceText.text = (Rb.mass * Rb.velocity.magnitude).ToString();
     }
+
     #endregion
 
     protected abstract void Move();
 
-    protected virtual void OnCollisionEnter(Collision collision)
+    /*protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Eye"))
         {
@@ -77,13 +86,24 @@ public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
                 result.Attack(Rb.mass * Rb.velocity.magnitude, transform.position);
             }
         }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Eye"))
+        {
+            if (other.gameObject.TryGetComponent<EyeBaseController>(out var result))
+            {
+                result.Attack(Rb.mass * Rb.velocity.magnitude, transform.position);
+            }
+        }
     }
 
-    protected virtual void Attack(float force, Vector3 attackPosition)
+    private void Attack(float force, Vector3 attackPosition)
     {
-        if (Hp.Value < force)
+        if (Rb.mass * Rb.velocity.magnitude < force)
         {
-            IsDeath = true;
+            IsDeath.Value = true;
 
             _brokenEyePartsController.Activate(_material, attackPosition);
 
@@ -92,6 +112,4 @@ public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
             Rb.isKinematic = true;
         }
     }
-
-    
 }

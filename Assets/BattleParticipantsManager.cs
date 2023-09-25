@@ -14,19 +14,36 @@ public class BattleParticipantsManager : MonoManager
     {
         _participants.Remove(param);
     }
-    
+
+    private void OnDrawGizmos()
+    {
+        if (Time.time % 25 == 0)
+        {
+            Gizmos.color = Color.green;
+        }
+        else
+        {
+            Gizmos.color = Color.cyan;
+        }
+        
+        foreach (var item in _participants)
+        {
+            Gizmos.DrawSphere(item.EyeTransform.position, 1);
+        }
+    }
+
 
     public bool GetClosest(IEyeParameters checkTransform, out IEyeParameters result)
     {
         float _minDistance = Mathf.Infinity;
-        
+
         IEyeParameters _closestParticipant = null;
 
         foreach (var item in _participants)
         {
             if (item == checkTransform) continue;
 
-            var distance = (item.Position - checkTransform.Position).magnitude;
+            var distance = (item.EyeTransform.position - checkTransform.EyeTransform.position).magnitude;
 
             if (distance < _minDistance)
             {

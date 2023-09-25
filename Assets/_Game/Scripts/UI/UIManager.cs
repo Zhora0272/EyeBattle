@@ -19,6 +19,7 @@ public class UIManager : MonoManager
     private void Start()
     {
         _pages = GetComponentsInChildren<UIPage>(true);
+        Activte(UIPageType.TapToPlay);
     }
 
     public void Activte(UIPageType pageType)
