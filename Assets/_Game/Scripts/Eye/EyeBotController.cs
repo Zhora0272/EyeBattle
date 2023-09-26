@@ -1,5 +1,4 @@
 using System;
-using DG.Tweening;
 using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -13,14 +12,17 @@ public class EyeBotController : EyeBaseController
     private IEyeParameters _mineParameters;
     private IMoveableRigidbody _moveableRigidbody;
 
+    private BotState _botActionState;
+    
+    private Vector3 _closestEnemyPosition;
+    private Vector3 _target;
+
     private void Awake()
     {
         _mineParameters = this;
         _moveableRigidbody = new MoveWithRbAddForce();
     }
-
-    private Vector3 _target;
-
+    
     protected override void Update()
     {
         base.Update();
@@ -28,7 +30,7 @@ public class EyeBotController : EyeBaseController
         if (_lastPosition != transform.position)
         {
             Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 4);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime);
             _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
         }
     }
@@ -40,18 +42,44 @@ public class EyeBotController : EyeBaseController
             if (_battleParticipant.GetClosestElement(out var result))
             {
                 _target = result.EyeTransform.position;
-                _moveDirection = result.EyeTransform.position - transform.position;
+                _closestEnemyPosition = result.EyeTransform.position;
             }
         }).AddTo(this);
 
         Observable.Interval(TimeSpan.FromSeconds(Random.Range(3f, 13f))).Subscribe(_ =>
         {
-            _attackState = !_attackState;
+            _botActionState = (BotState)Random.Range(0, 3);
+            
+            /*switch (_botActionState)
+            {
+                case BotState.RandomWalk:
+                {
+                    _moveDirection = Helpers.GetRandomPosition(-1f, 1f);
+                    break;
+                }
+                case BotState.Idle:
+                {
+                    _moveDirection = Vector3.zero;
+                    break;
+                }
+                case BotState.GoAwayFromEnemies:
+                {
+                    _moveDirection = transform.position - _closestEnemyPosition;
+                    break;
+                }
+                case BotState.Attack:
+                {
+                    _moveDirection = _closestEnemyPosition - transform.position;
+                    break;
+                }
+            }*/
+            
+            _moveDirection = Helpers.GetRandomPosition(-1f, 1f);
 
-            _randomDirection = Helpers.GetRandomPosition(-1f, 1f);
+            _forceText.text = _botActionState.ToString();
+
         }).AddTo(this);
     }
-
 
     private bool _attackState;
 
@@ -67,6 +95,15 @@ public class EyeBotController : EyeBaseController
     protected override void Move()
     {
         _lastPosition = transform.position;
-        _moveableRigidbody.Move(Rb, _attackState ? _moveDirection : _randomDirection, 0.3f);
+        _moveableRigidbody.Move(Rb, _moveDirection, 0.5f);
+    }
+
+
+    private enum BotState
+    {
+        RandomWalk,
+        Idle,
+        Attack,
+        GoAwayFromEnemies,
     }
 }

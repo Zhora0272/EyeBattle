@@ -1,13 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
 
 public class MoveWithRbAddForce : IMoveableRigidbody
 {
     void IMoveableRigidbody.Move(Rigidbody rb, Vector3 direction, float speed)
     {
-        var normalizeDir = direction.normalized;
-
-        _moveAction.Invoke(rb, normalizeDir, speed);
+        _moveAction.Invoke(rb, direction.normalized, speed);
     }
 
     public MoveWithRbAddForce(bool xyzState = true)
@@ -21,20 +19,21 @@ public class MoveWithRbAddForce : IMoveableRigidbody
         {
             _moveAction = (rb, normalizeDir, speed) =>
             {
-                rb.AddForce(new Vector3(normalizeDir.x, 0, normalizeDir.z)
-                            * speed,
-                    ForceMode.VelocityChange);
+                AddForce(rb, new Vector3(normalizeDir.x, 0, normalizeDir.z), speed);
             };
         }
         else
         {
             _moveAction = (rb, normalizeDir, speed) =>
             {
-                rb.AddForce(new Vector3(normalizeDir.x, 0, normalizeDir.y)
-                            * speed,
-                    ForceMode.VelocityChange);
+                AddForce(rb, new Vector3(normalizeDir.x, 0, normalizeDir.y), speed);
             };
         }
+    }
+
+    private void AddForce(Rigidbody rb, Vector3 direction, float speed)
+    {
+        rb.AddForce(direction * speed, ForceMode.VelocityChange);
     }
 
     private Action<Rigidbody, Vector3, float> _moveAction;

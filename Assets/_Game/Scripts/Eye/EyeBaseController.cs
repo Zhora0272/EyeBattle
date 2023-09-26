@@ -1,5 +1,4 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -15,7 +14,7 @@ public interface IEyeParameters
 
 public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
 {
-    [SerializeField] private TextMeshProUGUI _forceText;
+    [SerializeField] protected TextMeshProUGUI _forceText;
     public IReactiveProperty<int> Mass => _hp;
     public IReactiveProperty<float> Speed => _speed;
     public IReactiveProperty<float> Force => _force;
@@ -24,7 +23,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
     //readonly reactive properties
     private readonly ReactiveProperty<int> _hp = new(100);
     private readonly ReactiveProperty<float> _speed = new(25);
-
     private readonly ReactiveProperty<float> _force = new();
     //
 
@@ -70,23 +68,11 @@ public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
     protected virtual void FixedUpdate()
     {
         Move();
-        _forceText.text = (Rb.mass * Rb.velocity.magnitude).ToString();
     }
 
     #endregion
 
     protected abstract void Move();
-
-    /*protected virtual void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Eye"))
-        {
-            if (collision.gameObject.TryGetComponent<EyeBaseController>(out var result))
-            {
-                result.Attack(Rb.mass * Rb.velocity.magnitude, transform.position);
-            }
-        }
-    }*/
 
     private void OnTriggerEnter(Collider other)
     {
