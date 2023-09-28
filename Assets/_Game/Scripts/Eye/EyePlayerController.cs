@@ -48,6 +48,7 @@ public class EyePlayerController : EyeBaseController
                 }
 
                 _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
+                
             }).AddTo(this);
         }).AddTo(this);
 
@@ -68,7 +69,9 @@ public class EyePlayerController : EyeBaseController
                     _eyeModelTransform.DORotate(new Vector3(65, 180, 0), 1);
                     transform.DORotate(new Vector3(0, 180, 0), 1);
                 }
+                
             }).AddTo(this);
+            
         }).AddTo(this);
     }
 

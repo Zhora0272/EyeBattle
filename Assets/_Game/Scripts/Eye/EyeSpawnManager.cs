@@ -22,7 +22,7 @@ public class EyeSpawnManager : MonoManager
 
     private void Start()
     {
-        _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(7)).Subscribe(_ =>
+        _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(3)).Subscribe(_ =>
         {
             var position = _playerTransform.transform.position;
 

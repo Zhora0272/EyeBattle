@@ -13,7 +13,7 @@ public class EyeBotController : EyeBaseController
     private IMoveableRigidbody _moveableRigidbody;
 
     private BotState _botActionState;
-    
+
     private Vector3 _closestEnemyPosition;
     private Vector3 _target;
 
@@ -22,7 +22,7 @@ public class EyeBotController : EyeBaseController
         _mineParameters = this;
         _moveableRigidbody = new MoveWithRbAddForce();
     }
-    
+
     protected override void Update()
     {
         base.Update();
@@ -30,14 +30,14 @@ public class EyeBotController : EyeBaseController
         if (_lastPosition != transform.position)
         {
             Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 3);
             _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
         }
     }
 
     private void Start()
     {
-        Observable.Interval(TimeSpan.FromSeconds(Random.Range(1f, 2f))).Subscribe(_ =>
+        Observable.Interval(TimeSpan.FromSeconds(Random.Range(0.5f, 1f))).Subscribe(_ =>
         {
             if (_battleParticipant.GetClosestElement(out var result))
             {
@@ -46,39 +46,43 @@ public class EyeBotController : EyeBaseController
             }
         }).AddTo(this);
 
-        Observable.Interval(TimeSpan.FromSeconds(Random.Range(3f, 13f))).Subscribe(_ =>
+        Observable.Interval(TimeSpan.FromSeconds(Random.Range(0.5f, 1.5f))).Subscribe(_ => { SetRandomState(); })
+            .AddTo(this);
+    }
+
+    private void SetRandomState()
+    {
+        //_botActionState = (BotState) Random.Range(0, 3);
+
+        /*switch (_botActionState)
         {
-            _botActionState = (BotState)Random.Range(0, 3);
-            
-            /*switch (_botActionState)
+            case BotState.RandomWalk:
             {
-                case BotState.RandomWalk:
-                {
-                    _moveDirection = Helpers.GetRandomPosition(-1f, 1f);
-                    break;
-                }
-                case BotState.Idle:
-                {
-                    _moveDirection = Vector3.zero;
-                    break;
-                }
-                case BotState.GoAwayFromEnemies:
-                {
-                    _moveDirection = transform.position - _closestEnemyPosition;
-                    break;
-                }
-                case BotState.Attack:
-                {
-                    _moveDirection = _closestEnemyPosition - transform.position;
-                    break;
-                }
-            }*/
-            
-            _moveDirection = Helpers.GetRandomPosition(-1f, 1f);
+                _moveDirection = Helpers.GetRandomPosition(-1f, 1f);
+                break;
+            }
+            /*case BotState.Idle:
+            {
+                _moveDirection = Vector3.zero;
+                break;
+            }#1#
+            case BotState.GoAwayFromEnemies:
+            {
+                _moveDirection = transform.position - _closestEnemyPosition;
+                break;
+            }
+            case BotState.Attack:
+            {
+                _moveDirection = _closestEnemyPosition - transform.position;
+                break;
+            }
+        }*/
 
-            _forceText.text = _botActionState.ToString();
+        //_moveDirection = Helpers.GetRandomPosition(-1f, 1f) * 10;
 
-        }).AddTo(this);
+        _moveDirection = _closestEnemyPosition - transform.position;
+
+        //_forceText.text = _botActionState.ToString();
     }
 
     private bool _attackState;
@@ -86,23 +90,39 @@ public class EyeBotController : EyeBaseController
     private Vector3 _randomDirection;
     private Vector3 _lastPosition;
 
+    private Vector3 _currentMoveDirection;
+
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(_target, 1);
+        if (!IsDeath.Value)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(_moveDirection, 1);
+
+            var direction = Vector3.zero;
+
+            for (int i = 0; i < 10; i++)
+            {
+                Gizmos.DrawSphere(_closestEnemyPosition + (transform.position - _closestEnemyPosition) * (i * 0.100f),
+                    0.3f);
+            }
+        }
     }
 
     protected override void Move()
     {
+        _currentMoveDirection = Vector3.Lerp(_currentMoveDirection, _moveDirection, Time.deltaTime);
+
         _lastPosition = transform.position;
-        _moveableRigidbody.Move(Rb, _moveDirection, 0.5f);
+        _moveableRigidbody.Move(Rb, _currentMoveDirection, 0.5f);
     }
 
 
     private enum BotState
     {
         RandomWalk,
-        Idle,
+
+        //Idle,
         Attack,
         GoAwayFromEnemies,
     }
