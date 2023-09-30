@@ -8,6 +8,7 @@ public class EyeSpawnManager : MonoManager
 {
     [SerializeField] private EyeBaseController _botPrrefab;
     [SerializeField] private EyeBaseController _playerTransform;
+    [SerializeField] private int _spawnCount;
 
     public List<EyeBaseController> _spawnEyes { private set; get; }
 
@@ -22,6 +23,15 @@ public class EyeSpawnManager : MonoManager
 
     private void Start()
     {
+        MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.TapToPlay, SpawnEnemies);
+        
+        MainManager.GetManager<UIManager>().
+            SubscribeToPageDeactivate(UIPageType.TapToPlay,
+                () => { _spawnBotDisposable.Dispose(); });
+    }
+
+    private void SpawnEnemies()
+    {
         _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(3)).Subscribe(_ =>
         {
             var position = _playerTransform.transform.position;
@@ -35,12 +45,7 @@ public class EyeSpawnManager : MonoManager
 
             _spawnEyes.Add(item);
 
-            _index++;
-
-            if (_index == 5)
-            {
-                //_spawnBotDisposable.Dispose();
-            }
+            _spawnCount++;
         }).AddTo(this);
     }
 

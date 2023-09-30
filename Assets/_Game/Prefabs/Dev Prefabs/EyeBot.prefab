@@ -4980,6 +4980,7 @@ MonoBehaviour:
     value: 0
   _battleParticipant: {fileID: 2557098017190976718}
   _eyeModelTransform: {fileID: 7644217642888034248}
+  _model: {fileID: 11400000, guid: a5b16a13db1bbf745ba42601033eeb2d, type: 2}
 --- !u!114 &2557098017190976718
 MonoBehaviour:
   m_ObjectHideFlags: 0

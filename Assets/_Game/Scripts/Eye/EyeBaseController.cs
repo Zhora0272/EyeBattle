@@ -8,7 +8,8 @@ public interface IEyeParameters
 {
     public IReactiveProperty<int> Mass { get; }
     public IReactiveProperty<float> Speed { get; }
-    public IReactiveProperty<float> Force { get; }
+    public float Force { get; }
+    public Vector3 Position { get; }
     public Transform EyeTransform { get; }
 }
 
@@ -17,7 +18,8 @@ public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
     [SerializeField] protected TextMeshProUGUI _forceText;
     public IReactiveProperty<int> Mass => _hp;
     public IReactiveProperty<float> Speed => _speed;
-    public IReactiveProperty<float> Force => _force;
+    public float Force => Rb.mass * Rb.velocity.magnitude;
+    public Vector3 Position => transform.position;
     public Transform EyeTransform => transform;
 
     //readonly reactive properties

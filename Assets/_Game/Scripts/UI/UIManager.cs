@@ -50,18 +50,18 @@ public class UIManager : MonoManager
 
     public void SubscribeToPageActivate
     (
-       UIPageType layer,
+       UIPageType pageType,
        Action subject
     )
     {
-        if (_subscribeActivateEvents.TryGetValue(layer, out var value))
+        if (_subscribeActivateEvents.TryGetValue(pageType, out var value))
         {
             value += subject;
-            _subscribeActivateEvents.TryAdd(layer, value);
+            _subscribeActivateEvents.TryAdd(pageType, value);
         }
         else
         {
-            _subscribeActivateEvents.TryAdd(layer, subject);
+            _subscribeActivateEvents.TryAdd(pageType, subject);
         }
     }
 
