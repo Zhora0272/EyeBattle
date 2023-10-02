@@ -22,7 +22,7 @@ namespace Shop
             {
                 var item = Instantiate(_prefabRectTransform, _actiavtedContent);
                 
-                item.SetManager(TextureSelectAction);
+                item.SetColorAction(TextureSelectAction);
 
                 SetEyeItemTextureAndColor(item, config.EyeTypeTexture, Color.white);
             }   

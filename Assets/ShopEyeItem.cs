@@ -13,7 +13,10 @@ namespace Shop
 
         [SerializeField] private GameObject _selectedState;
         [SerializeField] private GameObject _buyState;
-        
+
+        private float _value;
+
+        internal void SetValue(float value) => _value = value; 
         internal void SetColor(Color color) => _image.color = color;
         internal void SetTexture(Texture texture) => _image.texture = texture;
 
@@ -22,7 +25,23 @@ namespace Shop
             _buttonImage.raycastTarget = state;
         }
     
-        internal void SetManager(Action<Color> action)
+        internal void SetColorAction(Action<Color> action)
+        {
+            _button.onClick.AddListener(() =>
+            {
+                action.Invoke(_image.color);
+            });
+        }
+        
+        internal void SetValueAction(Action<float> action)
+        {
+            _button.onClick.AddListener(() =>
+            {
+                action.Invoke(_value);
+            });
+        }
+        
+        internal void SetTextureAction(Action<Color> action)
         {
             _button.onClick.AddListener(() =>
             {

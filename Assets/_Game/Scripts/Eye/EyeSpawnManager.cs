@@ -23,11 +23,11 @@ public class EyeSpawnManager : MonoManager
 
     private void Start()
     {
-        MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.TapToPlay, SpawnEnemies);
-        
         MainManager.GetManager<UIManager>().
-            SubscribeToPageDeactivate(UIPageType.TapToPlay,
-                () => { _spawnBotDisposable.Dispose(); });
+            SubscribeToPageActivate(UIPageType.TapToPlay, SpawnEnemies);
+
+        MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.TapToPlay,
+            () => { _spawnBotDisposable.Dispose(); });
     }
 
     private void SpawnEnemies()
