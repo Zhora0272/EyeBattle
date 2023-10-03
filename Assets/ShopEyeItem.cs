@@ -6,40 +6,46 @@ namespace Shop
 {
     public class ShopEyeItem : MonoBehaviour
     {
-        [SerializeField] private Button _button;
+        
+        [SerializeField] private BuyType _buyType;
+        
+        [Header("Parameters")]
+        [SerializeField] private Button _selectButton;
         [SerializeField] private Image _buttonImage;
+        [SerializeField] private RawImage _previewImage;
 
-        [SerializeField] private RawImage _image;
-
+        [Header("Item_State")]
         [SerializeField] private GameObject _selectedState;
         [SerializeField] private GameObject _buyState;
 
+        private int _adsCount = 10;
         private float _value;
 
+        internal void SetBuyType(BuyType type) => _buyType = type;
         internal void SetValue(float value) => _value = value; 
-        internal void SetColor(Color color) => _image.color = color;
-        internal void SetTexture(Texture texture) => _image.texture = texture;
+        internal void SetColor(Color color) => _previewImage.color = color;
+        internal void SetTexture(Texture texture) => _previewImage.texture = texture;
 
         internal void SetRaycastState(bool state) =>  _buttonImage.raycastTarget = state;
         internal void SetColorAction(Action<Color> action)
         {
-            _button.onClick.AddListener(() =>
+            _selectButton.onClick.AddListener(() =>
             {
-                action.Invoke(_image.color);
+                action.Invoke(_previewImage.color);
             });
         }
         internal void SetValueAction(Action<float> action)
         {
-            _button.onClick.AddListener(() =>
+            _selectButton.onClick.AddListener(() =>
             {
                 action.Invoke(_value);
             });
         }
         internal void SetTextureAction(Action<Color> action)
         {
-            _button.onClick.AddListener(() =>
+            _selectButton.onClick.AddListener(() =>
             {
-                action.Invoke(_image.color);
+                action.Invoke(_previewImage.color);
             });
         }
         internal void SetState(ShopItemState state)
@@ -55,6 +61,10 @@ namespace Shop
                 case ShopItemState.Selected : _selectedState.SetActive(false); break;
                 case ShopItemState.Sale : _buyState.SetActive(false); break;
             }
+        }
+        private void TryBuy()
+        {
+            
         }
     }
 }

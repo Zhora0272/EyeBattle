@@ -3,7 +3,7 @@ using System;
 using UniRx;
 using UnityEngine;
 
-public class BrokenEyeCollection : MonoBehaviour
+public class BrokenEyeCollection : CachedMonoBehaviour
 {
     [SerializeField] private CanvasGroup _loadBarCanvasGroup;
     

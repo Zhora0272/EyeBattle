@@ -40,6 +40,7 @@ namespace Shop
                 var item = Instantiate(_prefabRectTransform, _actiavtedContent);                
                 var color = configs.Colors;
 
+                item.SetBuyType(configs.BuyType);
                 item.SetColor(Helpers.AlphaToMax(color));
                 item.SetColorAction(ColorSelectAction);
             }   

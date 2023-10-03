@@ -75,6 +75,7 @@ MonoBehaviour:
     - Sirenix.OdinInspector.Modules.UnityMathematics
     - Autodesk.Fbx.Editor
     - Lofelt.NiceVibrations.Editor
+    - GoogleMobileAds.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

@@ -13,4 +13,6 @@ public class EyeTextureParameters : IEyeItemParameters
 {
     [field: SerializeField] public int Index { get; set; }
     [field: SerializeField] public ShopItemState ItemState { get; set; }
+    [field: SerializeField] public BuyType BuyType { get; set; }
+    [field: SerializeField] public int PricePoint { get; set; }
 }

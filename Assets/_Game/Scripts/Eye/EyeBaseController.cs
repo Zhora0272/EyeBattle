@@ -4,6 +4,11 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
+public interface IEyebattleParameters
+{
+    public IReactiveProperty<int> KillCount { get; }
+    
+}
 public interface IEyeParameters
 {
     public IReactiveProperty<int> Mass { get; }
@@ -13,17 +18,22 @@ public interface IEyeParameters
     public Transform EyeTransform { get; }
 }
 
-public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters
+public abstract class EyeBaseController : CachedMonoBehaviour, IEyeParameters, IEyebattleParameters
 {
     [SerializeField] protected TextMeshProUGUI _forceText;
+    
+    //
     public IReactiveProperty<int> Mass => _hp;
     public IReactiveProperty<float> Speed => _speed;
     public float Force => Rb.mass * Rb.velocity.magnitude;
     public Vector3 Position => transform.position;
     public Transform EyeTransform => transform;
+    public IReactiveProperty<int> KillCount => _killCount;
+    //
 
     //readonly reactive properties
     private readonly ReactiveProperty<int> _hp = new(100);
+    private readonly ReactiveProperty<int> _killCount = new(0);
     private readonly ReactiveProperty<float> _speed = new(25);
     private readonly ReactiveProperty<float> _force = new();
     //

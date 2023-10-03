@@ -25,7 +25,7 @@ namespace Shop
         {
             for (int i = 0; i < 3; i++)
             {
-                var configs = _eyeSizeScriptable.SizeParamete[i];
+                var configs = _eyeSizeScriptable.SizeParameters[i];
                 var value = configs.EyeSize;
                 var item = Instantiate(_prefabRectTransform, _deactiavtedContent);
 
@@ -36,11 +36,12 @@ namespace Shop
                 item.SetValue(value);
             }
         
-            foreach (var configs in _eyeSizeScriptable.SizeParamete)
+            foreach (var configs in _eyeSizeScriptable.SizeParameters)
             {
-                var item = Instantiate(_prefabRectTransform, _actiavtedContent);                
+                var item = Instantiate(_prefabRectTransform, _actiavtedContent);
                 var value = configs.EyeSize;
-
+                
+                item.SetBuyType(configs.BuyType);
                 item.SetValue(value);
                 item.SetValueAction(SizeSelectAction);
             }   
