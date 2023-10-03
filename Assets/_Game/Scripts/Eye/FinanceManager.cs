@@ -15,19 +15,34 @@
 
         return 0;
     }
+
+    public bool TryBuy()
+    {
+        TryBuyWithAds();
+        return true;
+    }
     
-    public void TryBuyWithMoney()
+    private void TryBuyWithMoney()
     {
         
     }
 
-    public void TryBuyWithGem()
+    private void TryBuyWithGem()
     {
         
     }
 
-    public void TryBuyWithAds()
+    private bool TryBuyWithAds()
     {
-        
+        MainManager.GetManager<AdsManager>().TryStartAds(AdsType.RewardedAd, _ =>
+        {
+            print("call back");
+        }, reward =>
+        {
+            print(reward.Amount);
+            print(reward.Type);
+        });
+
+        return true;
     }
 }

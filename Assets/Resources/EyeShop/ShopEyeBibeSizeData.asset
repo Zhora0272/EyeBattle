@@ -12,32 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0029f9ac5daac7c4f9276acc0693688a, type: 3}
   m_Name: ShopEyeBibeSizeData
   m_EditorClassIdentifier: 
-  <SizeParamete>k__BackingField:
-  - <EyeSize>k__BackingField: 1.45
+  <SizeParameters>k__BackingField:
+  - <EyeSize>k__BackingField: 1
     <EyeSizeTexture>k__BackingField: {fileID: 0}
     <Index>k__BackingField: 0
     <ItemState>k__BackingField: 0
-  - <EyeSize>k__BackingField: 1.55
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 1
-    <ItemState>k__BackingField: 0
-  - <EyeSize>k__BackingField: 1.65
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 2
-    <ItemState>k__BackingField: 0
-  - <EyeSize>k__BackingField: 1.75
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 3
-    <ItemState>k__BackingField: 0
+    <PricePoint>k__BackingField: 0
+    <BuyType>k__BackingField: 0
   - <EyeSize>k__BackingField: 2
     <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 4
+    <Index>k__BackingField: 0
     <ItemState>k__BackingField: 0
+    <PricePoint>k__BackingField: 0
+    <BuyType>k__BackingField: 0
   - <EyeSize>k__BackingField: 3
     <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 5
+    <Index>k__BackingField: 0
     <ItemState>k__BackingField: 0
+    <PricePoint>k__BackingField: 0
+    <BuyType>k__BackingField: 0
   - <EyeSize>k__BackingField: 4
     <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 6
+    <Index>k__BackingField: 0
     <ItemState>k__BackingField: 0
+    <PricePoint>k__BackingField: 0
+    <BuyType>k__BackingField: 0

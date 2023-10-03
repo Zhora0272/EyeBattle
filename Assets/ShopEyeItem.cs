@@ -6,7 +6,6 @@ namespace Shop
 {
     public class ShopEyeItem : MonoBehaviour
     {
-        
         [SerializeField] private BuyType _buyType;
         
         [Header("Parameters")]
@@ -20,6 +19,11 @@ namespace Shop
 
         private int _adsCount = 10;
         private float _value;
+
+        private void Awake()
+        {
+            _selectButton.onClick.AddListener(TryBuy);
+        }
 
         internal void SetBuyType(BuyType type) => _buyType = type;
         internal void SetValue(float value) => _value = value; 
@@ -64,7 +68,7 @@ namespace Shop
         }
         private void TryBuy()
         {
-            
+            MainManager.GetManager<FinanceManager>().TryBuy();
         }
     }
 }

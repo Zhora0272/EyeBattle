@@ -27,6 +27,7 @@ public class AdsManager : MonoManager
 
     private bool LoadRewardedAd(Action<Reward> rewardAction)
     {
+        print("start load");
         if (_rewardedAd != null)
         {
             _rewardedAd.Destroy();
@@ -36,11 +37,15 @@ public class AdsManager : MonoManager
         var adRequest = new AdRequest();
         adRequest.Keywords.Add("shop-element-buy");
 
+        print("shop-element-buy");
+            
         RewardedAd.Load
         (GetAdsIdentifier(AdsType.RewardedInterstitial),
             adRequest, (ad, error) =>
             {
-                if (ad != null && error == null)
+                print("GetAdsIdentifier");
+                
+                if (ad == null || error != null)
                 {
                     Debug.LogWarning("reward ad error > " + error);
                     return;
@@ -53,8 +58,11 @@ public class AdsManager : MonoManager
     }
     private void EventRewardedAd(Action<Reward> rewardAction)
     {
+        print("EventRewardedAd");
+        
         if (_rewardedAd != null && _rewardedAd.CanShowAd())
         {
+            print("CanShowAd");
             _rewardedAd.Show(rewardAction);
         }   
     }
@@ -68,7 +76,7 @@ public class AdsManager : MonoManager
     {
         switch (type)
         {
-            case AdsType.RewardedInterstitial:
+            case AdsType.RewardedAd:
                 if (LoadRewardedAd(rewardValue)) EventRewardedAd(rewardValue);
                 break;
         }

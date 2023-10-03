@@ -12,40 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0029f9ac5daac7c4f9276acc0693688a, type: 3}
   m_Name: ShopEyeSizeData
   m_EditorClassIdentifier: 
-  <SizeParamete>k__BackingField:
-  - <EyeSize>k__BackingField: 0.5
+  <SizeParameters>k__BackingField:
+  - <EyeSize>k__BackingField: 1
     <EyeSizeTexture>k__BackingField: {fileID: 0}
     <Index>k__BackingField: 0
     <ItemState>k__BackingField: 0
-  - <EyeSize>k__BackingField: 0.6
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 1
-    <ItemState>k__BackingField: 0
-  - <EyeSize>k__BackingField: 0.7
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 2
-    <ItemState>k__BackingField: 0
-  - <EyeSize>k__BackingField: 1
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 3
-    <ItemState>k__BackingField: 0
-  - <EyeSize>k__BackingField: 1.5
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 4
-    <ItemState>k__BackingField: 0
-  - <EyeSize>k__BackingField: 1.9
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 5
-    <ItemState>k__BackingField: 0
+    <PricePoint>k__BackingField: 0
+    <BuyType>k__BackingField: 0
   - <EyeSize>k__BackingField: 2
     <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 6
+    <Index>k__BackingField: 0
     <ItemState>k__BackingField: 0
-  - <EyeSize>k__BackingField: 2.7
+    <PricePoint>k__BackingField: 0
+    <BuyType>k__BackingField: 0
+  - <EyeSize>k__BackingField: 3
     <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 7
+    <Index>k__BackingField: 0
     <ItemState>k__BackingField: 0
-  - <EyeSize>k__BackingField: 3.15
+    <PricePoint>k__BackingField: 0
+    <BuyType>k__BackingField: 0
+  - <EyeSize>k__BackingField: 4
     <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 8
+    <Index>k__BackingField: 0
     <ItemState>k__BackingField: 0
+    <PricePoint>k__BackingField: 0
+    <BuyType>k__BackingField: 0
