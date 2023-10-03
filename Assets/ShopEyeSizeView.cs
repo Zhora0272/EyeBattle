@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Shop
@@ -40,11 +41,12 @@ namespace Shop
                 var item = Instantiate(_prefabRectTransform, _actiavtedContent);                
                 var value = configs.EyeSize;
 
-                item.SetValueAction(ColorSelectAction);
+                item.SetValue(value);
+                item.SetValueAction(SizeSelectAction);
             }   
         }
         
-        private void ColorSelectAction(float value)
+        private void SizeSelectAction(float value)
         {
             EyeCustomizeModel item = null;
 
@@ -53,11 +55,11 @@ namespace Shop
                 case EyeSizeType.EyeSize:
                     item = new EyeCustomizeModel(eyeSize: value); 
                     break; 
-                /*case EyeSizeType.EyeBibeSize:
-                    item = new EyeCustomizeModel(eyeBackColor: color); 
-                    break;*/
+                case EyeSizeType.EyeBibeSize:
+                    item = new EyeCustomizeModel(eyeBibeSize: value); 
+                    break;
             }
-
+            
             _manager.CallBack.Value = item;
         }
     }

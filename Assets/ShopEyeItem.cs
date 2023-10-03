@@ -20,11 +20,7 @@ namespace Shop
         internal void SetColor(Color color) => _image.color = color;
         internal void SetTexture(Texture texture) => _image.texture = texture;
 
-        internal void SetRaycastState(bool state)
-        {
-            _buttonImage.raycastTarget = state;
-        }
-    
+        internal void SetRaycastState(bool state) =>  _buttonImage.raycastTarget = state;
         internal void SetColorAction(Action<Color> action)
         {
             _button.onClick.AddListener(() =>
@@ -32,7 +28,6 @@ namespace Shop
                 action.Invoke(_image.color);
             });
         }
-        
         internal void SetValueAction(Action<float> action)
         {
             _button.onClick.AddListener(() =>
@@ -40,7 +35,6 @@ namespace Shop
                 action.Invoke(_value);
             });
         }
-        
         internal void SetTextureAction(Action<Color> action)
         {
             _button.onClick.AddListener(() =>
@@ -48,7 +42,6 @@ namespace Shop
                 action.Invoke(_image.color);
             });
         }
-
         internal void SetState(ShopItemState state)
         {
             switch (state)

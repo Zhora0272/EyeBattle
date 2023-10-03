@@ -10,9 +10,9 @@ public class EyeCustomizeController : MonoBehaviour
     {
         var model = new EyeCustomizeModel();
         
-        model._eyeColor = Color.blue;
-        model._eyeBackColor = Color.red;
-        model._eyeSize = 2;
+        model._eyeColor = Color.green;
+        model._eyeBackColor = Color.white;
+        model._eyeSize = 1;
         
         _eyeMaterial = EyeShaderGraph.GetMaterial(model);
         _eyeMeshRenderer.material = _eyeMaterial;

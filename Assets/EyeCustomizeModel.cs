@@ -3,6 +3,7 @@
 public class EyeCustomizeModel
 {
     public float? _eyeSize;
+    public float? _eyeBibeSize;
     public int? _eyeType;
     public Color? _eyeColor;
     public Color? _eyeBackColor;
@@ -11,6 +12,7 @@ public class EyeCustomizeModel
 
     public EyeCustomizeModel
     (
+        float? eyeBibeSize = null,
         float? eyeSize = null,
         int? eyeType = null,
         Color? eyeColor = null,
@@ -19,6 +21,7 @@ public class EyeCustomizeModel
         GameObject eyeDecor = null
     )
     {
+        _eyeBibeSize = eyeBibeSize;
         _eyeSize = eyeSize;
         _eyeColor = eyeColor;
         _eyeType = eyeType;

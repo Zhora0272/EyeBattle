@@ -14,7 +14,7 @@ public class PlayerBattleParticipant : BaseBattleParticipant
         {
             if (value)
             {
-                UnRegister();
+                //UnRegister();
             }
         }).AddTo(this);
     }

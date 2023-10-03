@@ -31,15 +31,17 @@ public class EyeBotController : EyeBaseController
         if (_lastPosition != transform.position)
         {
             Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 3);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
             _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
         }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(Position, _model.AttackRadius);
+        if(_closestEyeElement == null) return;
+        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(_closestEyeElement.Position, 0.5f);
     }
 
     private void Start()

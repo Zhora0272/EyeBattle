@@ -4993,6 +4993,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a2dafa7352cba408206fe8917fa7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _registerState: 0
+  _canRegister: 1
   _eyeBaseController: {fileID: 767367345007416154}
 --- !u!114 &5037416915737377743
 MonoBehaviour:

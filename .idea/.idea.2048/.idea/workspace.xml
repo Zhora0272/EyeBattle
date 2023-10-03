@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBibeSizeData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBibeSizeData.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BaseBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BaseBattleParticipant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EyeCustomizeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EyeCustomizeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EyeShaderGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EyeShaderGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerBattleParticipant.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeSizeData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeSizeData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeSizeData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeSizeData.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShopEyeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShopEyeSizeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeSizeView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeTypeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeTypeView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeAlphaMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeAlphaMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeBot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Shop/ShopEyeSizeScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Shop/ShopEyeSizeScriptable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Upgrades/EyeMassUpgradeScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Upgrades/EyeMassUpgradeScriptable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +100,7 @@
       <workItem from="1695628938975" duration="12699000" />
       <workItem from="1695802851982" duration="5120000" />
       <workItem from="1695882860758" duration="19098000" />
-      <workItem from="1696233391114" duration="628000" />
+      <workItem from="1696233391114" duration="9773000" />
     </task>
     <servers />
   </component>
