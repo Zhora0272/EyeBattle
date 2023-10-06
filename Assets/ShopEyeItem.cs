@@ -9,8 +9,8 @@ namespace Shop
     {
         [SerializeField] private BuyType _buyType;
 
-        [Header("Parameters")] [SerializeField]
-        private Button _selectButton;
+        [Header("Parameters")] 
+        [SerializeField] private Button _selectButton;
 
         [SerializeField] private Image _buttonImage;
         [SerializeField] private RawImage _previewImage;
@@ -18,12 +18,15 @@ namespace Shop
 
         [Header("Item_State")] 
         [SerializeField] private GameObject _selectedState;
-
         [SerializeField] private GameObject _buyState;
+
+        [SerializeField] private GameObject _itemElements;
 
         private FinanceManager _financeManager;
 
         private int _pricePoint;
+        
+        //item data variables
         private float _value;
 
         private void Awake()
@@ -65,21 +68,19 @@ namespace Shop
         internal void SetTexture(Texture texture) => _previewImage.texture = texture;
         internal void SetRaycastState(bool state) => _buttonImage.raycastTarget = state;
 
+        #region SetConfigurations
         internal void SetColorAction(Action<Color> action)
         {
             _selectButton.onClick.AddListener(() => { action.Invoke(_previewImage.color); });
         }
-
         internal void SetValueAction(Action<float> action)
         {
             _selectButton.onClick.AddListener(() => { action.Invoke(_value); });
         }
-
         internal void SetTextureAction(Action<Color> action)
         {
             _selectButton.onClick.AddListener(() => { action.Invoke(_previewImage.color); });
         }
-
         internal void SetState(ShopItemState state)
         {
             switch (state)
@@ -97,6 +98,12 @@ namespace Shop
                     _buyState.SetActive(false);
                     break;
             }
+        }
+        #endregion
+
+        internal void HideItemElements()
+        {
+            _itemElements.SetActive(false);
         }
 
         private void BuyAction()

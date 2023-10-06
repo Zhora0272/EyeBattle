@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro _timerText;
+    [SerializeField] private TextMeshProUGUI _timerText;
 
     private IDisposable _timerDisposable;
 
@@ -17,15 +17,32 @@ public class GameSettings : MonoBehaviour
 
         MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, GameStartDisposableEvents);
         MainManager.GetManager<UIManager>()
-            .SubscribeToPageDeactivate(UIPageType.InGame, () => { _timerDisposable.Dispose(); });
+            .SubscribeToPageDeactivate(UIPageType.InGame, () => { _timerDisposable?.Dispose(); });
     }
 
     private void GameStartDisposableEvents()
     {
-        _timerDisposable = Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+        StartTimer();
+    }
+
+    private void StartTimer()
+    {
+        var startTime = DateTime.Now;
+
+        _timerDisposable = Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
         {
-            _timerValue++;
-            _timerText.text = _timerValue.ToString();
+            var calculationTime = DateTime.Now - startTime;
+            
+            var dateTime = new DateTime(
+                startTime.Year,
+                startTime.Month,
+                startTime.Day,
+                startTime.Hour,
+                calculationTime.Minutes,
+                calculationTime.Seconds);
+
+            _timerText.text = dateTime.ToString("mm:ss");
+
         }).AddTo(this);
     }
 

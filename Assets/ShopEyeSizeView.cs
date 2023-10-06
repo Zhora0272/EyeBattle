@@ -31,6 +31,7 @@ namespace Shop
 
                 //
                 item.SetRaycastState(false);
+                item.HideItemElements();
                 item.SetValue(value);
                 //
                 

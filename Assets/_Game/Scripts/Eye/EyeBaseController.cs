@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,18 +21,23 @@ public abstract class  EyeBaseController : CachedMonoBehaviour, IEyeParameters, 
     private readonly ReactiveProperty<float> _force = new();
     //
 
-    [Space] [SerializeField] protected BrokenEyePartsController _brokenEyePartsController;
+    [Space]
+    [SerializeField] protected BrokenEyePartsController _brokenEyePartsController;
     [SerializeField] protected BrokenEyeCollection _brokenEyeCollector;
     [SerializeField] protected Rigidbody Rb;
-    [Space] [SerializeField] protected Material _material;
+    [Space] 
+    [SerializeField] protected Material _material;
     [SerializeField] protected GameObject _meshRenderer;
+    [SerializeField] protected Transform _eyeModelTransform;
     [SerializeField] protected SphereCollider _sphereCollider;
-    [Space] [SerializeField] protected Image _loadbar;
+    [Space]
+    [SerializeField] protected Image _loadbar;
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
     [field: SerializeField] public ReactiveProperty<bool> IsDeath { protected set; get; }
 
     protected Vector3 _moveDirection;
+    protected Vector3 _lastPosition;
 
     #region UnityEvents
 
@@ -59,6 +63,13 @@ public abstract class  EyeBaseController : CachedMonoBehaviour, IEyeParameters, 
     {
         Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.deltaTime);
         Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.deltaTime);
+        
+        if (_lastPosition != transform.position)
+        {
+            Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
+            _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
+        }
     }
 
     protected virtual void FixedUpdate()

@@ -6,7 +6,6 @@ using Random = UnityEngine.Random;
 public class EyeBotController : EyeBaseController
 {
     [SerializeField] private BotBattleParticipant _battleParticipant;
-    [SerializeField] private Transform _eyeModelTransform;
     [Space] [SerializeField] private BotBehaviourModel _model;
 
     private IBotMonoBehaviour _botBehaviour;
@@ -15,25 +14,12 @@ public class EyeBotController : EyeBaseController
     private Vector3 _closestEnemyPosition;
     private IEyeParameters _closestEyeElement;
 
-    private Vector3 _lastPosition;
     private Vector3 _currentMoveDirection;
 
     private void Awake()
     {
         _moveableRigidbody = new MoveWithRbAddForce();
         _botBehaviour = new BotMiddleBehaviour(_model);
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-
-        if (_lastPosition != transform.position)
-        {
-            Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
-            _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
-        }
     }
 
     private void OnDrawGizmos()

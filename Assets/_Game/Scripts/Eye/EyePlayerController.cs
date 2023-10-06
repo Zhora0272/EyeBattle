@@ -6,7 +6,6 @@ using UnityEngine;
 public class EyePlayerController : EyeBaseController
 {
     [SerializeField] private InputController _inputController;
-    [SerializeField] private Transform _eyeModelTransform;
 
     private IDisposable _updateDisposable;
     private IDisposable _pointerUpDisposable;
@@ -28,7 +27,10 @@ public class EyePlayerController : EyeBaseController
         base.Start();
 
         //joystick update subscribe
-        _inputController.RegisterJoysticData(data => { _moveDirection = data; });
+        _inputController.RegisterJoysticData(data =>
+        {
+            _moveDirection = data;
+        });
 
         _inputController.PointerDownStream.Subscribe(_ =>
         {
@@ -46,7 +48,6 @@ public class EyePlayerController : EyeBaseController
                     Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
                     transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 4);
                 }
-
                 _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
                 
             }).AddTo(this);

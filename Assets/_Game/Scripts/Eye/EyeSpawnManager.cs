@@ -32,6 +32,8 @@ public class EyeSpawnManager : MonoManager
 
     private void SpawnEnemies()
     {
+        print("spawn enemies");
+        
         _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(3)).Subscribe(_ =>
         {
             var position = _playerTransform.transform.position;

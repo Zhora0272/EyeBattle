@@ -17,44 +17,44 @@ MonoBehaviour:
     <Index>k__BackingField: 9
     <ItemState>k__BackingField: 2
     <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 5
+    <PricePoint>k__BackingField: 1000
   - <Colors>k__BackingField: {r: 0.25973654, g: 0.42482075, b: 0.7169812, a: 0}
     <Index>k__BackingField: 5
     <ItemState>k__BackingField: 0
     <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 10
+    <PricePoint>k__BackingField: 1000
   - <Colors>k__BackingField: {r: 0.54220366, g: 0.7830189, b: 0.6030721, a: 0}
     <Index>k__BackingField: 8
     <ItemState>k__BackingField: 0
     <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 15
+    <PricePoint>k__BackingField: 1000
   - <Colors>k__BackingField: {r: 0.22442149, g: 0.6037736, b: 0.59977895, a: 0}
     <Index>k__BackingField: 6
     <ItemState>k__BackingField: 0
     <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 20
+    <PricePoint>k__BackingField: 1000
   - <Colors>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
     <Index>k__BackingField: 2
     <ItemState>k__BackingField: 0
     <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 25
+    <PricePoint>k__BackingField: 1000
   - <Colors>k__BackingField: {r: 0, g: 1, b: 0, a: 0}
     <Index>k__BackingField: 3
     <ItemState>k__BackingField: 0
     <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 30
+    <PricePoint>k__BackingField: 1000
   - <Colors>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
     <Index>k__BackingField: 1
     <ItemState>k__BackingField: 0
     <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 35
+    <PricePoint>k__BackingField: 1000
   - <Colors>k__BackingField: {r: 1, g: 0.53333336, b: 0, a: 1}
     <Index>k__BackingField: 4
     <ItemState>k__BackingField: 0
     <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 40
+    <PricePoint>k__BackingField: 1000
   - <Colors>k__BackingField: {r: 0.7169812, g: 0.09740117, b: 0.5263292, a: 0}
     <Index>k__BackingField: 7
     <ItemState>k__BackingField: 0
     <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 45
+    <PricePoint>k__BackingField: 1000
