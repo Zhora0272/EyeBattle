@@ -18,13 +18,13 @@ MonoBehaviour:
     <Index>k__BackingField: 0
     <ItemState>k__BackingField: 0
     <PricePoint>k__BackingField: 0
-    <BuyType>k__BackingField: 0
+    <BuyType>k__BackingField: 2
   - <EyeSize>k__BackingField: 2
     <EyeSizeTexture>k__BackingField: {fileID: 0}
     <Index>k__BackingField: 0
     <ItemState>k__BackingField: 0
     <PricePoint>k__BackingField: 0
-    <BuyType>k__BackingField: 0
+    <BuyType>k__BackingField: 2
   - <EyeSize>k__BackingField: 3
     <EyeSizeTexture>k__BackingField: {fileID: 0}
     <Index>k__BackingField: 0

@@ -29,11 +29,12 @@ namespace Shop
                 var value = configs.EyeSize;
                 var item = Instantiate(_prefabRectTransform, _deactiavtedContent);
 
+                //
                 item.SetRaycastState(false);
-
-                _shopEyeItems.Add(item);
-                
                 item.SetValue(value);
+                //
+                
+                _shopEyeItems.Add(item);
             }
         
             foreach (var configs in _eyeSizeScriptable.SizeParameters)
@@ -41,9 +42,11 @@ namespace Shop
                 var item = Instantiate(_prefabRectTransform, _actiavtedContent);
                 var value = configs.EyeSize;
                 
-                item.SetBuyType(configs.BuyType);
+                //
+                item.SetBuyParameters(configs.BuyType, configs.PricePoint);
                 item.SetValue(value);
                 item.SetValueAction(SizeSelectAction);
+                //
             }   
         }
         

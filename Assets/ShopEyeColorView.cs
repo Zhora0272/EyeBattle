@@ -10,14 +10,12 @@ namespace Shop
             EyeBack,
         }
 
-        [Header("Data")]
-        [SerializeField] private ShopEyeColorScriptable _eyeColorScriptable;
+        [Header("Data")] [SerializeField] private ShopEyeColorScriptable _eyeColorScriptable;
 
         [SerializeField] private EyeColorType _eyeColorType;
-        
+
         protected override void InitData(int[] saveIndex)
         {
-            
         }
 
         protected override void Init()
@@ -31,19 +29,19 @@ namespace Shop
                 item.SetRaycastState(false);
 
                 _shopEyeItems.Add(item);
-                
+
                 item.SetColor(Helpers.AlphaToMax(color));
             }
-        
+
             foreach (var configs in _eyeColorScriptable.Colors)
             {
-                var item = Instantiate(_prefabRectTransform, _actiavtedContent);                
+                var item = Instantiate(_prefabRectTransform, _actiavtedContent);
                 var color = configs.Colors;
 
-                item.SetBuyType(configs.BuyType);
+                item.SetBuyParameters(configs.BuyType, configs.PricePoint);
                 item.SetColor(Helpers.AlphaToMax(color));
                 item.SetColorAction(ColorSelectAction);
-            }   
+            }
         }
 
         private void ColorSelectAction(Color color)
@@ -53,10 +51,10 @@ namespace Shop
             switch (_eyeColorType)
             {
                 case EyeColorType.EyeFront:
-                    item = new EyeCustomizeModel(eyeColor: color); 
-                    break; 
+                    item = new EyeCustomizeModel(eyeColor: color);
+                    break;
                 case EyeColorType.EyeBack:
-                    item = new EyeCustomizeModel(eyeBackColor: color); 
+                    item = new EyeCustomizeModel(eyeBackColor: color);
                     break;
             }
 

@@ -1,6 +1,15 @@
-﻿public class FinanceManager : MonoManager
+﻿using System;
+using UniRx;
+
+public class FinanceManager : MonoManager
 {
-    private int ConvertPricePointTo(BuyType type, int value)
+    private IReactiveProperty<int> Money;
+    private IReactiveProperty<int> Gem;
+
+    private readonly ReactiveProperty<int> _money = new();
+    private readonly ReactiveProperty<int> _gem = new();
+
+    public int ConvertPricePointTo(BuyType type, int value)
     {
         int toMoneyCoefficient = 2;
         int toGemCoefficient = 15;
@@ -8,41 +17,67 @@
 
         switch (type)
         {
-            case BuyType.Money : return value / toMoneyCoefficient;
-            case BuyType.Gem : return value / toGemCoefficient;
-            case BuyType.Ads : return value / toAdsCoefficient;
+            case BuyType.Money: return value / toMoneyCoefficient;
+            case BuyType.Gem: return value / toGemCoefficient;
+            case BuyType.Ads:
+            {
+                float adsCoefficient = (float) value / toAdsCoefficient;
+
+                if (adsCoefficient > 0.5f) adsCoefficient = 1;
+
+                return (int) adsCoefficient;
+            }
         }
 
-        return 0;
+        return default;
     }
 
-    public bool TryBuy()
+    public void TryBuy(BuyType type, int price, Action<bool> responseCallBack)
     {
-        TryBuyWithAds();
-        return true;
-    }
-    
-    private void TryBuyWithMoney()
-    {
-        
-    }
-
-    private void TryBuyWithGem()
-    {
-        
-    }
-
-    private bool TryBuyWithAds()
-    {
-        MainManager.GetManager<AdsManager>().TryStartAds(AdsType.RewardedAd, _ =>
+        switch (type)
         {
-            print("call back");
-        }, reward =>
-        {
-            print(reward.Amount);
-            print(reward.Type);
-        });
+            case BuyType.Ads:
+                TryBuyWithAds(responseCallBack);
+                break;
+            case BuyType.Money:
+                TryBuyWithMoney(price, responseCallBack);
+                break;
+            case BuyType.Gem:
+                TryBuyWithGem(price, responseCallBack);
+                break;
+        }
+    }
 
-        return true;
+    private void TryBuyWithMoney(int price, Action<bool> responseCallBack)
+    {
+        TryBuyWithFinance(_money, price, responseCallBack);
+    }
+
+    private void TryBuyWithGem(int price, Action<bool> responseCallBack)
+    {
+        TryBuyWithFinance(_gem, price, responseCallBack);
+    }
+
+    private void TryBuyWithFinance(ReactiveProperty<int> finance, int price, Action<bool> responseCallBack)
+    {
+        bool haveNeedFinance = finance.Value >= price;
+
+        if (haveNeedFinance)
+        {
+            finance.Value -= price;
+        }
+
+        responseCallBack.Invoke(haveNeedFinance);
+    }
+
+    private void TryBuyWithAds(Action<bool> responseCallBack)
+    {
+        bool adsFinishState = false;
+
+        MainManager.GetManager<AdsManager>().TryStartAds(AdsType.RewardedAd,
+            reward =>
+            {
+                adsFinishState = true;
+            });
     }
 }

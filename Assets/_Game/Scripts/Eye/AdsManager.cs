@@ -70,7 +70,6 @@ public class AdsManager : MonoManager
     public bool TryStartAds
     (
         AdsType type,
-        Action<bool> adsWatchedCallBack,
         Action<Reward> rewardValue = null
     )
     {
