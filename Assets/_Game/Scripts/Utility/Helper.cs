@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using Random = UnityEngine.Random;
 
-public static class Helpers
+public static class Helper
 {
     public static Vector3 GetRandomPosition(float min, float max)
     {

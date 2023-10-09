@@ -55,7 +55,7 @@ public class EyeBotController : EyeBaseController
         switch (state)
         {
             case BotState.RandomWalk:
-                _moveDirection = (Helpers.GetRandomPosition(-1f, 1f) * 10).normalized;
+                _moveDirection = (Helper.GetRandomPosition(-1f, 1f) * 10).normalized;
                 break;
             case BotState.Idle:
                 _moveDirection = Vector3.zero;

@@ -7,7 +7,6 @@ public class EyePlayerController : EyeBaseController
 {
     [SerializeField] private InputController _inputController;
 
-    private IDisposable _updateDisposable;
     private IDisposable _pointerUpDisposable;
 
     private Vector3 _lastPosition;
@@ -40,17 +39,7 @@ public class EyePlayerController : EyeBaseController
 
             _handlerState = true;
             //
-
-            _updateDisposable = Observable.EveryUpdate().Subscribe(_ =>
-            {
-                if ((transform.position - _lastPosition) != Vector3.zero)
-                {
-                    Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
-                    transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 4);
-                }
-                _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
-                
-            }).AddTo(this);
+            
         }).AddTo(this);
 
 
@@ -60,7 +49,6 @@ public class EyePlayerController : EyeBaseController
 
             _moveDirection = Vector2.zero;
             _pointerUpDisposable?.Dispose();
-            _updateDisposable.Dispose();
             _eyeModelTransform.DOKill();
 
             _pointerUpDisposable = Observable.Timer(TimeSpan.FromSeconds(0.5f)).Subscribe(_ =>

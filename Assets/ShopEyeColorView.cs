@@ -27,7 +27,7 @@ namespace Shop
                 //
                 item.SetRaycastState(false);
                 item.HideItemElements();
-                item.SetColor(Helpers.AlphaToMax(color));
+                item.SetColor(Helper.AlphaToMax(color));
                 //
                 
                 _shopEyeItems.Add(item);
@@ -39,7 +39,7 @@ namespace Shop
                 var color = configs.Colors;
 
                 item.SetBuyParameters(configs.BuyType, configs.PricePoint);
-                item.SetColor(Helpers.AlphaToMax(color));
+                item.SetColor(Helper.AlphaToMax(color));
                 item.SetColorAction(ColorSelectAction);
             }
         }
