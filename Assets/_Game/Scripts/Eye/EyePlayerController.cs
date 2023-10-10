@@ -8,8 +8,6 @@ public class EyePlayerController : EyeBaseController
     [SerializeField] private InputController _inputController;
 
     private IDisposable _pointerUpDisposable;
-
-    private Vector3 _lastPosition;
     private bool _handlerState;
 
     private IMoveableRigidbody _moveableRigidbody;
@@ -28,14 +26,14 @@ public class EyePlayerController : EyeBaseController
         //joystick update subscribe
         _inputController.RegisterJoysticData(data =>
         {
-            _moveDirection = data;
+            moveDirection = data;
         });
 
         _inputController.PointerDownStream.Subscribe(_ =>
         {
             //
             _eyeModelTransform.DOKill();
-            _moveDirection = Vector2.zero;
+            moveDirection = Vector2.zero;
 
             _handlerState = true;
             //
@@ -47,7 +45,7 @@ public class EyePlayerController : EyeBaseController
         {
             _handlerState = false;
 
-            _moveDirection = Vector2.zero;
+            moveDirection = Vector2.zero;
             _pointerUpDisposable?.Dispose();
             _eyeModelTransform.DOKill();
 
@@ -66,9 +64,7 @@ public class EyePlayerController : EyeBaseController
 
     protected override void Move()
     {
-        _lastPosition = transform.position;
-
-        _moveableRigidbody.Move(Rb, _moveDirection, 0.5f);
+        _moveableRigidbody.Move(Rb, moveDirection, 0.5f);
     }
 
     // random look position after any time idle standing 

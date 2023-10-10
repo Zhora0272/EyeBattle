@@ -36,8 +36,8 @@ public abstract class  EyeBaseController : CachedMonoBehaviour, IEyeParameters, 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
     [field: SerializeField] public ReactiveProperty<bool> IsDeath { protected set; get; }
 
-    protected Vector3 _moveDirection;
-    protected Vector3 _lastPosition;
+    protected Vector3 moveDirection;
+    protected Vector3 lastPosition;
 
     #region UnityEvents
 
@@ -64,9 +64,9 @@ public abstract class  EyeBaseController : CachedMonoBehaviour, IEyeParameters, 
         Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.deltaTime);
         Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.deltaTime);
         
-        if (_lastPosition != transform.position)
+        if ((lastPosition - transform.position).magnitude != 0)
         {
-            Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
+            Quaternion rotation = Quaternion.LookRotation(transform.position - lastPosition, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
             _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
         }
@@ -74,6 +74,7 @@ public abstract class  EyeBaseController : CachedMonoBehaviour, IEyeParameters, 
 
     protected virtual void FixedUpdate()
     {
+        lastPosition = transform.position;
         Move();
     }
 

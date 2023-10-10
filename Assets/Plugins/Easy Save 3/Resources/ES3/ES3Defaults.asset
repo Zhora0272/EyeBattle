@@ -63,6 +63,7 @@ MonoBehaviour:
     - PsdPlugin
     - StompyRobot.SRF.Editor
     - Tayx.Graphy.Editor
+    - PPv2URPConverters
     - StompyRobot.SRDebugger.Editor
     - InjectionFrameworkEditModeTests
     - ToolbarExtender.Editor

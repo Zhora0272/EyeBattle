@@ -25,7 +25,7 @@ public static class EyeShaderGraph
     private static Material ChangeParameters(EyeCustomizeModel model, Material material)
     {
         if (model._eyeSize != null) material.SetFloat("_EyeSize", (float) model._eyeSize);
-        if (model._eyeBibeSize != null) material.SetFloat("_BibeSize", (float) model._eyeBibeSize);
+        if (model._eyeBibeSize != null) material.SetFloat("_EyeBibeSize", (float) model._eyeBibeSize);
         if (model._eyeType != null) material.SetInt("_EyeType", (int) model._eyeType);
         if (model._eyeColor != null) material.SetColor("_EyeColor", (Color) model._eyeColor);
         if (model._eyeBackColor != null) material.SetColor("_EyeBackColor", (Color) model._eyeBackColor);

@@ -1,90 +1,101 @@
 using UnityEngine;
-using System;
-using UniRx;
 
 public class SaveSystem : MonoManager
 {
-    [SerializeField] private SettingsView _settingsView;
-    private FinanceManager _financeManager;
+    [SerializeField] private EyeCustomizeController _eyeCustomizeController;
 
-    private GameData _data;
-
-    private int _openLevelCount;
     private JsonHelper _dataSave;
 
+    #region ISaveable
+
+    private ISaveable _financeManagerSaveable;
+    private ISaveable _eyeCustomizeSaveable;
+
+    #endregion
+
+    #region GameData
+
+    private GameData _financeData;
+    private GameData _eyeCustomizeData;
+
+    #endregion
+
+    private GameData _gameData;
 
     protected override void Awake()
     {
         base.Awake();
-        _dataSave = new JsonHelper();
         
-        Observable.Interval(TimeSpan.FromSeconds(30)).Subscribe(_ =>
-        {
-#if !UNITY_EDITOR
-         var tutorialState = PlayerPrefs.GetInt(PlayerPrefsEnum.TutorialState.ToString());
-         if (tutorialState == 1)
-         {
-             SaveData();
-         }
-#else
-            SaveData();
-#endif
-        });
+        _dataSave = new JsonHelper();
     }
 
-    public void TrySave()
-    {
-        SaveData();
-    }
-    
     private void Start()
     {
-        _financeManager = MainManager.GetManager<FinanceManager>();
+        Init();
+        InitData();
+        SetData();
+    }
 
+    private void Init()
+    {
+        //init saveable
+        _financeManagerSaveable = MainManager.GetManager<FinanceManager>();
+        _eyeCustomizeSaveable = _eyeCustomizeController;
 
+        //get data
+        _financeData = _financeManagerSaveable.GetData();
+        _eyeCustomizeData = _eyeCustomizeSaveable.GetData();
+    }
+
+    private void InitData()
+    {
         if (!_dataSave.ExistData())
         {
-            var data = new GameData();
+            var data = new GameData
+            {
+                Money = 100,
+                Gem = 15,
+                
+                EyeConfigModel = new EyeCustomizeModel()
+                {
+                    _eyeSize = 3.37f,
+                    _eyeBibeSize = 2.24f,
+                    _eyeColor = new Color(208, 255, 0),
+                    _eyeBackColor = new Color(44, 164, 166),
+                }
+            };
 
             _dataSave.SaveData(data);
         }
 
-        _data = _dataSave.GetData();
-        
+        _gameData = _dataSave.GetData();
     }
 
+    private void SetData()
+    {
+        _financeData.Money = _gameData.Money;
+        _financeData.Gem = _gameData.Gem;
+        _eyeCustomizeData.EyeConfigModel = _gameData.EyeConfigModel;
+
+        _financeManagerSaveable.SetData(_financeData);
+        _eyeCustomizeSaveable.SetData(_eyeCustomizeData);
+    }
 
     private void OnDestroy()
     {
-#if !UNITY_EDITOR
-         var tutorialState = PlayerPrefs.GetInt(PlayerPrefsEnum.TutorialState.ToString());
-         if (tutorialState == 1)
-         {
-             SaveData();
-         }
-#else
         SaveData();
-#endif
     }
 
     private void OnApplicationFocus(bool state)
     {
-#if !UNITY_EDITOR
-        var tutorialState = PlayerPrefs.GetInt(PlayerPrefsEnum.TutorialState.ToString());
-        if (Time.time > 5 && tutorialState == 1)
-        {
-            SaveData();
-        }
-#else
         if (Time.time > 5)
         {
             SaveData();
         }
-#endif
     }
 
     private void SaveData()
     {
-        _dataSave.SaveData(_data);
+        _dataSave.SaveData(_gameData);
     }
 }

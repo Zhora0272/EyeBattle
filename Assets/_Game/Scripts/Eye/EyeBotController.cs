@@ -55,27 +55,25 @@ public class EyeBotController : EyeBaseController
         switch (state)
         {
             case BotState.RandomWalk:
-                _moveDirection = (Helper.GetRandomPosition(-1f, 1f) * 10).normalized;
+                moveDirection = (Helper.GetRandomPosition(-1f, 1f) * 10).normalized;
                 break;
             case BotState.Idle:
-                _moveDirection = Vector3.zero;
+                moveDirection = Vector3.zero;
                 break;
             case BotState.GoAwayFromEnemy:
-                _moveDirection = transform.position - _closestEnemyPosition;
+                moveDirection = transform.position - _closestEnemyPosition;
                 break;
             case BotState.Attack:
-                _moveDirection = _closestEnemyPosition - transform.position;
+                moveDirection = _closestEnemyPosition - transform.position;
                 break;
         }
     }
 
     protected override void Move()
     {
-        _lastPosition = transform.position;
-
         _currentMoveDirection = Vector3.Lerp(
             _currentMoveDirection,
-            _moveDirection,
+            moveDirection,
             Time.deltaTime);
 
         _moveableRigidbody.Move(Rb,
