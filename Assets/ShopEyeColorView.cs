@@ -10,8 +10,8 @@ namespace Shop
             EyeBack,
         }
 
-        [Header("Data")] [SerializeField] private ShopEyeColorScriptable _eyeColorScriptable;
-
+        [Header("Data")] 
+        [SerializeField] private ShopEyeColorScriptable _eyeColorScriptable;
         [SerializeField] private EyeColorType _eyeColorType;
 
         protected override void InitData(int[] saveIndex) { }
@@ -21,7 +21,7 @@ namespace Shop
             for (int i = 0; i < 3; i++)
             {
                 var configs = _eyeColorScriptable.Colors[i];
-                var color = configs.Colors;
+                var color = configs.Color;
                 var item = Instantiate(_prefabRectTransform, _deactiavtedContent);
 
                 //
@@ -36,7 +36,7 @@ namespace Shop
             foreach (var configs in _eyeColorScriptable.Colors)
             {
                 var item = Instantiate(_prefabRectTransform, _actiavtedContent);
-                var color = configs.Colors;
+                var color = configs.Color;
 
                 item.SetBuyParameters(configs.BuyType, configs.PricePoint);
                 item.SetColor(Helper.AlphaToMax(color));
@@ -44,17 +44,17 @@ namespace Shop
             }
         }
 
-        private void ColorSelectAction(Color color)
+        private void ColorSelectAction(int index)
         {
             EyeCustomizeModel item = null;
 
             switch (_eyeColorType)
             {
                 case EyeColorType.EyeFront:
-                    item = new EyeCustomizeModel(eyeColor: color);
+                    item = new EyeCustomizeModel(eyeColor: index);
                     break;
                 case EyeColorType.EyeBack:
-                    item = new EyeCustomizeModel(eyeBackColor: color);
+                    item = new EyeCustomizeModel(eyeBackColor: index);
                     break;
             }
 

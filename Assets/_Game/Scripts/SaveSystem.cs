@@ -60,8 +60,8 @@ public class SaveSystem : MonoManager
                 {
                     _eyeSize = 3.37f,
                     _eyeBibeSize = 2.24f,
-                    _eyeColor = new Color(208, 255, 0),
-                    _eyeBackColor = new Color(44, 164, 166),
+                    _eyeColor = 1,
+                    _eyeBackColor = 2,
                 }
             };
 

@@ -48,6 +48,6 @@ public class GameSettings : MonoBehaviour
 
     private void ApplicationSettings()
     {
-        Application.targetFrameRate = 45;
+        Application.targetFrameRate = 60;
     }
 }

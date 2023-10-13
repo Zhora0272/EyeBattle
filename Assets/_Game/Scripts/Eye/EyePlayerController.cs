@@ -8,9 +8,12 @@ public class EyePlayerController : EyeBaseController
     [SerializeField] private InputController _inputController;
 
     private IDisposable _pointerUpDisposable;
-    private bool _handlerState;
 
     private IMoveableRigidbody _moveableRigidbody;
+    
+    private bool _handlerState;
+
+    private IDisposable _rotateUpdateDisposable;
 
     private void Awake()
     {
@@ -44,12 +47,12 @@ public class EyePlayerController : EyeBaseController
         _inputController.PointerUpStream.Subscribe(_ =>
         {
             _handlerState = false;
-
+            
             moveDirection = Vector2.zero;
+            
             _pointerUpDisposable?.Dispose();
-            _eyeModelTransform.DOKill();
-
-            _pointerUpDisposable = Observable.Timer(TimeSpan.FromSeconds(0.5f)).Subscribe(_ =>
+            
+            _pointerUpDisposable = Observable.Timer(TimeSpan.FromSeconds(2)).Subscribe(_ =>
             {
                 if (!_handlerState)
                 {

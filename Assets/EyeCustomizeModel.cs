@@ -1,26 +1,25 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 
 [Serializable]
 public class EyeCustomizeModel
 {
-    public float? _eyeSize;
-    public float? _eyeBibeSize;
-    public int? _eyeType;
-    public Color? _eyeColor;
-    public Color? _eyeBackColor;
-    public Texture _eyeTexture;
-    public GameObject _eyeDecor;
+    public float _eyeSize;
+    public float _eyeBibeSize;
+    public int _eyeType;
+    public int _eyeColor;
+    public int _eyeBackColor;
+    public int _eyeTexture;
+    public int _eyeDecor;
 
     public EyeCustomizeModel
     (
-        float? eyeBibeSize = null,
-        float? eyeSize = null,
-        int? eyeType = null,
-        Color? eyeColor = null,
-        Color? eyeBackColor = null,
-        Texture eyeTexture = null,
-        GameObject eyeDecor = null
+        float eyeBibeSize = -1,
+        float eyeSize = -1,
+        int eyeType = -1,
+        int eyeColor = -1,
+        int eyeBackColor = -1,
+        int eyeTexture = -1,
+        int eyeDecor = -1
     )
     {
         _eyeBibeSize = eyeBibeSize;

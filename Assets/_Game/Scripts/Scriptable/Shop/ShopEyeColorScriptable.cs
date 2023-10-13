@@ -13,7 +13,7 @@ namespace Shop
     [Serializable]
     public class EyeColorParameters : IEyeItemParameters
     {
-        [field: SerializeField] public Color Colors { get; private set; }
+        [field: SerializeField] public Color Color { get; private set; }
         [field: SerializeField] public int Index { get; set; }
         [field: SerializeField] public ShopItemState ItemState { get; set; }
         [field: SerializeField] public BuyType BuyType { get; set; }

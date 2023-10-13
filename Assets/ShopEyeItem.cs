@@ -23,8 +23,11 @@ namespace Shop
         [SerializeField] private GameObject _itemElements;
 
         private FinanceManager _financeManager;
+        private DataManager _dataManager; 
 
         private int _pricePoint;
+
+        private int _colorIndex;
         
         //item data variables
         private float _value;
@@ -37,6 +40,7 @@ namespace Shop
         private void Start()
         {
             _financeManager = MainManager.GetManager<FinanceManager>();
+            _dataManager = MainManager.GetManager<DataManager>();
         }
 
         internal void SetBuyParameters(BuyType type, int pricePoint)
@@ -69,9 +73,12 @@ namespace Shop
         internal void SetRaycastState(bool state) => _buttonImage.raycastTarget = state;
 
         #region SetConfigurations
-        internal void SetColorAction(Action<Color> action)
+        internal void SetColorAction(Action<int> action)
         {
-            _selectButton.onClick.AddListener(() => { action.Invoke(_previewImage.color); });
+            _selectButton.onClick.AddListener(() =>
+            {
+                action.Invoke(_colorIndex);
+            });
         }
         internal void SetValueAction(Action<float> action)
         {

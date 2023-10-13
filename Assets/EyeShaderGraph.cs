@@ -2,12 +2,16 @@
 
 public static class EyeShaderGraph
 {
-    /// <summary>
-    /// this method get EyeCustomizeModel parameters
-    /// </summary>
-    /// <param name="model"></param> model its a materials parameters
-    /// <returns></returns>
-    public static Material GetMaterial(EyeCustomizeModel model)
+    private static DataManager _data;
+    static EyeShaderGraph()
+    {
+        _data = MainManager.GetManager<DataManager>();
+    }
+    
+    public static Material GetMaterial
+    (
+        EyeCustomizeModel model
+    )
     {
         var shader = Shader.Find("Shader Graphs/EyeShaderGraph");
         var material = new Material(shader);
@@ -17,20 +21,27 @@ public static class EyeShaderGraph
         return material;
     }
 
-    public static Material ChangeMaterial(EyeCustomizeModel model, Material oldMaterial)
+    public static Material ChangeMaterial(
+        EyeCustomizeModel model,
+        Material oldMaterial
+    )
     {
         return ChangeParameters(model, oldMaterial);
     }
 
-    private static Material ChangeParameters(EyeCustomizeModel model, Material material)
+    private static Material ChangeParameters
+    (
+        EyeCustomizeModel model,
+        Material material
+    )
     {
-        if (model._eyeSize != null) material.SetFloat("_EyeSize", (float) model._eyeSize);
-        if (model._eyeBibeSize != null) material.SetFloat("_EyeBibeSize", (float) model._eyeBibeSize);
-        if (model._eyeType != null) material.SetInt("_EyeType", (int) model._eyeType);
-        if (model._eyeColor != null) material.SetColor("_EyeColor", (Color) model._eyeColor);
-        if (model._eyeBackColor != null) material.SetColor("_EyeBackColor", (Color) model._eyeBackColor);
-        if (model._eyeTexture != null) material.SetTexture("_EyeTexture", model._eyeTexture);
-
+        if (model._eyeSize != -1) material.SetFloat("_EyeSize", model._eyeSize);
+        if (model._eyeBibeSize != -1) material.SetFloat("_EyeBibeSize", model._eyeBibeSize);
+        if (model._eyeType != -1) material.SetInt("_EyeType", model._eyeType);
+        
+        if (model._eyeColor != -1) material.SetColor("_EyeColor", _data.EyeColor.Colors[model._eyeColor].Color);
+        if (model._eyeBackColor != -1) material.SetColor("_EyeBackColor", _data.EyeColor.Colors[model._eyeBackColor].Color);
+        
         return material;
     }
 }
