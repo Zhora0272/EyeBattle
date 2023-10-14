@@ -1,4 +1,5 @@
 ﻿using Shop;
+using UnityEngine;
 
 public class DataManager : MonoManager
 {

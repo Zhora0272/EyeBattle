@@ -94,7 +94,12 @@ public class FinanceManager : MonoManager, ISaveable
         bool adsFinishState = false;
 
         MainManager.GetManager<AdsManager>().TryStartAds(AdsType.RewardedAd,
-            reward => { adsFinishState = true; });
+            reward =>
+            {
+                adsFinishState = true;
+                
+                responseCallBack.Invoke(adsFinishState);
+            });
     }
 
     public void SetData(GameData data)

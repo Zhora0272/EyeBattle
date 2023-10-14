@@ -1,18 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TMPro;
+using UniRx;
 using UnityEngine;
 
+[RequireComponent(typeof(TextMeshProUGUI))]
 public class FinanceTextSubscribe : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private BuyType _buyType;
+
+    private FinanceManager _financeManager;
+    private TextMeshProUGUI _text;
+
+    private void Awake()
     {
-        
+        _text = GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
+        _financeManager = MainManager.GetManager<FinanceManager>();
         
+        switch (_buyType)
+        {
+            case BuyType.Money :
+                _financeManager.Money.Subscribe(value =>
+                {
+                    _text.text = value + "$";
+                }).AddTo(this);
+                break;
+            case BuyType.Gem :
+                _financeManager.Gem.Subscribe(value =>
+                {
+                    _text.text = value + "#";
+                }).AddTo(this);
+                break;
+        }
     }
 }

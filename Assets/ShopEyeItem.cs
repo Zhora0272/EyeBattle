@@ -8,27 +8,28 @@ namespace Shop
     public class ShopEyeItem : MonoBehaviour
     {
         [SerializeField] private BuyType _buyType;
+        [SerializeField] private ShopItemState _itemState;
 
-        [Header("Parameters")] 
-        [SerializeField] private Button _selectButton;
+        [Header("Parameters")] [SerializeField]
+        private Button _selectButton;
 
         [SerializeField] private Image _buttonImage;
         [SerializeField] private RawImage _previewImage;
         [SerializeField] private TextMeshProUGUI _priceText;
 
-        [Header("Item_State")] 
-        [SerializeField] private GameObject _selectedState;
-        [SerializeField] private GameObject _buyState;
+        [Header("Item_State")] [SerializeField]
+        private GameObject _selectedState;
 
+        [SerializeField] private GameObject _buyState;
         [SerializeField] private GameObject _itemElements;
 
         private FinanceManager _financeManager;
-        private DataManager _dataManager; 
+        private DataManager _dataManager;
 
         private int _pricePoint;
 
         private int _colorIndex;
-        
+
         //item data variables
         private float _value;
 
@@ -50,7 +51,7 @@ namespace Shop
 
             this.WaitToObjectInitAndDo(_financeManager, RefreshPrice);
         }
-        
+
         private void RefreshPrice()
         {
             switch (_buyType)
@@ -73,39 +74,54 @@ namespace Shop
         internal void SetRaycastState(bool state) => _buttonImage.raycastTarget = state;
 
         #region SetConfigurations
+
         internal void SetColorAction(Action<int> action)
         {
-            _selectButton.onClick.AddListener(() =>
+            _selectButton.onClick.AddListener(() => 
             {
-                action.Invoke(_colorIndex);
+                _financeManager.TryBuy(_buyType, _pricePoint, _ =>
+                {
+                    action.Invoke(_colorIndex);
+                });
             });
         }
+
         internal void SetValueAction(Action<float> action)
         {
             _selectButton.onClick.AddListener(() => { action.Invoke(_value); });
         }
+
         internal void SetTextureAction(Action<Color> action)
         {
             _selectButton.onClick.AddListener(() => { action.Invoke(_previewImage.color); });
         }
+
         internal void SetState(ShopItemState state)
         {
             switch (state)
             {
                 case ShopItemState.Empty:
                 {
+                    _itemState = ShopItemState.Empty;
                     _selectedState.SetActive(false);
                     _buyState.SetActive(false);
-                    break;
                 }
+                    break;
                 case ShopItemState.Selected:
+                {
+                    _itemState = ShopItemState.Selected;
                     _selectedState.SetActive(false);
+                }
                     break;
                 case ShopItemState.Sale:
+                {
+                    _itemState = ShopItemState.Sale;
                     _buyState.SetActive(false);
+                }
                     break;
             }
         }
+
         #endregion
 
         internal void HideItemElements()

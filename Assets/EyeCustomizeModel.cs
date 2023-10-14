@@ -16,8 +16,8 @@ public class EyeCustomizeModel
         float eyeBibeSize = -1,
         float eyeSize = -1,
         int eyeType = -1,
-        int eyeColor = -1,
-        int eyeBackColor = -1,
+        int eyeColor = default,
+        int eyeBackColor = default,
         int eyeTexture = -1,
         int eyeDecor = -1
     )
@@ -26,7 +26,6 @@ public class EyeCustomizeModel
         _eyeSize = eyeSize;
         _eyeColor = eyeColor;
         _eyeType = eyeType;
-        _eyeColor = eyeColor;
         _eyeBackColor = eyeBackColor;
         _eyeTexture = eyeTexture;
         _eyeDecor = eyeDecor;

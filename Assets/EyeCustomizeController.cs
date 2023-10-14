@@ -15,18 +15,13 @@ public class EyeCustomizeController : MonoBehaviour, ISaveable
     public Material GetMaterial() => _eyeMaterial;
     public GameObject GetDecor() => _decorGamobject;
 
-    private void Awake()
-    {
-        _model = new EyeCustomizeModel();
-    }
-
     public void SetData(GameData data)
     {
         _eyeMaterial = EyeShaderGraph.GetMaterial
         (
             data.EyeConfigModel
         );
-        
+
         _eyeMeshRenderer.material = _eyeMaterial;
     }
 
@@ -34,7 +29,7 @@ public class EyeCustomizeController : MonoBehaviour, ISaveable
     {
         return new GameData()
         {
-            EyeConfigModel = _model,
+            EyeConfigModel = EyeShaderGraph.ConvertMaterialToModel(_eyeMeshRenderer.material)
         };
     }
 }

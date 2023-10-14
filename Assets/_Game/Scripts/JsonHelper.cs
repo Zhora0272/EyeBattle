@@ -14,10 +14,8 @@ public class JsonHelper : IDataSave
     {
         string jsonData = JsonUtility.ToJson(data, true);
         
-/*#if !UNITY_EDITOR
-        var hashData = HashManager.HashData(jsonData);
-#endif*/
-
+        //var hashData = HashManager.HashData(jsonData);
+        
         using (StreamWriter writer = new StreamWriter(Path))
         {
             writer.Write(jsonData);
@@ -30,9 +28,7 @@ public class JsonHelper : IDataSave
         {
             string jsonData = reader.ReadToEnd();
 
-/*#if !UNITY_EDITOR
-            var hashData = HashManager.DeHashData(jsonData);
-#endif*/
+            //var hashData = HashManager.DeHashData(jsonData);
 
             return JsonUtility.FromJson<GameData>(jsonData);
         }

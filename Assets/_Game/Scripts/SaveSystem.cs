@@ -1,3 +1,5 @@
+using System;
+using UniRx;
 using UnityEngine;
 
 public class SaveSystem : MonoManager
@@ -10,13 +12,6 @@ public class SaveSystem : MonoManager
 
     private ISaveable _financeManagerSaveable;
     private ISaveable _eyeCustomizeSaveable;
-
-    #endregion
-
-    #region GameData
-
-    private GameData _financeData;
-    private GameData _eyeCustomizeData;
 
     #endregion
 
@@ -34,6 +29,11 @@ public class SaveSystem : MonoManager
         Init();
         InitData();
         SetData();
+
+        Observable.Interval(TimeSpan.FromSeconds(10)).Subscribe(_ =>
+        {
+            SaveData();
+        }).AddTo(this);
     }
 
     private void Init()
@@ -41,16 +41,13 @@ public class SaveSystem : MonoManager
         //init saveable
         _financeManagerSaveable = MainManager.GetManager<FinanceManager>();
         _eyeCustomizeSaveable = _eyeCustomizeController;
-
-        //get data
-        _financeData = _financeManagerSaveable.GetData();
-        _eyeCustomizeData = _eyeCustomizeSaveable.GetData();
     }
 
     private void InitData()
     {
         if (!_dataSave.ExistData())
         {
+            //default configurations
             var data = new GameData
             {
                 Money = 100,
@@ -70,32 +67,30 @@ public class SaveSystem : MonoManager
 
         _gameData = _dataSave.GetData();
     }
-
     private void SetData()
     {
-        _financeData.Money = _gameData.Money;
-        _financeData.Gem = _gameData.Gem;
-        _eyeCustomizeData.EyeConfigModel = _gameData.EyeConfigModel;
+        var financeData = _financeManagerSaveable.GetData();
+        var playerEyeData = _eyeCustomizeSaveable.GetData();
+        
+        financeData.Money = _gameData.Money;
+        financeData.Gem = _gameData.Gem;
+        
+        
+        playerEyeData.EyeConfigModel = _gameData.EyeConfigModel;
 
-        _financeManagerSaveable.SetData(_financeData);
-        _eyeCustomizeSaveable.SetData(_eyeCustomizeData);
-    }
-
-    private void OnDestroy()
-    {
-        SaveData();
-    }
-
-    private void OnApplicationFocus(bool state)
-    {
-        if (Time.time > 5)
-        {
-            SaveData();
-        }
+        _financeManagerSaveable.SetData(financeData);
+        _eyeCustomizeSaveable.SetData(playerEyeData);
     }
 
     private void SaveData()
     {
+        var financeData = _financeManagerSaveable.GetData();
+        var playerEyeData = _eyeCustomizeSaveable.GetData();
+        
+        _gameData.Gem = financeData.Gem;
+        _gameData.Money = financeData.Money;
+        _gameData.EyeConfigModel = _eyeCustomizeSaveable.GetData().EyeConfigModel;
+        
         _dataSave.SaveData(_gameData);
     }
 }

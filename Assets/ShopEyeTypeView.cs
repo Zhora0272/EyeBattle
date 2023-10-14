@@ -38,7 +38,7 @@ namespace Shop
             item.SetColor(color);
         }
         
-        private void TextureSelectAction(int color)
+        private void TextureSelectAction(int index)
         {
             
         }
