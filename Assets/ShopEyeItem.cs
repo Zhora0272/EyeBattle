@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,17 +9,17 @@ namespace Shop
     public class ShopEyeItem : MonoBehaviour
     {
         [SerializeField] private BuyType _buyType;
-        [SerializeField] private ShopItemState _itemState;
+        [SerializeField] private ReactiveProperty<ShopItemState> _itemState = new(ShopItemState.Sale);
 
-        [Header("Parameters")] [SerializeField]
-        private Button _selectButton;
+        [Header("Parameters")] 
+        [SerializeField] private Button _selectButton;
 
         [SerializeField] private Image _buttonImage;
         [SerializeField] private RawImage _previewImage;
         [SerializeField] private TextMeshProUGUI _priceText;
 
-        [Header("Item_State")] [SerializeField]
-        private GameObject _selectedState;
+        [Header("Item_State")] 
+        [SerializeField] private GameObject _selectedState;
 
         [SerializeField] private GameObject _buyState;
         [SerializeField] private GameObject _itemElements;
@@ -26,18 +27,20 @@ namespace Shop
         private FinanceManager _financeManager;
         private DataManager _dataManager;
 
-        private int _pricePoint;
-
-        private int _colorIndex;
+        private Action<bool> _onClickEvent;
 
         //item data variables
+        private int _pricePoint;
+        private int _colorIndex;
         private float _value;
+        //
 
         private void Awake()
         {
             _selectButton.onClick.AddListener(BuyAction);
+            
+            _itemState.Subscribe(SetState).AddTo(this);
         }
-
         private void Start()
         {
             _financeManager = MainManager.GetManager<FinanceManager>();
@@ -51,23 +54,6 @@ namespace Shop
 
             this.WaitToObjectInitAndDo(_financeManager, RefreshPrice);
         }
-
-        private void RefreshPrice()
-        {
-            switch (_buyType)
-            {
-                case BuyType.Ads:
-                    _priceText.text = _financeManager.ConvertPricePointTo(BuyType.Ads, _pricePoint) + "Ad";
-                    break;
-                case BuyType.Money:
-                    _priceText.text = _financeManager.ConvertPricePointTo(BuyType.Money, _pricePoint) + "$";
-                    break;
-                case BuyType.Gem:
-                    _priceText.text = _financeManager.ConvertPricePointTo(BuyType.Gem, _pricePoint) + "@";
-                    break;
-            }
-        }
-
         internal void SetValue(float value) => _value = value;
         internal void SetColor(Color color) => _previewImage.color = color;
         internal void SetTexture(Texture texture) => _previewImage.texture = texture;
@@ -77,45 +63,52 @@ namespace Shop
 
         internal void SetColorAction(Action<int> action)
         {
-            _selectButton.onClick.AddListener(() => 
+            _onClickEvent = state =>
             {
-                _financeManager.TryBuy(_buyType, _pricePoint, _ =>
+                if (state)
                 {
                     action.Invoke(_colorIndex);
-                });
-            });
+                }
+            };
         }
-
         internal void SetValueAction(Action<float> action)
         {
-            _selectButton.onClick.AddListener(() => { action.Invoke(_value); });
+            _onClickEvent = state =>
+            {
+                if (state)
+                {
+                    action.Invoke(_value);
+                }
+            };
         }
-
-        internal void SetTextureAction(Action<Color> action)
+        internal void SetTextureAction(Action<Texture> action)
         {
-            _selectButton.onClick.AddListener(() => { action.Invoke(_previewImage.color); });
+            _onClickEvent = state =>
+            {
+                if (state)
+                {
+                    action.Invoke(_previewImage.texture);
+                }
+            };
         }
 
-        internal void SetState(ShopItemState state)
+        private void SetState(ShopItemState state)
         {
             switch (state)
             {
                 case ShopItemState.Empty:
                 {
-                    _itemState = ShopItemState.Empty;
                     _selectedState.SetActive(false);
                     _buyState.SetActive(false);
                 }
                     break;
                 case ShopItemState.Selected:
                 {
-                    _itemState = ShopItemState.Selected;
                     _selectedState.SetActive(false);
                 }
                     break;
                 case ShopItemState.Sale:
                 {
-                    _itemState = ShopItemState.Sale;
                     _buyState.SetActive(false);
                 }
                     break;
@@ -124,18 +117,49 @@ namespace Shop
 
         #endregion
 
+        private void RefreshPrice()
+        {
+            switch (_buyType)
+            {
+                case BuyType.Ads:
+                    _priceText.text = _financeManager.
+                        ConvertPricePointTo(BuyType.Ads, _pricePoint) + "Ad";
+                    break;
+                case BuyType.Money:
+                    _priceText.text = _financeManager.
+                        ConvertPricePointTo(BuyType.Money, _pricePoint) + "$";
+                    break;
+                case BuyType.Gem:
+                    _priceText.text = _financeManager.
+                        ConvertPricePointTo(BuyType.Gem, _pricePoint) + "#";
+                    break;
+            }
+        }
         internal void HideItemElements()
         {
             _itemElements.SetActive(false);
         }
-
+        
+        
         private void BuyAction()
         {
             _financeManager.TryBuy(_buyType, _pricePoint, BuyActionCallBack);
         }
-
         private void BuyActionCallBack(bool state)
         {
+            if (state)
+            {
+                _itemState.Value = ShopItemState.Selected;
+                
+                _selectButton.onClick.AddListener(() =>
+                {
+                    _financeManager.TryBuy(_buyType, _pricePoint, _onClickEvent);
+                });
+            }
+            else
+            {
+                _itemState.Value = ShopItemState.Sale;
+            }
         }
     }
 }

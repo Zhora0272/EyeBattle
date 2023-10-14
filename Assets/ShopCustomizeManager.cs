@@ -1,10 +1,11 @@
 using UnityEngine;
 using UniRx;
 using Shop;
-using static UnityEngine.Rendering.DebugUI;
 
 public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager, EyeCustomizeModel>
 {
+    public ReactiveProperty<EyeCustomizeModel> CallBack { get; set; }
+
     [SerializeField] private MeshRenderer _vetrineEyeMeshRenderer;
     [SerializeField] private MeshRenderer _playerEyemeshRenderer;
     
@@ -15,7 +16,6 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
     private void Awake()
     {
         CallBack = new ReactiveProperty<EyeCustomizeModel>();
-        
     }
 
     private void OnEnable()
@@ -39,6 +39,4 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
 
         }).AddTo(this);
     }
-
-    public ReactiveProperty<EyeCustomizeModel> CallBack { get; set; }
 }

@@ -23,6 +23,11 @@ namespace Shop.Container
         private float _originalRectHeightSize;
         private Button _button;
 
+        private ReactiveProperty<int> _selectedIndex;
+
+        public void SetData(int index) => _selectedIndex.Value = index;
+        public int GetData() => _selectedIndex.Value;
+        
         private void Awake()
         {
             _button = GetComponent<Button>();
@@ -36,6 +41,12 @@ namespace Shop.Container
             IsActivated.Subscribe(state =>
             {
                 _button.enabled = !state;
+                
+            }).AddTo(this);
+
+            _selectedIndex.Subscribe(index =>
+            {
+                
             }).AddTo(this);
         }
 

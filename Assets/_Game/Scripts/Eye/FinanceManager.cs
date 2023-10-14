@@ -32,11 +32,34 @@ public class FinanceManager : MonoManager, ISaveable
 
         return default;
     }
+    
+    public int ConvertFinanceToPricePoint(BuyType type, int value)
+    {
+        int toMoneyCoefficient = 2;
+        int toGemCoefficient = 15;
+        int toAdsCoefficient = 50;
+
+        switch (type)
+        {
+            case BuyType.Money: return value / toMoneyCoefficient;
+            case BuyType.Gem: return value / toGemCoefficient;
+            case BuyType.Ads:
+            {
+                float adsCoefficient = (float) value / toAdsCoefficient;
+
+                if (adsCoefficient > 0.5f) adsCoefficient = 1;
+
+                return (int) adsCoefficient;
+            }
+        }
+
+        return default;
+    }
 
     public void TryBuy
     (
         BuyType type,
-        int price,
+        int pricePoint,
         Action<bool> responseCallBack
     )
     {
@@ -46,44 +69,44 @@ public class FinanceManager : MonoManager, ISaveable
                 TryBuyWithAds(responseCallBack);
                 break;
             case BuyType.Money:
-                TryBuyWithMoney(price, responseCallBack);
+                TryBuyWithMoney(pricePoint, responseCallBack);
                 break;
             case BuyType.Gem:
-                TryBuyWithGem(price, responseCallBack);
+                TryBuyWithGem(pricePoint, responseCallBack);
                 break;
         }
     }
 
     private void TryBuyWithMoney
     (
-        int price,
+        int pricePoint,
         Action<bool> responseCallBack
     )
     {
-        TryBuyWithFinance(_money, price, responseCallBack);
+        TryBuyWithFinance(_money, pricePoint, responseCallBack, BuyType.Money);
     }
 
     private void TryBuyWithGem
     (
-        int price,
+        int pricePoint,
         Action<bool> responseCallBack
     )
     {
-        TryBuyWithFinance(_gem, price, responseCallBack);
+        TryBuyWithFinance(_gem, pricePoint, responseCallBack, BuyType.Gem);
     }
 
     private void TryBuyWithFinance
     (
         ReactiveProperty<int> finance,
-        int price,
-        Action<bool> responseCallBack
+        int pricePoint,
+        Action<bool> responseCallBack, BuyType type
     )
     {
-        bool haveNeedFinance = finance.Value >= price;
+        bool haveNeedFinance = finance.Value >= pricePoint;
 
         if (haveNeedFinance)
         {
-            finance.Value -= price;
+            finance.Value -= ConvertPricePointTo(type, pricePoint);
         }
 
         responseCallBack.Invoke(haveNeedFinance);
@@ -97,7 +120,7 @@ public class FinanceManager : MonoManager, ISaveable
             reward =>
             {
                 adsFinishState = true;
-                
+
                 responseCallBack.Invoke(adsFinishState);
             });
     }

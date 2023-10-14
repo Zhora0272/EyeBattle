@@ -1,10 +1,12 @@
 using System;
+using Shop.Container;
 using UniRx;
 using UnityEngine;
 
 public class SaveSystem : MonoManager
 {
     [SerializeField] private EyeCustomizeController _eyeCustomizeController;
+    [SerializeField] private ShopContainerManager _shopContainerManager;
 
     private JsonHelper _dataSave;
 
@@ -12,6 +14,7 @@ public class SaveSystem : MonoManager
 
     private ISaveable _financeManagerSaveable;
     private ISaveable _eyeCustomizeSaveable;
+    private ISaveable _shopContainerSaveable;
 
     #endregion
 
@@ -20,7 +23,7 @@ public class SaveSystem : MonoManager
     protected override void Awake()
     {
         base.Awake();
-        
+
         _dataSave = new JsonHelper();
     }
 
@@ -33,6 +36,7 @@ public class SaveSystem : MonoManager
         Observable.Interval(TimeSpan.FromSeconds(10)).Subscribe(_ =>
         {
             SaveData();
+            
         }).AddTo(this);
     }
 
@@ -41,6 +45,7 @@ public class SaveSystem : MonoManager
         //init saveable
         _financeManagerSaveable = MainManager.GetManager<FinanceManager>();
         _eyeCustomizeSaveable = _eyeCustomizeController;
+        _shopContainerSaveable = _shopContainerManager;
     }
 
     private void InitData()
@@ -52,13 +57,13 @@ public class SaveSystem : MonoManager
             {
                 Money = 100,
                 Gem = 15,
-                
+                ContainerConfigIndexes = new[] {1, 1, 1, 1},
                 EyeConfigModel = new EyeCustomizeModel()
                 {
                     _eyeSize = 3.37f,
                     _eyeBibeSize = 2.24f,
                     _eyeColor = 1,
-                    _eyeBackColor = 2,
+                    _eyeBackColor = 2
                 }
             };
 
@@ -67,30 +72,34 @@ public class SaveSystem : MonoManager
 
         _gameData = _dataSave.GetData();
     }
+
     private void SetData()
     {
         var financeData = _financeManagerSaveable.GetData();
         var playerEyeData = _eyeCustomizeSaveable.GetData();
-        
+        var containerManager = _shopContainerSaveable.GetData();
+
         financeData.Money = _gameData.Money;
         financeData.Gem = _gameData.Gem;
-        
-        
         playerEyeData.EyeConfigModel = _gameData.EyeConfigModel;
+        containerManager.ContainerConfigIndexes = _gameData.ContainerConfigIndexes;
 
         _financeManagerSaveable.SetData(financeData);
         _eyeCustomizeSaveable.SetData(playerEyeData);
+        _shopContainerSaveable.SetData(containerManager);
     }
 
     private void SaveData()
     {
         var financeData = _financeManagerSaveable.GetData();
         var playerEyeData = _eyeCustomizeSaveable.GetData();
-        
+        var containerManager = _shopContainerSaveable.GetData();
+
         _gameData.Gem = financeData.Gem;
         _gameData.Money = financeData.Money;
         _gameData.EyeConfigModel = _eyeCustomizeSaveable.GetData().EyeConfigModel;
-        
+        _gameData.ContainerConfigIndexes = containerManager.ContainerConfigIndexes;
+
         _dataSave.SaveData(_gameData);
     }
 }

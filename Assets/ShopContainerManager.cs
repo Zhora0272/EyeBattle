@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Shop.Container
 {
-    public class ShopContainerManager : MonoBehaviour
+    public class ShopContainerManager : MonoBehaviour, ISaveable
     {
         private ShopContainerPart[] _containers;
         private void Awake()
@@ -37,6 +38,29 @@ namespace Shop.Container
             {
                 container.Activate();
             }
+        }
+
+        public void SetData(GameData data)
+        {
+            for (int i = 0; i < _containers.Length; i++)
+            {
+                _containers[i].SetData(i);
+            }
+        }
+
+        public GameData GetData()
+        {
+            List<int> indexes = new();
+            
+            foreach (var item in _containers)
+            {
+                indexes.Add(item.GetData());
+            }
+            
+            return new GameData()
+            {
+                ContainerConfigIndexes = indexes.ToArray(),
+            };
         }
     }
 }
