@@ -5,11 +5,11 @@ using Shop;
 [CreateAssetMenu(fileName = "ShopEyeTextureData", menuName = "Data/Shop/EyeTextureData")]
 public class ShopEyeTextureScriptable : ScriptableObject
 {
-    [field: SerializeField] public EyeTextureParameters[] TextureParameters { get; private set; }
+    [field: SerializeField] public BaseEyeTextureParameters[] TextureParameters { get; private set; }
 }
 
 [Serializable]
-public class EyeTextureParameters : IEyeItemParameters
+public class BaseEyeTextureParameters : BaseEyeItemParameters
 {
     [field: SerializeField] public int Index { get; set; }
     [field: SerializeField] public ShopItemState ItemState { get; set; }

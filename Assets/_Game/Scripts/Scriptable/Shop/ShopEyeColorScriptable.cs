@@ -7,11 +7,11 @@ namespace Shop
     [CreateAssetMenu(fileName = "ShopEyeColorData", menuName = "Data/Shop/EyeColorData")]
     public class ShopEyeColorScriptable : ScriptableObject
     {
-        [field: SerializeField] public EyeColorParameters[] Colors { get; private set; }
+        [field: SerializeField] public BaseEyeColorParameters[] Colors { get; private set; }
     }
 
     [Serializable]
-    public class EyeColorParameters : IEyeItemParameters
+    public class BaseEyeColorParameters : BaseEyeItemParameters
     {
         [field: SerializeField] public Color Color { get; private set; }
         [field: SerializeField] public int Index { get; set; }

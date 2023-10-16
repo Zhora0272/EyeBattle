@@ -6,7 +6,8 @@ namespace Shop.Container
     public class ShopContainerManager : MonoBehaviour, ISaveable
     {
         private ShopContainerPart[] _containers;
-        private void Awake()
+
+        private void OnValidate()
         {
             _containers = GetComponentsInChildren<ShopContainerPart>();
         }
@@ -44,7 +45,7 @@ namespace Shop.Container
         {
             for (int i = 0; i < _containers.Length; i++)
             {
-                _containers[i].SetData(i);
+                _containers[i].SetData(data.ContainerConfigIndexes[i]);
             }
         }
 

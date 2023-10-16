@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eyeCustomizeController: {fileID: 2895838331650394285}
+  _shopContainerManager: {fileID: 883260381}
 --- !u!1 &193769629
 GameObject:
   m_ObjectHideFlags: 0

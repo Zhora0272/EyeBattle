@@ -13,7 +13,7 @@ namespace Shop.Container
         [SerializeField] private CanvasGroup _deactivateCanvasGroup;
 
         [SerializeField] private RectTransform _indicatorArrow;
-        
+
         public IReactiveProperty<bool> IsActivated => _isActivated;
         private readonly ReactiveProperty<bool> _isActivated = new();
 
@@ -23,11 +23,15 @@ namespace Shop.Container
         private float _originalRectHeightSize;
         private Button _button;
 
-        private ReactiveProperty<int> _selectedIndex;
+        private ReactiveProperty<int> _selectedIndex = new(-1);
 
-        public void SetData(int index) => _selectedIndex.Value = index;
+        public void SetData(int index)
+        {
+            _selectedIndex.Value = index;
+        }
+
         public int GetData() => _selectedIndex.Value;
-        
+
         private void Awake()
         {
             _button = GetComponent<Button>();
@@ -41,7 +45,6 @@ namespace Shop.Container
             IsActivated.Subscribe(state =>
             {
                 _button.enabled = !state;
-                
             }).AddTo(this);
 
             _selectedIndex.Subscribe(index =>
@@ -54,17 +57,17 @@ namespace Shop.Container
         {
             _manager = ShopContainerManager;
 
-            _button.onClick.AddListener(() =>
-            {
-                _manager.ActivateContainer(this);
-            });
+            _button.onClick.AddListener(() => { _manager.ActivateContainer(this); });
         }
 
         internal void Activate()
         {
             _isActivated.Value = true;
 
-            _deactivateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack).onComplete = () => { _deactivateCanvasGroup.blocksRaycasts = false; };
+            _deactivateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack).onComplete = () =>
+            {
+                _deactivateCanvasGroup.blocksRaycasts = false;
+            };
             _activateCanvasGroup.DOFade(1, 0.5f).SetEase(Ease.OutBack);
             _activateCanvasGroup.blocksRaycasts = true;
 
@@ -77,13 +80,21 @@ namespace Shop.Container
         {
             _isActivated.Value = false;
 
-            _activateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack).onComplete = () => { _deactivateCanvasGroup.blocksRaycasts = false; };
+            _activateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack).onComplete = () =>
+            {
+                _deactivateCanvasGroup.blocksRaycasts = false;
+            };
             _deactivateCanvasGroup.DOFade(1, 0.5f).SetEase(Ease.OutBack);
             _deactivateCanvasGroup.blocksRaycasts = true;
 
             _rectTransform.DOSizeDelta(new Vector2(0, _originalRectHeightSize), 0.5f);
 
             _indicatorArrow.DORotate(new Vector3(0, 0, 0), 1).SetEase(Ease.OutBack);
+        }
+
+        private void OnDisable()
+        {
+            //MainManager.GetManager<SaveSystem>().SaveData();
         }
     }
 }

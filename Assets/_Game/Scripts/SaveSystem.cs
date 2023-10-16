@@ -1,4 +1,5 @@
 using System;
+using Shop;
 using Shop.Container;
 using UniRx;
 using UnityEngine;
@@ -33,10 +34,10 @@ public class SaveSystem : MonoManager
         InitData();
         SetData();
 
-        Observable.Interval(TimeSpan.FromSeconds(10)).Subscribe(_ =>
+
+        Observable.Interval(TimeSpan.FromSeconds(4)).Subscribe(_ =>
         {
             SaveData();
-            
         }).AddTo(this);
     }
 
@@ -58,6 +59,21 @@ public class SaveSystem : MonoManager
                 Money = 100,
                 Gem = 15,
                 ContainerConfigIndexes = new[] {1, 1, 1, 1},
+                EyeItemParameters = new BaseEyeItemParameters[]
+                {
+                    new ()
+                    {
+                        Index = 0
+                    },
+                    new ()
+                    {
+                        Index = 0
+                    },
+                    new ()
+                    {
+                        Index = 0
+                    },
+                },
                 EyeConfigModel = new EyeCustomizeModel()
                 {
                     _eyeSize = 3.37f,
@@ -87,9 +103,9 @@ public class SaveSystem : MonoManager
         _financeManagerSaveable.SetData(financeData);
         _eyeCustomizeSaveable.SetData(playerEyeData);
         _shopContainerSaveable.SetData(containerManager);
-    }
+    } 
 
-    private void SaveData()
+    public void SaveData()
     {
         var financeData = _financeManagerSaveable.GetData();
         var playerEyeData = _eyeCustomizeSaveable.GetData();
