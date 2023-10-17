@@ -11,15 +11,15 @@ namespace Shop
         [SerializeField] private BuyType _buyType;
         [SerializeField] private ReactiveProperty<ShopItemState> _itemState = new(ShopItemState.Sale);
 
-        [Header("Parameters")] 
-        [SerializeField] private Button _selectButton;
+        [Header("Parameters")] [SerializeField]
+        private Button _selectButton;
 
         [SerializeField] private Image _buttonImage;
         [SerializeField] private RawImage _previewImage;
         [SerializeField] private TextMeshProUGUI _priceText;
 
-        [Header("Item_State")] 
-        [SerializeField] private GameObject _selectedState;
+        [Header("Item_State")] [SerializeField]
+        private GameObject _selectedState;
 
         [SerializeField] private GameObject _buyState;
         [SerializeField] private GameObject _itemElements;
@@ -32,15 +32,35 @@ namespace Shop
         //item data variables
         private int _pricePoint;
         private int _colorIndex;
+
         private float _value;
         //
+
+        public static implicit operator ShopEyeItem(BaseEyeItemParameters data)
+        {
+            return new ShopEyeItem()
+            {
+                _pricePoint = data.PricePoint,
+                _buyType = data.BuyType,
+            };
+        }
+        
+        public static implicit operator BaseEyeItemParameters(ShopEyeItem data)
+        {
+            return new BaseEyeItemParameters()
+            {
+                PricePoint = data._pricePoint,
+                BuyType = data._buyType,
+            };
+        }
 
         private void Awake()
         {
             _selectButton.onClick.AddListener(BuyAction);
-            
+
             _itemState.Subscribe(SetState).AddTo(this);
         }
+
         private void Start()
         {
             _financeManager = MainManager.GetManager<FinanceManager>();
@@ -54,6 +74,7 @@ namespace Shop
 
             this.WaitToObjectInitAndDo(_financeManager, RefreshPrice);
         }
+
         internal void SetValue(float value) => _value = value;
         internal void SetColor(Color color) => _previewImage.color = color;
         internal void SetTexture(Texture texture) => _previewImage.texture = texture;
@@ -71,6 +92,7 @@ namespace Shop
                 }
             };
         }
+
         internal void SetValueAction(Action<float> action)
         {
             _onClickEvent = state =>
@@ -81,6 +103,7 @@ namespace Shop
                 }
             };
         }
+
         internal void SetTextureAction(Action<Texture> action)
         {
             _onClickEvent = state =>
@@ -122,35 +145,34 @@ namespace Shop
             switch (_buyType)
             {
                 case BuyType.Ads:
-                    _priceText.text = _financeManager.
-                        ConvertPricePointTo(BuyType.Ads, _pricePoint) + "Ad";
+                    _priceText.text = _financeManager.ConvertPricePointTo(BuyType.Ads, _pricePoint) + "Ad";
                     break;
                 case BuyType.Money:
-                    _priceText.text = _financeManager.
-                        ConvertPricePointTo(BuyType.Money, _pricePoint) + "$";
+                    _priceText.text = _financeManager.ConvertPricePointTo(BuyType.Money, _pricePoint) + "$";
                     break;
                 case BuyType.Gem:
-                    _priceText.text = _financeManager.
-                        ConvertPricePointTo(BuyType.Gem, _pricePoint) + "#";
+                    _priceText.text = _financeManager.ConvertPricePointTo(BuyType.Gem, _pricePoint) + "#";
                     break;
             }
         }
+
         internal void HideItemElements()
         {
             _itemElements.SetActive(false);
         }
-        
-        
+
+
         private void BuyAction()
         {
             _financeManager.TryBuy(_buyType, _pricePoint, BuyActionCallBack);
         }
+
         private void BuyActionCallBack(bool state)
         {
             if (state)
             {
                 _itemState.Value = ShopItemState.Selected;
-                
+
                 _selectButton.onClick.AddListener(() =>
                 {
                     _financeManager.TryBuy(_buyType, _pricePoint, _onClickEvent);

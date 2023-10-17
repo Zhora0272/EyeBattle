@@ -1,5 +1,4 @@
 using System;
-using Shop;
 using Shop.Container;
 using UniRx;
 using UnityEngine;
@@ -34,10 +33,10 @@ public class SaveSystem : MonoManager
         InitData();
         SetData();
 
-
         Observable.Interval(TimeSpan.FromSeconds(4)).Subscribe(_ =>
         {
             SaveData();
+            
         }).AddTo(this);
     }
 
@@ -61,20 +60,9 @@ public class SaveSystem : MonoManager
                 ContainerConfigIndexes = new[] {1, 1, 1, 1},
                 EyeItemParameters = new BaseEyeItemParameters[]
                 {
-                    new ()
-                    {
-                        Index = 0
-                    },
-                    new ()
-                    {
-                        Index = 0
-                    },
-                    new ()
-                    {
-                        Index = 0
-                    },
+                    new (), new (), new ()
                 },
-                EyeConfigModel = new EyeCustomizeModel()
+                EyeConfigModel = new EyeCustomizeModel
                 {
                     _eyeSize = 3.37f,
                     _eyeBibeSize = 2.24f,

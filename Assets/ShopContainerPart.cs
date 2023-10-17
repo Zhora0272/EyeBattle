@@ -75,7 +75,6 @@ namespace Shop.Container
 
             _indicatorArrow.DORotate(new Vector3(0, 0, -90), 1).SetEase(Ease.OutBack);
         }
-
         internal void Deactivate()
         {
             _isActivated.Value = false;
@@ -90,11 +89,6 @@ namespace Shop.Container
             _rectTransform.DOSizeDelta(new Vector2(0, _originalRectHeightSize), 0.5f);
 
             _indicatorArrow.DORotate(new Vector3(0, 0, 0), 1).SetEase(Ease.OutBack);
-        }
-
-        private void OnDisable()
-        {
-            //MainManager.GetManager<SaveSystem>().SaveData();
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Shop
 {
-    public class ShopViewBase : MonoBehaviour
+    public class ShopViewBase : MonoBehaviour, ISaveable
     {
         [SerializeField] protected ShopEyeItem _prefabRectTransform;
         [SerializeField] protected RectTransform _actiavtedContent;
@@ -22,6 +23,26 @@ namespace Shop
         protected virtual void Init()
         {
             
+        }
+
+        public void SetData(GameData data)
+        {
+            
+        }
+
+        public GameData GetData()
+        {
+            List<BaseEyeItemParameters> baseEyeItemParameters = new();
+            
+            foreach (var item in _shopEyeItems)
+            {
+                baseEyeItemParameters.Add(item);
+            }
+
+            return new()
+            {
+                EyeItemParameters = baseEyeItemParameters.ToArray(),
+            };
         }
     }
 }
