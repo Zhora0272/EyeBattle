@@ -29,8 +29,6 @@ namespace Shop
                 item.HideItemElements();
                 item.SetColor(Helper.AlphaToMax(color));
                 //
-                
-                _shopEyeItems.Add(item);
             }
 
             foreach (var configs in _eyeColorScriptable.Colors)
@@ -41,6 +39,8 @@ namespace Shop
                 item.SetBuyParameters(configs.BuyType, configs.PricePoint);
                 item.SetColor(Helper.AlphaToMax(color));
                 item.SetColorAction(ColorSelectAction);
+                
+                _shopEyeItems.Add(item);
             }
         }
 

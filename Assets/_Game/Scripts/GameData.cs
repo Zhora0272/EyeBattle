@@ -7,5 +7,5 @@ public class GameData
     public int Gem;
     public int[] ContainerConfigIndexes;
     public EyeCustomizeModel EyeConfigModel;
-    public BaseEyeItemParameters[] EyeItemParameters;
+    public EyeItemCollection[] EyeItemParameters;
 }

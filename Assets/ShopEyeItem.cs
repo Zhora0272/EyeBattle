@@ -9,7 +9,8 @@ namespace Shop
     public class ShopEyeItem : MonoBehaviour
     {
         [SerializeField] private BuyType _buyType;
-        [SerializeField] private ReactiveProperty<ShopItemState> _itemState = new(ShopItemState.Sale);
+        [SerializeField] private ReactiveProperty<ShopItemState> _itemState =
+            new(ShopItemState.Sale);
 
         [Header("Parameters")] [SerializeField]
         private Button _selectButton;
@@ -30,27 +31,21 @@ namespace Shop
         private Action<bool> _onClickEvent;
 
         //item data variables
+        private int _indexInQueue;
         private int _pricePoint;
         private int _colorIndex;
 
         private float _value;
         //
-
-        public static implicit operator ShopEyeItem(BaseEyeItemParameters data)
-        {
-            return new ShopEyeItem()
-            {
-                _pricePoint = data.PricePoint,
-                _buyType = data.BuyType,
-            };
-        }
         
         public static implicit operator BaseEyeItemParameters(ShopEyeItem data)
         {
             return new BaseEyeItemParameters()
             {
+                Index = data._indexInQueue,
                 PricePoint = data._pricePoint,
                 BuyType = data._buyType,
+                ItemState = data._itemState.Value,
             };
         }
 

@@ -13,10 +13,6 @@ public class BaseEyeTypeParameters : BaseEyeItemParameters
 {
     [field: SerializeField] public EyeType EyeType { get; private set; }
     [field: SerializeField] public Texture EyeTypeTexture { get; private set; }
-    [field: SerializeField] public int Index { get; set; }
-    [field: SerializeField] public ShopItemState ItemState { get; set; }
-    [field: SerializeField] public BuyType BuyType { get; set; }
-    public int PricePoint { get; set; }
 }
 
 public enum EyeType

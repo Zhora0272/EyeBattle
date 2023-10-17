@@ -57,13 +57,13 @@ MonoBehaviour:
           icon: PreMatSphere
         - iColor: 8
           icon: 
-        - iColor: 0
+        - iColor: 2
           icon: Favorite
         - iColor: 0
           icon: 
-        - iColor: 2
+        - iColor: 6
           icon: Canvas Icon
-        - iColor: 0
+        - iColor: 9
           icon: PreMatCylinder
     - goDatasByGlobalId:
         keys: []

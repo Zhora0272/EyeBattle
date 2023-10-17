@@ -1,5 +1,5 @@
-using System;
 using Shop.Container;
+using System;
 using UniRx;
 using UnityEngine;
 
@@ -18,7 +18,11 @@ public class SaveSystem : MonoManager
 
     #endregion
 
+    //
     private GameData _gameData;
+    
+    //
+    private DataManager _dataManager;
 
     protected override void Awake()
     {
@@ -42,26 +46,25 @@ public class SaveSystem : MonoManager
 
     private void Init()
     {
-        //init saveable
         _financeManagerSaveable = MainManager.GetManager<FinanceManager>();
+        _dataManager = MainManager.GetManager<DataManager>();
+        
         _eyeCustomizeSaveable = _eyeCustomizeController;
         _shopContainerSaveable = _shopContainerManager;
     }
 
     private void InitData()
     {
+        #region Set Deafult Variables For First
+        //set default variables
         if (!_dataSave.ExistData())
         {
-            //default configurations
             var data = new GameData
             {
                 Money = 100,
                 Gem = 15,
-                ContainerConfigIndexes = new[] {1, 1, 1, 1},
-                EyeItemParameters = new BaseEyeItemParameters[]
-                {
-                    new (), new (), new ()
-                },
+                ContainerConfigIndexes = new[] {0, 0, 0, 0},
+                EyeItemParameters = _dataManager.GetAllDataLists(),
                 EyeConfigModel = new EyeCustomizeModel
                 {
                     _eyeSize = 3.37f,
@@ -70,9 +73,9 @@ public class SaveSystem : MonoManager
                     _eyeBackColor = 2
                 }
             };
-
             _dataSave.SaveData(data);
         }
+        #endregion
 
         _gameData = _dataSave.GetData();
     }
@@ -91,6 +94,7 @@ public class SaveSystem : MonoManager
         _financeManagerSaveable.SetData(financeData);
         _eyeCustomizeSaveable.SetData(playerEyeData);
         _shopContainerSaveable.SetData(containerManager);
+        
     } 
 
     public void SaveData()
@@ -103,6 +107,12 @@ public class SaveSystem : MonoManager
         _gameData.Money = financeData.Money;
         _gameData.EyeConfigModel = _eyeCustomizeSaveable.GetData().EyeConfigModel;
         _gameData.ContainerConfigIndexes = containerManager.ContainerConfigIndexes;
+
+        _gameData.EyeItemParameters = new[]
+        {
+            new EyeItemCollection(){ BaseEyeItems = _dataManager.EyeColor.Colors},
+            new EyeItemCollection(){ BaseEyeItems = _dataManager.EyeBackColor.Colors},
+        };
 
         _dataSave.SaveData(_gameData);
     }

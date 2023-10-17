@@ -1,5 +1,4 @@
 using System;
-using Shop;
 using UnityEngine;
 
 namespace Shop
@@ -14,9 +13,5 @@ namespace Shop
     public class BaseEyeColorParameters : BaseEyeItemParameters
     {
         [field: SerializeField] public Color Color { get; private set; }
-        [field: SerializeField] public int Index { get; set; }
-        [field: SerializeField] public ShopItemState ItemState { get; set; }
-        [field: SerializeField] public BuyType BuyType { get; set; }
-        [field: SerializeField] public int PricePoint { get; set; }
     }
 }

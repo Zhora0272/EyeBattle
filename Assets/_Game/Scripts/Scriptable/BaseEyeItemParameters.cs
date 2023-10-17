@@ -7,6 +7,5 @@ public class BaseEyeItemParameters
     public int Index;
     public ShopItemState ItemState;
     public BuyType BuyType;
-    public int PricePoint; 
-    
+    public int PricePoint;
 }

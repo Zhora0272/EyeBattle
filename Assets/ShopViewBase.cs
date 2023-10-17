@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Shop
@@ -27,12 +26,26 @@ namespace Shop
 
         public void SetData(GameData data)
         {
-            
+            this.WaitToObjectInitAndDo(_shopEyeItems[0], () =>
+            {
+                var index = transform.GetSiblingIndex();
+                var lenght = data.EyeItemParameters[index].BaseEyeItems.Length;
+                
+                for (int i = 0; i < lenght; i++)
+                {
+                    _shopEyeItems[i].
+                }
+                
+                foreach (var item in _shopEyeItems)
+                {
+                    
+                }
+            });
         }
 
         public GameData GetData()
         {
-            List<BaseEyeItemParameters> baseEyeItemParameters = new();
+            /*List<BaseEyeItemParameters> baseEyeItemParameters = new();
             
             foreach (var item in _shopEyeItems)
             {
@@ -42,7 +55,9 @@ namespace Shop
             return new()
             {
                 EyeItemParameters = baseEyeItemParameters.ToArray(),
-            };
+            };*/
+
+            return null;
         }
     }
 }

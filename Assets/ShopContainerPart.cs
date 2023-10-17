@@ -25,7 +25,7 @@ namespace Shop.Container
 
         private ReactiveProperty<int> _selectedIndex = new(-1);
 
-        public void SetData(int index)
+        public void SetData(int index, BaseEyeItemParameters[] data)
         {
             _selectedIndex.Value = index;
         }
