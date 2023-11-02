@@ -41,20 +41,20 @@ MonoBehaviour:
   - Index: 0
     ItemState: 0
     BuyType: 0
-    PricePoint: 0
+    PricePoint: 100
     <Color>k__BackingField: {r: 0.754717, g: 0.4868449, b: 0.4868449, a: 0}
   - Index: 0
     ItemState: 0
     BuyType: 0
-    PricePoint: 0
+    PricePoint: 100
     <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 0}
   - Index: 0
     ItemState: 0
     BuyType: 0
-    PricePoint: 0
+    PricePoint: 100
     <Color>k__BackingField: {r: 0.6436036, g: 0.754717, b: 0.23052594, a: 0}
   - Index: 0
     ItemState: 0
     BuyType: 0
-    PricePoint: 0
+    PricePoint: 100
     <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

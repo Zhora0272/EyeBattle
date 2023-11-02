@@ -1,7 +1,8 @@
 ﻿using System;
+using Saveing;
 using UniRx;
 
-public class FinanceManager : MonoManager, ISaveable
+public class FinanceManager : MonoManager, IGameDataSaveable
 {
     public IReactiveProperty<int> Money => _money;
     public IReactiveProperty<int> Gem => _gem;
@@ -32,7 +33,6 @@ public class FinanceManager : MonoManager, ISaveable
 
         return default;
     }
-    
     public int ConvertFinanceToPricePoint(BuyType type, int value)
     {
         int toMoneyCoefficient = 2;

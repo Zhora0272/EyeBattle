@@ -16,8 +16,6 @@ public struct DataColor
             r = color.r,
             g = color.g,
             b = color.b,
-            
-            initState = true,
         };
     }
     
@@ -25,5 +23,4 @@ public struct DataColor
     public float g;
     public float b;
     public float a;
-    public bool initState;
 }

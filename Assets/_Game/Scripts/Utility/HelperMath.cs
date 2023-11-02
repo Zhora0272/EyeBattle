@@ -3,8 +3,13 @@ using UnityEngine;
 using System.Collections;
 using Random = UnityEngine.Random;
 
-public static class Helper
+public static class HelperMath
 {
+    public static int LenghtToCount(int value)
+    {
+        return (value - 1);
+    }
+
     public static Vector3 GetRandomPosition(float min, float max)
     {
         return new Vector3(

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Shop
@@ -14,10 +13,6 @@ namespace Shop
         [Header("Data")] [SerializeField] private ShopEyeSizeScriptable _eyeSizeScriptable;
 
         [SerializeField] private EyeSizeType _eyeColorType;
-
-        protected override void InitData(int[] saveIndex)
-        {
-        }
 
         protected override void Init()
         {
@@ -40,7 +35,7 @@ namespace Shop
                 var value = configs.EyeSize;
 
                 //
-                item.SetBuyParameters(configs.BuyType, configs.PricePoint);
+                item.SetData(configs);
                 item.SetValue(value);
                 item.SetValueAction(SizeSelectAction);
                 //

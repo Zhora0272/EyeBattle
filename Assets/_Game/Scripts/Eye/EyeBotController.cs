@@ -1,19 +1,26 @@
-using System;
-using UniRx;
-using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine;
+using System;
+using Pooling;
+using UniRx;
 
-public class EyeBotController : EyeBaseController
+public class EyeBotController : EyeBaseController, IPoolingMono
 {
     [SerializeField] private BotBattleParticipant _battleParticipant;
-    [Space] [SerializeField] private BotBehaviourModel _model;
+    [Space] 
+    [SerializeField] private BotBehaviourModel _model;
 
+    //
+    public MonoBehaviour PoolMonoObj => this;
+
+    //
     private IBotMonoBehaviour _botBehaviour;
     private IMoveableRigidbody _moveableRigidbody;
-
-    private Vector3 _closestEnemyPosition;
     private IEyeParameters _closestEyeElement;
-
+    
+    //
+    private Vector3 _closestEnemyPosition;
+    
     private Vector3 _currentMoveDirection;
 
     private void Awake()
@@ -22,17 +29,13 @@ public class EyeBotController : EyeBaseController
         _botBehaviour = new BotMiddleBehaviour(_model);
     }
 
-    private void OnDrawGizmos()
-    {
-        if(_closestEyeElement == null) return;
-        
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(_closestEyeElement.Position, 0.5f);
-    }
-
+    private IDisposable _closestElementDisposable;
+    private IDisposable _behaviourUpdateDisposable;
+    
     private void Start()
     {
-        Observable.Interval(TimeSpan.FromSeconds(Random.Range(0.5f, 1f))).Subscribe(_ =>
+        _closestElementDisposable = Observable.Interval(
+            TimeSpan.FromSeconds(Random.Range(0.5f, 1f))).Subscribe(_ =>
         {
             if (_battleParticipant.GetClosestElement(out var result))
             {
@@ -41,7 +44,7 @@ public class EyeBotController : EyeBaseController
             }
         }).AddTo(this);
 
-        Observable.Interval(
+        _behaviourUpdateDisposable = Observable.Interval(
                 TimeSpan.FromSeconds(
                     Random.Range(0.5f, 1.5f)))
             .Subscribe(_ => { UpdateBehaviourState(); })
@@ -50,12 +53,12 @@ public class EyeBotController : EyeBaseController
 
     private void UpdateBehaviourState()
     {
-        var state = _botBehaviour.BotBehaviourUpdate(this, _closestEyeElement);
+        var botState = _botBehaviour.BotBehaviourUpdate(this, _closestEyeElement);
 
-        switch (state)
+        switch (botState)
         {
             case BotState.RandomWalk:
-                moveDirection = (Helper.GetRandomPosition(-1f, 1f) * 10).normalized;
+                moveDirection = (HelperMath.GetRandomPosition(-1f, 1f) * 10).normalized;
                 break;
             case BotState.Idle:
                 moveDirection = Vector3.zero;
@@ -69,6 +72,7 @@ public class EyeBotController : EyeBaseController
         }
     }
 
+
     protected override void Move()
     {
         _currentMoveDirection = Vector3.Lerp(
@@ -78,5 +82,22 @@ public class EyeBotController : EyeBaseController
 
         _moveableRigidbody.Move(Rb,
             _currentMoveDirection, 0.5f);
+    }
+
+    public void PoolActivate()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void PoolDeactivate()
+    {
+        _behaviourUpdateDisposable.Dispose();
+        _closestElementDisposable.Dispose();
+        gameObject.SetActive(false);
+    }
+
+    public void PoolDestroy()
+    {
+        Destroy(gameObject);
     }
 }

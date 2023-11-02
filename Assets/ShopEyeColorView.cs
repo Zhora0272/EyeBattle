@@ -14,7 +14,6 @@ namespace Shop
         [SerializeField] private ShopEyeColorScriptable _eyeColorScriptable;
         [SerializeField] private EyeColorType _eyeColorType;
 
-        protected override void InitData(int[] saveIndex) { }
 
         protected override void Init()
         {
@@ -27,7 +26,7 @@ namespace Shop
                 //
                 item.SetRaycastState(false);
                 item.HideItemElements();
-                item.SetColor(Helper.AlphaToMax(color));
+                item.SetColor(HelperMath.AlphaToMax(color));
                 //
             }
 
@@ -36,8 +35,8 @@ namespace Shop
                 var item = Instantiate(_prefabRectTransform, _actiavtedContent);
                 var color = configs.Color;
 
-                item.SetBuyParameters(configs.BuyType, configs.PricePoint);
-                item.SetColor(Helper.AlphaToMax(color));
+                item.SetData(configs);
+                item.SetColor(HelperMath.AlphaToMax(color));
                 item.SetColorAction(ColorSelectAction);
                 
                 _shopEyeItems.Add(item);

@@ -13,53 +13,53 @@ MonoBehaviour:
   m_Name: ShopEyeBackColorData
   m_EditorClassIdentifier: 
   <Colors>k__BackingField:
-  - <Color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
-    <Index>k__BackingField: 9
-    <ItemState>k__BackingField: 2
-    <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-  - <Color>k__BackingField: {r: 0.251984, g: 1, b: 0, a: 0}
-    <Index>k__BackingField: 5
-    <ItemState>k__BackingField: 0
-    <BuyType>k__BackingField: 2
-    <PricePoint>k__BackingField: 1000
-  - <Color>k__BackingField: {r: 1, g: 0.92487764, b: 0, a: 0}
-    <Index>k__BackingField: 8
-    <ItemState>k__BackingField: 0
-    <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-  - <Color>k__BackingField: {r: 0, g: 0.97202444, b: 1, a: 0}
-    <Index>k__BackingField: 6
-    <ItemState>k__BackingField: 0
-    <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-  - <Color>k__BackingField: {r: 0.9550662, g: 0, b: 1, a: 0}
-    <Index>k__BackingField: 2
-    <ItemState>k__BackingField: 0
-    <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-  - <Color>k__BackingField: {r: 0.68940234, g: 1, b: 0, a: 0}
-    <Index>k__BackingField: 3
-    <ItemState>k__BackingField: 0
-    <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-  - <Color>k__BackingField: {r: 0.74755925, g: 0.8018868, b: 0.2903236, a: 0}
-    <Index>k__BackingField: 1
-    <ItemState>k__BackingField: 0
-    <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-  - <Color>k__BackingField: {r: 0, g: 0.03701353, b: 1, a: 0}
-    <Index>k__BackingField: 4
-    <ItemState>k__BackingField: 0
-    <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-  - <Color>k__BackingField: {r: 0.20119293, g: 0.30296314, b: 0.41509432, a: 0}
-    <Index>k__BackingField: 7
-    <ItemState>k__BackingField: 0
-    <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-  - <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-    <Index>k__BackingField: 0
-    <ItemState>k__BackingField: 0
-    <BuyType>k__BackingField: 0
-    <PricePoint>k__BackingField: 100
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 100
+    <Color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 100
+    <Color>k__BackingField: {r: 0.251984, g: 1, b: 0, a: 0}
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 100
+    <Color>k__BackingField: {r: 1, g: 0.92487764, b: 0, a: 0}
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 100
+    <Color>k__BackingField: {r: 0, g: 0.97202444, b: 1, a: 0}
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 100
+    <Color>k__BackingField: {r: 0.9550662, g: 0, b: 1, a: 0}
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 100
+    <Color>k__BackingField: {r: 0.68940234, g: 1, b: 0, a: 0}
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 0
+    <Color>k__BackingField: {r: 0.74755925, g: 0.8018868, b: 0.2903236, a: 0}
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 0
+    <Color>k__BackingField: {r: 0, g: 0.03701353, b: 1, a: 0}
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 0
+    <Color>k__BackingField: {r: 0.20119293, g: 0.30296314, b: 0.41509432, a: 0}
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 0
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

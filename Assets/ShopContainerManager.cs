@@ -1,35 +1,36 @@
 using System.Collections.Generic;
+using Saveing;
 using UnityEngine;
 
 namespace Shop.Container
 {
-    public class ShopContainerManager : MonoBehaviour, ISaveable
+    public class ShopContainerManager : MonoBehaviour, IGameDataSaveable
     {
-        private ShopContainerPart[] _containers;
-        private ShopViewBase[] _conShopViewBases;
+        [SerializeField] private ShopContainer[] _containers;
+        [SerializeField] private ShopViewBase[] _conShopViewBases;
 
-        private void OnValidate()
+#if UNITY_EDITOR
+        [ContextMenu("Set Children")]
+        private void SetChildren()
         {
-            _containers = GetComponentsInChildren<ShopContainerPart>();
-            _conShopViewBases = GetComponentsInChildren<ShopViewBase>();
+            _containers = GetComponentsInChildren<ShopContainer>();
+            _conShopViewBases ??= GetComponentsInChildren<ShopViewBase>();
         }
+#endif
 
         private void Start()
         {
-            foreach (ShopContainerPart container in _containers)
+            foreach (ShopContainer container in _containers)
             {
                 container.SetManager(this);
             }
-        }
 
-        private void OnEnable()
-        {
             ActivateContainer(null);
         }
 
-        internal void ActivateContainer(ShopContainerPart container)
+        internal void ActivateContainer(ShopContainer container)
         {
-            foreach (ShopContainerPart part in _containers)
+            foreach (ShopContainer part in _containers)
             {
                 if (part.IsActivated.Value)
                 {
@@ -45,14 +46,9 @@ namespace Shop.Container
 
         public void SetData(GameData data)
         {
-            for (int i = 0; i < _containers.Length; i++)
+            for (int i = 0; i < data.EyeItemParameters.Length; i++)
             {
-                _containers[i].SetData
-                (
-                    data.ContainerConfigIndexes[i],
-                    data.EyeItemParameters[i].BaseEyeItems
-                );
-                _conShopViewBases[i].SetData(data);
+                _conShopViewBases[i].SetData(data.EyeItemParameters[i]);
             }
         }
 
@@ -62,7 +58,7 @@ namespace Shop.Container
 
             foreach (var item in _containers)
             {
-                indexes.Add(item.GetData());
+                //indexes.Add(item.GetData());
             }
 
             return new GameData()

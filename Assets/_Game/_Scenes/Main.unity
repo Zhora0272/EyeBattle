@@ -239,7 +239,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.99999994}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -862,6 +862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[container] eye size'
       objectReference: {fileID: 0}
+    - target: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924164, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1022,11 +1026,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a7aeeffe9e3a43b36bec06ab213ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabRectTransform: {fileID: 6738368297310813060, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
+  _prefabRectTransform: {fileID: 8461405194748975383, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
   _actiavtedContent: {fileID: 250413160}
   _deactiavtedContent: {fileID: 250413159}
   _eyeSizeScriptable: {fileID: 11400000, guid: e8b532e2754412b46a76c44f3886969d, type: 2}
   _eyeColorType: 0
+--- !u!114 &250413163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4337501300280924167, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+  m_PrefabInstance: {fileID: 250413157}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250413161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d12e747bc18954499b88054e5ded5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &253680407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,11 +2237,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00ddceeb3066034a81c5b2c48686637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabRectTransform: {fileID: 6738368297310813060, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
+  _prefabRectTransform: {fileID: 8461405194748975383, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
   _actiavtedContent: {fileID: 613700212}
   _deactiavtedContent: {fileID: 613700211}
   _eyeColorScriptable: {fileID: 11400000, guid: 7ededb447e069754fa37fbe6542487a7, type: 2}
   _eyeColorType: 1
+--- !u!114 &613700215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4337501300280924167, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+  m_PrefabInstance: {fileID: 613700209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613700213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d12e747bc18954499b88054e5ded5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &616294862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3308,6 +3334,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088a33c90b7cfd94b8418010d254d336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _containers:
+  - {fileID: 1460552599}
+  - {fileID: 613700215}
+  - {fileID: 1862238999}
+  - {fileID: 250413163}
+  _conShopViewBases:
+  - {fileID: 1460552598}
+  - {fileID: 613700214}
+  - {fileID: 1862238994}
+  - {fileID: 250413162}
 --- !u!114 &883260382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4645,7 +4681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _botPrrefab: {fileID: 767367345007416154, guid: 38d3f1061f9a6a749a18188b301aee13, type: 3}
   _playerTransform: {fileID: 2509413003133941969, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
-  _spawnCount: 0
+  _spawnCount: 15
 --- !u!4 &1368244457
 Transform:
   m_ObjectHideFlags: 0
@@ -4756,11 +4792,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00ddceeb3066034a81c5b2c48686637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabRectTransform: {fileID: 6738368297310813060, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
+  _prefabRectTransform: {fileID: 8461405194748975383, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
   _actiavtedContent: {fileID: 4337501301203295113}
   _deactiavtedContent: {fileID: 4337501301203295114}
   _eyeColorScriptable: {fileID: 11400000, guid: 2f0b7f207a748c14390b2f4849fcc28a, type: 2}
   _eyeColorType: 0
+--- !u!114 &1460552599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4337501300280924167, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+  m_PrefabInstance: {fileID: 4337501301203295112}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66807375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d12e747bc18954499b88054e5ded5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1534188145
 GameObject:
   m_ObjectHideFlags: 0
@@ -6020,6 +6067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[container] eye bibe size'
       objectReference: {fileID: 0}
+    - target: {fileID: 4337501300280924163, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4337501300280924164, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6180,11 +6231,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a7aeeffe9e3a43b36bec06ab213ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabRectTransform: {fileID: 6738368297310813060, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
+  _prefabRectTransform: {fileID: 8461405194748975383, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
   _actiavtedContent: {fileID: 1862238992}
   _deactiavtedContent: {fileID: 1862238991}
   _eyeSizeScriptable: {fileID: 11400000, guid: d2d5f16e4221b5f499ec0d641663fc17, type: 2}
   _eyeColorType: 1
+--- !u!114 &1862238999 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4337501300280924167, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+  m_PrefabInstance: {fileID: 1862238989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862238993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d12e747bc18954499b88054e5ded5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1865689303
 GameObject:
   m_ObjectHideFlags: 0

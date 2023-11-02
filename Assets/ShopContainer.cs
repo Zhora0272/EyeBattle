@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Shop.Container
 {
-    public class ShopContainerPart : MonoBehaviour
+    public class ShopContainer : MonoBehaviour
     {
         [SerializeField] private float _rectHeightSize;
 
@@ -22,34 +22,27 @@ namespace Shop.Container
 
         private float _originalRectHeightSize;
         private Button _button;
-
-        private ReactiveProperty<int> _selectedIndex = new(-1);
-
-        public void SetData(int index, BaseEyeItemParameters[] data)
-        {
-            _selectedIndex.Value = index;
-        }
-
-        public int GetData() => _selectedIndex.Value;
+        
 
         private void Awake()
         {
             _button = GetComponent<Button>();
             _rectTransform = GetComponent<RectTransform>();
-
             _originalRectHeightSize = _rectTransform.sizeDelta.y;
         }
 
         private void Start()
         {
+            _button.onClick.AddListener(() =>
+            {
+                if (_manager)
+                {
+                    _manager.ActivateContainer(this);
+                }
+            });
             IsActivated.Subscribe(state =>
             {
                 _button.enabled = !state;
-            }).AddTo(this);
-
-            _selectedIndex.Subscribe(index =>
-            {
-                
             }).AddTo(this);
         }
 
@@ -57,7 +50,6 @@ namespace Shop.Container
         {
             _manager = ShopContainerManager;
 
-            _button.onClick.AddListener(() => { _manager.ActivateContainer(this); });
         }
 
         internal void Activate()

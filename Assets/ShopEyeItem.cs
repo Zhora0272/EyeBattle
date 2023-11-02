@@ -1,4 +1,5 @@
 using System;
+using Saveing;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -6,11 +7,10 @@ using UnityEngine.UI;
 
 namespace Shop
 {
-    public class ShopEyeItem : MonoBehaviour
+    public class ShopEyeItem : MonoBehaviour, IEyeBaseItemParametersSaveable
     {
         [SerializeField] private BuyType _buyType;
-        [SerializeField] private ReactiveProperty<ShopItemState> _itemState =
-            new(ShopItemState.Sale);
+        [SerializeField] private ReactiveProperty<ShopItemState> _itemState = new(ShopItemState.Sale);
 
         [Header("Parameters")] [SerializeField]
         private Button _selectButton;
@@ -25,9 +25,11 @@ namespace Shop
         [SerializeField] private GameObject _buyState;
         [SerializeField] private GameObject _itemElements;
 
+        private ReactiveProperty<int> _selectedIndex;
+
         private FinanceManager _financeManager;
         private DataManager _dataManager;
-
+        
         private Action<bool> _onClickEvent;
 
         //item data variables
@@ -37,7 +39,7 @@ namespace Shop
 
         private float _value;
         //
-        
+
         public static implicit operator BaseEyeItemParameters(ShopEyeItem data)
         {
             return new BaseEyeItemParameters()
@@ -51,7 +53,7 @@ namespace Shop
 
         private void Awake()
         {
-            _selectButton.onClick.AddListener(BuyAction);
+            _selectButton.onClick.AddListener(ClickAction);
 
             _itemState.Subscribe(SetState).AddTo(this);
         }
@@ -60,14 +62,6 @@ namespace Shop
         {
             _financeManager = MainManager.GetManager<FinanceManager>();
             _dataManager = MainManager.GetManager<DataManager>();
-        }
-
-        internal void SetBuyParameters(BuyType type, int pricePoint)
-        {
-            _buyType = type;
-            _pricePoint = pricePoint;
-
-            this.WaitToObjectInitAndDo(_financeManager, RefreshPrice);
         }
 
         internal void SetValue(float value) => _value = value;
@@ -87,7 +81,6 @@ namespace Shop
                 }
             };
         }
-
         internal void SetValueAction(Action<float> action)
         {
             _onClickEvent = state =>
@@ -98,7 +91,6 @@ namespace Shop
                 }
             };
         }
-
         internal void SetTextureAction(Action<Texture> action)
         {
             _onClickEvent = state =>
@@ -112,24 +104,15 @@ namespace Shop
 
         private void SetState(ShopItemState state)
         {
-            switch (state)
+            if (state == ShopItemState.Empty)
             {
-                case ShopItemState.Empty:
-                {
-                    _selectedState.SetActive(false);
-                    _buyState.SetActive(false);
-                }
-                    break;
-                case ShopItemState.Selected:
-                {
-                    _selectedState.SetActive(false);
-                }
-                    break;
-                case ShopItemState.Sale:
-                {
-                    _buyState.SetActive(false);
-                }
-                    break;
+                _buyState.SetActive(false);
+                _selectedState.SetActive(false);
+            }
+            else
+            {
+                _selectedState.SetActive(state == ShopItemState.Selected);
+                _buyState.SetActive(state == ShopItemState.Sale);
             }
         }
 
@@ -157,26 +140,65 @@ namespace Shop
         }
 
 
-        private void BuyAction()
+        private void ClickAction()
         {
-            _financeManager.TryBuy(_buyType, _pricePoint, BuyActionCallBack);
+            switch (_itemState.Value)
+            {
+                case ShopItemState.Sale:
+                    _financeManager.TryBuy(_buyType, _pricePoint, BuyActionCallBack);
+                    break;
+                case ShopItemState.Empty:
+                    _itemState.Value = ShopItemState.Selected;
+                    break;
+            }
         }
 
         private void BuyActionCallBack(bool state)
         {
             if (state)
             {
+                _selectedIndex.Value = _indexInQueue;
                 _itemState.Value = ShopItemState.Selected;
-
-                _selectButton.onClick.AddListener(() =>
-                {
-                    _financeManager.TryBuy(_buyType, _pricePoint, _onClickEvent);
-                });
             }
             else
             {
                 _itemState.Value = ShopItemState.Sale;
             }
+
+            _onClickEvent.Invoke(state);
+        }
+
+        public void SetData(BaseEyeItemParameters data)
+        {
+            _buyType = data.BuyType;
+            _pricePoint = data.PricePoint;
+            _itemState.Value = data.ItemState;
+            _indexInQueue = data.Index;
+
+            this.WaitToObjectInitAndDo(_financeManager, RefreshPrice);
+        }
+        public void SetSelectedReactiveProperty(ReactiveProperty<int> selectedIndex)
+        {
+            _selectedIndex = selectedIndex;
+
+            _selectedIndex.Subscribe(value =>
+            {
+                if (_itemState.Value != ShopItemState.Sale)
+                {
+                    _itemState.Value = value == _indexInQueue ? 
+                        ShopItemState.Selected : ShopItemState.Empty;
+                }
+            }).AddTo(this);
+        }
+
+        BaseEyeItemParameters ISaveable<BaseEyeItemParameters>.GetData()
+        {
+            return new()
+            {
+                PricePoint = _pricePoint,
+                BuyType = _buyType,
+                ItemState = _itemState.Value,
+            };
         }
     }
 }

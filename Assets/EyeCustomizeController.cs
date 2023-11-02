@@ -1,7 +1,8 @@
+using Saveing;
 using Shop;
 using UnityEngine;
 
-public class EyeCustomizeController : MonoBehaviour, ISaveable
+public class EyeCustomizeController : MonoBehaviour, IGameDataSaveable
 {
     [SerializeField] private Material _eyeMaterial;
     [SerializeField] private MeshRenderer _eyeMeshRenderer;
