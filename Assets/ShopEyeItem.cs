@@ -26,10 +26,8 @@ namespace Shop
         [SerializeField] private GameObject _itemElements;
 
         private ReactiveProperty<int> _selectedIndex;
-
         private FinanceManager _financeManager;
-        private DataManager _dataManager;
-        
+
         private Action<bool> _onClickEvent;
 
         //item data variables
@@ -61,7 +59,7 @@ namespace Shop
         private void Start()
         {
             _financeManager = MainManager.GetManager<FinanceManager>();
-            _dataManager = MainManager.GetManager<DataManager>();
+            //_dataManager = MainManager.GetManager<DataManager>();
         }
 
         internal void SetValue(float value) => _value = value;
@@ -77,7 +75,7 @@ namespace Shop
             {
                 if (state)
                 {
-                    action.Invoke(_colorIndex);
+                    action.Invoke(_indexInQueue);
                 }
             };
         }
@@ -104,10 +102,23 @@ namespace Shop
 
         private void SetState(ShopItemState state)
         {
+            switch (state)
+            {
+                case ShopItemState.Empty:
+                {
+                    _buyState.SetActive(false);
+                    _selectedState.SetActive(false);
+                }
+                    break;
+                case ShopItemState.Selected:
+                {
+                    //SelectElement();
+                }
+                    break;
+            }
             if (state == ShopItemState.Empty)
             {
-                _buyState.SetActive(false);
-                _selectedState.SetActive(false);
+                
             }
             else
             {
@@ -148,17 +159,25 @@ namespace Shop
                     _financeManager.TryBuy(_buyType, _pricePoint, BuyActionCallBack);
                     break;
                 case ShopItemState.Empty:
-                    _itemState.Value = ShopItemState.Selected;
+                {
+                    SelectElement();
+                }
                     break;
             }
         }
 
+        private void SelectElement()
+        {
+            _selectedIndex.Value = _indexInQueue;
+            _itemState.Value = ShopItemState.Selected;    
+            _onClickEvent.Invoke(true);
+        }
+        
         private void BuyActionCallBack(bool state)
         {
             if (state)
             {
-                _selectedIndex.Value = _indexInQueue;
-                _itemState.Value = ShopItemState.Selected;
+                SelectElement();
             }
             else
             {
@@ -183,11 +202,9 @@ namespace Shop
 
             _selectedIndex.Subscribe(value =>
             {
-                if (_itemState.Value != ShopItemState.Sale)
-                {
-                    _itemState.Value = value == _indexInQueue ? 
-                        ShopItemState.Selected : ShopItemState.Empty;
-                }
+                _itemState.Value = value == _indexInQueue ? 
+                    ShopItemState.Selected : ShopItemState.Empty;
+                
             }).AddTo(this);
         }
 

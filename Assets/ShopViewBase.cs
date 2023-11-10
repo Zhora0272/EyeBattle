@@ -12,14 +12,16 @@ namespace Shop
         [SerializeField] protected RectTransform _actiavtedContent;
         [SerializeField] protected RectTransform _deactiavtedContent;
 
-        protected List<ShopEyeItem> _shopEyeItems = new();
-        protected IManager<ShopCustomizeManager, EyeCustomizeModel> _manager;
+        public ReactiveProperty<int> SelectedIndex = new(0);
 
+        protected List<ShopEyeItem> _shopEyeItems = new();
+
+        protected IManager<ShopCustomizeManager, EyeCustomizeModel> _manager;
         protected EyeItemCollection ItemData;
 
-        protected ReactiveProperty<int> SelectedIndex = new(-1);
 
-        public void SetManager(IManager<ShopCustomizeManager, EyeCustomizeModel> manager) => _manager = manager;
+        public void SetManager(IManager<ShopCustomizeManager, EyeCustomizeModel> manager) =>
+            _manager = manager;
 
         private void Awake()
         {
@@ -28,37 +30,36 @@ namespace Shop
 
         private void Start()
         {
-            var lenght = ItemData.BaseEyeItems.Length;
+            var eyeItemsLenght = ItemData.BaseEyeItems.Length;
 
-            for (int j = 0; j < lenght; j++)
+            for (int i = 0; i < eyeItemsLenght; i++)
             {
-                var eyeItemsLenght = ItemData.BaseEyeItems.Length;
-
-                for (int i = 0; i < eyeItemsLenght; i++)
-                {
-                    _shopEyeItems[i].SetSelectedReactiveProperty(SelectedIndex);
-                    _shopEyeItems[i].SetData(ItemData.BaseEyeItems[j]);
-                }
+                _shopEyeItems[i].SetSelectedReactiveProperty(SelectedIndex);
+                _shopEyeItems[i].SetData(ItemData.BaseEyeItems[i]);
             }
         }
-        
-        public void SetData(EyeItemCollection data)
-        {
-            ItemData = data;
-        }
-        
-        EyeItemCollection ISaveable<EyeItemCollection>.GetData()
-        {
-            List<BaseEyeItemParameters> baseEyeItemParameters = new();
 
-            baseEyeItemParameters.AddRange(_shopEyeItems.Cast<BaseEyeItemParameters>().ToArray());
+        public void SetData((int, EyeItemCollection) data)
+        {
+            ItemData = data.Item2;
+            SelectedIndex.Value = data.Item1;
+        }
+
+        public (int, EyeItemCollection) GetData()
+        {
+            List<BaseEyeItemParameters> baseEyeItemParameters =
+                _shopEyeItems.Select(item => (BaseEyeItemParameters) item).ToList();
 
             return new()
             {
-                BaseEyeItems = baseEyeItemParameters.ToArray()
+                Item2 = new EyeItemCollection()
+                {
+                    BaseEyeItems = baseEyeItemParameters.ToArray()
+                },
+                Item1 = SelectedIndex.Value
             };
         }
-        
+
         protected virtual void Init()
         {
         }

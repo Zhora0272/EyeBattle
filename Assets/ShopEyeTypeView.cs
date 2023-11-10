@@ -9,6 +9,7 @@ namespace Shop
         
         protected override void Init()
         {
+            base.Init();
             for (int i = 0; i < 3; i++)
             {
                 var item = Instantiate(_prefabRectTransform, _deactiavtedContent);
@@ -38,9 +39,6 @@ namespace Shop
             item.SetColor(color);
         }
         
-        private void TextureSelectAction(int index)
-        {
-            
-        }
+        private void TextureSelectAction(int index) { }
     }
 }

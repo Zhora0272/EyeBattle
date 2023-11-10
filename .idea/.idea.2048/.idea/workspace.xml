@@ -2,35 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BasePooling.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BasePooling.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/IGameDataSaveable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/IPoolingMono.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/IPoolingMono.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataColor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataColor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EyeCustomizeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBackColorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBackColorData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeFrontColorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeFrontColorData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShopContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopContainer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShopContainerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopContainerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopContainerPart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopContainerPart.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopContainer.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShopEyeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShopEyeSizeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeSizeView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeTypeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeTypeView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShopViewBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopViewBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/EyeItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/EyeItem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotBehaviourModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotBehaviourModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ISaveable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ISaveable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/IGameDataSaveable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/BaseEyeItemParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/BaseEyeItemParameters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/HelperMath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/Helper.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/HelperMath.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/IGameDataSaveable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/IGameDataSaveable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +116,8 @@
       <workItem from="1698042157052" duration="4396000" />
       <workItem from="1698134088043" duration="13323000" />
       <workItem from="1698735828458" duration="743000" />
-      <workItem from="1698857983510" duration="4317000" />
+      <workItem from="1698857983510" duration="6813000" />
+      <workItem from="1698976197532" duration="8800000" />
     </task>
     <servers />
   </component>

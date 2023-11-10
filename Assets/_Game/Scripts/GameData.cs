@@ -9,3 +9,4 @@ public class GameData
     public EyeCustomizeModel EyeConfigModel;
     public EyeItemCollection[] EyeItemParameters;
 }
+

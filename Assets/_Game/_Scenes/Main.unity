@@ -1029,6 +1029,8 @@ MonoBehaviour:
   _prefabRectTransform: {fileID: 8461405194748975383, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
   _actiavtedContent: {fileID: 250413160}
   _deactiavtedContent: {fileID: 250413159}
+  SelectedIndex:
+    value: -1
   _eyeSizeScriptable: {fileID: 11400000, guid: e8b532e2754412b46a76c44f3886969d, type: 2}
   _eyeColorType: 0
 --- !u!114 &250413163 stripped
@@ -2240,6 +2242,8 @@ MonoBehaviour:
   _prefabRectTransform: {fileID: 8461405194748975383, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
   _actiavtedContent: {fileID: 613700212}
   _deactiavtedContent: {fileID: 613700211}
+  SelectedIndex:
+    value: 1
   _eyeColorScriptable: {fileID: 11400000, guid: 7ededb447e069754fa37fbe6542487a7, type: 2}
   _eyeColorType: 1
 --- !u!114 &613700215 stripped
@@ -4795,6 +4799,8 @@ MonoBehaviour:
   _prefabRectTransform: {fileID: 8461405194748975383, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
   _actiavtedContent: {fileID: 4337501301203295113}
   _deactiavtedContent: {fileID: 4337501301203295114}
+  SelectedIndex:
+    value: 1
   _eyeColorScriptable: {fileID: 11400000, guid: 2f0b7f207a748c14390b2f4849fcc28a, type: 2}
   _eyeColorType: 0
 --- !u!114 &1460552599 stripped
@@ -6234,6 +6240,8 @@ MonoBehaviour:
   _prefabRectTransform: {fileID: 8461405194748975383, guid: b925c789545a17d4aa2edea22ee8d879, type: 3}
   _actiavtedContent: {fileID: 1862238992}
   _deactiavtedContent: {fileID: 1862238991}
+  SelectedIndex:
+    value: -1
   _eyeSizeScriptable: {fileID: 11400000, guid: d2d5f16e4221b5f499ec0d641663fc17, type: 2}
   _eyeColorType: 1
 --- !u!114 &1862238999 stripped

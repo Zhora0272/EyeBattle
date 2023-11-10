@@ -17,6 +17,7 @@ namespace Shop
 
         protected override void Init()
         {
+            base.Init();
             for (int i = 0; i < 3; i++)
             {
                 var configs = _eyeColorScriptable.Colors[i];

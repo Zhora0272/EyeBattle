@@ -14,7 +14,7 @@ namespace Shop.Container
         private void SetChildren()
         {
             _containers = GetComponentsInChildren<ShopContainer>();
-            _conShopViewBases ??= GetComponentsInChildren<ShopViewBase>();
+            _conShopViewBases = GetComponentsInChildren<ShopViewBase>();
         }
 #endif
 
@@ -46,24 +46,31 @@ namespace Shop.Container
 
         public void SetData(GameData data)
         {
-            for (int i = 0; i < data.EyeItemParameters.Length; i++)
+            var lenght = data.EyeItemParameters.Length;
+            for (int i = 0; i < lenght; i++)
             {
-                _conShopViewBases[i].SetData(data.EyeItemParameters[i]);
+                _conShopViewBases[i].SetData(
+                    (data.ContainerConfigIndexes[i],
+                        data.EyeItemParameters[i]));
             }
         }
 
         public GameData GetData()
         {
-            List<int> indexes = new();
+            List<EyeItemCollection> eyeItemCollections = new();
+            List<int> containerIndex = new();
 
-            foreach (var item in _containers)
+            foreach (var item in _conShopViewBases)
             {
-                //indexes.Add(item.GetData());
+                var data = item.GetData();
+                eyeItemCollections.Add(data.Item2);
+                containerIndex.Add(item.SelectedIndex.Value);
             }
 
             return new GameData()
             {
-                ContainerConfigIndexes = indexes.ToArray(),
+                EyeItemParameters = eyeItemCollections.ToArray(),
+                ContainerConfigIndexes = containerIndex.ToArray(),
             };
         }
     }
