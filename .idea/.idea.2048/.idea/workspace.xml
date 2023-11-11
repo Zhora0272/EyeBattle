@@ -3,18 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBackColorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBackColorData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeFrontColorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeFrontColorData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopContainerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopContainerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeSizeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeSizeView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeTypeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeTypeView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopViewBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopViewBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/GameData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/IGameDataSaveable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/IGameDataSaveable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +106,8 @@
       <workItem from="1698735828458" duration="743000" />
       <workItem from="1698857983510" duration="6813000" />
       <workItem from="1698976197532" duration="8800000" />
+      <workItem from="1699629515673" duration="596000" />
+      <workItem from="1699682631223" duration="345000" />
     </task>
     <servers />
   </component>
