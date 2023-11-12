@@ -3,11 +3,21 @@ using UnityEngine;
 
 public static class EyeShaderGraph
 {
-    private static DataManager _data;
+    private static readonly DataManager Data;
+
+    private enum EyeMaterialConfig
+    {
+        _EyeSize,
+        _EyeBibeSize,
+        _EyeType,
+        _EyeColor,
+        _EyeBackColor
+    }
+
 
     static EyeShaderGraph()
     {
-        _data = MainManager.GetManager<DataManager>();
+        Data = MainManager.GetManager<DataManager>();
     }
 
     public static Material GetMaterial
@@ -37,40 +47,77 @@ public static class EyeShaderGraph
         Material material
     )
     {
-        if (model._eyeSize != -1) material.SetFloat("_EyeSize", model._eyeSize);
-        if (model._eyeBibeSize != -1) material.SetFloat("_EyeBibeSize", model._eyeBibeSize);
-        if (model._eyeType != -1) material.SetInt("_EyeType", model._eyeType);
+        //size
+        if (model._eyeSize >= 0) SetMaterialValue(model._eyeSize, material, EyeMaterialConfig._EyeSize);
+        if (model._eyeBibeSize >= 0) SetMaterialValue(model._eyeBibeSize, material, EyeMaterialConfig._EyeBibeSize);
 
-        if (model._eyeColor != -1) material.SetColor("_EyeColor", _data.EyeColor.Colors[model._eyeColor].Color);
-        if (model._eyeBackColor != -1)
-            material.SetColor("_EyeBackColor", _data.EyeBackColor.Colors[model._eyeBackColor].Color);
+        //type
+        if (model._eyeType >= 0) SetMaterialValue(model._eyeType, material, EyeMaterialConfig._EyeType);
+
+        //color
+        if (model._eyeColor >= 0)
+        {
+            var color = Data.EyeColor.Colors[model._eyeColor].Color;
+            SetMaterialValue(color, material, EyeMaterialConfig._EyeColor);
+        }
+
+        if (model._eyeBackColor >= 0)
+        {
+            var color = Data.EyeBackColor.Colors[model._eyeBackColor].Color;
+            SetMaterialValue(color, material, EyeMaterialConfig._EyeBackColor);
+        }
 
         return material;
+    }
+
+    private static void SetMaterialValue
+    (
+        object value,
+        Material material,
+        EyeMaterialConfig config
+    )
+    {
+        switch (value)
+        {
+            case int intValue:
+                material.SetInt(config.ToString(), intValue);
+                break;
+            case float floatValue:
+                material.SetFloat(config.ToString(), floatValue);
+                break;
+            case Color colorValue:
+                material.SetColor(config.ToString(), colorValue);
+                break;
+        }
     }
 
     public static EyeCustomizeModel ConvertMaterialToModel(Material material)
     {
         return new EyeCustomizeModel()
         {
-            _eyeSize = material.GetFloat("_EyeSize"),
-            _eyeBibeSize = material.GetFloat("_EyeBibeSize"),
-            //_eyeType = material.GetInt("_EyeType"),
+            _eyeSize = material.GetFloat(EyeMaterialConfig._EyeSize.ToString()),
+            _eyeBibeSize = material.GetFloat(EyeMaterialConfig._EyeBibeSize.ToString()),
 
-            _eyeColor = FindTheColorIndex(_data.EyeColor, material.GetColor("_EyeColor")),
-            _eyeBackColor = FindTheColorIndex(_data.EyeColor, material.GetColor("_EyeBackColor")),
+            //_eyeType = material.GetInt(EyeMaterialConfig._EyeType.ToString()),
+
+            _eyeColor = FindTheColorIndex(Data.EyeColor,
+                material.GetColor(EyeMaterialConfig._EyeColor.ToString())),
+            
+            _eyeBackColor = FindTheColorIndex(Data.EyeBackColor,
+                material.GetColor(EyeMaterialConfig._EyeBackColor.ToString())),
         };
     }
 
-    public static int FindTheColorIndex(ShopEyeColorScriptable data, Color color)
+    private static int FindTheColorIndex(ShopEyeColorScriptable data, Color color)
     {
-        for (int i = 0; i < data.Colors.Length; i++)
+        foreach (var item in data.Colors)
         {
-            if (color == data.Colors[i].Color)
+            if (color == item.Color)
             {
-                return i;
+                return item.Index;
             }
         }
 
-        return 0;
+        return -1;
     }
 }

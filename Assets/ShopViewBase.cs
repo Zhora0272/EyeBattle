@@ -47,8 +47,9 @@ namespace Shop
 
         public (int, EyeItemCollection) GetData()
         {
-            List<BaseEyeItemParameters> baseEyeItemParameters =
-                _shopEyeItems.Select(item => (BaseEyeItemParameters) item).ToList();
+            List<BaseEyeItemParameters> baseEyeItemParameters = 
+                _shopEyeItems.Select(item =>
+                    (BaseEyeItemParameters) item).ToList();
 
             return new()
             {

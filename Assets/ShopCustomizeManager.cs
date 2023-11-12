@@ -4,7 +4,11 @@ using Shop;
 
 public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager, EyeCustomizeModel>
 {
-    public ReactiveProperty<EyeCustomizeModel> CallBack { get; set; }
+    public IReactiveProperty<EyeCustomizeModel> CallBack => _callBack;
+
+    #region readonly ReactiveProperties
+    private readonly ReactiveProperty<EyeCustomizeModel> _callBack = new();
+    #endregion
 
     [SerializeField] private MeshRenderer _vetrineEyeMeshRenderer;
     [SerializeField] private MeshRenderer _playerEyemeshRenderer;
@@ -12,11 +16,6 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
     private ShopViewBase[] _containers;
 
     private Material _material;
-
-    private void Awake()
-    {
-        CallBack = new ReactiveProperty<EyeCustomizeModel>();
-    }
 
     private void OnEnable()
     {
@@ -33,10 +32,15 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
             container.SetManager(this);
         }
 
-        CallBack.Skip(1).Subscribe(value =>
+        CallBack.Skip(1).Subscribe(data =>
         {
-            _playerEyemeshRenderer.material = EyeShaderGraph.ChangeMaterial(value, _material);
+            _playerEyemeshRenderer.material = EyeShaderGraph.ChangeMaterial(data, _material);
 
         }).AddTo(this);
+    }
+
+    private void OnDisable()
+    {
+        MainManager.GetManager<SaveSystem>().SaveData();
     }
 }

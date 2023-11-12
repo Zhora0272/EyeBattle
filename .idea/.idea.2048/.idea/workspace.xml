@@ -3,6 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EyeCustomizeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EyeShaderGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EyeShaderGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/IManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/IManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShopContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShopCustomizeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopCustomizeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopEyeItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShopItemState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopItemState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShopViewBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopViewBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/HelperMath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/HelperMath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +38,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/24/9d7553d7/Attribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/c3/43d29422/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.path@5.0.2/Editor/EditorTool/ScriptableData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/28/c932b0fa/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/70/ec9f4cac/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/56/88f770ae/ICloneable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.coffee.softmask-for-ugui@b870d64b57/Scripts/SoftMask.cs" root0="SKIP_HIGHLIGHTING" />
@@ -107,7 +122,8 @@
       <workItem from="1698857983510" duration="6813000" />
       <workItem from="1698976197532" duration="8800000" />
       <workItem from="1699629515673" duration="596000" />
-      <workItem from="1699682631223" duration="345000" />
+      <workItem from="1699682631223" duration="11148000" />
+      <workItem from="1699775408878" duration="11159000" />
     </task>
     <servers />
   </component>

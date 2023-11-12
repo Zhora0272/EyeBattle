@@ -1,6 +1,6 @@
 ﻿namespace Shop
 {
-    public enum ShopItemState
+    public enum  ShopItemState
     {
         Sale,
         Selected,

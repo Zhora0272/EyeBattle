@@ -1,10 +1,9 @@
-﻿using System;
-using UniRx;
+﻿using UniRx;
 
 namespace Shop
 {
     public interface IManager<T,D>
     {
-        public ReactiveProperty<D> CallBack { get; set; }
+        public IReactiveProperty<D> CallBack { get; }
     }
 }

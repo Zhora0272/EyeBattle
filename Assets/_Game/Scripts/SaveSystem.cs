@@ -1,7 +1,7 @@
+using System.Globalization;
 using Shop.Container;
 using System;
 using Saveing;
-using UniRx;
 using UnityEngine;
 
 public class SaveSystem : MonoManager
@@ -36,8 +36,6 @@ public class SaveSystem : MonoManager
         Init();
         InitData();
         SetData();
-
-        Observable.Interval(TimeSpan.FromSeconds(4)).Subscribe(_ => { SaveData(); }).AddTo(this);
     }
 
     private void Init()
@@ -58,7 +56,7 @@ public class SaveSystem : MonoManager
         {
             var data = new GameData
             {
-                Money = 100,
+                Money = 10000,
                 Gem = 15,
                 ContainerConfigIndexes = new[] {0, 0, 0, 0},
                 EyeItemParameters = _dataManager.GetAllDataLists(),
@@ -100,20 +98,18 @@ public class SaveSystem : MonoManager
     public void SaveData()
     {
         var financeData = _financeManagerGameDataSaveable.GetData();
-        var playerEyeData = _eyeCustomizeGameDataSaveable.GetData();
-        var containerManager = _shopContainerGameDataSaveable.GetData();
+//        var playerEyeData = _eyeCustomizeGameDataSaveable.GetData();
+        var shopContainerData = _shopContainerGameDataSaveable.GetData();
 
         _gameData.Gem = financeData.Gem;
         _gameData.Money = financeData.Money;
         _gameData.EyeConfigModel = _eyeCustomizeGameDataSaveable.GetData().EyeConfigModel;
-        _gameData.ContainerConfigIndexes = containerManager.ContainerConfigIndexes;
 
-        _gameData.EyeItemParameters = new[]
-        {
-            new EyeItemCollection {BaseEyeItems = _dataManager.EyeColor.Colors},
-            new EyeItemCollection {BaseEyeItems = _dataManager.EyeBackColor.Colors},
-        };
+        _gameData.EyeItemParameters = shopContainerData.EyeItemParameters;
+        _gameData.ContainerConfigIndexes = shopContainerData.ContainerConfigIndexes;
 
+        _gameData.SaveTime = DateTime.Now.ToString(CultureInfo.InvariantCulture);
+        
         _dataSave.SaveData(_gameData);
     }
 }

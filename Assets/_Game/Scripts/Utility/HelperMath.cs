@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using Object = System.Object;
 using Random = UnityEngine.Random;
 
 public static class HelperMath
@@ -56,7 +57,7 @@ public static class HelperMath
 
 public static class CoroutineHelper
 {
-    public static IEnumerator WaitToObjectInit(MonoBehaviour obj, Action actionAfterInit)
+    public static IEnumerator WaitToObjectInit(object obj, Action actionAfterInit)
     {
         yield return new WaitUntil(() => obj == null);
         actionAfterInit.Invoke();
@@ -65,7 +66,7 @@ public static class CoroutineHelper
     public static void WaitToObjectInitAndDo
     (
         this MonoBehaviour monoObject,
-        MonoBehaviour checkObject,
+        object checkObject,
         Action doAfterInit
     )
     {

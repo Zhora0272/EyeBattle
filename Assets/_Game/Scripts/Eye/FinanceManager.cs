@@ -33,6 +33,7 @@ public class FinanceManager : MonoManager, IGameDataSaveable
 
         return default;
     }
+
     public int ConvertFinanceToPricePoint(BuyType type, int value)
     {
         int toMoneyCoefficient = 2;
@@ -102,11 +103,13 @@ public class FinanceManager : MonoManager, IGameDataSaveable
         Action<bool> responseCallBack, BuyType type
     )
     {
-        bool haveNeedFinance = finance.Value >= pricePoint;
+        var price = ConvertPricePointTo(type, pricePoint);
+        
+        bool haveNeedFinance = finance.Value >= price;
 
         if (haveNeedFinance)
         {
-            finance.Value -= ConvertPricePointTo(type, pricePoint);
+            finance.Value -= price;
         }
 
         responseCallBack.Invoke(haveNeedFinance);

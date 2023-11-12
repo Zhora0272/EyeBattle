@@ -9,11 +9,14 @@ namespace Shop
 {
     public class ShopEyeItem : MonoBehaviour, IEyeBaseItemParametersSaveable
     {
-        [SerializeField] private BuyType _buyType;
-        [SerializeField] private ReactiveProperty<ShopItemState> _itemState = new(ShopItemState.Sale);
+        public IReactiveProperty<ShopItemState> ItemState => _itemState;
 
-        [Header("Parameters")] [SerializeField]
-        private Button _selectButton;
+        private readonly ReactiveProperty<ShopItemState> _itemState =
+            new ReactiveProperty<ShopItemState>();
+
+        [SerializeField] private BuyType _buyType;
+        [Header("Parameters")] 
+        [SerializeField] private Button _selectButton;
 
         [SerializeField] private Image _buttonImage;
         [SerializeField] private RawImage _previewImage;
@@ -28,7 +31,7 @@ namespace Shop
         private ReactiveProperty<int> _selectedIndex;
         private FinanceManager _financeManager;
 
-        private Action<bool> _onClickEvent;
+        private Action<bool> _selectButtonClickEvent;
 
         //item data variables
         private int _indexInQueue;
@@ -45,33 +48,37 @@ namespace Shop
                 Index = data._indexInQueue,
                 PricePoint = data._pricePoint,
                 BuyType = data._buyType,
-                ItemState = data._itemState.Value,
+                ItemState = data.ItemState.Value,
             };
         }
 
         private void Awake()
         {
-            _selectButton.onClick.AddListener(ClickAction);
-
-            _itemState.Subscribe(SetState).AddTo(this);
+            _selectButton.onClick.AddListener(SelectButtonEvent);
+            ItemState.Subscribe(SetState).AddTo(this);
         }
-
+        
         private void Start()
         {
             _financeManager = MainManager.GetManager<FinanceManager>();
-            //_dataManager = MainManager.GetManager<DataManager>();
+        }
+        
+        internal void SetRaycastState(bool state)
+        {
+            _buttonImage.raycastTarget = state;
+            _selectButton.enabled = false;
+            _selectButton.onClick.RemoveAllListeners();
         }
 
         internal void SetValue(float value) => _value = value;
         internal void SetColor(Color color) => _previewImage.color = color;
         internal void SetTexture(Texture texture) => _previewImage.texture = texture;
-        internal void SetRaycastState(bool state) => _buttonImage.raycastTarget = state;
-
-        #region SetConfigurations
+        
+        #region SetEventActions
 
         internal void SetColorAction(Action<int> action)
         {
-            _onClickEvent = state =>
+            _selectButtonClickEvent = state =>
             {
                 if (state)
                 {
@@ -81,7 +88,7 @@ namespace Shop
         }
         internal void SetValueAction(Action<float> action)
         {
-            _onClickEvent = state =>
+            _selectButtonClickEvent = state =>
             {
                 if (state)
                 {
@@ -91,7 +98,7 @@ namespace Shop
         }
         internal void SetTextureAction(Action<Texture> action)
         {
-            _onClickEvent = state =>
+            _selectButtonClickEvent = state =>
             {
                 if (state)
                 {
@@ -100,35 +107,68 @@ namespace Shop
             };
         }
 
+        #endregion
+
+        //Refactoring
         private void SetState(ShopItemState state)
         {
+            _buyState.SetActive(state == ShopItemState.Sale);
+            _selectedState.SetActive(state == ShopItemState.Selected);
+            
             switch (state)
             {
-                case ShopItemState.Empty:
-                {
-                    _buyState.SetActive(false);
-                    _selectedState.SetActive(false);
-                }
-                    break;
                 case ShopItemState.Selected:
                 {
-                    //SelectElement();
+                    _selectedIndex.Value = _indexInQueue;
+                    _selectButtonClickEvent.Invoke(true);
+                } break;
+                
+                case ShopItemState.Empty:
+                {
+                   
+                } break;
+               
+                case ShopItemState.Sale:
+                {
+                    
+                } break;
+            }
+        }
+        
+        private void SelectButtonEvent()
+        {
+            switch (ItemState.Value)
+            {
+                case ShopItemState.Sale:
+                {
+                    _financeManager.TryBuy(_buyType, _pricePoint, TryBuyCallBack);   
+                }
+                    break;
+                case ShopItemState.Empty:
+                {
+                    ItemState.Value = ShopItemState.Selected;
                 }
                     break;
             }
-            if (state == ShopItemState.Empty)
+        }
+        
+        private void TryBuyCallBack(bool state)
+        {
+            if (state)
             {
-                
+                ItemState.Value = ShopItemState.Selected;
+                _selectButtonClickEvent.Invoke(true);
             }
             else
             {
-                _selectedState.SetActive(state == ShopItemState.Selected);
-                _buyState.SetActive(state == ShopItemState.Sale);
+                ItemState.Value = ShopItemState.Sale;
             }
         }
 
-        #endregion
-
+        internal void HideItemElements()
+        {
+            _itemElements.SetActive(false);
+        }
         private void RefreshPrice()
         {
             switch (_buyType)
@@ -144,77 +184,38 @@ namespace Shop
                     break;
             }
         }
-
-        internal void HideItemElements()
-        {
-            _itemElements.SetActive(false);
-        }
-
-
-        private void ClickAction()
-        {
-            switch (_itemState.Value)
-            {
-                case ShopItemState.Sale:
-                    _financeManager.TryBuy(_buyType, _pricePoint, BuyActionCallBack);
-                    break;
-                case ShopItemState.Empty:
-                {
-                    SelectElement();
-                }
-                    break;
-            }
-        }
-
-        private void SelectElement()
-        {
-            _selectedIndex.Value = _indexInQueue;
-            _itemState.Value = ShopItemState.Selected;    
-            _onClickEvent.Invoke(true);
-        }
-        
-        private void BuyActionCallBack(bool state)
-        {
-            if (state)
-            {
-                SelectElement();
-            }
-            else
-            {
-                _itemState.Value = ShopItemState.Sale;
-            }
-
-            _onClickEvent.Invoke(state);
-        }
-
-        public void SetData(BaseEyeItemParameters data)
-        {
-            _buyType = data.BuyType;
-            _pricePoint = data.PricePoint;
-            _itemState.Value = data.ItemState;
-            _indexInQueue = data.Index;
-
-            this.WaitToObjectInitAndDo(_financeManager, RefreshPrice);
-        }
         public void SetSelectedReactiveProperty(ReactiveProperty<int> selectedIndex)
         {
             _selectedIndex = selectedIndex;
 
             _selectedIndex.Subscribe(value =>
             {
-                _itemState.Value = value == _indexInQueue ? 
-                    ShopItemState.Selected : ShopItemState.Empty;
-                
+                if (_itemState.Value != ShopItemState.Sale)
+                {
+                    ItemState.Value = value == _indexInQueue ?
+                        ShopItemState.Selected : ShopItemState.Empty;
+                }
+
             }).AddTo(this);
         }
+        
+        public void SetData(BaseEyeItemParameters data)
+        {
+            _buyType = data.BuyType;
+            _pricePoint = data.PricePoint;
+            
+            ItemState.Value = data.ItemState;
+            _indexInQueue = data.Index;
 
+            this.WaitToObjectInitAndDo(_financeManager, RefreshPrice);
+        }
         BaseEyeItemParameters ISaveable<BaseEyeItemParameters>.GetData()
         {
             return new()
             {
                 PricePoint = _pricePoint,
                 BuyType = _buyType,
-                ItemState = _itemState.Value,
+                ItemState = ItemState.Value,
             };
         }
     }

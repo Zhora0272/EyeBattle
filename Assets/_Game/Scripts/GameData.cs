@@ -8,5 +8,6 @@ public class GameData
     public int[] ContainerConfigIndexes;
     public EyeCustomizeModel EyeConfigModel;
     public EyeItemCollection[] EyeItemParameters;
+    public string SaveTime;
 }
 
