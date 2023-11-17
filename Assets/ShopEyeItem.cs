@@ -15,8 +15,9 @@ namespace Shop
             new ReactiveProperty<ShopItemState>();
 
         [SerializeField] private BuyType _buyType;
-        [Header("Parameters")] 
-        [SerializeField] private Button _selectButton;
+
+        [Header("Parameters")] [SerializeField]
+        private Button _selectButton;
 
         [SerializeField] private Image _buttonImage;
         [SerializeField] private RawImage _previewImage;
@@ -29,7 +30,9 @@ namespace Shop
         [SerializeField] private GameObject _itemElements;
 
         private ReactiveProperty<int> _selectedIndex;
+
         private FinanceManager _financeManager;
+        private UIManager _uiManager;
 
         private Action<bool> _selectButtonClickEvent;
 
@@ -39,8 +42,8 @@ namespace Shop
         private int _colorIndex;
 
         private float _value;
-        //
 
+        //
         public static implicit operator BaseEyeItemParameters(ShopEyeItem data)
         {
             return new BaseEyeItemParameters()
@@ -57,12 +60,13 @@ namespace Shop
             _selectButton.onClick.AddListener(SelectButtonEvent);
             ItemState.Subscribe(SetState).AddTo(this);
         }
-        
+
         private void Start()
         {
             _financeManager = MainManager.GetManager<FinanceManager>();
+            _uiManager = MainManager.GetManager<UIManager>();
         }
-        
+
         internal void SetRaycastState(bool state)
         {
             _buttonImage.raycastTarget = state;
@@ -73,7 +77,7 @@ namespace Shop
         internal void SetValue(float value) => _value = value;
         internal void SetColor(Color color) => _previewImage.color = color;
         internal void SetTexture(Texture texture) => _previewImage.texture = texture;
-        
+
         #region SetEventActions
 
         internal void SetColorAction(Action<int> action)
@@ -86,6 +90,7 @@ namespace Shop
                 }
             };
         }
+
         internal void SetValueAction(Action<float> action)
         {
             _selectButtonClickEvent = state =>
@@ -96,6 +101,7 @@ namespace Shop
                 }
             };
         }
+
         internal void SetTextureAction(Action<Texture> action)
         {
             _selectButtonClickEvent = state =>
@@ -114,34 +120,36 @@ namespace Shop
         {
             _buyState.SetActive(state == ShopItemState.Sale);
             _selectedState.SetActive(state == ShopItemState.Selected);
-            
+
             switch (state)
             {
                 case ShopItemState.Selected:
                 {
                     _selectedIndex.Value = _indexInQueue;
                     _selectButtonClickEvent.Invoke(true);
-                } break;
-                
+                }
+                    break;
+
                 case ShopItemState.Empty:
                 {
-                   
-                } break;
-               
+                }
+                    break;
+
                 case ShopItemState.Sale:
                 {
-                    
-                } break;
+                }
+                    break;
             }
         }
-        
+
         private void SelectButtonEvent()
         {
             switch (ItemState.Value)
             {
                 case ShopItemState.Sale:
                 {
-                    _financeManager.TryBuy(_buyType, _pricePoint, TryBuyCallBack);   
+                    _uiManager.Activate(UISubPageType.ConfirmPage);
+                    _financeManager.TryBuy(_buyType, _pricePoint, TryBuyCallBack);
                 }
                     break;
                 case ShopItemState.Empty:
@@ -151,7 +159,7 @@ namespace Shop
                     break;
             }
         }
-        
+
         private void TryBuyCallBack(bool state)
         {
             if (state)
@@ -169,6 +177,7 @@ namespace Shop
         {
             _itemElements.SetActive(false);
         }
+
         private void RefreshPrice()
         {
             switch (_buyType)
@@ -184,6 +193,7 @@ namespace Shop
                     break;
             }
         }
+
         public void SetSelectedReactiveProperty(ReactiveProperty<int> selectedIndex)
         {
             _selectedIndex = selectedIndex;
@@ -192,23 +202,22 @@ namespace Shop
             {
                 if (_itemState.Value != ShopItemState.Sale)
                 {
-                    ItemState.Value = value == _indexInQueue ?
-                        ShopItemState.Selected : ShopItemState.Empty;
+                    ItemState.Value = value == _indexInQueue ? ShopItemState.Selected : ShopItemState.Empty;
                 }
-
             }).AddTo(this);
         }
-        
+
         public void SetData(BaseEyeItemParameters data)
         {
             _buyType = data.BuyType;
             _pricePoint = data.PricePoint;
-            
+
             ItemState.Value = data.ItemState;
             _indexInQueue = data.Index;
 
             this.WaitToObjectInitAndDo(_financeManager, RefreshPrice);
         }
+
         BaseEyeItemParameters ISaveable<BaseEyeItemParameters>.GetData()
         {
             return new()

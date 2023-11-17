@@ -23,7 +23,7 @@ public class PageOpenButton : MonoBehaviour
     {
         _button.onClick.AddListener(() =>
         {
-            MainManager.GetManager<UIManager>().Activte(_pageType);
+            MainManager.GetManager<UIManager>().Activate(_pageType);
         });
     }
 }

@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using _Game.Scripts.UI;
 using UnityEngine;
 
 public class UIManager : MonoManager
 {
+    [SerializeField] private UIPageType _defaultStartPage = UIPageType.TapToPlay;
     [SerializeField] private UIPage[] _pages;
+    [SerializeField] private UISubPage[] _subPages;
 
     private Dictionary<UIPageType, Action> _subscribeActivateEvents;
     private Dictionary<UIPageType, Action> _subscribeDeactivateEvents;
@@ -19,30 +22,50 @@ public class UIManager : MonoManager
     private void Start()
     {
         _pages = GetComponentsInChildren<UIPage>(true);
-        Activte(UIPageType.TapToPlay);
+        _subPages = GetComponentsInChildren<UISubPage>(true);
+        
+        Activate(_defaultStartPage);
+        Activate(UISubPageType.Empty);
     }
 
-    public void Activte(UIPageType pageType)
+    public void Activate(UISubPageType subPageType)
+    {
+        foreach (var subPage in _subPages)
+        {
+            if (subPage.PageTye == subPageType)
+            {
+                subPage.Activate();
+            }
+            else
+            {
+                subPage.Deactivate();
+            }
+        }
+    }
+
+    public void Activate(UIPageType pageType)
     {
         foreach (var page in _pages)
         {
-            if(page.PageTye == pageType)
+            if (page.PageTye == pageType)
             {
                 if (_subscribeActivateEvents.TryGetValue(page.PageTye, out var result))
                 {
                     result?.Invoke();
                 }
+
                 page.Activate();
             }
             else
             {
-                if(page.gameObject.activeInHierarchy)
+                if (page.gameObject.activeInHierarchy)
                 {
-                    if(_subscribeDeactivateEvents.TryGetValue(page.PageTye, out var result))
+                    if (_subscribeDeactivateEvents.TryGetValue(page.PageTye, out var result))
                     {
                         result?.Invoke();
                     }
                 }
+
                 page.Deactivate();
             }
         }
@@ -50,8 +73,8 @@ public class UIManager : MonoManager
 
     public void SubscribeToPageActivate
     (
-       UIPageType pageType,
-       Action subject
+        UIPageType pageType,
+        Action subject
     )
     {
         if (_subscribeActivateEvents.TryGetValue(pageType, out var value))
@@ -67,8 +90,8 @@ public class UIManager : MonoManager
 
     public void SubscribeToPageDeactivate
     (
-       UIPageType layer,
-       Action subject
+        UIPageType layer,
+        Action subject
     )
     {
         if (_subscribeDeactivateEvents.TryGetValue(layer, out var value))
@@ -81,13 +104,4 @@ public class UIManager : MonoManager
             _subscribeDeactivateEvents.TryAdd(layer, subject);
         }
     }
-}
-
-public enum UIPageType
-{
-    Empty,
-    Shop,
-    Donate,
-    TapToPlay,
-    InGame
 }

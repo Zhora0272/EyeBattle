@@ -4,12 +4,19 @@ using UniRx;
 
 public class FinanceManager : MonoManager, IGameDataSaveable
 {
+    
+    private QuestionRequestManager _questionViewManager;
+
     public IReactiveProperty<int> Money => _money;
     public IReactiveProperty<int> Gem => _gem;
 
     private readonly ReactiveProperty<int> _money = new();
     private readonly ReactiveProperty<int> _gem = new();
 
+    private void Start()
+    {
+        _questionViewManager = MainManager.GetManager<QuestionRequestManager>();
+    }
 
     public int ConvertPricePointTo(BuyType type, int value)
     {
@@ -109,10 +116,17 @@ public class FinanceManager : MonoManager, IGameDataSaveable
 
         if (haveNeedFinance)
         {
-            finance.Value -= price;
+            _questionViewManager.Activate($"buy with {price}", "Cancel", "Buy", () =>
+            {
+                finance.Value -= price;
+                responseCallBack.Invoke(true);
+            });
         }
-
-        responseCallBack.Invoke(haveNeedFinance);
+        else
+        {
+            _questionViewManager.Activate($"not enough {price}", "Cancel");
+            responseCallBack.Invoke(false);
+        }
     }
 
     private void TryBuyWithAds(Action<bool> responseCallBack)
