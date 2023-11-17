@@ -148,7 +148,6 @@ namespace Shop
             {
                 case ShopItemState.Sale:
                 {
-                    _uiManager.Activate(UISubPageType.ConfirmPage);
                     _financeManager.TryBuy(_buyType, _pricePoint, TryBuyCallBack);
                 }
                     break;

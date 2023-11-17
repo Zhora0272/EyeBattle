@@ -4,44 +4,25 @@ using UniRx;
 
 public class FinanceManager : MonoManager, IGameDataSaveable
 {
-    
+    //Mono Manager
     private QuestionRequestManager _questionViewManager;
+    private UIManager _uiManager;
 
+    //IReactive property
     public IReactiveProperty<int> Money => _money;
     public IReactiveProperty<int> Gem => _gem;
 
+    //Reactive property
     private readonly ReactiveProperty<int> _money = new();
     private readonly ReactiveProperty<int> _gem = new();
 
     private void Start()
     {
         _questionViewManager = MainManager.GetManager<QuestionRequestManager>();
+        _uiManager = MainManager.GetManager<UIManager>();
     }
 
     public int ConvertPricePointTo(BuyType type, int value)
-    {
-        int toMoneyCoefficient = 2;
-        int toGemCoefficient = 15;
-        int toAdsCoefficient = 50;
-
-        switch (type)
-        {
-            case BuyType.Money: return value / toMoneyCoefficient;
-            case BuyType.Gem: return value / toGemCoefficient;
-            case BuyType.Ads:
-            {
-                float adsCoefficient = (float) value / toAdsCoefficient;
-
-                if (adsCoefficient > 0.5f) adsCoefficient = 1;
-
-                return (int) adsCoefficient;
-            }
-        }
-
-        return default;
-    }
-
-    public int ConvertFinanceToPricePoint(BuyType type, int value)
     {
         int toMoneyCoefficient = 2;
         int toGemCoefficient = 15;
@@ -113,6 +94,8 @@ public class FinanceManager : MonoManager, IGameDataSaveable
         var price = ConvertPricePointTo(type, pricePoint);
         
         bool haveNeedFinance = finance.Value >= price;
+        
+        _uiManager.Activate(UISubPageType.ConfirmPage);
 
         if (haveNeedFinance)
         {
@@ -137,7 +120,6 @@ public class FinanceManager : MonoManager, IGameDataSaveable
             reward =>
             {
                 adsFinishState = true;
-
                 responseCallBack.Invoke(adsFinishState);
             });
     }
