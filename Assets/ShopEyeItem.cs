@@ -29,11 +29,13 @@ namespace Shop
         [SerializeField] private GameObject _buyState;
         [SerializeField] private GameObject _itemElements;
 
-        private ReactiveProperty<int> _selectedIndex;
-
+        //MonoManager
         private FinanceManager _financeManager;
-        private UIManager _uiManager;
-
+        
+        //ReactiveProperty
+        private ReactiveProperty<int> _selectedIndex;
+        
+        //Action
         private Action<bool> _selectButtonClickEvent;
 
         //item data variables
@@ -43,7 +45,7 @@ namespace Shop
 
         private float _value;
 
-        //
+        //Implicit
         public static implicit operator BaseEyeItemParameters(ShopEyeItem data)
         {
             return new BaseEyeItemParameters()
@@ -64,7 +66,6 @@ namespace Shop
         private void Start()
         {
             _financeManager = MainManager.GetManager<FinanceManager>();
-            _uiManager = MainManager.GetManager<UIManager>();
         }
 
         internal void SetRaycastState(bool state)

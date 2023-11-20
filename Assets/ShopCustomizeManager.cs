@@ -34,9 +34,13 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
 
         CallBack.Skip(1).Subscribe(data =>
         {
+            print(data._eyeColor);
+            print(data._eyeBackColor);
+            
             _playerEyemeshRenderer.material = EyeShaderGraph.ChangeMaterial(data, _material);
 
         }).AddTo(this);
+        
     }
 
     private void OnDisable()

@@ -4,7 +4,8 @@
     Shop,
     Donate,
     TapToPlay,
-    InGame
+    InGame,
+    Loading
 }
 
 public enum UISubPageType

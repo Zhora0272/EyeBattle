@@ -36,6 +36,7 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1869337464-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-180440894-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1453597020-0
+        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1952035010-0
         values:
         - iColor: 6
           icon: 
@@ -65,6 +66,8 @@ MonoBehaviour:
           icon: Canvas Icon
         - iColor: 9
           icon: PreMatCylinder
+        - iColor: 0
+          icon: Settings Icon
     - goDatasByGlobalId:
         keys: []
         values: []

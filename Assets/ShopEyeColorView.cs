@@ -58,6 +58,7 @@ namespace Shop
                     break;
             }
 
+            
             this.WaitToObjectInitAndDo(_manager, () =>
             {
                 _manager.CallBack.Value = item;

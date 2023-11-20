@@ -1,5 +1,5 @@
-﻿using System;
-using Saveing;
+﻿using Saveing;
+using System;
 using UniRx;
 
 public class FinanceManager : MonoManager, IGameDataSaveable
@@ -92,9 +92,9 @@ public class FinanceManager : MonoManager, IGameDataSaveable
     )
     {
         var price = ConvertPricePointTo(type, pricePoint);
-        
+
         bool haveNeedFinance = finance.Value >= price;
-        
+
         _uiManager.Activate(UISubPageType.ConfirmPage);
 
         if (haveNeedFinance)

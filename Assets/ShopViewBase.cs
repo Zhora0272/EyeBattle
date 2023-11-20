@@ -20,8 +20,10 @@ namespace Shop
         protected EyeItemCollection ItemData;
 
 
-        public void SetManager(IManager<ShopCustomizeManager, EyeCustomizeModel> manager) =>
-            _manager = manager;
+        public void SetManager(IManager<ShopCustomizeManager, EyeCustomizeModel> manager)
+        {
+            _manager = manager;   
+        }
 
         private void Awake()
         {

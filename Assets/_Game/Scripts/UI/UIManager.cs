@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using _Game.Scripts.UI;
 using UnityEngine;
+using System;
 
 public class UIManager : MonoManager
 {

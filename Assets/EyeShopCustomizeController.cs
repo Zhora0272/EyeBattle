@@ -30,8 +30,4 @@ public class EyeShopCustomizeController : MonoBehaviour
 
         _meshRenderer.material = _eyeMaterial;
     }
-
-    private void Awake()
-    {
-    }
 }

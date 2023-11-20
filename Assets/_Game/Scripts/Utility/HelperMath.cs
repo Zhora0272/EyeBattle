@@ -59,7 +59,7 @@ public static class CoroutineHelper
 {
     public static IEnumerator WaitToObjectInit(object obj, Action actionAfterInit)
     {
-        yield return new WaitUntil(() => obj == null);
+        yield return new WaitUntil(() => obj != null);
         actionAfterInit.Invoke();
     }
 
