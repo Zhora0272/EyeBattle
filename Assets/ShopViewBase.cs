@@ -17,21 +17,20 @@ namespace Shop
         protected List<ShopEyeItem> _shopEyeItems = new();
 
         protected IManager<ShopCustomizeManager, EyeCustomizeModel> _manager;
+        
         protected EyeItemCollection ItemData;
 
-
-        public void SetManager(IManager<ShopCustomizeManager, EyeCustomizeModel> manager)
+        public void InitShopView(IManager<ShopCustomizeManager, EyeCustomizeModel> manager)
         {
-            _manager = manager;   
-        }
-
-        private void Awake()
-        {
+            _manager = manager;
             Init();
         }
-
-        private void Start()
+        
+        public void SetData((int, EyeItemCollection) data)
         {
+            ItemData = data.Item2;
+            SelectedIndex.Value = data.Item1;
+            
             var eyeItemsLenght = ItemData.BaseEyeItems.Length;
 
             for (int i = 0; i < eyeItemsLenght; i++)
@@ -39,12 +38,6 @@ namespace Shop
                 _shopEyeItems[i].SetSelectedReactiveProperty(SelectedIndex);
                 _shopEyeItems[i].SetData(ItemData.BaseEyeItems[i]);
             }
-        }
-
-        public void SetData((int, EyeItemCollection) data)
-        {
-            ItemData = data.Item2;
-            SelectedIndex.Value = data.Item1;
         }
 
         public (int, EyeItemCollection) GetData()

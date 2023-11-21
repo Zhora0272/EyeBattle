@@ -15,8 +15,8 @@ MonoBehaviour:
   <Colors>k__BackingField:
   - Index: 0
     ItemState: 0
-    BuyType: 0
-    PricePoint: 100
+    BuyType: 2
+    PricePoint: 500
     <Color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
   - Index: 1
     ItemState: 0

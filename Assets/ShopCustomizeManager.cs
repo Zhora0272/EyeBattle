@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UniRx;
 using Shop;
@@ -23,20 +24,20 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
         _vetrineEyeMeshRenderer.material = _material;
     }
 
-    private void Start()
+    private void Awake()
     {
         _containers = GetComponentsInChildren<ShopViewBase>();
         
         foreach (ShopViewBase container in _containers)
         {
-            container.SetManager(this);
+            container.InitShopView(this);
         }
+    }
 
+    private void Start()
+    {
         CallBack.Skip(1).Subscribe(data =>
         {
-            print(data._eyeColor);
-            print(data._eyeBackColor);
-            
             _playerEyemeshRenderer.material = EyeShaderGraph.ChangeMaterial(data, _material);
 
         }).AddTo(this);

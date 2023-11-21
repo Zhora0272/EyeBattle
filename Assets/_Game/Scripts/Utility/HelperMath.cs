@@ -57,16 +57,16 @@ public static class HelperMath
 
 public static class CoroutineHelper
 {
-    public static IEnumerator WaitToObjectInit(object obj, Action actionAfterInit)
+    private static IEnumerator WaitToObjectInit(MonoBehaviour obj, Action actionAfterInit)
     {
-        yield return new WaitUntil(() => obj != null);
+        yield return new WaitUntil(() => obj == null);
         actionAfterInit.Invoke();
     }
 
     public static void WaitToObjectInitAndDo
     (
         this MonoBehaviour monoObject,
-        object checkObject,
+        MonoBehaviour checkObject,
         Action doAfterInit
     )
     {

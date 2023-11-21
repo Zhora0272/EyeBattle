@@ -1,6 +1,7 @@
 ﻿using Saveing;
 using System;
 using UniRx;
+using UnityEngine;
 
 public class FinanceManager : MonoManager, IGameDataSaveable
 {
@@ -32,14 +33,23 @@ public class FinanceManager : MonoManager, IGameDataSaveable
         {
             case BuyType.Money: return value / toMoneyCoefficient;
             case BuyType.Gem: return value / toGemCoefficient;
-            case BuyType.Ads:
-            {
-                float adsCoefficient = (float) value / toAdsCoefficient;
+            case BuyType.Ads: return (int) ((float) value / toAdsCoefficient);
+        }
 
-                if (adsCoefficient > 0.5f) adsCoefficient = 1;
+        return default;
+    }
 
-                return (int) adsCoefficient;
-            }
+    public int ConvertFinanceToPricePoint(BuyType type, int value)
+    {
+        int toMoneyCoefficient = 2;
+        int toGemCoefficient = 15;
+        int toAdsCoefficient = 50;
+
+        switch (type)
+        {
+            case BuyType.Money: return value * toMoneyCoefficient;
+            case BuyType.Gem: return value * toGemCoefficient;
+            case BuyType.Ads: return (int) ((float) value * toAdsCoefficient);
         }
 
         return default;
@@ -49,13 +59,13 @@ public class FinanceManager : MonoManager, IGameDataSaveable
     (
         BuyType type,
         int pricePoint,
-        Action<bool> responseCallBack
+        Action<bool, int> responseCallBack
     )
     {
         switch (type)
         {
             case BuyType.Ads:
-                TryBuyWithAds(responseCallBack);
+                TryBuyWithAds(pricePoint, responseCallBack);
                 break;
             case BuyType.Money:
                 TryBuyWithMoney(pricePoint, responseCallBack);
@@ -69,7 +79,7 @@ public class FinanceManager : MonoManager, IGameDataSaveable
     private void TryBuyWithMoney
     (
         int pricePoint,
-        Action<bool> responseCallBack
+        Action<bool, int> responseCallBack
     )
     {
         TryBuyWithFinance(_money, pricePoint, responseCallBack, BuyType.Money);
@@ -78,7 +88,7 @@ public class FinanceManager : MonoManager, IGameDataSaveable
     private void TryBuyWithGem
     (
         int pricePoint,
-        Action<bool> responseCallBack
+        Action<bool, int> responseCallBack
     )
     {
         TryBuyWithFinance(_gem, pricePoint, responseCallBack, BuyType.Gem);
@@ -88,40 +98,96 @@ public class FinanceManager : MonoManager, IGameDataSaveable
     (
         ReactiveProperty<int> finance,
         int pricePoint,
-        Action<bool> responseCallBack, BuyType type
+        Action<bool, int> responseCallBack,
+        BuyType type
     )
     {
         var price = ConvertPricePointTo(type, pricePoint);
 
         bool haveNeedFinance = finance.Value >= price;
 
-        _uiManager.Activate(UISubPageType.ConfirmPage);
+        var headerText = $"buy with {price}";
+        var confirmText = "Buy";
 
         if (haveNeedFinance)
         {
-            _questionViewManager.Activate($"buy with {price}", "Cancel", "Buy", () =>
+            _questionViewManager.Activate(headerText, "Cancel", confirmText, () =>
             {
                 finance.Value -= price;
-                responseCallBack.Invoke(true);
+                responseCallBack.Invoke(true, pricePoint);
             });
         }
         else
         {
             _questionViewManager.Activate($"not enough {price}", "Cancel");
-            responseCallBack.Invoke(false);
+            responseCallBack.Invoke(false, pricePoint);
         }
     }
 
-    private void TryBuyWithAds(Action<bool> responseCallBack)
+    private void TryBuyWithAds(int pricePoint, Action<bool, int> responseCallBack)
     {
+        print("click to ads button");
+        
+        var adsCount = ConvertPricePointTo(BuyType.Ads, pricePoint);
+
         bool adsFinishState = false;
 
-        MainManager.GetManager<AdsManager>().TryStartAds(AdsType.RewardedAd,
-            reward =>
+        string headerText;
+        string confirmText;
+
+        headerText = "Watch Ads to Unlock";
+        confirmText = "Watch";
+
+        Action _action = null;
+
+        _uiManager.Activate(UISubPageType.ConfirmPage);
+        _questionViewManager.Activate(headerText, "Cancel", confirmText, () =>
+        {
+            MainManager.GetManager<AdsManager>().TryStartAds(AdsType.RewardedAd,
+                showState =>
+                {
+                    if (showState)
+                    {
+                        headerText = $"Watch Ads to Unlock";
+                        confirmText = "Watch";
+
+                        _questionViewManager.Activate(headerText, "Cancel", confirmText, () =>
+                        {
+                            _action?.Invoke();
+                        });
+                    }
+                    else
+                    {
+                        if (Application.internetReachability == NetworkReachability.NotReachable)
+                        {
+                            headerText = "Internet connection error!";
+                        }
+                        else
+                        {
+                            headerText = "Oops ads unavailable";
+                        }
+
+                        _questionViewManager.Activate(headerText, "Ok");
+                    }
+                }, out var adsStartAction,
+                reward =>
+                {
+                    adsCount--;
+
+                    var price = ConvertFinanceToPricePoint(BuyType.Ads, adsCount);
+
+                    adsFinishState = adsCount == 0;
+                    responseCallBack.Invoke(adsFinishState, price);
+                });
             {
-                adsFinishState = true;
-                responseCallBack.Invoke(adsFinishState);
-            });
+                _action = adsStartAction;
+            }
+        });
+
+    }
+
+    private void AdsRewardAction()
+    {
     }
 
     public void SetData(GameData data)

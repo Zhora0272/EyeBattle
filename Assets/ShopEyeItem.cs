@@ -9,10 +9,9 @@ namespace Shop
 {
     public class ShopEyeItem : MonoBehaviour, IEyeBaseItemParametersSaveable
     {
-        public IReactiveProperty<ShopItemState> ItemState => _itemState;
+        private readonly ReactiveProperty<ShopItemState> _itemState = new();
+        private IReactiveProperty<ShopItemState> ItemState => _itemState;
 
-        private readonly ReactiveProperty<ShopItemState> _itemState =
-            new ReactiveProperty<ShopItemState>();
 
         [SerializeField] private BuyType _buyType;
 
@@ -31,10 +30,10 @@ namespace Shop
 
         //MonoManager
         private FinanceManager _financeManager;
-        
+
         //ReactiveProperty
         private ReactiveProperty<int> _selectedIndex;
-        
+
         //Action
         private Action<bool> _selectButtonClickEvent;
 
@@ -160,8 +159,10 @@ namespace Shop
             }
         }
 
-        private void TryBuyCallBack(bool state)
+        private void TryBuyCallBack(bool state, int pricePoint)
         {
+            _pricePoint = pricePoint;
+            
             if (state)
             {
                 ItemState.Value = ShopItemState.Selected;
@@ -171,6 +172,8 @@ namespace Shop
             {
                 ItemState.Value = ShopItemState.Sale;
             }
+            
+            RefreshPrice();
         }
 
         internal void HideItemElements()

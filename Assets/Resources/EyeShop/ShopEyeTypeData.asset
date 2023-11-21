@@ -13,12 +13,27 @@ MonoBehaviour:
   m_Name: ShopEyeTypeData
   m_EditorClassIdentifier: 
   <TypeParameters>k__BackingField:
-  - <EyeType>k__BackingField: 0
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 260
+    <EyeType>k__BackingField: 0
     <EyeTypeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 0
-  - <EyeType>k__BackingField: 1
+  - Index: 1
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 500
+    <EyeType>k__BackingField: 1
     <EyeTypeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 1
-  - <EyeType>k__BackingField: 0
+  - Index: 2
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 750
+    <EyeType>k__BackingField: 0
     <EyeTypeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 2
+  - Index: 3
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 1100
+    <EyeType>k__BackingField: 0
+    <EyeTypeTexture>k__BackingField: {fileID: 0}

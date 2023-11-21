@@ -37,49 +37,57 @@ public class AdsManager : MonoManager
         var adRequest = new AdRequest();
         adRequest.Keywords.Add("shop-element-buy");
 
-        print("shop-element-buy");
-            
         RewardedAd.Load
         (GetAdsIdentifier(AdsType.RewardedInterstitial),
             adRequest, (ad, error) =>
             {
-                print("GetAdsIdentifier");
-                
                 if (ad == null || error != null)
                 {
                     Debug.LogWarning("reward ad error > " + error);
                     return;
                 }
+
                 _rewardedAd = ad;
             }
         );
 
         return _rewardedAd != null;
     }
-    private void EventRewardedAd(Action<Reward> rewardAction)
+
+    private void EventRewardedAd
+    (
+        Action<Reward> rewardAction,
+        Action<bool> adsShowState,
+        out Action startAds
+    )
     {
-        print("EventRewardedAd");
-        
-        if (_rewardedAd != null && _rewardedAd.CanShowAd())
+        startAds = null;
+
+        var state = _rewardedAd != null && _rewardedAd.CanShowAd();
+
+        if (state)
         {
-            print("CanShowAd");
+            startAds = () => { _rewardedAd.Show(rewardAction); };
             _rewardedAd.Show(rewardAction);
-        }   
+        }
+
+        adsShowState.Invoke(state);
     }
 
-    public bool TryStartAds
+    public void TryStartAds
     (
         AdsType type,
+        Action<bool> adsShowState,
+        out Action startAdsEvent,
         Action<Reward> rewardValue = null
     )
     {
+        startAdsEvent = null;
         switch (type)
         {
             case AdsType.RewardedAd:
-                if (LoadRewardedAd(rewardValue)) EventRewardedAd(rewardValue);
+                if (LoadRewardedAd(rewardValue)) EventRewardedAd(rewardValue, adsShowState, out startAdsEvent);
                 break;
         }
-
-        return false;
     }
 }

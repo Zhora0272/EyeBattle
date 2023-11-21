@@ -10,9 +10,9 @@ namespace Shop
             EyeBibeSize,
         }
 
-        [Header("Data")] [SerializeField] private ShopEyeSizeScriptable _eyeSizeScriptable;
-
-        [SerializeField] private EyeSizeType _eyeColorType;
+        [Header("Data")]
+        [SerializeField] private ShopEyeSizeScriptable _eyeSizeScriptable;
+        [SerializeField] private EyeSizeType _eyeSizeType;
 
         protected override void Init()
         {
@@ -49,7 +49,7 @@ namespace Shop
         {
             EyeCustomizeModel item = null;
 
-            switch (_eyeColorType)
+            switch (_eyeSizeType)
             {
                 case EyeSizeType.EyeSize:
                     item = new EyeCustomizeModel(eyeSize: value);

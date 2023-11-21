@@ -36,9 +36,11 @@ namespace Shop
                 var item = Instantiate(_prefabRectTransform, _actiavtedContent);
                 var color = configs.Color;
 
+                //
                 item.SetData(configs);
                 item.SetColor(HelperMath.AlphaToMax(color));
                 item.SetColorAction(ColorSelectAction);
+                //
                 
                 _shopEyeItems.Add(item);
             }
@@ -58,11 +60,7 @@ namespace Shop
                     break;
             }
 
-            
-            this.WaitToObjectInitAndDo(_manager, () =>
-            {
-                _manager.CallBack.Value = item;
-            });
+            _manager.CallBack.Value = item;
         }
     }
 }
