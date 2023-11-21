@@ -9,8 +9,8 @@ public class UIManager : MonoManager
     [SerializeField] private UIPage[] _pages;
     [SerializeField] private UISubPage[] _subPages;
 
-    private Dictionary<UIPageType, Action> _subscribeActivateEvents;
-    private Dictionary<UIPageType, Action> _subscribeDeactivateEvents;
+    private Dictionary<UIPageType, List<Action>> _subscribeActivateEvents;
+    private Dictionary<UIPageType, List<Action>> _subscribeDeactivateEvents;
 
     protected override void Awake()
     {
@@ -23,7 +23,7 @@ public class UIManager : MonoManager
     {
         _pages = GetComponentsInChildren<UIPage>(true);
         _subPages = GetComponentsInChildren<UISubPage>(true);
-        
+
         Activate(_defaultStartPage);
         Activate(UISubPageType.Empty);
     }
@@ -51,7 +51,10 @@ public class UIManager : MonoManager
             {
                 if (_subscribeActivateEvents.TryGetValue(page.PageTye, out var result))
                 {
-                    result?.Invoke();
+                    foreach (var action in result)
+                    {
+                        action?.Invoke();
+                    }
                 }
 
                 page.Activate();
@@ -62,7 +65,10 @@ public class UIManager : MonoManager
                 {
                     if (_subscribeDeactivateEvents.TryGetValue(page.PageTye, out var result))
                     {
-                        result?.Invoke();
+                        foreach (var action in result)
+                        {
+                            action?.Invoke();
+                        }
                     }
                 }
 
@@ -77,31 +83,28 @@ public class UIManager : MonoManager
         Action subject
     )
     {
-        if (_subscribeActivateEvents.TryGetValue(pageType, out var value))
-        {
-            value += subject;
-            _subscribeActivateEvents.TryAdd(pageType, value);
-        }
-        else
-        {
-            _subscribeActivateEvents.TryAdd(pageType, subject);
-        }
+        AddActionToDictionary(_subscribeActivateEvents, pageType, subject);
     }
 
     public void SubscribeToPageDeactivate
     (
-        UIPageType layer,
+        UIPageType pageType,
         Action subject
     )
     {
-        if (_subscribeDeactivateEvents.TryGetValue(layer, out var value))
+        AddActionToDictionary(_subscribeDeactivateEvents, pageType, subject);
+    }
+
+    private void AddActionToDictionary(Dictionary<UIPageType, List<Action>> dictionary, UIPageType pageType, Action subject)
+    {
+        if (dictionary.TryGetValue(pageType, out var value))
         {
-            value += subject;
-            _subscribeDeactivateEvents.TryAdd(layer, value);
+            value.Add(subject);
+            dictionary.TryAdd(pageType, value);
         }
         else
         {
-            _subscribeDeactivateEvents.TryAdd(layer, subject);
+            dictionary.TryAdd(pageType, new List<Action>() {subject});
         }
     }
 }

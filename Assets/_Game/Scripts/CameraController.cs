@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -11,6 +12,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float _inGameDistance = 4f;
     [SerializeField] private float _outGameDistance = 1.5f;
 
+    private UIManager uiManager;
+
     private void FixedUpdate()
     {
         transform.position = Vector3.Lerp(
@@ -21,15 +24,20 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        var UIManager = MainManager.GetManager<UIManager>();
+        uiManager = MainManager.GetManager<UIManager>();
 
-        UIManager.SubscribeToPageActivate(UIPageType.InGame, () =>
+        uiManager.SubscribeToPageActivate(UIPageType.InGame, () =>
         {
             _distance = _inGameDistance;
         });
-        UIManager.SubscribeToPageActivate(UIPageType.TapToPlay, () =>
+        uiManager.SubscribeToPageActivate(UIPageType.TapToPlay, () =>
         {
             _distance = _outGameDistance;
         });
+    }
+
+    private void Start()
+    {
+       
     }
 }

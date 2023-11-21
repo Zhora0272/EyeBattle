@@ -16,8 +16,8 @@ public class GameSettings : MonoBehaviour
         ApplicationSettings();
 
         MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, GameStartDisposableEvents);
-        MainManager.GetManager<UIManager>()
-            .SubscribeToPageDeactivate(UIPageType.InGame, () => { _timerDisposable?.Dispose(); });
+        MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.InGame, () => 
+            { _timerDisposable?.Dispose(); });
     }
 
     private void GameStartDisposableEvents()
