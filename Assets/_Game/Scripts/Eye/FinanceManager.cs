@@ -62,6 +62,8 @@ public class FinanceManager : MonoManager, IGameDataSaveable
         Action<bool, int> responseCallBack
     )
     {
+        print("try buy 2 " + type);
+        
         switch (type)
         {
             case BuyType.Ads:
@@ -111,6 +113,7 @@ public class FinanceManager : MonoManager, IGameDataSaveable
 
         if (haveNeedFinance)
         {
+            _uiManager.Activate(UISubPageType.ConfirmPage);
             _questionViewManager.Activate(headerText, "Cancel", confirmText, () =>
             {
                 finance.Value -= price;
@@ -119,6 +122,7 @@ public class FinanceManager : MonoManager, IGameDataSaveable
         }
         else
         {
+            _uiManager.Activate(UISubPageType.ConfirmPage);
             _questionViewManager.Activate($"not enough {price}", "Cancel");
             responseCallBack.Invoke(false, pricePoint);
         }

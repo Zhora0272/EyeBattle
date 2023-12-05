@@ -148,6 +148,7 @@ namespace Shop
             {
                 case ShopItemState.Sale:
                 {
+                    print("try buy");
                     _financeManager.TryBuy(_buyType, _pricePoint, TryBuyCallBack);
                 }
                     break;

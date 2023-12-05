@@ -36,18 +36,21 @@ public class EyeSpawnManager : MonoManager
 
     private void SpawnEnemies()
     {
-        _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(3)).Subscribe(_ =>
+        _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
         {
             var position = _playerTransform.transform.position;
 
             var randomPosition = new Vector3(position.x, 0, position.z) +
                                  new Vector3(Random.Range(-10, -5), 0, Random.Range(5, 10));
 
-            var item = Instantiate(_botPrrefab, randomPosition, Quaternion.identity);
+            if (FreeSpaceCheckManager.CheckVector(randomPosition))
+            {
+                var item = Instantiate(_botPrrefab, randomPosition, Quaternion.identity);
 
-            _spawnEyes.Add(item);
+                _spawnEyes.Add(item);
 
-            _spawnCount++;
+                _spawnCount++;   
+            }
         }).AddTo(this);
     }
 }
