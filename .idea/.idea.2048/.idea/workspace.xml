@@ -6,72 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BaseBattleParticipant.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BaseBattleParticipant.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BattleParticipantsManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BattleParticipantsManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BotBattleParticipant.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BotBattleParticipant.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BuyType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BuyType.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataColor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataColor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ElementalViewMonoBehaviour.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ElementalViewMonoBehaviour.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeCustomizeModel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeShaderGraph.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeShaderGraph.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeShopCustomizeController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EyeShopCustomizeController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FinanceTextSubscribe.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FinanceTextSubscribe.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameSettings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/IManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/IManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LoadingController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LoadingController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerBattleParticipant.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerBattleParticipant.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuestionRequestManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuestionRequestManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuestionRequestView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuestionRequestView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuestionRequestViewElement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/QuestionRequestViewElement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopContainer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopContainer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopContainerManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopContainerManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopCustomizeManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopCustomizeManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeColorView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeDecorView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeDecorView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeSizeView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeSizeView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeTextureView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeTextureView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeTypeView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopEyeTypeView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopItemState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopItemState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopViewBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopViewBase.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/FreeSpaceCheckManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/FreeSpaceCheckManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/HelperMath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/HelperMath.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +28,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8f80c2d02d314878872cb1183823de6f1a000/84/cfc0f5f3/Physics.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/FreeSpaceCheckManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/UI/LookAtWorldPosition.cs" root0="FORCE_HIGHLIGHTING" />
@@ -108,27 +47,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;EyeBattle&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "EyeBattle",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Zhora\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Zhora\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Zhora\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Zhora\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Zhora\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Zhora\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Unity.exe" />
@@ -210,7 +149,8 @@
       <workItem from="1700475820371" duration="32063000" />
       <workItem from="1701502426283" duration="35000" />
       <workItem from="1701502730567" duration="101000" />
-      <workItem from="1701760689852" duration="4615000" />
+      <workItem from="1701760689852" duration="17055000" />
+      <workItem from="1701949799650" duration="1003000" />
     </task>
     <servers />
   </component>
@@ -234,5 +174,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

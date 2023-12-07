@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System;
 using UniRx;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class EyeSpawnManager : MonoManager
 {
@@ -22,17 +21,15 @@ public class EyeSpawnManager : MonoManager
     }
 
     //need pooling system
-
     private void Start()
     {
         MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnEnemies);
 
         MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.InGame,
-            () =>
-            {
-                _spawnBotDisposable.Dispose();
-            });
+            () => { _spawnBotDisposable.Dispose(); });
     }
+
+    private Vector3 _lastPosition;
 
     private void SpawnEnemies()
     {
@@ -41,16 +38,30 @@ public class EyeSpawnManager : MonoManager
             var position = _playerTransform.transform.position;
 
             var randomPosition = new Vector3(position.x, 0, position.z) +
-                                 new Vector3(Random.Range(-10, -5), 0, Random.Range(5, 10));
+                                 HelperMath.GetRandomPositionWithClamp(-20, 20, true, 7);
 
-            if (FreeSpaceCheckManager.CheckVector(randomPosition))
+            _lastPosition = randomPosition;
+
+            var state = FreeSpaceCheckManager.CheckVector
+            (
+                randomPosition,
+                2, 1 << LayerMask.NameToLayer("Eye")
+            );
+
+            if (!state)
             {
                 var item = Instantiate(_botPrrefab, randomPosition, Quaternion.identity);
 
                 _spawnEyes.Add(item);
 
-                _spawnCount++;   
+                _spawnCount++;
             }
         }).AddTo(this);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(_lastPosition, 1);
     }
 }

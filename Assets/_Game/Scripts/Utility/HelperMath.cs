@@ -11,18 +11,53 @@ public static class HelperMath
         return (value - 1);
     }
 
-    public static Vector3 GetRandomPosition(float min, float max)
+    public static Vector3 GetRandomPosition(float min, float max, bool ignoreY = false)
     {
         return new Vector3(
             Random.Range(min, max),
-            Random.Range(min, max),
+            ignoreY ? 0 : Random.Range(min, max),
             Random.Range(min, max));
     }
+
+    public static Vector3 GetRandomPositionWithClamp
+    (
+        float min,
+        float max,
+        bool ignoreY = false,
+        float clampDistance = 0
+    )
+    {
+        float randomX = Random.Range(min, max);
+        float randomY = Random.Range(min, max);
+        float randomZ = Random.Range(min, max);
+
+        float randomXClamp = GetNumberSign(randomX) * clampDistance + randomX;
+        float randomYClamp = GetNumberSign(randomY) * clampDistance + randomY;
+        float randomZClamp = GetNumberSign(randomZ) * clampDistance + randomZ;
+
+        return new Vector3(
+            randomXClamp,
+            ignoreY ? 0 : randomY,
+            randomZClamp);
+    }
+
+    /// <summary>
+    /// returned number sign is plus number 1 if minus number -1
+    /// return 1 or -1 if input number is low than 0 return -1 if higher than 0 +1
+    /// </summary>
+    /// <returns></returns>
+    public static int GetNumberSign(float number) => number < 0 ? -1 : 1;
 
     public static int ClampMin(int value, int minValue) =>
         value < minValue ? minValue : value;
 
+    public static float ClampMin(float value, float minValue) =>
+        value < minValue ? minValue : value;
+
     public static int ClampMax(int value, int maxValue) =>
+        value > maxValue ? maxValue : value;
+
+    public static float ClampMax(float value, float maxValue) =>
         value > maxValue ? maxValue : value;
 
     public static Color AlphaToMax(Color color)
