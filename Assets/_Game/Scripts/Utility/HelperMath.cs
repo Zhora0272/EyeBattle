@@ -31,14 +31,35 @@ public static class HelperMath
         float randomY = Random.Range(min, max);
         float randomZ = Random.Range(min, max);
 
-        float randomXClamp = GetNumberSign(randomX) * clampDistance + randomX;
-        float randomYClamp = GetNumberSign(randomY) * clampDistance + randomY;
-        float randomZClamp = GetNumberSign(randomZ) * clampDistance + randomZ;
+        SetRandomClamp(ref randomX, clampDistance);
+        SetRandomClamp(ref randomY, clampDistance);
+        SetRandomClamp(ref randomZ, clampDistance);
 
         return new Vector3(
-            randomXClamp,
+            randomX,
             ignoreY ? 0 : randomY,
-            randomZClamp);
+            randomZ);
+
+        //local methods
+        void SetRandomClamp(ref float randomNum, float clamp)
+        {
+            clamp *= GetNumberSign(randomNum);
+            
+            if (randomNum < clamp)
+            {
+                randomNum += clamp;
+            }
+        }
+    }
+
+    public static float Vector3DistanceMagnitude(Vector3 one, Vector3 two)
+    {
+        return (one - two).magnitude;
+    }
+
+    public static float Vector3DistanceSqrMagnitude(Vector3 one, Vector3 two)
+    {
+        return (float)Math.Pow((one - two).sqrMagnitude, 2);
     }
 
     /// <summary>

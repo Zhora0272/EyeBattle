@@ -1,4 +1,19 @@
-﻿public class BotMiddleBehaviour : BotBehaviourBase, IBotMonoBehaviour
+﻿
+public class BotAggressiveBehaviour : BotBehaviourBase, IBotMonoBehaviour
+{
+    public BotAggressiveBehaviour(BotBehaviourModel model) : base(model) { }
+
+    public BotState BotBehaviourUpdate(IEyeParameters mineBot, IEyeParameters closestElement)
+    {
+        if (closestElement != null)
+        {
+            return BotState.Attack;
+        }
+
+        return BotState.RandomWalk;
+    }
+}
+public class BotMiddleBehaviour : BotBehaviourBase, IBotMonoBehaviour
 {
     public BotState BotBehaviourUpdate(IEyeParameters mineBot, IEyeParameters closestElement)
     {
@@ -6,7 +21,7 @@
         {
             var attackRadius = model.AttackRadius;
 
-            var distance = (mineBot.Position - closestElement.Position).magnitude;
+            distance = (mineBot.Position - closestElement.Position).magnitude;
 
             if (distance < attackRadius)
             {

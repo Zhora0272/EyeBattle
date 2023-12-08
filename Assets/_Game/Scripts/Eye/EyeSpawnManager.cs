@@ -23,7 +23,7 @@ public class EyeSpawnManager : MonoManager
     //need pooling system
     private void Start()
     {
-        MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnEnemies);
+        //MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnEnemies);
 
         MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.InGame,
             () => { _spawnBotDisposable.Dispose(); });
@@ -38,7 +38,7 @@ public class EyeSpawnManager : MonoManager
             var position = _playerTransform.transform.position;
 
             var randomPosition = new Vector3(position.x, 0, position.z) +
-                                 HelperMath.GetRandomPositionWithClamp(-20, 20, true, 7);
+                                 HelperMath.GetRandomPositionWithClamp(-20, 20, true, 10);
 
             _lastPosition = randomPosition;
 
@@ -50,12 +50,18 @@ public class EyeSpawnManager : MonoManager
 
             if (!state)
             {
+                if (_spawnCount < 1)
+                {
+                    _spawnBotDisposable?.Dispose();
+                }
+                
                 var item = Instantiate(_botPrrefab, randomPosition, Quaternion.identity);
 
                 _spawnEyes.Add(item);
 
-                _spawnCount++;
+                _spawnCount--;
             }
+
         }).AddTo(this);
     }
 

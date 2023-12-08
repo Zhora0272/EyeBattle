@@ -10,6 +10,8 @@ public class EyeBotController : EyeBaseController, IPoolingMono
     [Space] 
     [SerializeField] private BotBehaviourModel _model;
 
+    private ReactiveProperty<BotState> _state = new(BotState.Idle);
+
     //
     public MonoBehaviour PoolMonoObj => this;
 
@@ -49,13 +51,26 @@ public class EyeBotController : EyeBaseController, IPoolingMono
                     Random.Range(0.5f, 1.5f)))
             .Subscribe(_ => { UpdateBehaviourState(); })
             .AddTo(this);
+
+        _state.Subscribe(state =>
+        {
+            if (state == BotState.Idle)
+            {
+                MoveBalanceStop();
+            }
+            else
+            {
+                MoveBalanceStart();
+            }
+            
+        }).AddTo(this);
     }
 
     private void UpdateBehaviourState()
     {
-        var botState = _botBehaviour.BotBehaviourUpdate(this, _closestEyeElement);
+        _state.Value = _botBehaviour.BotBehaviourUpdate(this, _closestEyeElement);
 
-        switch (botState)
+        switch (_state.Value)
         {
             case BotState.RandomWalk:
                 moveDirection = (HelperMath.GetRandomPosition(-1f, 1f) * 10).normalized;

@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -63,17 +64,30 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
             }
         }).AddTo(this);
     }
-    protected virtual void Update()
+
+    private IDisposable _everyUpdateDispose;
+    protected void MoveBalanceStart()
     {
-        Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.deltaTime);
-        Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.deltaTime);
+        MoveBalanceStop();
+        _everyUpdateDispose = Observable.EveryUpdate().Subscribe(_ =>
+        {
+            Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.deltaTime);
+            Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.deltaTime);
         
-        EyeRotate();
+            EyeRotate();
+            
+        }).AddTo(this);
     }
+
+    protected void MoveBalanceStop()
+    {
+        _everyUpdateDispose?.Dispose();
+    }
+    
 
     private void EyeRotate()
     {
-        if ((_lastPosition - transform.position) != Vector3.zero)
+        if ((_lastPosition - transform.position).magnitude < 1)
         {
             Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
