@@ -91,6 +91,5 @@ public class EyePlayerController : EyeBaseController
             _moveableRigidbody.Move(Rb, moveDirection, 0.5f);
         }
     }
-
     // random look position after any time idle standing 
 }
