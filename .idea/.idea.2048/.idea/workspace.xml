@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/TriggerCheckController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/TriggerCheckController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/UpdateController.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/UpdateElementController.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/UpdateElementController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UpdateController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UpdateController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UpdateController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/UpdateController.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +156,7 @@
       <workItem from="1701949799650" duration="13031000" />
       <workItem from="1702113571514" duration="379000" />
       <workItem from="1702226982839" duration="22000" />
-      <workItem from="1702229794231" duration="2276000" />
+      <workItem from="1702229794231" duration="2639000" />
     </task>
     <servers />
   </component>
