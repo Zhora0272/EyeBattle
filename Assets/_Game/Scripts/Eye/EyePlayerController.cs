@@ -15,12 +15,22 @@ public class EyePlayerController : EyeBaseController
 
     private IDisposable _rotateUpdateDisposable;
     private IDisposable _moveBalanceDisposable;
+    private IDisposable _pointerUpStreamDisposable;
+    private IDisposable _pointerDownStreamDisposable;
 
-    private void Awake()
+    protected override void Awake()
     {
-        Rb = GetComponent<Rigidbody>();
-
+        base.Awake();
         _moveableRigidbody = new MoveWithRbAddForce(xyzState:false);
+    }
+
+    protected override void EyeDeadEvent()
+    {
+        base.EyeDeadEvent();
+        _handlerState?.Dispose();
+        _moveBalanceDisposable?.Dispose();
+        _pointerUpStreamDisposable?.Dispose();
+        _pointerDownStreamDisposable?.Dispose();
     }
 
     protected override void Start()
@@ -51,7 +61,7 @@ public class EyePlayerController : EyeBaseController
             moveDirection = data;
         });
 
-        _inputController.PointerDownStream.Subscribe(_ =>
+        _pointerDownStreamDisposable = _inputController.PointerDownStream.Subscribe(_ =>
         {
             //
             _eyeModelTransform.DOKill();
@@ -63,7 +73,7 @@ public class EyePlayerController : EyeBaseController
         }).AddTo(this);
 
 
-        _inputController.PointerUpStream.Subscribe(_ =>
+        _pointerUpStreamDisposable = _inputController.PointerUpStream.Subscribe(_ =>
         {
             _handlerState.Value = false;
             

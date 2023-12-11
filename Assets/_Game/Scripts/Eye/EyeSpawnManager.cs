@@ -23,7 +23,7 @@ public class EyeSpawnManager : MonoManager
     //need pooling system
     private void Start()
     {
-        //MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnEnemies);
+        MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnEnemies);
 
         MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.InGame,
             () => { _spawnBotDisposable.Dispose(); });

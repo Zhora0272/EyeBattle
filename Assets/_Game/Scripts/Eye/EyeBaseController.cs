@@ -34,15 +34,43 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
     [SerializeField] protected SphereCollider _sphereCollider;
     [Space]
     [SerializeField] protected Image _loadbar;
+    [SerializeField] protected TriggerCheckController _triggerCheckController;
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
-    [field: SerializeField] public ReactiveProperty<bool> IsDeath { protected set; get; }
+    [field: SerializeField] public ReactiveProperty<bool> IsDeath { private set; get; }
 
     protected Vector3 moveDirection;
     
     private Vector3 _lastPosition;
 
     #region UnityEvents
+
+    private IDisposable _brokenEyeCollectorDisposable;
+    private IDisposable _sizeDisposable;
+    private IDisposable _everyUpdateDispose;
+
+    protected virtual void Awake()
+    {
+        Rb = GetComponent<Rigidbody>();
+        
+        _triggerCheckController.TriggerLayerEnterRegister(Layer.Eye, EyeAttackCheck);
+        
+        IsDeath.Subscribe(state =>
+        {
+            if (state)
+            {
+                EyeDeadEvent();
+            }
+
+        }).AddTo(this);
+    }
+
+    protected virtual void EyeDeadEvent()
+    {
+        _brokenEyeCollectorDisposable?.Dispose();
+        _sizeDisposable?.Dispose();
+        _everyUpdateDispose?.Dispose();
+    }
 
     protected virtual void Start()
     {
@@ -64,8 +92,6 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
             }
         }).AddTo(this);
     }
-
-    private IDisposable _everyUpdateDispose;
     protected void MoveBalanceStart()
     {
         MoveBalanceStop();
@@ -105,14 +131,11 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
 
     protected abstract void Move();
 
-    private void OnTriggerEnter(Collider other)
+    private void EyeAttackCheck(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Eye"))
+        if (other.gameObject.TryGetComponent<EyeBaseController>(out var result))
         {
-            if (other.gameObject.TryGetComponent<EyeBaseController>(out var result))
-            {
-                result.Attack(Rb.mass * Rb.velocity.magnitude, transform.position);
-            }
+            result.Attack(Rb.mass * Rb.velocity.magnitude, transform.position);
         }
     }
 
