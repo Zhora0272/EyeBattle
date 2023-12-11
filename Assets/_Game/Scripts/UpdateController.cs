@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class UpdateController : MonoBehaviour
@@ -7,6 +6,14 @@ public class UpdateController : MonoBehaviour
 
     private void Awake()
     {
-        _triggerController.TriggerEnterRegister();
+        _triggerController.TriggerEnterRegister(Trigger.UpdateElement, UpdateCheck);
+    }
+
+    private void UpdateCheck(Collider other)
+    {
+        if (other.TryGetComponent<UpdateElementController>(out var result))
+        {
+            
+        }
     }
 }

@@ -134,16 +134,10 @@ public class TriggerCheckController : MonoBehaviour
 
 public enum Layer
 {
-    InteractiveAvatar,
-    EnemyInteractiveAvatar
+    
 }
 
 public enum Trigger
 {
-    Collectable,
-    BuyTrigger,
-    LevelUp,
-    RoomClean,
-    Enemy,
-    Teammate,
+    UpdateElement,
 }
