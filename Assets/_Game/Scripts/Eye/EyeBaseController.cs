@@ -51,7 +51,7 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
 
     protected virtual void Awake()
     {
-        Rb = GetComponent<Rigidbody>();
+        Rb = GetComponent<Rigidbody>(); // check working it or not
         
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Eye, EyeAttackCheck);
         
@@ -70,6 +70,10 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
         _brokenEyeCollectorDisposable?.Dispose();
         _sizeDisposable?.Dispose();
         _everyUpdateDispose?.Dispose();
+
+        _sphereCollider.enabled = false;
+        _meshRenderer.SetActive(false);
+        Rb.isKinematic = true;
     }
 
     protected virtual void Start()
@@ -144,12 +148,7 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
         if (Rb.mass * Rb.velocity.magnitude < force)
         {
             IsDeath.Value = true;
-
             _brokenEyePartsController.Activate(_material, attackPosition);
-
-            _sphereCollider.enabled = false;
-            _meshRenderer.SetActive(false);
-            Rb.isKinematic = true;
         }
     }
 }
