@@ -59,6 +59,7 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
         {
             if (state)
             {
+                print("is death");
                 EyeDeadEvent();
             }
 

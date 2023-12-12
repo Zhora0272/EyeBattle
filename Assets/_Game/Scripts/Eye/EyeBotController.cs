@@ -7,8 +7,7 @@ using UniRx;
 public class EyeBotController : EyeBaseController, IPoolingMono
 {
     [SerializeField] private BotBattleParticipant _battleParticipant;
-    [Space] 
-    [SerializeField] private BotBehaviourModel _model;
+    [Space] [SerializeField] private BotBehaviourModel _model;
 
     private ReactiveProperty<BotState> _state = new(BotState.Idle);
 
@@ -19,10 +18,10 @@ public class EyeBotController : EyeBaseController, IPoolingMono
     private IBotMonoBehaviour _botBehaviour;
     private IMoveableRigidbody _moveableRigidbody;
     private IEyeParameters _closestEyeElement;
-    
+
     //
     private Vector3 _closestEnemyPosition;
-    
+
     private Vector3 _currentMoveDirection;
 
     private void Awake()
@@ -33,7 +32,7 @@ public class EyeBotController : EyeBaseController, IPoolingMono
 
     private IDisposable _closestElementDisposable;
     private IDisposable _behaviourUpdateDisposable;
-    
+
     private void Start()
     {
         _closestElementDisposable = Observable.Interval(
@@ -62,7 +61,6 @@ public class EyeBotController : EyeBaseController, IPoolingMono
             {
                 MoveBalanceStart();
             }
-            
         }).AddTo(this);
     }
 
