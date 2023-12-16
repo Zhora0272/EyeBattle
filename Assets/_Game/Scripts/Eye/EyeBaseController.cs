@@ -20,7 +20,6 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
     private readonly ReactiveProperty<int> _hp = new(100);
     private readonly ReactiveProperty<int> _killCount = new(0);
     private readonly ReactiveProperty<float> _speed = new(25);
-    private readonly ReactiveProperty<float> _force = new();
     //
 
     [Space]
@@ -114,11 +113,10 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
     {
         _everyUpdateDispose?.Dispose();
     }
-    
 
     private void EyeRotate()
     {
-        if ((_lastPosition - transform.position).magnitude < 1)
+        if (_lastPosition - transform.position != Vector3.zero && (_lastPosition - transform.position).magnitude < 1)
         {
             Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
@@ -146,6 +144,10 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
 
     private void Attack(float force, Vector3 attackPosition)
     {
+        Debug.Log(Rb.mass * Rb.velocity.magnitude < force, gameObject);
+        Debug.Log(force);
+        Debug.Log(Rb.mass * Rb.velocity.magnitude);
+        
         if (Rb.mass * Rb.velocity.magnitude < force)
         {
             IsDeath.Value = true;

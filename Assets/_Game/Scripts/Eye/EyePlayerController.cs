@@ -87,6 +87,12 @@ public class EyePlayerController : EyeBaseController
                 {
                     _eyeModelTransform.DORotate(new Vector3(65, 180, 0), 1);
                     transform.DORotate(new Vector3(0, 180, 0), 1);
+
+                    Observable.Timer(TimeSpan.FromSeconds(.5f)).Subscribe(_ =>
+                    {
+                        Rb.velocity = Vector3.zero;
+                        Rb.angularVelocity = Vector3.zero;
+                    }).AddTo(this);
                 }
                 
             }).AddTo(this);
