@@ -50,7 +50,7 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
 
     protected virtual void Awake()
     {
-        Rb = GetComponent<Rigidbody>(); // check working it or not
+        Rb = GetComponent<Rigidbody>();
         
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Eye, EyeAttackCheck);
         
@@ -58,7 +58,7 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
         {
             if (state)
             {
-                print("is death");
+                Debug.Break();
                 EyeDeadEvent();
             }
 
@@ -144,10 +144,6 @@ public abstract class  EyeBaseController : CachedMonoBehaviour,
 
     private void Attack(float force, Vector3 attackPosition)
     {
-        Debug.Log(Rb.mass * Rb.velocity.magnitude < force, gameObject);
-        Debug.Log(force);
-        Debug.Log(Rb.mass * Rb.velocity.magnitude);
-        
         if (Rb.mass * Rb.velocity.magnitude < force)
         {
             IsDeath.Value = true;
