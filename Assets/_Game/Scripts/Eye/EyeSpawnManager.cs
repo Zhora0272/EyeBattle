@@ -7,6 +7,8 @@ public class EyeSpawnManager : MonoManager
 {
     [SerializeField] private EyeBaseController _botPrrefab;
     [SerializeField] private EyeBaseController _playerTransform;
+    [Space] 
+    [SerializeField] private UpdateElementController _speedUpdate;
     [SerializeField] private int _spawnCount;
     public List<EyeBaseController> _spawnEyes { private set; get; }
 

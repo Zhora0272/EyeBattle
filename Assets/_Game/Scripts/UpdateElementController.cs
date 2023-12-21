@@ -1,21 +1,41 @@
-﻿using UnityEngine;
+﻿using Pooling;
+using UniRx;
+using UnityEngine;
 
-public class UpdateElementController : MonoBehaviour
+public class UpdateElementController : MonoBehaviour, IPoolingMono
 {
-    [field: SerializeField] public UpdateElement UpdateElementType { get; private set; }
-}
+    [SerializeField] public UpdateElementModel UpdateElementModel;
+    public MonoBehaviour PoolMonoObj => this;
 
-public class UpdateElementBehaviour : CachedMonoBehaviour
-{
+    private void Awake()
+    {
+        UpdateElementModel.IsApplied.Subscribe(state =>
+        {
+            if (!state)
+            {
+                PoolActivate();
+            }
+            else
+            {
+                PoolDeactivate();
+            }
+        }).AddTo(this);
+    }
+
+    public void PoolActivate()
+    {
+    }
+
+    public void PoolDeactivate()
+    {
+    }
+
+    public void PoolDestroy()
+    {
+    }
 }
 
 public enum UpdateElement
 {
     Speed,
-}
-
-public abstract class UpdateElementModel : EyeModelBase
-{
-    public UpdateElement UpdateType;
-    public float UpdateTime; // if time is (< 0) update is always
 }

@@ -33,6 +33,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     [SerializeField] protected SphereCollider _sphereCollider;
     [Space] [SerializeField] protected Image _loadbar;
     [SerializeField] protected TriggerCheckController _triggerCheckController;
+    [Space] [SerializeField] private UpdateController _updateController;
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
     [field: SerializeField] public ReactiveProperty<bool> IsDeath { private set; get; }
@@ -46,23 +47,13 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     private IDisposable _sizeDisposable;
     private IDisposable _everyUpdateDispose;
 
-    public void GetUpdate(UpdateElementModel model)
-    {
-        if (model.UpdateTime > 0)
-        {
-        }
-    }
-
-    private void SetEyeParameters(EyeModelBase model)
-    {
-        _speed.Value = model.Speed;
-    }
-
     protected virtual void Awake()
     {
         Rb = GetComponent<Rigidbody>();
-
+        
+        _currentModelClone = GetEyeConfigModel();
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Eye, EyeAttackCheck);
+        _updateController.UpdateElementController.Subscribe(GetUpdate).AddTo(this);
 
         IsDeath.Subscribe(state =>
         {
@@ -70,12 +61,13 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
             {
                 EyeDeadEvent();
             }
+            
         }).AddTo(this);
     }
 
     protected virtual void Start()
     {
-        _brokenEyeCollector.BrokenPartsCollectionStream.Subscribe(value => { Size.Value += value; }).AddTo(this);
+        //_brokenEyeCollector.BrokenPartsCollectionStream.Subscribe(value => { Size.Value += value; }).AddTo(this); //this part change the eye size after collection points ("broken eyes") 
 
         Size.Subscribe(value =>
         {
@@ -90,6 +82,54 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
             }
         }).AddTo(this);
     }
+
+    //Updateable part
+    private EyeModelBase _currentModelClone;
+    public void GetUpdate(UpdateElementModel model)
+    {
+        if(model == null) return;
+        
+        _currentModelClone = GetEyeConfigModel();
+
+        AddUpdate(model);
+
+        if (model.UpdateTime > 0)
+        {
+            Observable.Timer(TimeSpan.FromSeconds(model.UpdateTime)).Subscribe(_ =>
+            {
+                CancelUpdate();
+
+                print("update time is loss");
+
+            }).AddTo(this);
+        }
+        else
+        {
+            SetupNewModel(model);
+        }
+    }
+
+    private void AddUpdate(UpdateElementModel model)
+    {
+        Speed.Value += model.Speed;
+    }
+    private void CancelUpdate()
+    {
+        Speed.Value = _currentModelClone.Speed;
+    }
+    private void SetupNewModel(UpdateElementModel model)
+    {
+        _currentModelClone.Speed = model.Speed;
+    }
+    private EyeModelBase GetEyeConfigModel()
+    {
+        return new EyeModelBase()
+        {
+            Speed = Speed.Value,
+        };
+    }
+    // end Updateable part
+    
 
     protected virtual void EyeDeadEvent()
     {
@@ -125,7 +165,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         {
             Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
-            _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * Speed.Value * 4), 0, 0);
+            _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * 80), 0, 0);
         }
     }
 
