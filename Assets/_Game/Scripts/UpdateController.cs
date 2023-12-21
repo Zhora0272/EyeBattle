@@ -1,8 +1,12 @@
+using UniRx;
 using UnityEngine;
 
 public class UpdateController : MonoBehaviour
 {
     [SerializeField] private TriggerCheckController _triggerController;
+
+    public IReactiveProperty<UpdateElementController> UpdateElementController => _updateElementController;
+    private readonly ReactiveProperty<UpdateElementController> _updateElementController = new();
 
     private void Awake()
     {
@@ -13,7 +17,6 @@ public class UpdateController : MonoBehaviour
     {
         if (other.TryGetComponent<UpdateElementController>(out var result))
         {
-            
         }
     }
 }

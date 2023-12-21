@@ -7,7 +7,6 @@ public class UpdateElementController : MonoBehaviour
 
 public class UpdateElementBehaviour : CachedMonoBehaviour
 {
-    
 }
 
 public enum UpdateElement
@@ -15,3 +14,8 @@ public enum UpdateElement
     Speed,
 }
 
+public abstract class UpdateElementModel : EyeModelBase
+{
+    public UpdateElement UpdateType;
+    public float UpdateTime; // if time is (< 0) update is always
+}
