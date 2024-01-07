@@ -6438,13 +6438,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2341853456234441563, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
-      propertyPath: UpdateElementModel.Speed
-      value: 45
-      objectReference: {fileID: 0}
     - target: {fileID: 2341853456234441637, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
       propertyPath: m_Name
       value: '[Update element] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341853457446239456, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341853457446239457, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341853457446239457, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341853457446239457, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341853457446239457, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341853457446239457, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341853457446239457, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341853457446239460, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 289301614986012343, guid: feeb7f8052c278948b3d92d678ca3bd6, type: 3}
+    - target: {fileID: 6606468652633944287, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
