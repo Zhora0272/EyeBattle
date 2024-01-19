@@ -13,14 +13,12 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     public float Force => Rb.mass * Rb.velocity.magnitude;
     public Vector3 Position => transform.position;
     public Transform EyeTransform => transform;
-
     public IReactiveProperty<int> KillCount => _killCount;
     //
 
     //readonly reactive properties
     private readonly ReactiveProperty<int> _hp = new(100);
     private readonly ReactiveProperty<int> _killCount = new(0);
-
     private readonly ReactiveProperty<float> _speed = new(25);
     //
 
@@ -111,11 +109,12 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     private void AddUpdate(UpdateElementModel model)
     {
-        Speed.Value += model.Speed;
+        _speed.Value += model.Speed;
     }
+    
     private void CancelUpdate()
     {
-        Speed.Value = _currentModelClone.Speed;
+        _speed.Value = _currentModelClone.Speed;
     }
     private void SetupNewModel(UpdateElementModel model)
     {
@@ -125,7 +124,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     {
         return new EyeModelBase()
         {
-            Speed = Speed.Value,
+            Speed = _speed.Value,
         };
     }
     // end Updateable part

@@ -24,14 +24,17 @@ public class UpdateElementController : MonoBehaviour, IPoolingMono
 
     public void PoolActivate()
     {
+        
     }
 
     public void PoolDeactivate()
     {
+        gameObject.SetActive(false);
     }
 
     public void PoolDestroy()
     {
+        
     }
 }
 

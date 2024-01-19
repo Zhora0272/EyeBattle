@@ -821,6 +821,8 @@ GameObject:
   - component: {fileID: 2509413003133941998}
   - component: {fileID: 2895838331650394285}
   - component: {fileID: 4205919614353510748}
+  - component: {fileID: 8382609805435347790}
+  - component: {fileID: 8382609805435347796}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -901,20 +903,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7966c37914d32b54db8ffa81dc41b13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forceText: {fileID: 0}
   _brokenEyePartsController: {fileID: 8688687115766232335}
   _brokenEyeCollector: {fileID: 2509413003133941998}
   Rb: {fileID: 2509413003133941970}
-  _material: {fileID: 2100000, guid: adda495f72919c144b74cf48c09511a7, type: 2}
-  _meshRenderer: {fileID: 7504300693401385834}
+  _material: {fileID: 2100000, guid: 995f58cdf3d98ae4e9a33ad0df566ac2, type: 2}
+  _meshRenderer: {fileID: 6694589665468740261}
+  _eyeModelTransform: {fileID: 7165069863006265808}
   _sphereCollider: {fileID: 2509413003133941971}
   _loadbar: {fileID: 8382609804393249976}
+  _triggerCheckController: {fileID: 8382609805435347796}
+  _updateController: {fileID: 8382609805435347790}
   <Size>k__BackingField:
     value: 0
   <IsDeath>k__BackingField:
     value: 0
   _inputController: {fileID: 0}
-  _eyeModelTransform: {fileID: 7165069863006265808}
 --- !u!114 &2509413003133941998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,6 +946,8 @@ MonoBehaviour:
   _eyeMaterial: {fileID: 0}
   _eyeMeshRenderer: {fileID: 4297366258155584576}
   _decorGamobject: {fileID: 0}
+  _eyeColorData: {fileID: 0}
+  _eyeBackColorData: {fileID: 0}
 --- !u!114 &4205919614353510748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -956,8 +961,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _registerState: 0
-  _canRegister: 0
+  _canRegister: 1
   _playerController: {fileID: 2509413003133941969}
+--- !u!114 &8382609805435347790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2509413003133941968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a448879123a4e4581bc81e97c9e50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerController: {fileID: 8382609805435347796}
+--- !u!114 &8382609805435347796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2509413003133941968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47650414486717c4c96b2c05cdc67d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2764380448446398970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,6 +2952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EyeFull
       objectReference: {fileID: 0}
+    - target: {fileID: 5045384383681190083, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4711208715938537054, guid: 46bf2e40d858c944fb0260452b8e64da, type: 3}
     - target: {fileID: 7985973962221609353, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2966,6 +3000,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8584270443324505175, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 995f58cdf3d98ae4e9a33ad0df566ac2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
 --- !u!4 &2472998096944882078 stripped
@@ -2976,6 +3014,11 @@ Transform:
 --- !u!23 &4297366258155584576 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8584270443324505175, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
+  m_PrefabInstance: {fileID: 5513034501512560663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6694589665468740261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1181577525170729650, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
   m_PrefabInstance: {fileID: 5513034501512560663}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7547017184880366893

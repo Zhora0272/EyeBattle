@@ -6438,6 +6438,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2341853456234441563, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: UpdateElementModel.Speed
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341853456234441563, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: UpdateElementModel.UpdateTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2341853456234441637, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
       propertyPath: m_Name
       value: '[Update element] '
@@ -6474,6 +6482,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 289301614986012343, guid: feeb7f8052c278948b3d92d678ca3bd6, type: 3}
+    - target: {fileID: 6130481951165374580, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6606468652633944287, guid: 23c064f1ce18445439533aed47c300e5, type: 3}
       propertyPath: m_IsActive
       value: 1

@@ -10,7 +10,7 @@ public class EyePlayerController : EyeBaseController
     private IDisposable _pointerUpDisposable;
 
     private IMoveableRigidbody _moveableRigidbody;
-    
+
     private ReactiveProperty<bool> _handlerState = new();
 
     private IDisposable _rotateUpdateDisposable;
@@ -21,7 +21,7 @@ public class EyePlayerController : EyeBaseController
     protected override void Awake()
     {
         base.Awake();
-        _moveableRigidbody = new MoveWithRbAddForce(xyzState:false);
+        _moveableRigidbody = new MoveWithRbAddForce(xyzState: false);
     }
 
     protected override void EyeDeadEvent()
@@ -46,20 +46,13 @@ public class EyePlayerController : EyeBaseController
             }
             else
             {
-                _moveBalanceDisposable = Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
-                {
-                    MoveBalanceStop();
-                    
-                }).AddTo(this);
+                _moveBalanceDisposable = Observable.Timer(TimeSpan.FromSeconds(1))
+                    .Subscribe(_ => { MoveBalanceStop(); }).AddTo(this);
             }
-            
         }).AddTo(this);
 
         //joystick update subscribe
-        _inputController.RegisterJoysticData(data =>
-        {
-            moveDirection = data;
-        });
+        _inputController.RegisterJoysticData(data => { moveDirection = data; });
 
         _pointerDownStreamDisposable = _inputController.PointerDownStream.Subscribe(_ =>
         {
@@ -69,18 +62,17 @@ public class EyePlayerController : EyeBaseController
 
             _handlerState.Value = true;
             //
-            
         }).AddTo(this);
 
 
         _pointerUpStreamDisposable = _inputController.PointerUpStream.Subscribe(_ =>
         {
             _handlerState.Value = false;
-            
+
             moveDirection = Vector2.zero;
-            
+
             _pointerUpDisposable?.Dispose();
-            
+
             _pointerUpDisposable = Observable.Timer(TimeSpan.FromSeconds(2)).Subscribe(_ =>
             {
                 if (!_handlerState.Value)
@@ -94,9 +86,7 @@ public class EyePlayerController : EyeBaseController
                         Rb.angularVelocity = Vector3.zero;
                     }).AddTo(this);
                 }
-                
             }).AddTo(this);
-            
         }).AddTo(this);
     }
 
@@ -104,7 +94,7 @@ public class EyePlayerController : EyeBaseController
     {
         if (_handlerState.Value)
         {
-            _moveableRigidbody.Move(Rb, moveDirection, 0.5f);
+            _moveableRigidbody.Move(Rb, moveDirection, Speed.Value / 50);
         }
     }
     // random look position after any time idle standing 
