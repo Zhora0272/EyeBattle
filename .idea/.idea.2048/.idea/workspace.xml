@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/UpdateElement.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/UpdateElement.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/UpdateElementShaderGraph.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/UpdateElementShaderGraph.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/[Update element] .prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/[Update element] .prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyePlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyePlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/UpdateElementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/UpdateElementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +60,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\Админ\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Админ\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Админ\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\Zhora\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Zhora\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Zhora\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -162,6 +156,7 @@
       <workItem from="1702724097749" duration="8446000" />
       <workItem from="1703188652619" duration="8027000" />
       <workItem from="1705686726714" duration="7646000" />
+      <workItem from="1705747800686" duration="4204000" />
     </task>
     <servers />
   </component>

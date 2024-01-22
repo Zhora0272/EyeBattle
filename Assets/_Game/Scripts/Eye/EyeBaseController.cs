@@ -16,6 +16,8 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     public IReactiveProperty<int> KillCount => _killCount;
     //
 
+    private IDisposable _moveDisposable;
+    
     //readonly reactive properties
     private readonly ReactiveProperty<int> _hp = new(100);
     private readonly ReactiveProperty<int> _killCount = new(0);
@@ -34,7 +36,9 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     [Space] [SerializeField] private UpdateController _updateController;
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
-    [field: SerializeField] public ReactiveProperty<bool> IsDeath { private set; get; }
+    public IReactiveProperty<bool> IsDeath => _isDeath;
+    
+    private readonly ReactiveProperty<bool> _isDeath = new();
 
     protected Vector3 moveDirection;
     private Vector3 _lastPosition;
@@ -79,8 +83,15 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
                 _loadbar.DOFillAmount(0, 1);
             }
         }).AddTo(this);
-    }
 
+        _moveDisposable = Observable.EveryFixedUpdate().Subscribe(_ =>
+        {
+            _lastPosition = transform.position;
+            Move();
+            EyeRotate();
+        }).AddTo(this);
+    }
+    
     //Updateable part
     private EyeModelBase _currentModelClone;
     public void GetUpdate(UpdateElementModel model)
@@ -139,6 +150,8 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _sphereCollider.enabled = false;
         _meshRenderer.SetActive(false);
         Rb.isKinematic = true;
+        
+        _moveDisposable?.Dispose();
     }
 
     protected void MoveBalanceStart()
@@ -149,7 +162,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
             Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.deltaTime);
             Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.deltaTime);
 
-            EyeRotate();
         }).AddTo(this);
     }
 
@@ -167,14 +179,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
             _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * 80), 0, 0);
         }
     }
-
-    protected virtual void FixedUpdate()
-    {
-        _lastPosition = transform.position;
-
-        Move();
-    }
-
+    
     #endregion
 
     protected abstract void Move();
