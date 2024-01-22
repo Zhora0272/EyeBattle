@@ -35,10 +35,10 @@ public class Collectable : CachedMonoBehaviour
         _collider.enabled = false;
         _rb.isKinematic = true;
         
-        /*transform.DOScale(0, 0.5f).onComplete = () =>
+        transform.DOScale(0, 0.5f).onComplete = () =>
         {
             gameObject.SetActive(false);
-        };*/
+        };
         
         _collectAnimBase.Animation(this, target, duration);
         this.target = target;
