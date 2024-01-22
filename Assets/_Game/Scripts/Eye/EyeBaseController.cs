@@ -1,4 +1,5 @@
 ﻿using System;
+using _Game.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
@@ -16,7 +17,8 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     public IReactiveProperty<int> KillCount => _killCount;
     //
 
-    private IDisposable _moveDisposable;
+    private IDisposable _moveFixedDisposable;
+    private IDisposable _moveUpdateDisposable;
     
     //readonly reactive properties
     private readonly ReactiveProperty<int> _hp = new(100);
@@ -37,7 +39,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
     public IReactiveProperty<bool> IsDeath => _isDeath;
-    
     private readonly ReactiveProperty<bool> _isDeath = new();
 
     protected Vector3 moveDirection;
@@ -56,15 +57,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _currentModelClone = GetEyeConfigModel();
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Eye, EyeAttackCheck);
         _updateController.UpdateElementController.Subscribe(GetUpdate).AddTo(this);
-
-        IsDeath.Subscribe(state =>
-        {
-            if (state)
-            {
-                EyeDeadEvent();
-            }
-            
-        }).AddTo(this);
     }
 
     protected virtual void Start()
@@ -83,15 +75,19 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
                 _loadbar.DOFillAmount(0, 1);
             }
         }).AddTo(this);
-
-        _moveDisposable = Observable.EveryFixedUpdate().Subscribe(_ =>
-        {
-            _lastPosition = transform.position;
-            Move();
-            EyeRotate();
-        }).AddTo(this);
     }
-    
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void Update()
+    {
+        EyeRotate();
+        _lastPosition = transform.position;
+    }
+
     //Updateable part
     private EyeModelBase _currentModelClone;
     public void GetUpdate(UpdateElementModel model)
@@ -143,6 +139,8 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     protected virtual void EyeDeadEvent()
     {
+        _isDeath.Value = true;
+
         _brokenEyeCollectorDisposable?.Dispose();
         _sizeDisposable?.Dispose();
         _everyUpdateDispose?.Dispose();
@@ -151,9 +149,13 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _meshRenderer.SetActive(false);
         Rb.isKinematic = true;
         
-        _moveDisposable?.Dispose();
+        _moveFixedDisposable?.Dispose();
+        _moveUpdateDisposable?.Dispose();
     }
 
+    /// <summary>
+    /// eye rotate balance 
+    /// </summary>
     protected void MoveBalanceStart()
     {
         MoveBalanceStop();
@@ -196,8 +198,8 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     {
         if (Rb.mass * Rb.velocity.magnitude < force)
         {
-            IsDeath.Value = true;
             _brokenEyePartsController.Activate(_material, attackPosition);
+            EyeDeadEvent();
         }
     }
 }

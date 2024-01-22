@@ -1,6 +1,7 @@
 using Random = UnityEngine.Random;
 using UnityEngine;
 using System;
+using _Game.Scripts.Utility;
 using Pooling;
 using UniRx;
 
@@ -27,7 +28,8 @@ public class EyeBotController : EyeBaseController, IPoolingMono
     private void Awake()
     {
         _moveableRigidbody = new MoveWithRbAddForce();
-        _botBehaviour = new BotMiddleBehaviour(_model);
+        
+        _botBehaviour = new BotAggressiveBehaviour(_model); //bot AI
     }
 
     private IDisposable _closestElementDisposable;

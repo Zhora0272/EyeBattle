@@ -27,6 +27,7 @@ public class EyePlayerController : EyeBaseController
     protected override void EyeDeadEvent()
     {
         base.EyeDeadEvent();
+        
         _handlerState?.Dispose();
         _moveBalanceDisposable?.Dispose();
         _pointerUpStreamDisposable?.Dispose();
