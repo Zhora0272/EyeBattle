@@ -8,4 +8,5 @@ public interface IEyeParameters
     public float Force { get; }
     public Vector3 Position { get; }
     public Transform EyeTransform { get; }
+    public IReactiveProperty<bool> IsDeath { get; }
 }

@@ -22,7 +22,6 @@ public class EyeBotController : EyeBaseController, IPoolingMono
 
     //
     private Vector3 _closestEnemyPosition;
-
     private Vector3 _currentMoveDirection;
 
     private void Awake()
@@ -50,7 +49,10 @@ public class EyeBotController : EyeBaseController, IPoolingMono
         _behaviourUpdateDisposable = Observable.Interval(
                 TimeSpan.FromSeconds(
                     Random.Range(0.5f, 1.5f)))
-            .Subscribe(_ => { UpdateBehaviourState(); })
+            .Subscribe(_ =>
+            {
+                UpdateBehaviourState();
+            })
             .AddTo(this);
 
         _state.Subscribe(state =>

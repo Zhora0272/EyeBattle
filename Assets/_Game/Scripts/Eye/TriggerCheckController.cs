@@ -73,23 +73,25 @@ public class TriggerCheckController : MonoBehaviour
         }
     }
 
-    //check with layer
+    #region Layer Register
+
     public void TriggerLayerEnterRegister(
-        Layer trigger,
+        Layer layer,
         UnityAction<Collider> subject
     )
     {
-        Register(_onLayerEnterSubjectList, trigger, subject);
+        Register(_onLayerEnterSubjectList, layer, subject);
     }
 
     public void TriggerLayerExitRegister(
-        Layer trigger,
+        Layer layer,
         UnityAction<Collider> subject
     )
     {
-        Register(_onLayerExitSubjectList, trigger, subject);
+        Register(_onLayerExitSubjectList, layer, subject);
     }
-    //
+
+    #endregion
 
     #region Trigger Register
 
@@ -113,6 +115,8 @@ public class TriggerCheckController : MonoBehaviour
     //
 
     #endregion
+    
+    #region Register Base
 
     private void Register<T, C>(
         T subjectList,
@@ -130,6 +134,29 @@ public class TriggerCheckController : MonoBehaviour
             subjectList.TryAdd(layer, subject);
         }
     }
+
+    #endregion
+    
+    #region UnRegister Base
+    private void UnRegister<T, C>(
+        T subjectList,
+        C layer,
+        UnityAction<Collider> subject
+    ) where T : Dictionary<C, UnityAction<Collider>>
+    {
+        if (subjectList.TryGetValue(layer, out var value))
+        {
+            value += subject;
+            subjectList.TryAdd(layer, value);
+        }
+        else
+        {
+            subjectList.TryAdd(layer, subject);
+        }
+    }
+
+    #endregion
+
 }
 
 public enum Layer

@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class Collectable : CachedMonoBehaviour
     [SerializeField] private MeshCollider _collider;
     [SerializeField] private float _value;
     
-    private ITransform target;
+    private ITransform _target;
 
     public bool CollectState { private set; get; }
     public float BrokenTime{ private set; get; }
@@ -25,33 +26,28 @@ public class Collectable : CachedMonoBehaviour
     private void OnEnable()
     {
         BrokenTime = Time.time;
-        transform.parent = null;
     }
 
     public float Collect(ITransform target, float duration)
     {
+        if (CollectState) return 0;
+        
         CollectState = true;
-
+        transform.parent = null;
+        
         _collider.enabled = false;
         _rb.isKinematic = true;
-        
-        /*transform.DOScale(0, 0.5f).onComplete = () =>
+
+        Observable.Timer(TimeSpan.FromSeconds(3)).Subscribe(_ =>
         {
-            gameObject.SetActive(false);
-        };*/
-        
-        _collectAnimBase.Animation(this, target, duration);
-        this.target = target;
+            transform.DOScale(0, 2).onComplete = () =>
+            {
+                gameObject.SetActive(false);
+            };
+            _collectAnimBase.Animation(this, target, duration);
+            
+        }).AddTo(this);
         return _value;
-    }
-    
-    private void OnDrawGizmos()
-    {
-        if (target != null)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawSphere(target.IPosition, 1);
-        }
     }
 }
 
@@ -59,12 +55,12 @@ public class CollectableCollectAnimation : CollectableCollectAnimBase
 {
     public override void Animation(CachedMonoBehaviour mono, ITransform target, float duration)
     {
-        /*mono.transform.DOMove(mono.transform.position + Vector3.up * 3, duration).onComplete = () =>
-        {
-        };*/
+        Debug.Log(target.IGameObjectName);
+        Debug.Log(mono.IGameObjectName);
         
         Observable.EveryUpdate().Subscribe(_ =>
         {
+            Debug.DrawLine(mono.Position, target.IPosition, Color.red);
             mono.Position = Vector3.Lerp(mono.Position,
                 target.IPosition + Vector3.up,
                 Time.deltaTime);

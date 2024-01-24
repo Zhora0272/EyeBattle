@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CachedMonoBehaviour : MonoBehaviour, ITransform
 {
@@ -32,6 +33,7 @@ public class CachedMonoBehaviour : MonoBehaviour, ITransform
     public Vector3 IPosition => Position;
     public Vector3 ILocalPosition => LocalPosition;
     public Quaternion IRotation => Rotation;
+    public String IGameObjectName => gameObject.name;
 }
 
 public interface ITransform
@@ -39,4 +41,5 @@ public interface ITransform
     public Vector3 IPosition { get; }
     public Vector3 ILocalPosition { get; }
     public Quaternion IRotation { get; }
+    public string IGameObjectName { get; }
 }

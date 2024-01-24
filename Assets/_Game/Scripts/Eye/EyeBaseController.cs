@@ -12,9 +12,9 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     public IReactiveProperty<int> Mass => _hp;
     public IReactiveProperty<float> Speed => _speed;
     public float Force => Rb.mass * Rb.velocity.magnitude;
-    public Vector3 Position => transform.position;
     public Transform EyeTransform => transform;
     public IReactiveProperty<int> KillCount => _killCount;
+    public IReactiveProperty<bool> IsDeath => _isDeath;
     //
 
     private IDisposable _moveFixedDisposable;
@@ -24,6 +24,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     private readonly ReactiveProperty<int> _hp = new(100);
     private readonly ReactiveProperty<int> _killCount = new(0);
     private readonly ReactiveProperty<float> _speed = new(25);
+    private readonly ReactiveProperty<bool> _isDeath = new();
     //
 
     [Space] [SerializeField] protected BrokenEyePartsController _brokenEyePartsController;
@@ -38,9 +39,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     [Space] [SerializeField] private UpdateController _updateController;
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
-    public IReactiveProperty<bool> IsDeath => _isDeath;
-    private readonly ReactiveProperty<bool> _isDeath = new();
-
+    
     protected Vector3 moveDirection;
     private Vector3 _lastPosition;
 
@@ -140,6 +139,8 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     protected virtual void EyeDeadEvent()
     {
         _isDeath.Value = true;
+
+        _brokenEyeCollector.enabled = false;
 
         _brokenEyeCollectorDisposable?.Dispose();
         _sizeDisposable?.Dispose();

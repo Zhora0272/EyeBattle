@@ -9,13 +9,11 @@ public class BrokenEyePartsController : MonoBehaviour
     public void Activate(Material mat, Vector3 activatePosition)
     {
         gameObject.SetActive(true);
-
+        
         for (int i = 0; i < _partsRb.Length; i++)
         {
             _partsRb[i].isKinematic = false;
             _partsMaterial[i].material = mat;
-
-            _partsRb[i].AddRelativeForce((transform.position - activatePosition) + Vector3.up * 2, ForceMode.VelocityChange);
         }
     }
 }
