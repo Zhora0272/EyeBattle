@@ -53,16 +53,17 @@ public class EyeSpawnManager : MonoManager
 
             if (!state)
             {
+                _spawnCount--;
                 if (_spawnCount < 1)
                 {
                     _spawnBotDisposable?.Dispose();
                 }
-                
-                var item = Instantiate(_botPrrefab, randomPosition, Quaternion.identity);
+                else
+                {
+                    var item = Instantiate(_botPrrefab, randomPosition, Quaternion.identity);
 
-                _spawnEyes.Add(item);
-
-                _spawnCount--;
+                    _spawnEyes.Add(item);   
+                }
             }
 
         }).AddTo(this);
