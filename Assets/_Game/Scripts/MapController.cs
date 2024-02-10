@@ -35,9 +35,9 @@ public class MapController : MonoBehaviour
     //bad code need optimization
     private void Start()
     {
-        _elements = MainManager.GetManager<EyeSpawnManager>()._spawnEyes;
+        _elements = MainManager.GetManager<EyeSpawnManager>()._spawnedEyes;
 
-        Observable.Interval(TimeSpan.FromSeconds(5)).Subscribe(_ => 
+        Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ => 
         {
             var count = _mapElements.Count;
 

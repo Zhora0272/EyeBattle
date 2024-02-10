@@ -249,7 +249,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/Zhora/Desktop/Projects/UnityKeys/EyeBattle.keystore
+  AndroidKeystoreName: C:/Users/Zhora/Desktop/Projects/EyeBattle.keystore
   AndroidKeyaliasName: eyebattle
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

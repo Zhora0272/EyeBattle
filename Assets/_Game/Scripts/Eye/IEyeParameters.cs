@@ -7,6 +7,6 @@ public interface IEyeParameters
     public IReactiveProperty<float> Speed { get; }
     public float Force { get; }
     public Vector3 Position { get; }
-    public Transform EyeTransform { get; }
+    public ITransform EyeTransform { get; }
     public IReactiveProperty<bool> IsDeath { get; }
 }

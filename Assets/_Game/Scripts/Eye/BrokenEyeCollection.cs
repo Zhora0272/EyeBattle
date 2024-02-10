@@ -16,7 +16,16 @@ public class BrokenEyeCollection : CachedMonoBehaviour
 
     private void Awake()
     {
-        _triggerCheckController.TriggerLayerEnterRegister(Layer.Eye, BrokenEyeEnterTrigger);
+        _triggerCheckController.TriggerLayerEnterRegister(Layer.BrokenEye, BrokenEyeEnterTrigger);
+    }
+
+    private void OnEnable()
+    {
+        _triggerCheckController.EnableCollider();
+    }
+    private void OnDisable()
+    {
+        _triggerCheckController.DisableCollider();
     }
 
     private void BrokenEyeEnterTrigger(Collider other)
@@ -48,8 +57,6 @@ public class BrokenEyeCollection : CachedMonoBehaviour
     private void Collect(Collectable result, Collider other, float duration)
     {
         float value = 0;
-
-        Debug.Log(name);
         value = result.Collect(this, duration);
 
         //there is a animation when broken element will be UP

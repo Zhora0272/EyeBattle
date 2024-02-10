@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 using System;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Collider))]
 public class TriggerCheckController : MonoBehaviour
@@ -13,7 +14,7 @@ public class TriggerCheckController : MonoBehaviour
     private readonly Dictionary<Layer, UnityAction<Collider>> _onLayerEnterSubjectList = new();
     private readonly Dictionary<Layer, UnityAction<Collider>> _onLayerExitSubjectList = new();
 
-    private Collider _collider;
+    [SerializeField] private Collider _colliderTrigger;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,7 +22,6 @@ public class TriggerCheckController : MonoBehaviour
 
         CallLayerSubject(_onLayerEnterSubjectList, other);
     }
-
     private void OnTriggerExit(Collider other)
     {
         CallSubject(_onTriggerExitSubjectList, other);
@@ -31,12 +31,12 @@ public class TriggerCheckController : MonoBehaviour
 
     public void EnableCollider()
     {
-        _collider.enabled = true;
+        _colliderTrigger.enabled = true;
     }
 
     public void DisableCollider()
     {
-        _collider.enabled = false;
+        _colliderTrigger.enabled = false;
     }
 
     /*private void CallSubject<T>(Dictionary<T, UnityAction<Collider>> subjectList, Collider other, string targetName)
@@ -137,6 +137,7 @@ public class TriggerCheckController : MonoBehaviour
 
     #endregion
     
+    //test mode
     #region UnRegister Base
     private void UnRegister<T, C>(
         T subjectList,
@@ -146,12 +147,8 @@ public class TriggerCheckController : MonoBehaviour
     {
         if (subjectList.TryGetValue(layer, out var value))
         {
-            value += subject;
+            value -= subject;
             subjectList.TryAdd(layer, value);
-        }
-        else
-        {
-            subjectList.TryAdd(layer, subject);
         }
     }
 
@@ -161,7 +158,8 @@ public class TriggerCheckController : MonoBehaviour
 
 public enum Layer
 {
-    Eye
+    Eye,
+    BrokenEye
 }
 
 public enum Trigger

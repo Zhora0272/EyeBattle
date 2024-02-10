@@ -10,11 +10,11 @@ public class Collectable : CachedMonoBehaviour
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private MeshCollider _collider;
     [SerializeField] private float _value;
-    
+
     private ITransform _target;
 
     public bool CollectState { private set; get; }
-    public float BrokenTime{ private set; get; }
+    public float BrokenTime { private set; get; }
 
     private CollectableCollectAnimBase _collectAnimBase;
 
@@ -31,22 +31,20 @@ public class Collectable : CachedMonoBehaviour
     public float Collect(ITransform target, float duration)
     {
         if (CollectState) return 0;
-        
         CollectState = true;
-        transform.parent = null;
         
+        Debug.Log(CollectState, gameObject);
+        
+        transform.parent = null;
+
         _collider.enabled = false;
         _rb.isKinematic = true;
 
-        Observable.Timer(TimeSpan.FromSeconds(3)).Subscribe(_ =>
-        {
-            transform.DOScale(0, 2).onComplete = () =>
+        Observable.Timer(TimeSpan.FromSeconds(.5f))
+            .Subscribe(_ =>
             {
-                gameObject.SetActive(false);
-            };
-            _collectAnimBase.Animation(this, target, duration);
-            
-        }).AddTo(this);
+                _collectAnimBase.Animation(this, target, duration);
+            }).AddTo(this);
         return _value;
     }
 }
@@ -55,22 +53,27 @@ public class CollectableCollectAnimation : CollectableCollectAnimBase
 {
     public override void Animation(CachedMonoBehaviour mono, ITransform target, float duration)
     {
-        Debug.Log(target.IGameObjectName);
-        Debug.Log(mono.IGameObjectName);
-        
-        Observable.EveryUpdate().Subscribe(_ =>
+        mono.transform.DOMove(mono.IPosition + Vector3.up * 2, 2)  //jump up 
+            .SetEase(Ease.OutBack)
+            .onComplete = () =>
         {
-            Debug.DrawLine(mono.Position, target.IPosition, Color.red);
-            mono.Position = Vector3.Lerp(mono.Position,
-                target.IPosition + Vector3.up,
-                Time.deltaTime);
-
-        }).AddTo(mono);
+            Observable.EveryUpdate().Subscribe(_ => //go to target
+            {
+                mono.Position = Vector3.Lerp(mono.Position,
+                    target.IPosition + Vector3.up,
+                    Time.deltaTime * 5);
+            }).AddTo(mono);
+            
+            mono.transform.DOScale(0, 2).onComplete = () => //move scale to the zero 
+            {
+                mono.gameObject.SetActive(false);
+            };
+        };
     }
 }
 
 public enum CollectableType
 {
-    BrokenEye,   
+    BrokenEye,
     Updatable
 }

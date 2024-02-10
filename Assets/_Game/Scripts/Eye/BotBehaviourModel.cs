@@ -2,14 +2,9 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BotBehaviourModel", menuName = "Data/Bot/Model")]
-public class BotBehaviourModel : ScriptableObject, ICloneable
+public class BotBehaviourModel : ScriptableObject
 {
     public float AttackRadius;
-    public object Clone()
-    {
-        return new BotBehaviourModel
-        {
-            AttackRadius = this.AttackRadius,
-        };
-    }
+    public float Distance;
+    public float Speed;
 }

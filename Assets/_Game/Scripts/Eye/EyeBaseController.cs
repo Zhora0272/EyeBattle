@@ -1,9 +1,7 @@
 ﻿using System;
-using _Game.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
-using DG.Tweening;
 
 public abstract class EyeBaseController : CachedMonoBehaviour,
     IEyeParameters, IEyebattleParameters, IUpdateable<UpdateElementModel>
@@ -12,7 +10,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     public IReactiveProperty<int> Mass => _hp;
     public IReactiveProperty<float> Speed => _speed;
     public float Force => Rb.mass * Rb.velocity.magnitude;
-    public Transform EyeTransform => transform;
+    public ITransform EyeTransform => this;
     public IReactiveProperty<int> KillCount => _killCount;
     public IReactiveProperty<bool> IsDeath => _isDeath;
     //
@@ -23,20 +21,24 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     //readonly reactive properties
     private readonly ReactiveProperty<int> _hp = new(100);
     private readonly ReactiveProperty<int> _killCount = new(0);
-    private readonly ReactiveProperty<float> _speed = new(25);
     private readonly ReactiveProperty<bool> _isDeath = new();
+    protected readonly ReactiveProperty<float> _speed = new(25);
     //
 
-    [Space] [SerializeField] protected BrokenEyePartsController _brokenEyePartsController;
+    [Space]
+    [SerializeField] protected BrokenEyePartsController _brokenEyePartsController;
     [SerializeField] protected BrokenEyeCollection _brokenEyeCollector;
     [SerializeField] protected Rigidbody Rb;
-    [Space] [SerializeField] protected Material _material;
+    [Space]
+    [SerializeField] protected Material _material;
     [SerializeField] protected GameObject _meshRenderer;
     [SerializeField] protected Transform _eyeModelTransform;
     [SerializeField] protected SphereCollider _sphereCollider;
-    [Space] [SerializeField] protected Image _loadbar;
+    [Space]
+    [SerializeField] protected Image _loadbar;
     [SerializeField] protected TriggerCheckController _triggerCheckController;
-    [Space] [SerializeField] private UpdateController _updateController;
+    [Space]
+    [SerializeField] private UpdateController _updateController;
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
     
@@ -62,7 +64,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     {
         //_brokenEyeCollector.BrokenPartsCollectionStream.Subscribe(value => { Size.Value += value; }).AddTo(this); //this part change the eye size after collection points ("broken eyes") 
 
-        Size.Subscribe(value =>
+        /*Size.Subscribe(value =>
         {
             _loadbar.DOFillAmount(((int)(value / 100) + 1) - ((float)value / 100), 1);
 
@@ -73,7 +75,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
                 _loadbar.DOKill();
                 _loadbar.DOFillAmount(0, 1);
             }
-        }).AddTo(this);
+        }).AddTo(this);*/
     }
 
     private void FixedUpdate()
@@ -87,7 +89,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _lastPosition = transform.position;
     }
 
-    //Updateable part
+    #region Updateable part
     private EyeModelBase _currentModelClone;
     public void GetUpdate(UpdateElementModel model)
     {
@@ -112,12 +114,10 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
             SetupNewModel(model);
         }
     }
-
     private void AddUpdate(UpdateElementModel model)
     {
         _speed.Value += model.Speed;
     }
-    
     private void CancelUpdate()
     {
         _speed.Value = _currentModelClone.Speed;
@@ -133,8 +133,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
             Speed = _speed.Value,
         };
     }
-    // end Updateable part
-    
+    #endregion
 
     protected virtual void EyeDeadEvent()
     {
@@ -153,10 +152,9 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _moveFixedDisposable?.Dispose();
         _moveUpdateDisposable?.Dispose();
     }
+    
+    #region Eye Balance in mode Idle
 
-    /// <summary>
-    /// eye rotate balance 
-    /// </summary>
     protected void MoveBalanceStart()
     {
         MoveBalanceStop();
@@ -167,18 +165,19 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
         }).AddTo(this);
     }
-
     protected void MoveBalanceStop()
     {
         _everyUpdateDispose?.Dispose();
     }
+
+    #endregion
 
     private void EyeRotate()
     {
         if (_lastPosition - transform.position != Vector3.zero && (_lastPosition - transform.position).magnitude < 1)
         {
             Quaternion rotation = Quaternion.LookRotation(transform.position - _lastPosition, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10);
             _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * 80), 0, 0);
         }
     }
@@ -187,20 +186,27 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     protected abstract void Move();
 
+    #region Attack Systeam
+
     private void EyeAttackCheck(Collider other)
     {
         if (other.gameObject.TryGetComponent<EyeBaseController>(out var result))
         {
-            result.Attack(Rb.mass * Rb.velocity.magnitude, transform.position);
+            result.Attack(Force, transform.position);
         }
     }
-
     private void Attack(float force, Vector3 attackPosition)
     {
+        print(Force < force);
+        print(Force);
+        print(force);
+        
         if (Rb.mass * Rb.velocity.magnitude < force)
         {
             _brokenEyePartsController.Activate(_material, attackPosition);
             EyeDeadEvent();
         }
     }
+
+    #endregion
 }

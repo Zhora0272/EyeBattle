@@ -4925,6 +4925,7 @@ GameObject:
   - component: {fileID: 767367345007416154}
   - component: {fileID: 2557098017190976718}
   - component: {fileID: 5037416915737377743}
+  - component: {fileID: 4272636086632899}
   - component: {fileID: 767367345007416152}
   - component: {fileID: 767367345007416153}
   - component: {fileID: 6502039540607270191}
@@ -4974,10 +4975,11 @@ MonoBehaviour:
   _eyeModelTransform: {fileID: 7644217642888034248}
   _sphereCollider: {fileID: 767367345007416153}
   _loadbar: {fileID: 0}
-  _triggerCheckController: {fileID: 0}
+  _triggerCheckController: {fileID: 4272636086632899}
   _updateController: {fileID: 0}
   <Size>k__BackingField:
     value: 0
+  type: 0
   _battleParticipant: {fileID: 2557098017190976718}
   _model: {fileID: 11400000, guid: a5b16a13db1bbf745ba42601033eeb2d, type: 2}
 --- !u!114 &2557098017190976718
@@ -4993,7 +4995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _registerState: 0
-  _canRegister: 1
+  _canRegister: 0
   _eyeBaseController: {fileID: 767367345007416154}
 --- !u!114 &5037416915737377743
 MonoBehaviour:
@@ -5008,6 +5010,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadBarCanvasGroup: {fileID: 1470998363336236216}
+  _triggerCheckController: {fileID: 4272636086632899}
+--- !u!114 &4272636086632899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767367345007416155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47650414486717c4c96b2c05cdc67d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colliderTrigger: {fileID: 6502039540607270191}
 --- !u!54 &767367345007416152
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5016,7 +5032,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767367345007416155}
   serializedVersion: 2
-  m_Mass: 25
+  m_Mass: 40
   m_Drag: 0.2
   m_AngularDrag: 0.1
   m_UseGravity: 1
