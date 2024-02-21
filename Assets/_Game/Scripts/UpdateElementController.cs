@@ -36,6 +36,8 @@ public class UpdateElementController : MonoBehaviour, IPoolingMono
     {
         
     }
+
+    public bool ActiveInHierarchy => gameObject.activeInHierarchy;
 }
 
 public enum UpdateElement

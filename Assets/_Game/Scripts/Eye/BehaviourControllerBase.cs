@@ -42,7 +42,13 @@ public class BehaviourControllerModel
 
 public abstract class BehaviourControllerBase
 {
-    protected BehaviourControllerModel model;
+    protected readonly BehaviourControllerModel model;
+
+    protected BehaviourControllerBase()
+    {
+        model = new BehaviourControllerModel();
+    }
+
     public abstract BehaviourControllerModel SetBehaviourState
     (
         BotState state,
@@ -83,6 +89,10 @@ public class BehaviourJuggernautController : BehaviourControllerBase
 
         return model;
     }
+
+    public BehaviourJuggernautController() : base()
+    {
+    }
 }
 
 public class BehaviourSoliderController : BehaviourControllerBase
@@ -115,5 +125,9 @@ public class BehaviourSoliderController : BehaviourControllerBase
         model.MoveDirection = moveDirection;
         
         return model;
+    }
+
+    public BehaviourSoliderController() : base()
+    {
     }
 }

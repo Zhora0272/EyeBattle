@@ -21,6 +21,8 @@ public class EyeSpawnManager : MonoManager
     [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
     public List<EyeBaseController> _spawnedEyes { private set; get; }
 
+    private EyePool _eyePool; 
+    
     private IDisposable _spawnBotDisposable;
     private int _index;
 
@@ -69,7 +71,9 @@ public class EyeSpawnManager : MonoManager
 
                 spawnState = true;
 
-                var spawnElement = Instantiate(_botPrrefab, randomPosition, Quaternion.identity) as EyeBotController;
+                //var spawnElement = Instantiate(_botPrrefab, randomPosition, Quaternion.identity) as EyeBotController; //whithout pooling system
+
+                var spawnElement = _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController);
 
                 if (spawnElement != null)
                 {
@@ -85,9 +89,12 @@ public class EyeSpawnManager : MonoManager
         }).AddTo(this);
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(_lastPosition, 1);
     }
+#endif
+
 }

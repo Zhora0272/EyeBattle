@@ -21,3 +21,8 @@ public enum EyeType
     Snake,
     Dragon,
 }
+
+public enum EyeBotType
+{
+    
+}

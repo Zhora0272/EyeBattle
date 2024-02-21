@@ -18,6 +18,7 @@ namespace Bot.BotController
         [SerializeField] private BotBattleParticipant _battleParticipant;
         [Space] [SerializeField] private BotBehaviourModel _model;
 
+        public bool ActiveInHierarchy => gameObject.activeInHierarchy;
         private ReactiveProperty<BotState> _state = new(BotState.Idle);
         //
         public MonoBehaviour PoolMonoObj => this;
@@ -37,7 +38,7 @@ namespace Bot.BotController
         private ITransform _closestEnemyTransform;
         private Vector3 _currentMoveDirection;
 
-        private void Awake()
+        protected override void Awake()
         {
             _moveableRigidbody = new MoveWithRbAddForce();
         }
