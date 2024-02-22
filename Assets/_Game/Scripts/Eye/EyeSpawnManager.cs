@@ -73,7 +73,7 @@ public class EyeSpawnManager : MonoManager
 
                 //var spawnElement = Instantiate(_botPrrefab, randomPosition, Quaternion.identity) as EyeBotController; //whithout pooling system
 
-                var spawnElement = _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController);
+                var spawnElement = _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController); // pooling systeam
 
                 if (spawnElement != null)
                 {
