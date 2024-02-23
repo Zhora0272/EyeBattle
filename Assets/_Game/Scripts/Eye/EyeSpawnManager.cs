@@ -20,7 +20,6 @@ public class EyeSpawnManager : MonoManager
     [Space] [SerializeField] private UpdateElementController _speedUpdate;
     [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
     public List<EyeBaseController> _spawnedEyes { private set; get; }
-
     private EyePool _eyePool; 
     
     private IDisposable _spawnBotDisposable;
@@ -71,9 +70,9 @@ public class EyeSpawnManager : MonoManager
 
                 spawnState = true;
 
-                //var spawnElement = Instantiate(_botPrrefab, randomPosition, Quaternion.identity) as EyeBotController; //whithout pooling system
+                var spawnElement = Instantiate(_botPrrefab, randomPosition, Quaternion.identity) as EyeBotController; //whithout pooling system
 
-                var spawnElement = _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController); // pooling systeam
+                //var spawnElement = _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController); // pooling systeam
 
                 if (spawnElement != null)
                 {
