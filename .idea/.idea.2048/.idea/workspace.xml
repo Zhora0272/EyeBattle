@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,7 +166,7 @@
       <workItem from="1708016340802" duration="942000" />
       <workItem from="1708161565125" duration="4450000" />
       <workItem from="1708420989049" duration="2538000" />
-      <workItem from="1708670640318" duration="846000" />
+      <workItem from="1708670640318" duration="1537000" />
     </task>
     <servers />
   </component>
