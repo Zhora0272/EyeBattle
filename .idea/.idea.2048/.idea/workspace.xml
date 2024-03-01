@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="" />
+    <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Base_color.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Base_color.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Height.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Height.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Normal_OpenGL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Normal_OpenGL.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Material.001_Roughness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/New Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/New Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyePlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyePlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/InputController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/InputController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/HelperMath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/HelperMath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +74,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Inspections-C++&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -166,7 +187,13 @@
       <workItem from="1708016340802" duration="942000" />
       <workItem from="1708161565125" duration="4450000" />
       <workItem from="1708420989049" duration="2538000" />
-      <workItem from="1708670640318" duration="1537000" />
+      <workItem from="1708670640318" duration="2039000" />
+      <workItem from="1708755670405" duration="4702000" />
+      <workItem from="1709022107141" duration="5115000" />
+      <workItem from="1709106625978" duration="35000" />
+      <workItem from="1709148417045" duration="1861000" />
+      <workItem from="1709221868472" duration="2873000" />
+      <workItem from="1709276347539" duration="294000" />
     </task>
     <servers />
   </component>

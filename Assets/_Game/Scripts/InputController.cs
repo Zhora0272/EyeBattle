@@ -10,6 +10,8 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerDownHandler,
     public IObservable<Unit> PointerDownStream => _pointerDownSubject;
     public IObservable<Unit> PointerUpStream => _pointerUpSubject;
 
+    public IReactiveProperty<bool> TouchOnScreenState = new ReactiveProperty<bool>(false);
+
     private Subject<Unit> _pointerDownSubject = new();
     private Subject<Unit> _pointerUpSubject = new();
 
@@ -27,11 +29,13 @@ public class InputController : MonoBehaviour, IDragHandler, IPointerDownHandler,
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        TouchOnScreenState.Value = true;
         _pointerDownSubject.OnNext(default);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        TouchOnScreenState.Value = false;
         _pointerUpSubject.OnNext(default);
     }
 }

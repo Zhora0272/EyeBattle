@@ -53,7 +53,7 @@ namespace _Game.Scripts.Utility
                 }
             }
         }
-
+        
         public static float Vector3DistanceMagnitude(Vector3 one, Vector3 two)
         {
             return (one - two).magnitude;
@@ -134,6 +134,30 @@ namespace _Game.Scripts.Utility
         private static void CoroutineDebug(string debug)
         {
             Debug.Log("CoroutineHelper:> " + debug);
+        }
+    }
+
+    public class Vector2XZ
+    {
+        public float x;
+        public float z;
+        
+        public static implicit operator Vector2XZ(Vector3 vector3)
+        {
+            return new Vector2XZ()
+            {
+                x = vector3.x,
+                z = vector3.z,
+            };
+        }
+        
+        public static implicit operator Vector2(Vector2XZ vector3)
+        {
+            return new Vector2()
+            {
+                x = vector3.x,
+                y = vector3.z,
+            };
         }
     }
 }
