@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 165bd1fdc9dce1649bd6633cb21a60bd, type: 3}
-  m_Name: ShopEyeDecorData
+  m_Name: ShopEyeHeadDecorData
   m_EditorClassIdentifier: 
   <Decors>k__BackingField:
   - {fileID: 0}

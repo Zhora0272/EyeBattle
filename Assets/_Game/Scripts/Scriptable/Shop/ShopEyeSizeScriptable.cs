@@ -13,9 +13,4 @@ public class BaseEyeSizeParameters : BaseEyeItemParameters
 {
     [field: SerializeField] public float EyeSize { get; private set; }
     [field: SerializeField] public Texture EyeSizeTexture { get; private set; }
-
-    [field: SerializeField] public int Index { get; set; }
-    [field: SerializeField] public ShopItemState ItemState { get; set; }
-    [field: SerializeField] public int PricePoint { get; set; }
-    [field: SerializeField] public BuyType BuyType { get; set; }
 }
