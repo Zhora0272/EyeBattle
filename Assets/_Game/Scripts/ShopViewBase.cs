@@ -17,7 +17,7 @@ namespace Shop
         protected List<ShopEyeItem> _shopEyeItems = new();
 
         protected IManager<ShopCustomizeManager, EyeCustomizeModel> _manager;
-        
+
         protected EyeItemCollection ItemData;
 
         public void InitShopView(IManager<ShopCustomizeManager, EyeCustomizeModel> manager)
@@ -25,12 +25,12 @@ namespace Shop
             _manager = manager;
             Init();
         }
-        
+
         public void SetData((int, EyeItemCollection) data)
         {
             ItemData = data.Item2;
             SelectedIndex.Value = data.Item1;
-            
+
             var eyeItemsLenght = ItemData.BaseEyeItems.Length;
 
             for (int i = 0; i < eyeItemsLenght; i++)
@@ -42,9 +42,9 @@ namespace Shop
 
         public (int, EyeItemCollection) GetData()
         {
-            List<BaseEyeItemParameters> baseEyeItemParameters = 
+            List<BaseEyeItemParameters> baseEyeItemParameters =
                 _shopEyeItems.Select(item =>
-                    (BaseEyeItemParameters) item).ToList();
+                    (BaseEyeItemParameters)item).ToList();
 
             return new()
             {
@@ -58,6 +58,39 @@ namespace Shop
 
         protected virtual void Init()
         {
+        }
+
+        protected void DeactivatedContentInit(out ShopEyeItem item)
+        {
+            var deactivatedContentItem = Instantiate
+            (
+                _prefabRectTransform,
+                _deactiavtedContent
+            ); //1
+
+            deactivatedContentItem.SetRaycastState(false);
+            deactivatedContentItem.HideItemElements();
+
+            item = deactivatedContentItem; //2
+        }
+
+        protected void ActivatedContentInit
+        (
+            out ShopEyeItem item,
+            BaseEyeItemParameters configs
+        )
+        {
+            var activatedContentItem = Instantiate
+            (
+                _prefabRectTransform,
+                _actiavtedContent
+            );
+
+            activatedContentItem.SetData(configs);
+
+            item = activatedContentItem;
+            
+            _shopEyeItems.Add(item);
         }
     }
 }

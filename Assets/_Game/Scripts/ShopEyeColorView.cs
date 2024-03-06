@@ -23,27 +23,20 @@ namespace Shop
             {
                 var configs = _eyeColorScriptable.Colors[i];
                 var color = configs.Color;
-                var item = Instantiate(_prefabRectTransform, _deactiavtedContent);
-
-                //
-                item.SetRaycastState(false);
-                item.HideItemElements();
+                
+                DeactivatedContentInit(out var item);
+                
                 item.SetColor(HelperMath.AlphaToMax(color));
-                //
             }
 
             foreach (var configs in _eyeColorScriptable.Colors)
             {
-                var item = Instantiate(_prefabRectTransform, _actiavtedContent);
+                ActivatedContentInit(out var item, configs);
+                
                 var color = configs.Color;
 
-                //
-                item.SetData(configs);
                 item.SetColor(HelperMath.AlphaToMax(color));
                 item.SetColorAction(ColorSelectAction);
-                //
-                
-                _shopEyeItems.Add(item);
             }
         }
 

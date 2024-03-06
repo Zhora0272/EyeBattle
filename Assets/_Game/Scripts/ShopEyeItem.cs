@@ -12,8 +12,7 @@ namespace Shop
     {
         private readonly ReactiveProperty<ShopItemState> _itemState = new();
         private IReactiveProperty<ShopItemState> ItemState => _itemState;
-
-
+        
         [SerializeField] private BuyType _buyType;
 
         [Header("Parameters")] [SerializeField]
@@ -33,7 +32,7 @@ namespace Shop
         private FinanceManager _financeManager;
 
         //ReactiveProperty
-        private ReactiveProperty<int> _selectedIndex;
+        private ReactiveProperty<int> _selectedIndex = new();
 
         //Action
         private Action<bool> _selectButtonClickEvent;
@@ -149,7 +148,6 @@ namespace Shop
             {
                 case ShopItemState.Sale:
                 {
-                    print("try buy");
                     _financeManager.TryBuy(_buyType, _pricePoint, TryBuyCallBack);
                 }
                     break;
@@ -164,7 +162,7 @@ namespace Shop
         private void TryBuyCallBack(bool state, int pricePoint)
         {
             _pricePoint = pricePoint;
-            
+
             if (state)
             {
                 ItemState.Value = ShopItemState.Selected;
@@ -174,7 +172,7 @@ namespace Shop
             {
                 ItemState.Value = ShopItemState.Sale;
             }
-            
+
             RefreshPrice();
         }
 
@@ -207,7 +205,9 @@ namespace Shop
             {
                 if (_itemState.Value != ShopItemState.Sale)
                 {
-                    ItemState.Value = value == _indexInQueue ? ShopItemState.Selected : ShopItemState.Empty;
+                    ItemState.Value = value == _indexInQueue ?
+                        ShopItemState.Selected :
+                        ShopItemState.Empty;
                 }
             }).AddTo(this);
         }
@@ -216,7 +216,6 @@ namespace Shop
         {
             _buyType = data.BuyType;
             _pricePoint = data.PricePoint;
-
             ItemState.Value = data.ItemState;
             _indexInQueue = data.Index;
 

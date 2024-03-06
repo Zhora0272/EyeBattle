@@ -19,37 +19,21 @@ MonoBehaviour:
     PricePoint: 50
     <EyeSize>k__BackingField: 1
     <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 0
-    <ItemState>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-    <BuyType>k__BackingField: 0
-  - Index: 0
+  - Index: 1
     ItemState: 0
     BuyType: 0
     PricePoint: 50
     <EyeSize>k__BackingField: 2
     <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 0
-    <ItemState>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-    <BuyType>k__BackingField: 0
-  - Index: 0
+  - Index: 2
     ItemState: 0
     BuyType: 0
     PricePoint: 50
     <EyeSize>k__BackingField: 3
     <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 0
-    <ItemState>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-    <BuyType>k__BackingField: 0
-  - Index: 0
+  - Index: 3
     ItemState: 0
     BuyType: 0
     PricePoint: 50
     <EyeSize>k__BackingField: 4
     <EyeSizeTexture>k__BackingField: {fileID: 0}
-    <Index>k__BackingField: 0
-    <ItemState>k__BackingField: 0
-    <PricePoint>k__BackingField: 1000
-    <BuyType>k__BackingField: 0

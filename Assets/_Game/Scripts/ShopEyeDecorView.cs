@@ -18,6 +18,8 @@ namespace Shop
             base.Init();
             for (int i = 0; i < 3; i++)
             {
+                if(_eyeDecorScriptable.Decors[i] != null) continue;
+                
                 var configs = _eyeDecorScriptable.Decors[i];
                 var item = Instantiate(_prefabRectTransform, _deactiavtedContent);
 

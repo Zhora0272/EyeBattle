@@ -5,15 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBodyDecorData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeHeadDecorData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeDecorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBodyDecorData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeDecorData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeHeadDecorData.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Shop/ShopEyeDecorScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Shop/ShopEyeDecorScriptable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Shop/ShopEyeSizeScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Shop/ShopEyeSizeScriptable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBibeSizeData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBibeSizeData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBodyDecorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBodyDecorData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeHeadDecorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeHeadDecorData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Sunglasses.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Sunglasses.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeColorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeColorView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeDecorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeDecorView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeSizeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeSizeView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopViewBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopViewBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +185,13 @@
       <workItem from="1709106625978" duration="35000" />
       <workItem from="1709148417045" duration="1861000" />
       <workItem from="1709221868472" duration="2873000" />
-      <workItem from="1709276347539" duration="3481000" />
+      <workItem from="1709276347539" duration="3910000" />
+      <workItem from="1709490356401" duration="2794000" />
+      <workItem from="1709539962302" duration="61000" />
+      <workItem from="1709547345999" duration="1121000" />
+      <workItem from="1709565418109" duration="707000" />
+      <workItem from="1709715552798" duration="2607000" />
+      <workItem from="1709718707428" duration="2735000" />
     </task>
     <servers />
   </component>

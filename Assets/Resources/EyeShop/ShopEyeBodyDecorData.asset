@@ -13,5 +13,21 @@ MonoBehaviour:
   m_Name: ShopEyeBodyDecorData
   m_EditorClassIdentifier: 
   <Decors>k__BackingField:
-  - {fileID: 0}
-  - {fileID: 0}
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 0
+    <EyeDecorTexture>k__BackingField: {fileID: 0}
+    <DecorObject>k__BackingField: {fileID: 919132149155446097, guid: d098d98cae8a1ba43a41c41c50e7b923, type: 3}
+  - Index: 1
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 0
+    <EyeDecorTexture>k__BackingField: {fileID: 0}
+    <DecorObject>k__BackingField: {fileID: 919132149155446097, guid: 7b1b878f84ebb984a81b673857f4668a, type: 3}
+  - Index: 2
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 0
+    <EyeDecorTexture>k__BackingField: {fileID: 0}
+    <DecorObject>k__BackingField: {fileID: 919132149155446097, guid: 7b1b878f84ebb984a81b673857f4668a, type: 3}
