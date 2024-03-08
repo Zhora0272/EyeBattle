@@ -159,7 +159,8 @@ public class TriggerCheckController : MonoBehaviour
 public enum Layer
 {
     Eye,
-    BrokenEye
+    BrokenEye,
+    Ground
 }
 
 public enum Trigger

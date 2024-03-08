@@ -28,7 +28,7 @@ public class EyeSpawnManager : MonoManager
     protected override void Awake()
     {
         base.Awake();
-
+        _eyePool = new EyePool();
         _spawnedEyes = new List<EyeBaseController>();
     }
 
@@ -70,9 +70,9 @@ public class EyeSpawnManager : MonoManager
 
                 spawnState = true;
 
-                var spawnElement = Instantiate(_botPrrefab, randomPosition, Quaternion.identity) as EyeBotController; //whithout pooling system
+                //var spawnElement = Instantiate(_botPrrefab, randomPosition, Quaternion.identity) as EyeBotController; //whithout pooling system
 
-                //var spawnElement = _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController); // pooling systeam
+                var spawnElement = _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController); // pooling systeam
 
                 if (spawnElement != null)
                 {

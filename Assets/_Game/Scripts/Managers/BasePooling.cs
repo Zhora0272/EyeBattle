@@ -9,6 +9,16 @@ public class EyePool : BasePooling<BotType, EyeBotController>
     
 }
 
+public enum AmmoType
+{
+    Rocket,
+}
+
+public class AmmoPool : BasePooling<AmmoType, GunAmmoBase>
+{
+    
+}
+
 public abstract class BasePooling<T, TPool>
     where TPool : MonoBehaviour
     where T : Enum

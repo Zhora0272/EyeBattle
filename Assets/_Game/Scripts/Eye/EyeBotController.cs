@@ -14,12 +14,14 @@ namespace Bot.BotController
 {
     public class EyeBotController : EyeBaseController, IPoolingMono
     {
+        [SerializeField] protected BotBattleParticipant battleParticipant;
         [SerializeField] private BotType type;
-        [SerializeField] private BotBattleParticipant _battleParticipant;
         [Space] [SerializeField] private BotBehaviourModel _model;
 
         public bool ActiveInHierarchy => gameObject.activeInHierarchy;
+
         private ReactiveProperty<BotState> _state = new(BotState.Idle);
+
         //
         public MonoBehaviour PoolMonoObj => this;
 
@@ -49,7 +51,7 @@ namespace Bot.BotController
             _model = model;
 
             _speed.Value = _model.Speed;
-            
+
             switch (type)
             {
                 case BotType.Soldier:
@@ -70,11 +72,11 @@ namespace Bot.BotController
         protected override void Start()
         {
             base.Start();
-            
+
             _closestElementDisposable = Observable.Interval(
                 TimeSpan.FromSeconds(Random.Range(0.5f, 1f))).Subscribe(_ =>
             {
-                if (_battleParticipant.GetClosestElement(out var result))
+                if (battleParticipant.GetClosestElement(out var result))
                 {
                     _closestEyeElement = result;
                     _closestEnemyTransform = result.EyeTransform;
@@ -107,18 +109,8 @@ namespace Bot.BotController
             var model = _behaviourController.SetBehaviourState(_state.Value,
                 this,
                 _closestEnemyTransform);
-            
-            
-            
-            moveDirection = model.MoveDirection;
 
-            if (_closestEnemyTransform != null)
-            {
-                Debug.DrawLine(IPosition, _closestEnemyTransform.IPosition, Color.red);
-                Debug.DrawLine(IPosition, _closestEnemyTransform.IPosition + Vector3.up * 10, Color.red);
-                Debug.DrawLine(_closestEnemyTransform.IPosition, _closestEnemyTransform.IPosition + Vector3.up * 10,
-                    Color.red);
-            }
+            moveDirection = model.MoveDirection;
         }
 
         protected override void Move()
@@ -130,10 +122,6 @@ namespace Bot.BotController
 
             _moveableRigidbody.Move(Rb,
                 _currentMoveDirection, 0.5f);
-
-            var dir = Vector3.ProjectOnPlane(_currentMoveDirection * 15, Vector3.up);
-            
-            Debug.DrawRay(Position, dir, Color.cyan);
         }
 
         public void PoolActivate()

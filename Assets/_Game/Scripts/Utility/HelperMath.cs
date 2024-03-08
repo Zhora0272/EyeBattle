@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -53,7 +54,7 @@ namespace _Game.Scripts.Utility
                 }
             }
         }
-        
+
         public static float Vector3DistanceMagnitude(Vector3 one, Vector3 two)
         {
             return (one - two).magnitude;
@@ -135,13 +136,48 @@ namespace _Game.Scripts.Utility
         {
             Debug.Log("CoroutineHelper:> " + debug);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="monoObject"></param> object from will done this call/
+        /// <param name="repeatCount"></param> how much its will repeat/
+        /// <param name="waitTime"></param> interval of the repeat/
+        /// <param name="doAfterInit"></param> action whats will done after any time/
+        /// <returns></returns>
+        public static IDisposable WaitAndDoCycle
+        (
+            this MonoBehaviour monoObject,
+            int repeatCount,
+            float waitTime,
+            Action<int> action
+        )
+        {
+            var cycleCount = 0;
+            IDisposable intervalDisposable = null;
+            
+            intervalDisposable = Observable.Interval(TimeSpan.FromSeconds(waitTime)).Subscribe(_ =>
+            {
+                if (cycleCount >= repeatCount)
+                {
+                    intervalDisposable.Dispose();
+                }
+                else
+                {
+                    cycleCount++;
+                    action?.Invoke(cycleCount);
+                }
+            }).AddTo(monoObject);
+
+            return intervalDisposable;
+        }
     }
 
     public class Vector2XZ
     {
         public float x;
         public float z;
-        
+
         public static implicit operator Vector2XZ(Vector3 vector3)
         {
             return new Vector2XZ()
@@ -150,7 +186,7 @@ namespace _Game.Scripts.Utility
                 z = vector3.z,
             };
         }
-        
+
         public static implicit operator Vector2(Vector2XZ vector3)
         {
             return new Vector2()
