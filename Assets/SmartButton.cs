@@ -18,7 +18,14 @@ public class SmartButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private readonly Subject<Unit> _doubleClickDisposable = new();
 
     private float _lastClickTime;
-    
+
+    public void ForgotAllEvents()
+    {
+        _doubleClickDisposable?.Dispose();
+        _pointerDragHandlerDisposable?.Dispose();
+        _pointerUpHandlerDisposable?.Dispose();
+        _pointerDownHandlerDisposable?.Dispose();
+    }
     
     public void OnPointerDown(PointerEventData eventData)
     {

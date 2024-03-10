@@ -65,6 +65,12 @@ namespace Shop
         private void Start()
         {
             _financeManager = MainManager.GetManager<FinanceManager>();
+            Init();
+        }
+
+        private void Init()
+        {
+            RefreshPrice();
         }
 
         internal void SetRaycastState(bool state)
@@ -218,8 +224,6 @@ namespace Shop
             _pricePoint = data.PricePoint;
             ItemState.Value = data.ItemState;
             _indexInQueue = data.Index;
-
-            this.WaitToObjectInitAndDo(_financeManager, RefreshPrice);
         }
 
         BaseEyeItemParameters ISaveable<BaseEyeItemParameters>.GetData()

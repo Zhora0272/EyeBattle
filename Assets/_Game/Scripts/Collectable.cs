@@ -33,8 +33,6 @@ public class Collectable : CachedMonoBehaviour
         if (CollectState) return 0;
         CollectState = true;
         
-        Debug.Log(CollectState, gameObject);
-        
         transform.parent = null;
 
         _collider.enabled = false;

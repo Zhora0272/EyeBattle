@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
@@ -114,29 +113,8 @@ namespace _Game.Scripts.Utility
         }
     }
 
-    public static class CoroutineHelper
+    public static class ObservableHelper
     {
-        private static IEnumerator WaitToObjectInit(MonoBehaviour obj, Action actionAfterInit)
-        {
-            yield return new WaitUntil(() => obj == null);
-            actionAfterInit.Invoke();
-        }
-
-        public static void WaitToObjectInitAndDo
-        (
-            this MonoBehaviour monoObject,
-            MonoBehaviour checkObject,
-            Action doAfterInit
-        )
-        {
-            monoObject.StartCoroutine(WaitToObjectInit(checkObject, doAfterInit));
-        }
-
-        private static void CoroutineDebug(string debug)
-        {
-            Debug.Log("CoroutineHelper:> " + debug);
-        }
-
         /// <summary>
         /// 
         /// </summary>

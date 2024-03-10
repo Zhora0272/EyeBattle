@@ -5,37 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/GunAmmoBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GunAmmoBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GunAmmoController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GunAmmoController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GunController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GunController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/RocketController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/RocketController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/RocketJetpackController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/RocketJetpackController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TestZone.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TestZone.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SmartButton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SmartButton.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StompyRobot/SRDebugger/UI/Sprites/Default/HalfCircle.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StompyRobot/SRDebugger/UI/Sprites/Default/HalfCircle.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/RocketRes.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/RocketRes/Res.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/RocketRes/Res/Rocket.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/RocketRes/Res/Rocket.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/RocketRes/RocketJetpack.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/RocketRes/RocketJetpack.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PlayerGunController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PlayerGunController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/CoroutineHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/CoroutineHelper.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Sunglasses.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Sunglasses.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/UpdateElement 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/UpdateElement 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/TriggerCheckController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/TriggerCheckController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GunController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SmartButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SmartButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Collectable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Collectable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/InputController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/InputController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/MainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/MainManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/HelperMath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Utility/HelperMath.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
@@ -58,6 +40,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8f80c2d02d314878872cb1183823de6f1a000/84/cfc0f5f3/Physics.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GunController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PlayerGunController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/RocketController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SmartButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -219,6 +202,8 @@
       <workItem from="1709791909979" duration="6784000" />
       <workItem from="1709892626247" duration="8002000" />
       <workItem from="1709915534480" duration="6691000" />
+      <workItem from="1710002956543" duration="13638000" />
+      <workItem from="1710085658011" duration="484000" />
     </task>
     <servers />
   </component>
