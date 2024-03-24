@@ -81,6 +81,7 @@ namespace Bot.BotController
                     _closestEyeElement = result;
                     _closestEnemyTransform = result.EyeTransform;
                 }
+                
             }).AddTo(this);
 
             _behaviourUpdateDisposable = Observable.Interval(

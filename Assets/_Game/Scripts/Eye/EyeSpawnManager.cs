@@ -36,7 +36,6 @@ public class EyeSpawnManager : MonoManager
     private void Start()
     {
         MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnEnemies);
-
         MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.InGame,
             () => { _spawnBotDisposable.Dispose(); });
     }
@@ -69,10 +68,10 @@ public class EyeSpawnManager : MonoManager
                 item.SpawnCount--;
 
                 spawnState = true;
-
-                //var spawnElement = Instantiate(_botPrrefab, randomPosition, Quaternion.identity) as EyeBotController; //whithout pooling system
-
+                
                 var spawnElement = _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController); // pooling systeam
+
+                spawnElement.transform.position = randomPosition;
 
                 if (spawnElement != null)
                 {
@@ -87,13 +86,4 @@ public class EyeSpawnManager : MonoManager
             }
         }).AddTo(this);
     }
-
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(_lastPosition, 1);
-    }
-#endif
-
 }

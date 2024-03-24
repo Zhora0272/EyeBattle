@@ -1,3 +1,4 @@
+using UniRx;
 using UnityEngine;
 
 public enum GunType
@@ -13,20 +14,51 @@ public enum ShotType
     AimShot
 }
 
-public abstract class GunController : CachedMonoBehaviour
+namespace EyeGunSystem
 {
-    [SerializeField] protected GunAmmoController ammoController;
-    [SerializeField] internal GunType _gunType;
-    [SerializeField] internal ShotType _shotType;
-
-    public abstract void Shoot();
-
-    public void Reload()
+    public abstract class GunController : CachedMonoBehaviour
     {
-        ammoController.TryReloadAmmo();
-    }
+        [SerializeField] protected GunAmmoController ammoController;
+        [SerializeField] internal GunType _gunType;
+        [SerializeField] internal ShotType _shotType;
+        
+        protected  ReactiveProperty<BattleParticipantsManager> battleManager = new();
+        protected ReactiveProperty<BaseBattleParticipant> battleParticipant = new();
+        
+        internal void Init(BaseBattleParticipant participant)
+        {
+            print(participant + "Init");
+            
+            battleParticipant.Value = participant;
+        }
+        
+        public abstract void Shoot();
 
-    private void Awake()
-    {
+        public void Reload()
+        {
+            ammoController.TryReloadAmmo();
+        }
+
+        protected virtual void Awake()
+        {
+            MainManager.WaitManager<BattleParticipantsManager>(manager =>
+            {
+                battleManager.Value = (BattleParticipantsManager)manager;
+                print(manager);
+                
+                battleParticipant.Subscribe(value =>
+                {
+                    print(value);
+                    if(!value) return;
+                
+                    print(value);
+                    battleManager.Value.GetClosest(value.EyeParameters, out var result);
+                
+                    print(value.EyeParameters);
+                    print(result);
+                
+                }).AddTo(this);
+            });
+        }
     }
 }

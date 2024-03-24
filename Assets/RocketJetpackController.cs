@@ -1,16 +1,25 @@
 ﻿using _Game.Scripts.Utility;
 
-public class RocketJetpackController : GunController
+namespace EyeGunSystem
 {
-    public override void Shoot()
+    public class RocketJetpackController : GunController
     {
-        this.WaitAndDoCycle(3, .5f, i =>
+        public override void Shoot()
         {
-            if (ammoController.GetAmmo(out var result))
+            this.WaitAndDoCycle(3, .5f, i =>
             {
-                print("attack number" + i + 1 + "started");
-                //result.Attack();
-            }
-        });
+                if (ammoController.GetAmmo(out var result))
+                {
+                    var a = battleManager.Value.GetClosest(
+                        battleParticipant.Value.EyeParameters,
+                        out var enemy);
+                    
+                    if (enemy != null)
+                    {
+                        result.Attack(enemy.EyeTransform);
+                    }
+                }
+            });
+        }
     }
 }

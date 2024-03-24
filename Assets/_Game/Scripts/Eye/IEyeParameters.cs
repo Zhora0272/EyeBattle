@@ -9,4 +9,5 @@ public interface IEyeParameters
     public Vector3 Position { get; }
     public ITransform EyeTransform { get; }
     public IReactiveProperty<bool> IsDeath { get; }
+    public int ClanId { get; }
 }

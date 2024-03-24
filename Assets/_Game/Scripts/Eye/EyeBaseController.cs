@@ -6,13 +6,15 @@ using UniRx;
 public abstract class EyeBaseController : CachedMonoBehaviour,
     IEyeParameters, IEyebattleParameters, IUpdateable<UpdateElementModel>
 {
+    [SerializeField] private int clanId;
+    
     //
     public IReactiveProperty<int> Mass => _hp;
     public IReactiveProperty<float> Speed => _speed;
     public float Force => Rb.mass * Rb.velocity.magnitude;
     public ITransform EyeTransform => this;
     public IReactiveProperty<int> KillCount => _killCount;
-
+    public int ClanId => clanId;
     public IReactiveProperty<bool> IsDeath => _isDeath;
     //
 

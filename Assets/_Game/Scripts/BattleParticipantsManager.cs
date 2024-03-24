@@ -4,38 +4,56 @@ using UnityEngine;
 public class BattleParticipantsManager : MonoManager
 {
     private List<IEyeParameters> _participants = new();
+    private Dictionary<int, List<IEyeParameters>> _gameParticipants = new();
 
     public void Register(IEyeParameters param)
     {
-        _participants.Add(param);
+        if (_gameParticipants.TryGetValue(param.ClanId, out var result))
+        {
+            result.Add(param);
+        }
+        else
+        {
+            result = new(){param};
+            _gameParticipants.Add(param.ClanId, result);
+        }
     }
 
     public void UnRegister(IEyeParameters param)
     {
-        _participants.Remove(param);
+        if (_gameParticipants.TryGetValue(param.ClanId, out var result))
+        {
+            result.Remove(param);
+        }
     }
 
-    public bool GetClosest(IEyeParameters checkTransform, out IEyeParameters result)
+    public bool GetClosest(IEyeParameters mineEyeParameters, out IEyeParameters result)
     {
-        float _minDistance = Mathf.Infinity;
+        float minDistance = Mathf.Infinity;
 
-        IEyeParameters _closestParticipant = null;
-
-        foreach (var item in _participants)
+        IEyeParameters closestParticipant = null;
+        
+        foreach (var value in _gameParticipants.Values)
         {
-            if (item == checkTransform) continue;
-
-            var distance = (item.EyeTransform.IPosition - checkTransform.EyeTransform.IPosition).magnitude;
-
-            if (distance < _minDistance)
+            if(value[0] == null) continue;
+            if(value[0].ClanId == mineEyeParameters.ClanId) continue;
+            
+            foreach (var item in value)
             {
-                _closestParticipant = item;
-                _minDistance = distance;
+                if (item == mineEyeParameters) continue;
+
+                var distance = (item.EyeTransform.IPosition - mineEyeParameters.EyeTransform.IPosition).magnitude;
+
+                if (distance < minDistance)
+                {
+                    closestParticipant = item;
+                    minDistance = distance;
+                }
             }
         }
 
-        result = _closestParticipant;
+        result = closestParticipant;
 
-        return _closestParticipant != null;
+        return closestParticipant != null;
     }
 }

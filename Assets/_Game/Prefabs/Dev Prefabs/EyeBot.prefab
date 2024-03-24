@@ -4967,6 +4967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a142a12c066c44d8d256131e3b98c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clanId: 1
   _brokenEyePartsController: {fileID: 8929123729359011158}
   _brokenEyeCollector: {fileID: 5037416915737377743}
   Rb: {fileID: 767367345007416152}
@@ -4979,8 +4980,8 @@ MonoBehaviour:
   _updateController: {fileID: 0}
   <Size>k__BackingField:
     value: 0
+  battleParticipant: {fileID: 2557098017190976718}
   type: 0
-  _battleParticipant: {fileID: 2557098017190976718}
   _model: {fileID: 11400000, guid: a5b16a13db1bbf745ba42601033eeb2d, type: 2}
 --- !u!114 &2557098017190976718
 MonoBehaviour:
@@ -4995,7 +4996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _registerState: 0
-  _canRegister: 0
+  _canRegister: 1
   _eyeBaseController: {fileID: 767367345007416154}
 --- !u!114 &5037416915737377743
 MonoBehaviour:

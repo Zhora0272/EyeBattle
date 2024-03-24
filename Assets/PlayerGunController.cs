@@ -1,35 +1,28 @@
-using UniRx;
 using UnityEngine;
 
-public class PlayerGunController : MonoBehaviour
+namespace EyeGunSystem
 {
-    private GunController _gunController;
-    private ReactiveProperty<InputController> _inputController = new();
-
-    private void Awake()
+    public class PlayerGunController : MonoBehaviour
     {
-        _gunController = GetComponentInChildren<GunController>();
+        [SerializeField] private BaseBattleParticipant _battleParticipant;
+        [SerializeField] private GunController _gunController;
+        private InputController _inputController = new();
 
-        MainManager.WaitManager<InputController>(manager =>
+        private void Awake()
         {
-            _inputController.Value = (InputController)manager;
-        });
-    }
-
-    private void Start()
-    {
-        _inputController.Subscribe(value =>
-        {
-            if(!value) return;
+            _gunController = GetComponentInChildren<GunController>();
+            _gunController.Init(_battleParticipant);
             
-            _inputController.Value.SmartButtonState
-            (
-                _gunController._gunType,
-                _gunController._shotType,
-                () =>
-                {
-                    _gunController.Shoot();
-                });
-        }).AddTo(this);
+            MainManager.WaitManager<InputController>(manager =>
+            {
+                _inputController = (InputController)manager;
+                
+                _inputController.SmartButtonState
+                (
+                    _gunController._gunType,
+                    _gunController._shotType,
+                    () => { _gunController.Shoot(); });
+            });
+        }
     }
 }

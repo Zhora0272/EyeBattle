@@ -35,7 +35,7 @@ public abstract class BasePooling<T, TPool>
         _poolElements.Clear();
     }
 
-    public TPool GetPoolElement(T type, TPool decorElement)
+    public TPool GetPoolElement(T type, TPool decorElement, Transform parent = null)
     {
         var state = _poolElements.TryGetValue(type, out var result);
 
@@ -60,7 +60,7 @@ public abstract class BasePooling<T, TPool>
             }
         }
 
-        var element = Object.Instantiate(decorElement);
+        var element = Object.Instantiate(decorElement, parent);
         result.Add(element);
         return element;
     }
