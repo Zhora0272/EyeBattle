@@ -6,14 +6,15 @@ namespace EyeGunSystem
     {
         public override void Shoot()
         {
+            ammoController.TryReloadAmmo();
+                
             this.WaitAndDoCycle(3, .5f, i =>
             {
                 if (ammoController.GetAmmo(out var result))
                 {
-                    var a = battleManager.Value.GetClosest(
-                        battleParticipant.Value.EyeParameters,
+                    battleManager.Value.GetClosest(battleParticipant.Value.EyeParameters,
                         out var enemy);
-                    
+
                     if (enemy != null)
                     {
                         result.Attack(enemy.EyeTransform);

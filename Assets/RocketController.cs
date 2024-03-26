@@ -4,7 +4,7 @@ using UniRx;
 
 public class RocketController : GunAmmoBase
 {
-    [SerializeField] private TriggerCheckController _checkController;
+    [SerializeField] private GameObject _visualEffects;
 
     private Rigidbody _rb;
     private Vector3 _relativeForceVector;
@@ -21,22 +21,33 @@ public class RocketController : GunAmmoBase
     {
         _rb.isKinematic = true;
     }
-    
+
     public override void PoolDeactivate()
     {
         base.PoolDeactivate();
-        _checkController.TriggerLayerExitRegister(Layer.Eye, _ => { Explosion(); });
-        _checkController.TriggerLayerExitRegister(Layer.Ground, _ => { Explosion(); });
         _fixedUpdate?.Dispose();
-        
+
         _lookAtTargetUpdate?.Dispose();
         _everyUpdateDisposable?.Dispose();
+
+        _visualEffects.SetActive(false);
     }
 
     private IDisposable _fixedUpdate;
 
     protected override void Explosion()
     {
+        var result = Physics.OverlapSphere(IPosition, 15);
+
+        foreach (var item in result)
+        {
+            if (item.TryGetComponent<Rigidbody>(out var rb))
+            {
+                print(rb.name);
+                rb.AddExplosionForce(10000, (IPosition - item.transform.position) + Vector3.up, 15);
+            }
+        }
+
         PoolDeactivate();
     }
 
@@ -46,7 +57,7 @@ public class RocketController : GunAmmoBase
         {
             _rb.AddRelativeForce(_relativeForceVector * _speedCoeficient, ForceMode.Impulse);
         }).AddTo(this);
-        
+
         StartEngine();
 
         _speedCoeficient = 0;
@@ -56,20 +67,21 @@ public class RocketController : GunAmmoBase
             _rb.isKinematic = false;
 
             StartMoving();
-            
+
             Observable.Timer(TimeSpan.FromSeconds(1f)).Subscribe(_ =>
             {
                 _checkController.TriggerLayerEnterRegister(Layer.Eye, _ => { Explosion(); });
                 _checkController.TriggerLayerEnterRegister(Layer.Ground, _ => { Explosion(); });
-                
+
                 GoToTarget(target);
+                
             }).AddTo(this);
-            
         }).AddTo(this);
     }
 
     private void StartEngine()
     {
+        _visualEffects.SetActive(true);
     }
 
     private void StartMoving()
@@ -78,7 +90,7 @@ public class RocketController : GunAmmoBase
     }
 
     private float _distance;
-    
+
     private IDisposable _lookAtTargetUpdate;
     private IDisposable _everyUpdateDisposable;
 
@@ -90,9 +102,8 @@ public class RocketController : GunAmmoBase
         {
             _rb.velocity = Vector3.Lerp(_rb.velocity, Vector3.zero, Time.deltaTime);
             _rb.angularVelocity = Vector3.Lerp(_rb.angularVelocity, Vector3.zero, Time.deltaTime);
-            
         }).AddTo(this);
-        
+
         _lookAtTargetUpdate = Observable.EveryUpdate().Subscribe(_ =>
         {
             var direction = target.IPosition - Position;

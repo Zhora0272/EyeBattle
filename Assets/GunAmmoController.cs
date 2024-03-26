@@ -24,30 +24,54 @@ public class GunAmmoController : MonoBehaviour
     {
         _spawnCount = _ammoSpawnTransforms.Count;
         _ammoPool = new AmmoPool();
+
+        Init();
+    }
+    
+    private void Init()
+    {
+        if (_spawnCount > 1)
+        {
+            _reloadAction = () =>
+            {
+                foreach (var item in _ammoSpawnTransforms)
+                {
+                    if (item.AmmoExistState) continue;
+
+                    Reload(item);
+                }
+            };
+        }
+        else
+        {
+            _reloadAction = () => { Reload(_ammoSpawnTransforms[0]); };
+        }
     }
 
-    private void Start()
+    private Action _reloadAction;
+
+    private void OnEnable()
     {
         TryReloadAmmo();
     }
 
     public void TryReloadAmmo()
     {
-        foreach (var item in _ammoSpawnTransforms)
-        {
-            if (item.AmmoExistState) continue;
+        _reloadAction.Invoke();
+    }
 
-            _ammoCount--;
-            
-            var ammo = _ammoPool.GetPoolElement(AmmoType.Rocket, _ammoPrefab, item.AmmoContentPosition);
-            item.Ammo = ammo;
-            item.AmmoExistState = true;
-            
-            Transform ammoTransform = ammo.transform;
-            
-            ammoTransform.localPosition = Vector3.zero; //
-            ammoTransform.localRotation = Quaternion.identity;
-        }
+    private void Reload(AmmoMagazine item)
+    {
+        _ammoCount--;
+
+        var ammo = _ammoPool.GetPoolElement(AmmoType.Rocket, _ammoPrefab, item.AmmoContentPosition);
+        item.Ammo = ammo;
+        item.AmmoExistState = true;
+
+        Transform ammoTransform = ammo.transform;
+
+        ammoTransform.localPosition = Vector3.zero; //
+        ammoTransform.localRotation = Quaternion.identity;
     }
 
     //reload before get ammo
