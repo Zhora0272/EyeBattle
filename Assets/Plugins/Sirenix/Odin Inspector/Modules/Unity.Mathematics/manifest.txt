@@ -6,3 +6,4 @@ ModuleFiles:
   MathematicsDrawers.cs.meta
   Sirenix.OdinInspector.Modules.UnityMathematics.asmdef
   Sirenix.OdinInspector.Modules.UnityMathematics.asmdef.meta
+  com.google.android.gms.permission.AD_ID.

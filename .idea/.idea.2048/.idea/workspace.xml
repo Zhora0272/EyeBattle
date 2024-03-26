@@ -5,38 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/HeadGunAmmoController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/HeadGunAmmoController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/HeadGunController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/HeadGunController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Fire.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Fire.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/EyeGun.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/EyeGun.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GunAmmoBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GunAmmoBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GunAmmoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GunAmmoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GunController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RocketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RocketController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RocketJetpackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RocketJetpackController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HeadGunAmmoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeadGunAmmoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HeadGunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeadGunController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Modules/Unity.Mathematics/manifest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Modules/Unity.Mathematics/manifest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground 1.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/SOLO_) 1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Game Icon/SOLO_) 1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/SOLO_) 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Game Icon/SOLO_) 1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/SOLO_) 2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Game Icon/SOLO_) 2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/SOLO_) 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Game Icon/SOLO_) 2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/SOLO_).png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Game Icon/SOLO_).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/SOLO_).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Game Icon/SOLO_).png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/SOLO_)1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Game Icon/SOLO_)1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/SOLO_)1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Game Icon/SOLO_)1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeBot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/RocketRes/Res/Rocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/RocketRes/Res/Rocket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/UpdateElement.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/UpdateElement.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/HeadGunAmmo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Guns/HeadGunAmmo.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +211,7 @@
       <workItem from="1711294154434" duration="853000" />
       <workItem from="1711295734790" duration="1920000" />
       <workItem from="1711349670275" duration="6896000" />
-      <workItem from="1711435989280" duration="7522000" />
+      <workItem from="1711435989280" duration="9295000" />
     </task>
     <servers />
   </component>

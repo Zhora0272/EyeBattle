@@ -7700,15 +7700,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1564923732874693373, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.64198506
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1564923732874693373, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.76671714
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1564923732874693373, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 100.12
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2509413003133941968, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_Name

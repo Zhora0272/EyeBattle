@@ -14,7 +14,7 @@ public class HeadGunAmmoController : GunAmmoBase
         transform.SetParent(null);
         _rb.isKinematic = false;
         _rb.AddRelativeForce(Vector3.forward, ForceMode.Impulse);
-        _rb.AddRelativeTorque(Vector3.forward * 50);
+        _rb.AddRelativeTorque(Vector3.forward * 150);
     }
 
     protected override void Explosion()

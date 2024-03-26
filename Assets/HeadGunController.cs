@@ -5,6 +5,7 @@ namespace EyeGunSystem
         
         public override void Shoot()
         {
+            Reload();
             if (ammoController.GetAmmo(out var result))
             {
                 battleManager.Value.GetClosest(battleParticipant.Value.EyeParameters,
