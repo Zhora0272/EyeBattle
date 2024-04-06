@@ -62,8 +62,6 @@ public class FinanceManager : MonoManager, IGameDataSaveable
         Action<bool, int> responseCallBack
     )
     {
-        print("try buy 2 " + type);
-        
         switch (type)
         {
             case BuyType.Ads:
@@ -130,8 +128,6 @@ public class FinanceManager : MonoManager, IGameDataSaveable
 
     private void TryBuyWithAds(int pricePoint, Action<bool, int> responseCallBack)
     {
-        print("click to ads button");
-        
         var adsCount = ConvertPricePointTo(BuyType.Ads, pricePoint);
 
         bool adsFinishState = false;
@@ -147,6 +143,13 @@ public class FinanceManager : MonoManager, IGameDataSaveable
         _uiManager.Activate(UISubPageType.ConfirmPage);
         _questionViewManager.Activate(headerText, "Cancel", confirmText, () =>
         {
+            if (Application.internetReachability == NetworkReachability.NotReachable)
+            {
+                headerText = "Internet connection error!";
+                _questionViewManager.Activate(headerText, "Ok");
+                return;
+            }
+
             MainManager.GetManager<AdsManager>().TryStartAds(AdsType.RewardedAd,
                 showState =>
                 {
@@ -162,15 +165,7 @@ public class FinanceManager : MonoManager, IGameDataSaveable
                     }
                     else
                     {
-                        if (Application.internetReachability == NetworkReachability.NotReachable)
-                        {
-                            headerText = "Internet connection error!";
-                        }
-                        else
-                        {
-                            headerText = "Oops ads unavailable";
-                        }
-
+                        headerText = "Oops ads unavailable";
                         _questionViewManager.Activate(headerText, "Ok");
                     }
                 }, out var adsStartAction,

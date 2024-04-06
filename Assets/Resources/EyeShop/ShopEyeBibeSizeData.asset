@@ -37,3 +37,9 @@ MonoBehaviour:
     PricePoint: 50
     <EyeSize>k__BackingField: 4
     <EyeSizeTexture>k__BackingField: {fileID: 0}
+  - Index: 4
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 100
+    <EyeSize>k__BackingField: 5
+    <EyeSizeTexture>k__BackingField: {fileID: 0}

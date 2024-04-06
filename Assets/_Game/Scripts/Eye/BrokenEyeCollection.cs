@@ -16,13 +16,15 @@ public class BrokenEyeCollection : CachedMonoBehaviour
 
     private void Awake()
     {
-        _triggerCheckController.TriggerLayerEnterRegister(Layer.BrokenEye, BrokenEyeEnterTrigger);
+        _triggerCheckController.TriggerLayerEnterRegister(Layer.BrokenEye,
+            BrokenEyeEnterTrigger);
     }
 
     private void OnEnable()
     {
         _triggerCheckController.EnableCollider();
     }
+
     private void OnDisable()
     {
         _triggerCheckController.DisableCollider();
@@ -30,11 +32,6 @@ public class BrokenEyeCollection : CachedMonoBehaviour
 
     private void BrokenEyeEnterTrigger(Collider other)
     {
-        _indicatorHideDisposable?.Dispose();
-
-        _loadBarCanvasGroup.DOKill();
-        _loadBarCanvasGroup.DOFade(1, 1).SetEase(Ease.OutBack);
-
         if (other.TryGetComponent<Collectable>(out var result))
         {
             if (result.CollectState) return;
@@ -42,9 +39,7 @@ public class BrokenEyeCollection : CachedMonoBehaviour
             if (Time.time - result.BrokenTime < 1)
             {
                 Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
-                    {
-                        Collect(result, other, 1);
-                    })
+                        { Collect(result, other, 1); })
                     .AddTo(this);
             }
             else
@@ -56,19 +51,6 @@ public class BrokenEyeCollection : CachedMonoBehaviour
 
     private void Collect(Collectable result, Collider other, float duration)
     {
-        float value = 0;
-        value = result.Collect(this, duration);
-
-        //there is a animation when broken element will be UP
-        /*other.transform.DOMove(other.transform.position + Vector3.up * 3, duration).onComplete = () =>
-        {
-          
-            _brokenPartCollectionSubject.OnNext(value);
-        };*/
-
-        _indicatorHideDisposable = Observable.Timer(TimeSpan.FromSeconds(3)).Subscribe(_ =>
-        {
-            _loadBarCanvasGroup.DOFade(0, 1).SetEase(Ease.OutBack);
-        }).AddTo(this);
+        result.Collect(this, duration);
     }
 }

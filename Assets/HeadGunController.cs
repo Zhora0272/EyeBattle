@@ -2,7 +2,6 @@ namespace EyeGunSystem
 {
     public class HeadGunController : GunController
     {
-        
         public override void Shoot()
         {
             Reload();

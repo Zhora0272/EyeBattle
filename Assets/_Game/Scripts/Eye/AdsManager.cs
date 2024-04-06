@@ -3,20 +3,20 @@ using GoogleMobileAds.Api;
 using UnityEngine;
 
 public class AdsManager : MonoManager
-{
-    private RewardedAd _rewardedAd;
-
+{  
     private void Start()
     {
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
-        MobileAds.Initialize(state => { Debug.LogWarning(state); });
+        MobileAds.Initialize(state =>
+        {
+            Debug.LogWarning(state);
+        });
     }
 
     private string GetAdsIdentifier(AdsType type)
     {
         switch (type)
         {
-            case AdsType.RewardedInterstitial: return "ca-app-pub-9489260011896658/5290500529";
             case AdsType.RewardedAd: return "ca-app-pub-9489260011896658/9925833817";
 
             default:
@@ -25,9 +25,39 @@ public class AdsManager : MonoManager
         }
     }
 
-    private bool LoadRewardedAd(Action<Reward> rewardAction)
+    // These ad units are configured to always serve test ads.
+    const string adUnitId = "ca-app-pub-3940256099942544/5224354917";
+
+
+    private RewardedAd _rewardedAd;
+
+    private void LoadRewardedAd()
     {
-        print("start load");
+        // Load a rewarded ad
+        RewardedAd.Load(adUnitId, new AdRequest(),
+            (ad, loadError) =>
+            {
+                if (loadError != null)
+                {
+                    Debug.Log("Rewarded ad failed to load with error: " +
+                              loadError.GetMessage());
+                    return;
+                }
+                else if (ad == null)
+                {
+                    Debug.Log("Rewarded ad failed to load.");
+                    return;
+                }
+
+                Debug.Log("Rewarded ad loaded.");
+                _rewardedAd = ad;
+                Action<Reward> a = null;
+                _rewardedAd.Show(a);
+            });
+    }
+    
+    /*private bool LoadRewardedAd(Action<Reward> rewardAction)
+    {
         if (_rewardedAd != null)
         {
             _rewardedAd.Destroy();
@@ -38,7 +68,7 @@ public class AdsManager : MonoManager
         adRequest.Keywords.Add("shop-element-buy");
 
         RewardedAd.Load
-        (GetAdsIdentifier(AdsType.RewardedInterstitial),
+        (GetAdsIdentifier(AdsType.RewardedAd),
             adRequest, (ad, error) =>
             {
                 if (ad == null || error != null)
@@ -52,7 +82,7 @@ public class AdsManager : MonoManager
         );
 
         return _rewardedAd != null;
-    }
+    }*/
 
     private void EventRewardedAd
     (
@@ -82,12 +112,14 @@ public class AdsManager : MonoManager
         Action<Reward> rewardValue = null
     )
     {
-        startAdsEvent = null;
+        LoadRewardedAd();
+        /*startAdsEvent = null;
         switch (type)
         {
             case AdsType.RewardedAd:
                 if (LoadRewardedAd(rewardValue)) EventRewardedAd(rewardValue, adsShowState, out startAdsEvent);
                 break;
-        }
+        }*/
+        startAdsEvent = default;   
     }
 }

@@ -28,20 +28,23 @@ public class Collectable : CachedMonoBehaviour
         BrokenTime = Time.time;
     }
 
+    private void OnDisable()
+    {
+        _collectAnimBase.Deactivate(this);
+    }
+
     public float Collect(ITransform target, float duration)
     {
         if (CollectState) return 0;
         CollectState = true;
         
-        transform.parent = null;
-
         _collider.enabled = false;
         _rb.isKinematic = true;
 
         Observable.Timer(TimeSpan.FromSeconds(.5f))
             .Subscribe(_ =>
             {
-                _collectAnimBase.Animation(this, target, duration);
+                _collectAnimBase.Activate(this, target, duration);
             }).AddTo(this);
         return _value;
     }
@@ -49,13 +52,21 @@ public class Collectable : CachedMonoBehaviour
 
 public class CollectableCollectAnimation : CollectableCollectAnimBase
 {
-    public override void Animation(CachedMonoBehaviour mono, ITransform target, float duration)
+    private IDisposable _everyUpdate;
+    
+    public override void Deactivate(CachedMonoBehaviour mono)
+    {
+        mono.DOKill();
+        _everyUpdate?.Dispose();
+    }
+
+    public override void Activate(CachedMonoBehaviour mono, ITransform target, float duration)
     {
         mono.transform.DOMove(mono.IPosition + Vector3.up * 2, 2)  //jump up 
             .SetEase(Ease.OutBack)
             .onComplete = () =>
         {
-            Observable.EveryUpdate().Subscribe(_ => //go to target
+            _everyUpdate = Observable.EveryUpdate().Subscribe(_ => //go to target
             {
                 mono.Position = Vector3.Lerp(mono.Position,
                     target.IPosition + Vector3.up,

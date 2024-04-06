@@ -15,12 +15,17 @@ public class EyeSpawnList
 
 public class EyeSpawnManager : MonoManager
 {
+    [SerializeField] private Transform _worldTransform;
+    [Space]
     [SerializeField] private EyeBaseController _botPrrefab;
     [SerializeField] private EyeBaseController _playerTransform;
-    [Space] [SerializeField] private UpdateElementController _speedUpdate;
+    [Space] 
+    [SerializeField] private UpdateElementController _speedUpdate;
     [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
+
+    
     public List<EyeBaseController> _spawnedEyes { private set; get; }
-    private EyePool _eyePool; 
+    private EyePool _eyePool;
     
     private IDisposable _spawnBotDisposable;
     private int _index;
@@ -37,7 +42,7 @@ public class EyeSpawnManager : MonoManager
     {
         MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnEnemies);
         MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.InGame,
-            () => { _spawnBotDisposable.Dispose(); });
+            () => { _spawnBotDisposable?.Dispose(); });
     }
 
     private Vector3 _lastPosition;
@@ -69,7 +74,7 @@ public class EyeSpawnManager : MonoManager
 
                 spawnState = true;
                 
-                var spawnElement = _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController); // pooling systeam
+                var spawnElement = _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController, _worldTransform); // pooling systeam
 
                 spawnElement.transform.position = randomPosition;
 

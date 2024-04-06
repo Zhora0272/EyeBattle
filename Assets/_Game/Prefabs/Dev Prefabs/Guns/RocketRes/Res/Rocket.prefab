@@ -195,8 +195,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6879555838758522325, guid: 12cb533b02073044d9fbb88d67ea80c7, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879555838758522325, guid: 12cb533b02073044d9fbb88d67ea80c7, type: 3}
       propertyPath: lengthInSec
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6879555838758522325, guid: 12cb533b02073044d9fbb88d67ea80c7, type: 3}
       propertyPath: ColorModule.enabled
@@ -208,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6879555838758522325, guid: 12cb533b02073044d9fbb88d67ea80c7, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 700
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6879555838758522325, guid: 12cb533b02073044d9fbb88d67ea80c7, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
