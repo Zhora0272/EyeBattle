@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System;
 using _Game.Scripts.Utility;
 using Bot.BotController;
+using Shop;
 using UniRx;
 using UnityEngine;
 
@@ -22,6 +23,9 @@ public class EyeSpawnManager : MonoManager
     [Space] 
     [SerializeField] private UpdateElementController _speedUpdate;
     [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
+
+    [SerializeField] private ShopEyeSizeScriptable _eyeSize;
+    [SerializeField] private ShopEyeColorScriptable _eyeColor;
 
     
     public List<EyeBaseController> _spawnedEyes { private set; get; }
