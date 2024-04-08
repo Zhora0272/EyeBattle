@@ -7,7 +7,8 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     IEyeParameters, IEyebattleParameters, IUpdateable<UpdateElementModel>
 {
     [SerializeField] private int clanId;
-    
+    //
+    [SerializeField] private Transform _rotationTrasform;
     //
     public IReactiveProperty<int> Mass => _hp;
     public IReactiveProperty<float> Speed => _speed;
@@ -29,16 +30,19 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     protected readonly ReactiveProperty<float> _speed = new(25);
     //
 
-    [Space] [SerializeField] protected BrokenEyePartsController _brokenEyePartsController;
+    [Space]
+    [SerializeField] protected BrokenEyePartsController _brokenEyePartsController;
     [SerializeField] protected BrokenEyeCollection _brokenEyeCollector;
     [SerializeField] protected Rigidbody Rb;
-    [Space] [SerializeField] protected Material _material;
+    [Space] 
     [SerializeField] protected GameObject _meshRenderer;
     [SerializeField] protected Transform _eyeModelTransform;
     [SerializeField] protected SphereCollider _sphereCollider;
-    [Space] [SerializeField] protected Image _loadbar;
+    [Space]
+    [SerializeField] protected Image _loadbar;
     [SerializeField] protected TriggerCheckController _triggerCheckController;
-    [Space] [SerializeField] private UpdateController _updateController;
+    [Space]
+    [SerializeField] private UpdateController _updateController;
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
 
@@ -60,24 +64,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _updateController.UpdateElementController.Subscribe(GetUpdate).AddTo(this);
     }
 
-    protected virtual void Start()
-    {
-        //_brokenEyeCollector.BrokenPartsCollectionStream.Subscribe(value => { Size.Value += value; }).AddTo(this); //this part change the eye size after collection points ("broken eyes") 
-
-        /*Size.Subscribe(value =>
-        {
-            _loadbar.DOFillAmount(((int)(value / 100) + 1) - ((float)value / 100), 1);
-
-            if (value % 100 == 0)
-            {
-                transform.DOScale((value / 300) + 1, 1);
-
-                _loadbar.DOKill();
-                _loadbar.DOFillAmount(0, 1);
-            }
-        }).AddTo(this);*/
-    }
-
     private void FixedUpdate()
     {
         Move();
@@ -90,7 +76,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
             EyeRotate();
         }
 
-        if (Time.frameCount % 24 == 0)
+        if (Time.frameCount % 10 == 0)
         {
             _lastPosition = Position;
         }
@@ -113,8 +99,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
             Observable.Timer(TimeSpan.FromSeconds(model.UpdateTime)).Subscribe(_ =>
             {
                 CancelUpdate();
-
-                print("update time is loss");
             }).AddTo(this);
         }
         else
@@ -165,8 +149,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _moveFixedDisposable?.Dispose();
         _moveUpdateDisposable?.Dispose();
     }
-
-
+    
     #region Eye Balance in Idle mode
 
     protected void MoveBalanceStart()
@@ -192,7 +175,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         
         Quaternion rotation = Quaternion.LookRotation(vectorOfPositions, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10);
-        _eyeModelTransform.Rotate((Rb.velocity.magnitude * Time.deltaTime * 80), 0, 0);
+        _rotationTrasform.Rotate((Rb.velocity.magnitude * Time.deltaTime * 80), 0, 0);
         
     }
 
@@ -214,7 +197,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     {
         if (Rb.mass * Rb.velocity.magnitude < force)
         {
-            _brokenEyePartsController.Activate(_material, attackPosition);
+            _brokenEyePartsController.Activate();
             EyeDeadEvent();
         }
     }

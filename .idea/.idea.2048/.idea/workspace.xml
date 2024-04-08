@@ -5,19 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Shaders/ObjectOutline.shadergraph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Shaders/ObjectOutline.shadergraph.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/3deye.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/3deye.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnList.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnList.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/googlemobileads-native-unity.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/googlemobileads-native-unity.aar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/3deye.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/3deye.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeBot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeFull.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeFull.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Sphere_part (1).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Sphere_part (1).prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Collectable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Collectable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BrokenEyePartsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BrokenEyePartsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyePlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyePlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +221,8 @@
       <workItem from="1711295734790" duration="1920000" />
       <workItem from="1711349670275" duration="6896000" />
       <workItem from="1711435989280" duration="9295000" />
-      <workItem from="1712512283014" duration="3215000" />
+      <workItem from="1712512283014" duration="3811000" />
+      <workItem from="1712595694412" duration="10664000" />
     </task>
     <servers />
   </component>

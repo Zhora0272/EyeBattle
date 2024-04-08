@@ -16,7 +16,9 @@ namespace Bot.BotController
     {
         [SerializeField] protected BotBattleParticipant battleParticipant;
         [SerializeField] private BotType type;
-        [Space] [SerializeField] private BotBehaviourModel _model;
+        [Space] 
+        [SerializeField] private BotBehaviourModel _model;
+        [SerializeField] private EyeCustomizeController _customizeController;
 
         public bool ActiveInHierarchy => gameObject.activeInHierarchy;
 
@@ -69,10 +71,8 @@ namespace Bot.BotController
             }
         }
 
-        protected override void Start()
+        protected void Start()
         {
-            base.Start();
-
             _closestElementDisposable = Observable.Interval(
                 TimeSpan.FromSeconds(Random.Range(0.5f, 1f))).Subscribe(_ =>
             {
@@ -140,6 +140,11 @@ namespace Bot.BotController
         public void PoolDestroy()
         {
             Destroy(gameObject);
+        }
+
+        public void SetCustomizeModel(GameData data)
+        {
+            _customizeController.SetData(data);
         }
     }
 }

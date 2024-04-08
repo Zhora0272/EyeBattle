@@ -18,6 +18,11 @@ public class Collectable : CachedMonoBehaviour
 
     private CollectableCollectAnimBase _collectAnimBase;
 
+    /*private void OnValidate()
+    {
+        _collider = GetComponent<MeshCollider>();
+    }*/
+
     private void Awake()
     {
         _collectAnimBase = new CollectableCollectAnimation();

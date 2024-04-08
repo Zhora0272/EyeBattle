@@ -1,7 +1,7 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
-using _Game.Scripts.Utility;
+using Bot.BotController;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;

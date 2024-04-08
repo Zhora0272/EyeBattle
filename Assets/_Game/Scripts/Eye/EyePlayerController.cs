@@ -34,10 +34,8 @@ public class EyePlayerController : EyeBaseController
         _pointerDownStreamDisposable?.Dispose();
     }
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
-
         _handlerState.Subscribe(state =>
         {
             if (state)

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BrokenEyePartsController : MonoBehaviour
 {
+    [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private Transform[] _transforms;
     [SerializeField] private Rigidbody[] _partsRb;
     [SerializeField] private Renderer[] _partsMaterial;
@@ -27,17 +28,18 @@ public class BrokenEyePartsController : MonoBehaviour
         }
     }*/
 
-    [ContextMenu("set meshs")]
+    [ContextMenu("Set Meshs")]
     private void Init()
     {
         for (int i = 0; i < _transforms.Length; i++)
         {
             _transforms[i].GetComponent<MeshFilter>().mesh = _partsMeshs[i];
+            _transforms[i].GetComponent<MeshCollider>().sharedMesh = _partsMeshs[i];
             _transforms[i].position = _partPositions[i];
         }
     }
 
-    public void Activate(Material mat, Vector3 activatePosition)
+    public void Activate()
     {
         transform.SetParent(null);
         gameObject.SetActive(true);
@@ -45,7 +47,7 @@ public class BrokenEyePartsController : MonoBehaviour
         for (int i = 0; i < _partsRb.Length; i++)
         {
             _partsRb[i].isKinematic = false;
-            _partsMaterial[i].material = mat;
+            _partsMaterial[i].material = _meshRenderer.material;
         }
     }
 }
