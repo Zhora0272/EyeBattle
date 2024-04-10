@@ -28,7 +28,7 @@ public class BrokenEyePartsController : MonoBehaviour
         }
     }*/
 
-    [ContextMenu("Set Meshs")]
+    [ContextMenu("Set Meshes")]
     private void Init()
     {
         for (int i = 0; i < _transforms.Length; i++)
