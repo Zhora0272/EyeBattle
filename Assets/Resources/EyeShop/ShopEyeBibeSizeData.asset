@@ -17,29 +17,29 @@ MonoBehaviour:
     ItemState: 0
     BuyType: 0
     PricePoint: 50
-    <EyeSize>k__BackingField: 1
+    <EyeSize>k__BackingField: 1.5
     <EyeSizeTexture>k__BackingField: {fileID: 0}
   - Index: 1
     ItemState: 0
     BuyType: 0
     PricePoint: 50
-    <EyeSize>k__BackingField: 2
+    <EyeSize>k__BackingField: 1.7
     <EyeSizeTexture>k__BackingField: {fileID: 0}
   - Index: 2
     ItemState: 0
     BuyType: 0
     PricePoint: 50
-    <EyeSize>k__BackingField: 3
+    <EyeSize>k__BackingField: 2
     <EyeSizeTexture>k__BackingField: {fileID: 0}
   - Index: 3
     ItemState: 0
     BuyType: 0
     PricePoint: 50
-    <EyeSize>k__BackingField: 4
+    <EyeSize>k__BackingField: 2.3
     <EyeSizeTexture>k__BackingField: {fileID: 0}
   - Index: 4
     ItemState: 0
     BuyType: 0
     PricePoint: 100
-    <EyeSize>k__BackingField: 5
+    <EyeSize>k__BackingField: 2.6
     <EyeSizeTexture>k__BackingField: {fileID: 0}

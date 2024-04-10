@@ -57,6 +57,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EyeTypeTexture:
+        m_Texture: {fileID: 2800000, guid: 3f7fc90340b7a0a42ab48a8a5621be1f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -74,7 +78,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_eeabf312a0284cd792e03ee4326075fe_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 26fffb652c12937418c68a9c12473ab8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 34d855a9b59b120409fc7b9154490708, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_f50e317c2129462081fc382b555b788f_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 62a2060ab51159c4d852d57f684428bd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -106,8 +114,8 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _EyeBibeSize: 37.91
-    - _EyeSize: 1.94
+    - _EyeBibeSize: 2.42
+    - _EyeSize: 3.46
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -130,7 +138,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EyeBackColor: {r: 0, g: 0.7985132, b: 1, a: 0}
+    - _EyeBackColor: {r: 0.29568768, g: 1, b: 0, a: 0}
     - _EyeColor: {r: 1, g: 0.5507299, b: 0.7285864, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
