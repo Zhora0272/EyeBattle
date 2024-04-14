@@ -11,7 +11,8 @@ public static class EyeShaderGraph
         _EyeBibeSize,
         _EyeType,
         _EyeColor,
-        _EyeBackColor
+        _EyeBackColor,
+        _EyeTypeTexture
     }
 
 
@@ -52,7 +53,13 @@ public static class EyeShaderGraph
         if (model._eyeBibeSize >= 0) SetMaterialValue(model._eyeBibeSize, material, EyeMaterialConfig._EyeBibeSize);
 
         //type
-        if (model._eyeType >= 0) SetMaterialValue(model._eyeType, material, EyeMaterialConfig._EyeType);
+        Debug.Log(model._eyeType == null);
+        if (model._eyeType != null)
+        {
+            Debug.Log(model._eyeType.name);
+            
+            SetMaterialValue(model._eyeType, material, EyeMaterialConfig._EyeType);
+        }
 
         //color
         if (model._eyeColor >= 0)
@@ -88,6 +95,9 @@ public static class EyeShaderGraph
             case Color colorValue:
                 material.SetColor(config.ToString(), colorValue);
                 break;
+            case Texture textureValue:
+                material.mainTexture = textureValue;
+                break;
         }
     }
 
@@ -98,7 +108,7 @@ public static class EyeShaderGraph
             _eyeSize = material.GetFloat(EyeMaterialConfig._EyeSize.ToString()),
             _eyeBibeSize = material.GetFloat(EyeMaterialConfig._EyeBibeSize.ToString()),
 
-            //_eyeType = material.GetInt(EyeMaterialConfig._EyeType.ToString()),
+            _eyeType = material.GetTexture(EyeMaterialConfig._EyeType.ToString()),
 
             _eyeColor = FindTheColorIndex(Data.EyeColor,
                 material.GetColor(EyeMaterialConfig._EyeColor.ToString())),

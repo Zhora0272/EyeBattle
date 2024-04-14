@@ -5,18 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/7.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeTextureData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeTextureData.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/UpdateElement 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/UpdateElement 1.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Snake/eye texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Snake/eye texture.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/DragonEye.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/DragonEye.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye7.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye8.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyePattern.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyePattern.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BrokenEyePartsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BrokenEyePartsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/New Custom Render Texture.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/ShopEyeRenderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/New Custom Render Texture.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/ShopEyeRenderer.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/EyeItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/EyeItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeShaderGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeShaderGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/GameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/GameSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Shop/ShopEyeTextureScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Shop/ShopEyeTextureScriptable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopContainerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopContainerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeColorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeColorView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeTextureView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeTextureView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/vHierarchy/vHierarchy Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/vHierarchy/vHierarchy Data.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +49,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/58/cc9a9413/Void.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8f80c2d02d314878872cb1183823de6f1a000/84/cfc0f5f3/Physics.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/991589c67de04f04aea1d056fff209e88800/e5/c78b4b8c/RewardedAd.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/cd/ae8ec4c9/Material.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GunController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/HeadGunController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PlayerGunController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -218,6 +230,11 @@
       <workItem from="1712512283014" duration="3811000" />
       <workItem from="1712595694412" duration="11408000" />
       <workItem from="1712674947655" duration="701000" />
+      <workItem from="1712738822899" duration="912000" />
+      <workItem from="1712743442297" duration="717000" />
+      <workItem from="1712818052257" duration="4327000" />
+      <workItem from="1712920780896" duration="2912000" />
+      <workItem from="1713112626191" duration="7218000" />
     </task>
     <servers />
   </component>

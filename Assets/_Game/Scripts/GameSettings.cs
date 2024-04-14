@@ -8,22 +8,22 @@ public class GameSettings : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private RenderTexture _renderTexture;
-    [SerializeField] private AspectRatioFitter _ratioFitter;
     [SerializeField, Range(0.1f, 1)] private float _qualityCoeficient = .85f;
 
     private IDisposable _timerDisposable;
 
     private int _timerValue;
 
-    private int _newWidth = Screen.width;
-    private int _newHeight = Screen.height;
+    private int _newWidth;
+    private int _newHeight;
 
     private void Awake()
     {
+        var res = Screen.currentResolution;
         ChangeResolution
         (
-            (int)(_newWidth * _qualityCoeficient),
-            (int)(_newHeight * _qualityCoeficient)
+            (int)(res.width * _qualityCoeficient),
+            (int)(res.height * _qualityCoeficient)
         );
     }
 
@@ -36,8 +36,6 @@ public class GameSettings : MonoBehaviour
             _renderTexture.height = height;
             _renderTexture.Create();
         }
-
-        _ratioFitter.aspectRatio = ((float)width * 1.1f/ (float)height);
     }
 
     private void Start()

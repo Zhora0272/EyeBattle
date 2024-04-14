@@ -36,11 +36,11 @@ namespace Shop
                 var color = configs.Color;
 
                 item.SetColor(HelperMath.AlphaToMax(color));
-                item.SetColorAction(ColorSelectAction);
+                item.SetColorAction(SelectAction);
             }
         }
 
-        private void ColorSelectAction(int index)
+        private void SelectAction(int index)
         {
             EyeCustomizeModel item = null;
 

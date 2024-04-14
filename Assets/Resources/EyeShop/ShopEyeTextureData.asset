@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bca05fb454e7cb43afdc48a4923058f, type: 3}
+  m_Name: ShopEyeTextureData
+  m_EditorClassIdentifier: 
+  <TextureParameters>k__BackingField:
+  - Index: 0
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 0
+    <Texture>k__BackingField: {fileID: 2800000, guid: 62a2060ab51159c4d852d57f684428bd, type: 3}
+  - Index: 1
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 100
+    <Texture>k__BackingField: {fileID: 2800000, guid: edc2127abc466b840b11cf434fe364c6, type: 3}
+  - Index: 2
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 250
+    <Texture>k__BackingField: {fileID: 2800000, guid: 3f7fc90340b7a0a42ab48a8a5621be1f, type: 3}
+  - Index: 4
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 2000
+    <Texture>k__BackingField: {fileID: 2800000, guid: 0358e94906c704657ab9ca0a8ce5a588, type: 3}
+  - Index: 3
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 5000
+    <Texture>k__BackingField: {fileID: 2800000, guid: 34d855a9b59b120409fc7b9154490708, type: 3}

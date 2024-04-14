@@ -37,7 +37,7 @@ namespace Shop.Container
                     part.Deactivate();
                 }
             }
-
+            
             if (container && !container.IsActivated.Value)
             {
                 container.Activate();

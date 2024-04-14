@@ -10,5 +10,5 @@ public class ShopEyeTextureScriptable : ScriptableObject
 [Serializable]
 public class BaseEyeTextureParameters : BaseEyeItemParameters
 {
-    
+    [field: SerializeField] public Texture2D Texture { get; private set; }
 }
