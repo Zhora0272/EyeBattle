@@ -60,7 +60,7 @@ public class SaveSystem : MonoManager
                 Gem = 15,
                 ContainerConfigIndexes = new[] {0, 0, 0, 0},
                 EyeItemParameters = _dataManager.GetAllDataLists(),
-                EyeConfigModel = new EyeCustomizeModel
+                EyeCustomizeModel = new EyeCustomizeModel
                 {
                     _eyeSize = 3.37f,
                     _eyeBibeSize = 2.24f,
@@ -85,7 +85,7 @@ public class SaveSystem : MonoManager
         financeData.Money = _gameData.Money;
         financeData.Gem = _gameData.Gem;
 
-        playerEyeData.EyeConfigModel = _gameData.EyeConfigModel;
+        playerEyeData.EyeCustomizeModel = _gameData.EyeCustomizeModel;
 
         containerManager.EyeItemParameters = _gameData.EyeItemParameters;
         containerManager.ContainerConfigIndexes = _gameData.ContainerConfigIndexes;
@@ -103,7 +103,7 @@ public class SaveSystem : MonoManager
 
         _gameData.Gem = financeData.Gem;
         _gameData.Money = financeData.Money;
-        _gameData.EyeConfigModel = _eyeCustomizeGameDataSaveable.GetData().EyeConfigModel;
+        _gameData.EyeCustomizeModel = _eyeCustomizeGameDataSaveable.GetData().EyeCustomizeModel;
 
         _gameData.EyeItemParameters = shopContainerData.EyeItemParameters;
         _gameData.ContainerConfigIndexes = shopContainerData.ContainerConfigIndexes;

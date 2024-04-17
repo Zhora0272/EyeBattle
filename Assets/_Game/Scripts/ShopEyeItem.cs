@@ -1,5 +1,4 @@
 using System;
-using _Game.Scripts.Utility;
 using Saveing;
 using TMPro;
 using UniRx;
@@ -86,7 +85,7 @@ namespace Shop
 
         #region SetEventActions
 
-        internal void SetColorAction(Action<int> action)
+        internal void SelectAction(Action<int> action)
         {
             _selectButtonClickEvent = state =>
             {

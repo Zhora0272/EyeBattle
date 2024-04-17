@@ -30,16 +30,12 @@ namespace Shop
                 item.SetTexture(texture);
                 item.SetColor(Color.white);
                 
-                item.SetTextureAction(TextureSelectAction);
+                item.SelectAction(TextureSelectAction);
             }
         }
-        private void TextureSelectAction(Texture texture)
+        private void TextureSelectAction(int index)
         {
-            EyeCustomizeModel item = null;
-
-            item = new EyeCustomizeModel();
-
-            _manager.CallBack.Value = item;
+            _manager.CallBack.Value = new EyeCustomizeModel(eyeType: index);;
         }
     }
 }

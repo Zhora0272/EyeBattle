@@ -5,29 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeTextureData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeTextureData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/headphones.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/headphones.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/headphones.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/headphones.mat.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/DragonEye.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/DragonEye.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyePattern.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyePattern.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/DecorMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/DecorMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Sunglasses.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Sunglasses.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/New Custom Render Texture.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/ShopEyeRenderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/New Custom Render Texture.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/ShopEyeRenderer.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/EyeItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/EyeItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/ConfirmPage.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/ConfirmPage.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/container.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/container.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/DataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/AdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/AdsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeShaderGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeShaderGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/GameData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/GameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/GameSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Shop/ShopEyeTextureScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Scriptable/Shop/ShopEyeTextureScriptable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopContainerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopContainerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeColorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeColorView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeTextureView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeTextureView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeTypeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeTypeView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main/GameplayPostProcessing.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main/GameplayPostProcessing.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main/GlobalPostProcessing.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main/GlobalPostProcessing.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/vHierarchy/vHierarchy Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/vHierarchy/vHierarchy Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +241,11 @@
       <workItem from="1712743442297" duration="717000" />
       <workItem from="1712818052257" duration="4327000" />
       <workItem from="1712920780896" duration="2912000" />
-      <workItem from="1713112626191" duration="7218000" />
+      <workItem from="1713112626191" duration="7261000" />
+      <workItem from="1713178783004" duration="2741000" />
+      <workItem from="1713195382760" duration="4229000" />
+      <workItem from="1713249207905" duration="3841000" />
+      <workItem from="1713350782488" duration="4278000" />
     </task>
     <servers />
   </component>

@@ -9,14 +9,11 @@ namespace Shop.Container
         [SerializeField] private ShopContainer[] _containers;
         [SerializeField] private ShopViewBase[] _conShopViewBases;
 
-#if UNITY_EDITOR
-        [ContextMenu("Set Children")]
-        private void SetChildren()
+        private void Awake()
         {
             _containers = GetComponentsInChildren<ShopContainer>();
             _conShopViewBases = GetComponentsInChildren<ShopViewBase>();
         }
-#endif
 
         private void Start()
         {

@@ -36,7 +36,7 @@ namespace Shop
                 var color = configs.Color;
 
                 item.SetColor(HelperMath.AlphaToMax(color));
-                item.SetColorAction(SelectAction);
+                item.SelectAction(SelectAction);
             }
         }
 

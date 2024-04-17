@@ -7,26 +7,27 @@ public class EyeCustomizeController : MonoBehaviour, IGameDataSaveable
     [SerializeField] private Material _eyeMaterial;
     [SerializeField] private MeshRenderer _eyeMeshRenderer;
     [SerializeField] private GameObject _decorGamobject;
-    [SerializeField] private Texture _texture;
 
     public Material GetMaterial() => _eyeMaterial;
     public GameObject GetDecor() => _decorGamobject;
+
+    private EyeCustomizeModel _model;
 
     public void SetData(GameData data)
     {
         _eyeMaterial = EyeShaderGraph.GetMaterial
         (
-            data.EyeConfigModel
+            data.EyeCustomizeModel
         );
+        _model = data.EyeCustomizeModel;
         _eyeMeshRenderer.material = _eyeMaterial;
     }
 
     public GameData GetData()
     {
-        var model = EyeShaderGraph.ConvertMaterialToModel(_eyeMeshRenderer.material);
         return new GameData()
         {
-            EyeConfigModel = model,
+            EyeCustomizeModel = _model,
         };
     }
 }

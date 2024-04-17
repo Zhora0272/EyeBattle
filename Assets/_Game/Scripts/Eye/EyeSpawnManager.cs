@@ -81,8 +81,9 @@ namespace Bot.BotController
                     model._eyeBackColor = UnityEngine.Random.Range(0, _eyeColor.Colors.Length); 
                     model._eyeSize = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length); 
                     model._eyeBibeSize = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length); 
+                    model._eyeType = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length); 
                     
-                    spawnElement.SetCustomizeModel(new GameData() { EyeConfigModel = model });
+                    spawnElement.SetCustomizeModel(new GameData() { EyeCustomizeModel = model });
 
                     if (spawnElement != null)
                     {

@@ -5,6 +5,7 @@ public class DataManager : MonoManager
 {
     public ShopEyeColorScriptable EyeColor;
     public ShopEyeColorScriptable EyeBackColor;
+    public ShopEyeTextureScriptable EyeTexture;
 
     public EyeItemCollection[] GetAllDataLists()
     {
@@ -12,6 +13,7 @@ public class DataManager : MonoManager
         {
             new() {BaseEyeItems = EyeColor.Colors},
             new() {BaseEyeItems = EyeBackColor.Colors},
+            new() {BaseEyeItems = EyeTexture.TextureParameters},
         };
     }
 }

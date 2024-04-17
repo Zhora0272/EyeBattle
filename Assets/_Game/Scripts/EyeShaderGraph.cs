@@ -53,12 +53,10 @@ public static class EyeShaderGraph
         if (model._eyeBibeSize >= 0) SetMaterialValue(model._eyeBibeSize, material, EyeMaterialConfig._EyeBibeSize);
 
         //type
-        Debug.Log(model._eyeType == null);
-        if (model._eyeType != null)
+        if (model._eyeType >= 0)
         {
-            Debug.Log(model._eyeType.name);
-            
-            SetMaterialValue(model._eyeType, material, EyeMaterialConfig._EyeType);
+            var texture = Data.EyeTexture.TextureParameters[model._eyeType].Texture;
+            SetMaterialValue(texture, material, EyeMaterialConfig._EyeTypeTexture);
         }
 
         //color
@@ -96,19 +94,19 @@ public static class EyeShaderGraph
                 material.SetColor(config.ToString(), colorValue);
                 break;
             case Texture textureValue:
-                material.mainTexture = textureValue;
+                material.SetTexture(config.ToString(), textureValue);
                 break;
         }
     }
 
-    public static EyeCustomizeModel ConvertMaterialToModel(Material material)
+    /*public static EyeCustomizeModel ConvertMaterialToModel(Material material)
     {
         return new EyeCustomizeModel()
         {
             _eyeSize = material.GetFloat(EyeMaterialConfig._EyeSize.ToString()),
             _eyeBibeSize = material.GetFloat(EyeMaterialConfig._EyeBibeSize.ToString()),
 
-            _eyeType = material.GetTexture(EyeMaterialConfig._EyeType.ToString()),
+            //_eyeType = material.GetTexture(EyeMaterialConfig._EyeType.ToString()),
 
             _eyeColor = FindTheColorIndex(Data.EyeColor,
                 material.GetColor(EyeMaterialConfig._EyeColor.ToString())),
@@ -116,9 +114,9 @@ public static class EyeShaderGraph
             _eyeBackColor = FindTheColorIndex(Data.EyeBackColor,
                 material.GetColor(EyeMaterialConfig._EyeBackColor.ToString())),
         };
-    }
+    }*/
 
-    private static int FindTheColorIndex(ShopEyeColorScriptable data, Color color)
+    /*private static int FindTheColorIndex(ShopEyeColorScriptable data, Color color)
     {
         foreach (var item in data.Colors)
         {
@@ -129,5 +127,5 @@ public static class EyeShaderGraph
         }
 
         return -1;
-    }
+    }*/
 }

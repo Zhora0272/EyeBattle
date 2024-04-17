@@ -9,7 +9,7 @@ public class AdsManager : MonoManager
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
         MobileAds.Initialize(state =>
         {
-            Debug.LogWarning(state);
+            LoadRewardedAd();
         });
     }
 
@@ -31,7 +31,7 @@ public class AdsManager : MonoManager
 
     private RewardedAd _rewardedAd;
 
-    private void LoadRewardedAd()
+    private bool LoadRewardedAd()
     {
         // Load a rewarded ad
         RewardedAd.Load(adUnitId, new AdRequest(),
@@ -51,38 +51,10 @@ public class AdsManager : MonoManager
 
                 Debug.Log("Rewarded ad loaded.");
                 _rewardedAd = ad;
-                Action<Reward> a = null;
-                _rewardedAd.Show(a);
             });
+
+        return _rewardedAd.CanShowAd();
     }
-    
-    /*private bool LoadRewardedAd(Action<Reward> rewardAction)
-    {
-        if (_rewardedAd != null)
-        {
-            _rewardedAd.Destroy();
-            _rewardedAd = null;
-        }
-
-        var adRequest = new AdRequest();
-        adRequest.Keywords.Add("shop-element-buy");
-
-        RewardedAd.Load
-        (GetAdsIdentifier(AdsType.RewardedAd),
-            adRequest, (ad, error) =>
-            {
-                if (ad == null || error != null)
-                {
-                    Debug.LogWarning("reward ad error > " + error);
-                    return;
-                }
-
-                _rewardedAd = ad;
-            }
-        );
-
-        return _rewardedAd != null;
-    }*/
 
     private void EventRewardedAd
     (
@@ -97,7 +69,6 @@ public class AdsManager : MonoManager
 
         if (state)
         {
-            startAds = () => { _rewardedAd.Show(rewardAction); };
             _rewardedAd.Show(rewardAction);
         }
 
@@ -112,14 +83,16 @@ public class AdsManager : MonoManager
         Action<Reward> rewardValue = null
     )
     {
-        LoadRewardedAd();
-        /*startAdsEvent = null;
+        startAdsEvent = null;
         switch (type)
         {
             case AdsType.RewardedAd:
-                if (LoadRewardedAd(rewardValue)) EventRewardedAd(rewardValue, adsShowState, out startAdsEvent);
+                if (LoadRewardedAd())
+                {
+                    EventRewardedAd(rewardValue, adsShowState, out startAdsEvent);
+                }
                 break;
-        }*/
+        }
         startAdsEvent = default;   
     }
 }

@@ -40,6 +40,7 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-2117798700-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1296901816-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-883260377-0
+        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-3476655732595120542-3476655730761719093
         values:
         - iColor: 5
           icon: 
@@ -76,6 +77,8 @@ MonoBehaviour:
         - iColor: 6
           icon: Camera Icon
         - iColor: 4
+          icon: 
+        - iColor: 0
           icon: 
     - goDatasByGlobalId:
         keys: []

@@ -17,14 +17,16 @@ public class GameSettings : MonoBehaviour
     private int _newWidth;
     private int _newHeight;
 
-    private void Awake()
+    private void OnEnable()
     {
-        var res = Screen.currentResolution;
+        var res = new Vector2(Screen.width, Screen.height);
         ChangeResolution
         (
-            (int)(res.width * _qualityCoeficient),
-            (int)(res.height * _qualityCoeficient)
+            (int)(res.x * _qualityCoeficient),
+            (int)(res.y * _qualityCoeficient)
         );
+        
+        print(res);
     }
 
     private void ChangeResolution(int width, int height)
