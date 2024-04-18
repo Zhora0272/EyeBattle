@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ThemeManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ThemeManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/DataManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeShaderGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeShaderGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeSizeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeSizeView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBibeSizeData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBibeSizeData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Light.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Light.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/container.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/container.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +222,7 @@
       <workItem from="1713195382760" duration="4229000" />
       <workItem from="1713249207905" duration="3841000" />
       <workItem from="1713350782488" duration="6124000" />
-      <workItem from="1713421932970" duration="1649000" />
+      <workItem from="1713421932970" duration="1818000" />
     </task>
     <servers />
   </component>

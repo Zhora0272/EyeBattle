@@ -29,7 +29,7 @@ MonoBehaviour:
     ItemState: 0
     BuyType: 0
     PricePoint: 50
-    <EyeSize>k__BackingField: 2
+    <EyeSize>k__BackingField: 2.1
     <EyeSizeTexture>k__BackingField: {fileID: 0}
   - Index: 3
     ItemState: 0
