@@ -47,10 +47,17 @@ public static class EyeShaderGraph
     )
     {
         //size
-        if (model._eyeSize >= 0) SetMaterialValue(Data.EyeSize.SizeParameters[model._eyeSize].EyeSize,
-            material, EyeMaterialConfig._EyeSize);
-        if (model._eyeBibeSize >= 0) SetMaterialValue(Data.EyePupilSize.SizeParameters[model._eyeBibeSize].EyeSize, 
-            material, EyeMaterialConfig._EyeBibeSize);
+        if (model._eyeSize >= 0)
+        {
+            SetMaterialValue(Data.EyeSize.SizeParameters[model._eyeSize].EyeSize,
+                material, EyeMaterialConfig._EyeSize);
+        }
+
+        if (model._eyeBibeSize >= 0)
+        {
+            SetMaterialValue(Data.EyePupilSize.SizeParameters[model._eyeBibeSize].EyeSize,
+                material, EyeMaterialConfig._EyeBibeSize);
+        }
 
         //type
         if (model._eyeType >= 0)
