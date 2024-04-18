@@ -62,10 +62,10 @@ public class SaveSystem : MonoManager
                 EyeItemParameters = _dataManager.GetAllDataLists(),
                 EyeCustomizeModel = new EyeCustomizeModel
                 {
-                    _eyeSize = 3.37f,
-                    _eyeBibeSize = 2.24f,
-                    _eyeColor = 1,
-                    _eyeBackColor = 2
+                    _eyeSize = 0,
+                    _eyeBibeSize = 0,
+                    _eyeColor = 0,
+                    _eyeBackColor = 0
                 }
             };
             _dataSave.SaveData(data);

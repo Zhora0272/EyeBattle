@@ -3,17 +3,25 @@ using Shop;
 
 public class DataManager : MonoManager
 {
+    public ShopEyeSizeScriptable EyeSize;
+    public ShopEyeSizeScriptable EyePupilSize;
+
     public ShopEyeColorScriptable EyeColor;
     public ShopEyeColorScriptable EyeBackColor;
+
     public ShopEyeTextureScriptable EyeTexture;
 
     public EyeItemCollection[] GetAllDataLists()
     {
         return new EyeItemCollection[]
         {
-            new() {BaseEyeItems = EyeColor.Colors},
-            new() {BaseEyeItems = EyeBackColor.Colors},
-            new() {BaseEyeItems = EyeTexture.TextureParameters},
+            new() { BaseEyeItems = EyeColor.Colors },
+            new() { BaseEyeItems = EyeBackColor.Colors },
+
+            new() { BaseEyeItems = EyeTexture.TextureParameters },
+
+            new() { BaseEyeItems = EyeSize.SizeParameters },
+            new() { BaseEyeItems = EyePupilSize.SizeParameters },
         };
     }
 }

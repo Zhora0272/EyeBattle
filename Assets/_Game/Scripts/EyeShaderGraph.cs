@@ -1,5 +1,4 @@
-﻿using Shop;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class EyeShaderGraph
 {
@@ -9,7 +8,6 @@ public static class EyeShaderGraph
     {
         _EyeSize,
         _EyeBibeSize,
-        _EyeType,
         _EyeColor,
         _EyeBackColor,
         _EyeTypeTexture
@@ -49,8 +47,10 @@ public static class EyeShaderGraph
     )
     {
         //size
-        if (model._eyeSize >= 0) SetMaterialValue(model._eyeSize, material, EyeMaterialConfig._EyeSize);
-        if (model._eyeBibeSize >= 0) SetMaterialValue(model._eyeBibeSize, material, EyeMaterialConfig._EyeBibeSize);
+        if (model._eyeSize >= 0) SetMaterialValue(Data.EyeSize.SizeParameters[model._eyeSize].EyeSize,
+            material, EyeMaterialConfig._EyeSize);
+        if (model._eyeBibeSize >= 0) SetMaterialValue(Data.EyePupilSize.SizeParameters[model._eyeBibeSize].EyeSize, 
+            material, EyeMaterialConfig._EyeBibeSize);
 
         //type
         if (model._eyeType >= 0)
@@ -98,34 +98,4 @@ public static class EyeShaderGraph
                 break;
         }
     }
-
-    /*public static EyeCustomizeModel ConvertMaterialToModel(Material material)
-    {
-        return new EyeCustomizeModel()
-        {
-            _eyeSize = material.GetFloat(EyeMaterialConfig._EyeSize.ToString()),
-            _eyeBibeSize = material.GetFloat(EyeMaterialConfig._EyeBibeSize.ToString()),
-
-            //_eyeType = material.GetTexture(EyeMaterialConfig._EyeType.ToString()),
-
-            _eyeColor = FindTheColorIndex(Data.EyeColor,
-                material.GetColor(EyeMaterialConfig._EyeColor.ToString())),
-            
-            _eyeBackColor = FindTheColorIndex(Data.EyeBackColor,
-                material.GetColor(EyeMaterialConfig._EyeBackColor.ToString())),
-        };
-    }*/
-
-    /*private static int FindTheColorIndex(ShopEyeColorScriptable data, Color color)
-    {
-        foreach (var item in data.Colors)
-        {
-            if (color == item.Color)
-            {
-                return item.Index;
-            }
-        }
-
-        return -1;
-    }*/
 }

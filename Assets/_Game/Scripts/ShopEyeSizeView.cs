@@ -34,21 +34,21 @@ namespace Shop
                 var value = configs.EyeSize;
                 
                 item.SetValue(value);
-                item.SetValueAction(SizeSelectAction);
+                item.SelectAction(SizeSelectAction);
             }
         }
 
-        private void SizeSelectAction(float value)
+        private void SizeSelectAction(int index)
         {
             EyeCustomizeModel item = null;
 
             switch (_eyeSizeType)
             {
                 case EyeSizeType.EyeSize:
-                    item = new EyeCustomizeModel(eyeSize: value);
+                    item = new EyeCustomizeModel(eyeSize: index);
                     break;
                 case EyeSizeType.EyeBibeSize:
-                    item = new EyeCustomizeModel(eyeBibeSize: value);
+                    item = new EyeCustomizeModel(eyeBibeSize: index);
                     break;
             }
 

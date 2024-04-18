@@ -47,17 +47,17 @@ MonoBehaviour:
     ItemState: 0
     BuyType: 0
     PricePoint: 0
-    <Color>k__BackingField: {r: 0.74755925, g: 0.8018868, b: 0.2903236, a: 0}
+    <Color>k__BackingField: {r: 0.975, g: 1, b: 0.7, a: 0}
   - Index: 7
     ItemState: 0
     BuyType: 0
     PricePoint: 0
-    <Color>k__BackingField: {r: 0, g: 0.03701353, b: 1, a: 0}
+    <Color>k__BackingField: {r: 0.2504148, g: 0.26421812, b: 0.6415094, a: 0}
   - Index: 8
     ItemState: 0
     BuyType: 0
     PricePoint: 0
-    <Color>k__BackingField: {r: 0.20119293, g: 0.30296314, b: 0.41509432, a: 0}
+    <Color>k__BackingField: {r: 0.2, g: 0.41568628, b: 0.36973584, a: 0}
   - Index: 9
     ItemState: 0
     BuyType: 0

@@ -4239,7 +4239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8382609804046478189, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8382609804046478191, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -5346,6 +5346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374ac7fe8234454e9033c54ded17c34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EyeSize: {fileID: 11400000, guid: e8b532e2754412b46a76c44f3886969d, type: 2}
+  EyePupilSize: {fileID: 11400000, guid: d2d5f16e4221b5f499ec0d641663fc17, type: 2}
   EyeColor: {fileID: 11400000, guid: 2f0b7f207a748c14390b2f4849fcc28a, type: 2}
   EyeBackColor: {fileID: 11400000, guid: 7ededb447e069754fa37fbe6542487a7, type: 2}
   EyeTexture: {fileID: 11400000, guid: 4efc3da3ff938ff418228155857d1b10, type: 2}
@@ -5670,7 +5672,7 @@ Transform:
   m_Children:
   - {fileID: 777845982}
   m_Father: {fileID: 1226312063}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -7.89, z: 0}
 --- !u!1001 &1622663296
 PrefabInstance:
@@ -6572,7 +6574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 75}
+  m_AnchoredPosition: {x: 0, y: 74.999985}
   m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1774220911
@@ -7542,11 +7544,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300373413888, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_text
-      value: '<b>Color</b>
+      value: '<b>Texture</b>
 
         Eye Type
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337501300373413888, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
+      propertyPath: m_fontSize
+      value: 23.55
       objectReference: {fileID: 0}
     - target: {fileID: 4337501300667483895, guid: c008d21cd71406249a8ba08d7a946d02, type: 3}
       propertyPath: m_AnchoredPosition.y

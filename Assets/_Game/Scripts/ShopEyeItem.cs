@@ -96,28 +96,6 @@ namespace Shop
             };
         }
 
-        internal void SetValueAction(Action<float> action)
-        {
-            _selectButtonClickEvent = state =>
-            {
-                if (state)
-                {
-                    action.Invoke(_value);
-                }
-            };
-        }
-
-        internal void SetTextureAction(Action<Texture> action)
-        {
-            _selectButtonClickEvent = state =>
-            {
-                if (state)
-                {
-                    action.Invoke(_previewImage.texture);
-                }
-            };
-        }
-
         #endregion
 
         //Refactoring
