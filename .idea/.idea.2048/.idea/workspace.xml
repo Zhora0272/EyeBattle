@@ -5,31 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Contrast.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Contrast.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyeLight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyeLight.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyeTriangle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyeTriangle.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/World.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/World.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Yolka.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Yolka.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBackColorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBackColorData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBibeSizeData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBibeSizeData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeFrontColorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeFrontColorData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeHeadDecorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeHeadDecorData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeSizeData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeSizeData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeTextureData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeTextureData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeTypeData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeTypeData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Glass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Glass.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Gold.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Gold.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +219,7 @@
       <workItem from="1713249207905" duration="3841000" />
       <workItem from="1713350782488" duration="6124000" />
       <workItem from="1713421932970" duration="7130000" />
-      <workItem from="1713546706102" duration="5577000" />
+      <workItem from="1713546706102" duration="7519000" />
     </task>
     <servers />
   </component>
