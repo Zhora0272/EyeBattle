@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -20,20 +19,24 @@ public class FinanceTextSubscribe : MonoBehaviour
     {
         _financeManager = MainManager.GetManager<FinanceManager>();
         
+        IReactiveProperty<int> reactiveProperty = null;
+        string priceSymbol = null;
+        
         switch (_buyType)
         {
             case BuyType.Money :
-                _financeManager.Money.Subscribe(value =>
-                {
-                    _text.text = value + "$";
-                }).AddTo(this);
+                reactiveProperty = _financeManager.Money;
+                priceSymbol = "$";
                 break;
             case BuyType.Gem :
-                _financeManager.Gem.Subscribe(value =>
-                {
-                    _text.text = value + "#";
-                }).AddTo(this);
+                reactiveProperty = _financeManager.Gem;
+                priceSymbol = "#";
                 break;
         }
+
+        reactiveProperty.Subscribe(value =>
+        {
+            _text.text = value + priceSymbol;
+        }).AddTo(this);    
     }
 }

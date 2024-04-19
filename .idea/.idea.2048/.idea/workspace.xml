@@ -5,8 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/[image] money 1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/[image] money 1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/[image] money.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/[image] money.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotBrokenEyeCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotBrokenEyeCollection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/PlayerBrokenEyeCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/PlayerBrokenEyeCollection.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeBot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Collectable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Collectable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BrokenEyeCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BaseBrokenEyeCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BrokenEyeCollection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BaseBrokenEyeCollection.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/FinanceTextSubscribe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/FinanceTextSubscribe.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main/GlobalPostProcessing.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main/GlobalPostProcessing.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +235,7 @@
       <workItem from="1713249207905" duration="3841000" />
       <workItem from="1713350782488" duration="6124000" />
       <workItem from="1713421932970" duration="7130000" />
-      <workItem from="1713546706102" duration="7519000" />
+      <workItem from="1713546706102" duration="10919000" />
     </task>
     <servers />
   </component>

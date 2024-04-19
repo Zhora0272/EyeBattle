@@ -3,7 +3,12 @@ using System;
 using UniRx;
 using UnityEngine;
 
-public class FinanceManager : MonoManager, IGameDataSaveable
+interface ICollectionFinanseInterface
+{
+    public void AddCollection(int value);
+}
+
+public class FinanceManager : MonoManager, IGameDataSaveable, ICollectionFinanseInterface
 {
     //Mono Manager
     private QuestionRequestManager _questionViewManager;
@@ -16,6 +21,11 @@ public class FinanceManager : MonoManager, IGameDataSaveable
     //Reactive property
     private readonly ReactiveProperty<int> _money = new();
     private readonly ReactiveProperty<int> _gem = new();
+
+    public void AddCollection(int value)
+    {
+        _money.Value += value;
+    }
 
     private void Start()
     {
@@ -33,7 +43,7 @@ public class FinanceManager : MonoManager, IGameDataSaveable
         {
             case BuyType.Money: return value / toMoneyCoefficient;
             case BuyType.Gem: return value / toGemCoefficient;
-            case BuyType.Ads: return (int) ((float) value / toAdsCoefficient);
+            case BuyType.Ads: return (int)((float)value / toAdsCoefficient);
         }
 
         return default;
@@ -49,7 +59,7 @@ public class FinanceManager : MonoManager, IGameDataSaveable
         {
             case BuyType.Money: return value * toMoneyCoefficient;
             case BuyType.Gem: return value * toGemCoefficient;
-            case BuyType.Ads: return (int) ((float) value * toAdsCoefficient);
+            case BuyType.Ads: return (int)((float)value * toAdsCoefficient);
         }
 
         return default;
@@ -158,10 +168,7 @@ public class FinanceManager : MonoManager, IGameDataSaveable
                         headerText = $"Watch Ads to Unlock";
                         confirmText = "Watch";
 
-                        _questionViewManager.Activate(headerText, "Cancel", confirmText, () =>
-                        {
-                            _action?.Invoke();
-                        });
+                        _questionViewManager.Activate(headerText, "Cancel", confirmText, () => { _action?.Invoke(); });
                     }
                     else
                     {
@@ -182,7 +189,6 @@ public class FinanceManager : MonoManager, IGameDataSaveable
                 _action = adsStartAction;
             }
         });
-
     }
 
     private void AdsRewardAction()

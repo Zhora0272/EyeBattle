@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8363206458509672544}
   - component: {fileID: 767367345007416154}
   - component: {fileID: 2557098017190976718}
-  - component: {fileID: 5037416915737377743}
   - component: {fileID: 4272636086632899}
   - component: {fileID: 1987441958510280977}
+  - component: {fileID: 2585913027822623281}
   - component: {fileID: 767367345007416152}
   - component: {fileID: 767367345007416153}
   - component: {fileID: 6502039540607270191}
@@ -56,7 +56,7 @@ MonoBehaviour:
   clanId: 1
   _rotationTrasform: {fileID: 7644217642888034248}
   _brokenEyePartsController: {fileID: 8929123729359011158}
-  _brokenEyeCollector: {fileID: 5037416915737377743}
+  _brokenEyeCollector: {fileID: 2585913027822623281}
   Rb: {fileID: 767367345007416152}
   _meshRenderer: {fileID: 1487199480943174899}
   _eyeModelTransform: {fileID: 7644217642888034248}
@@ -85,20 +85,6 @@ MonoBehaviour:
   _registerState: 0
   _canRegister: 1
   _eyeBaseController: {fileID: 767367345007416154}
---- !u!114 &5037416915737377743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767367345007416155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d98e36b8e57b548915f3c9a4e9f070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _loadBarCanvasGroup: {fileID: 0}
-  _triggerCheckController: {fileID: 4272636086632899}
 --- !u!114 &4272636086632899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,8 +113,27 @@ MonoBehaviour:
   _eyeMaterial: {fileID: 2100000, guid: 995f58cdf3d98ae4e9a33ad0df566ac2, type: 2}
   _eyeMeshRenderer: {fileID: 8351681483070269974}
   _decorGamobject: {fileID: 0}
-  _eyeColorData: {fileID: 0}
-  _eyeBackColorData: {fileID: 0}
+  _model:
+    _eyeSize: 0
+    _eyeBibeSize: 0
+    _eyeType: 0
+    _eyeColor: 0
+    _eyeBackColor: 0
+    _eyeHeadDecor: 0
+    _eyeBodyDecor: 0
+--- !u!114 &2585913027822623281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767367345007416155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffe2ffb294048759fa7d9bd58ed8666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerCheckController: {fileID: 4272636086632899}
 --- !u!54 &767367345007416152
 Rigidbody:
   m_ObjectHideFlags: 0

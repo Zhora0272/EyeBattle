@@ -32,7 +32,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     [Space]
     [SerializeField] protected BrokenEyePartsController _brokenEyePartsController;
-    [SerializeField] protected BrokenEyeCollection _brokenEyeCollector;
+    [SerializeField] protected BaseBrokenEyeCollection _brokenEyeCollector;
     [SerializeField] protected Rigidbody Rb;
     [Space] 
     [SerializeField] protected GameObject _meshRenderer;

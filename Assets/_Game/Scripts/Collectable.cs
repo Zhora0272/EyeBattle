@@ -9,7 +9,7 @@ public class Collectable : CachedMonoBehaviour
 
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private MeshCollider _collider;
-    [SerializeField] private float _value;
+    [SerializeField] private int _value;
 
     private ITransform _target;
 
@@ -38,7 +38,7 @@ public class Collectable : CachedMonoBehaviour
         _collectAnimBase.Deactivate(this);
     }
 
-    public float Collect(ITransform target, float duration)
+    public int Collect(ITransform target, float duration)
     {
         if (CollectState) return 0;
         CollectState = true;
@@ -75,7 +75,7 @@ public class CollectableCollectAnimation : CollectableCollectAnimBase
             {
                 mono.Position = Vector3.Lerp(mono.Position,
                     target.IPosition + Vector3.up,
-                    Time.deltaTime * 5);
+                    Time.deltaTime * 10);
             }).AddTo(mono);
             
             mono.transform.DOScale(0, 2).onComplete = () => //move scale to the zero 

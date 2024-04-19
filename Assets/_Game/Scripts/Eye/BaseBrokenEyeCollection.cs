@@ -1,12 +1,9 @@
-using DG.Tweening;
 using System;
 using UniRx;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class BrokenEyeCollection : CachedMonoBehaviour
+public abstract class BaseBrokenEyeCollection : CachedMonoBehaviour
 {
-    [SerializeField] private CanvasGroup _loadBarCanvasGroup;
     [SerializeField] private TriggerCheckController _triggerCheckController;
 
     public IObservable<float> BrokenPartsCollectionStream => _brokenPartCollectionSubject;
@@ -14,10 +11,15 @@ public class BrokenEyeCollection : CachedMonoBehaviour
 
     private IDisposable _indicatorHideDisposable;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _triggerCheckController.TriggerLayerEnterRegister(Layer.BrokenEye,
             BrokenEyeEnterTrigger);
+    }
+
+    protected virtual void Start()
+    {
+        
     }
 
     private void OnEnable()
@@ -51,6 +53,11 @@ public class BrokenEyeCollection : CachedMonoBehaviour
 
     private void Collect(Collectable result, Collider other, float duration)
     {
-        result.Collect(this, duration);
+        CollectAction(result.Collect(this, duration));
+    }
+
+    protected virtual void CollectAction(int value)
+    {
+        
     }
 }
