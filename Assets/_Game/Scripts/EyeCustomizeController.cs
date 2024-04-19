@@ -11,14 +11,11 @@ public class EyeCustomizeController : MonoBehaviour, IGameDataSaveable
     public Material GetMaterial() => _eyeMaterial;
     public GameObject GetDecor() => _decorGamobject;
 
-    private EyeCustomizeModel _model;
+    [SerializeField] private EyeCustomizeModel _model;
 
     public void SetData(GameData data)
     {
-        _eyeMaterial = EyeShaderGraph.GetMaterial
-        (
-            data.EyeCustomizeModel
-        );
+        _eyeMaterial = EyeShaderGraph.GetMaterial(data.EyeCustomizeModel);
         _model = data.EyeCustomizeModel;
         _eyeMeshRenderer.material = _eyeMaterial;
     }

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SizeParameters>k__BackingField:
   - Index: 0
-    ItemState: 0
+    ItemState: 1
     BuyType: 0
-    PricePoint: 50
+    PricePoint: 0
     <EyeSize>k__BackingField: 1.5
     <EyeSizeTexture>k__BackingField: {fileID: 0}
   - Index: 1

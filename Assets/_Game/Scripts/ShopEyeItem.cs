@@ -109,7 +109,7 @@ namespace Shop
                 case ShopItemState.Selected:
                 {
                     _selectedIndex.Value = _indexInQueue;
-                    _selectButtonClickEvent.Invoke(true);
+                    _selectButtonClickEvent?.Invoke(true);
                 }
                     break;
 

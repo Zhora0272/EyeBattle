@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TypeParameters>k__BackingField:
   - Index: 0
-    ItemState: 0
+    ItemState: 1
     BuyType: 0
-    PricePoint: 260
+    PricePoint: 0
     <EyeType>k__BackingField: 0
     <EyeTypeTexture>k__BackingField: {fileID: 0}
   - Index: 1

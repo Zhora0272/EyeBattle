@@ -1078,6 +1078,14 @@ MonoBehaviour:
   _eyeMaterial: {fileID: 0}
   _eyeMeshRenderer: {fileID: 4297366258155584576}
   _decorGamobject: {fileID: 0}
+  _model:
+    _eyeSize: 0
+    _eyeBibeSize: 0
+    _eyeType: 0
+    _eyeColor: 0
+    _eyeBackColor: 0
+    _eyeHeadDecor: 0
+    _eyeBodyDecor: 0
 --- !u!114 &4205919614353510748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3476,19 +3484,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7985973962221609353, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.99135995
       objectReference: {fileID: 0}
     - target: {fileID: 7985973962221609353, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.0017085351
       objectReference: {fileID: 0}
     - target: {fileID: 7985973962221609353, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.13051516
       objectReference: {fileID: 0}
     - target: {fileID: 7985973962221609353, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.012977599
       objectReference: {fileID: 0}
     - target: {fileID: 7985973962221609353, guid: f9619eb58d5c94144a898fb837dcabf1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
