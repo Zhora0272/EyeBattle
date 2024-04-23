@@ -19,6 +19,8 @@ public class MapController : MonoBehaviour
 
     [SerializeField] private float _distance;
 
+    [SerializeField] private float _mapClamp = 150;
+
     private Dictionary<EyeBaseController, RectTransform> _mapElements;
     private List<EyeBaseController> _elements;
 
@@ -38,13 +40,13 @@ public class MapController : MonoBehaviour
     {
         _elements = MainManager.GetManager<EyeSpawnManager>()._spawnedEyes;
 
-        Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ => 
+        Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
         {
             var count = _mapElements.Count;
 
             foreach (var element in _elements)
             {
-                if(!_mapElements.ContainsKey(element))
+                if (!_mapElements.ContainsKey(element))
                 {
                     var indicator = Instantiate(_indicatorRectransform, _mapIndicatorContent);
 
@@ -57,15 +59,14 @@ public class MapController : MonoBehaviour
                     _mapElements.TryAdd(element, indicator);
                 }
 
-                if(element.IsDeath.Value)
+                if (element.IsDeath.Value)
                 {
-                    if(_mapElements.TryGetValue(element, out var result))
+                    if (_mapElements.TryGetValue(element, out var result))
                     {
                         result.GetComponent<Image>().sprite = _indicatorSprite[1];
                     }
                 }
             }
-
         }).AddTo(this);
     }
 
@@ -79,7 +80,13 @@ public class MapController : MonoBehaviour
 
                 var newPos = item.position - _playerTransform.position;
 
-                element.Value.anchoredPosition = new Vector2(newPos.x, newPos.z) * _distance;
+                var anchorPosition = new Vector2(newPos.x, newPos.z) * _distance;
+                
+                element.Value.anchoredPosition = new Vector2
+                (
+                    Mathf.Clamp(anchorPosition.x, -_mapClamp, _mapClamp),
+                    Mathf.Clamp(anchorPosition.y, -_mapClamp, _mapClamp)
+                );
 
                 /*if (element.Key.Size.Value * 15 != element.Value.sizeDelta.x)
                 {

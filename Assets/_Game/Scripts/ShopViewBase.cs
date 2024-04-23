@@ -35,6 +35,10 @@ namespace Shop
 
             for (int i = 0; i < eyeItemsLenght; i++)
             {
+                print(eyeItemsLenght);
+                print(_shopEyeItems);
+                print(_shopEyeItems.Count);
+                
                 _shopEyeItems[i].SetSelectedReactiveProperty(SelectedIndex);
                 _shopEyeItems[i].SetData(ItemData.BaseEyeItems[i]);
             }

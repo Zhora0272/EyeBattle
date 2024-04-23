@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System;
+using System.Collections;
 using _Game.Scripts.Utility;
 using Shop;
 using UniRx;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Bot.BotController
 {
@@ -17,7 +19,7 @@ namespace Bot.BotController
 
         [SerializeField] private ShopEyeSizeScriptable _eyeSize;
         [SerializeField] private ShopEyeColorScriptable _eyeColor;
-        
+
         public List<EyeBaseController> _spawnedEyes { private set; get; }
         private EyePool _eyePool;
 
@@ -39,62 +41,90 @@ namespace Bot.BotController
                 () => { _spawnBotDisposable?.Dispose(); });
         }
 
-        private Vector3 _lastPosition;
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(_randomPosition + Vector3.up, 2);
+        }
+
+        private Vector3 _randomPosition;
 
         private void SpawnEnemies()
         {
+            List<Vector3> spawnPositions = new();
+            
             _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
             {
+                spawnPositions.Clear();
+                
+                bool state = true;
+
+                int distance = 55;
+
                 var position = _playerTransform.transform.position; //get player position
 
-                var randomPosition =
-                    new Vector3(position.x, 0, position.z) + // make random position for spawn new element
-                    HelperMath.GetRandomPositionWithClamp(-20, 20, true, 10);
-
-                _lastPosition = randomPosition;
-
-                var state = FreeSpaceCheckManager.CheckVector // Check free space for spawn new element
-                (
-                    randomPosition,
-                    2, 1 << LayerMask.NameToLayer("Eye")
-                );
-
-                bool spawnState = false;
-
-                foreach (var item in _eyeSpawnList)
+                for (int j = -distance; j < distance; j++)
                 {
-                    if (item.SpawnCount < 1) continue;
-
-                    item.SpawnCount--;
-
-                    spawnState = true;
-
-                    var spawnElement =
-                        _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController,
-                            _worldTransform); // pooling systeam
-
-                    spawnElement.transform.position = randomPosition;
-
-                    var model = new EyeCustomizeModel();
-
-                    model._eyeColor = UnityEngine.Random.Range(0, _eyeColor.Colors.Length); 
-                    model._eyeBackColor = UnityEngine.Random.Range(0, _eyeColor.Colors.Length); 
-                    model._eyeSize = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length); 
-                    model._eyeBibeSize = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length); 
-                    model._eyeType = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length); 
-                    
-                    spawnElement.SetCustomizeModel(new GameData() { EyeCustomizeModel = model });
-
-                    if (spawnElement != null)
+                    for (int i = -distance; i < distance * 1.20; i++)
                     {
-                        _spawnedEyes.Add(spawnElement);
-                        spawnElement.Activate(item.BotType, item.BotModel); //do this in the last
+                        var randomPosition = new Vector3(position.x, 0, position.z) + new Vector3(i, 0, j);
+                        var magnitude = (position - randomPosition).magnitude;
+                        if (magnitude < 40 || magnitude > 50) continue;
+
+                        state = FreeSpaceCheckManager.CheckVector // Check free space for spawn new element
+                        (
+                            randomPosition,
+                            3, ~ (1 << 3)
+                        );
+
+                        if (!state)
+                        {
+                            spawnPositions.Add(randomPosition);
+                            _randomPosition = randomPosition;
+                        }
                     }
                 }
 
-                if (!spawnState)
+
+                if (!state)
                 {
-                    _spawnBotDisposable?.Dispose();
+                    bool spawnState = false;
+
+                    foreach (var item in _eyeSpawnList)
+                    {
+                        if (item.SpawnCount < 1) continue;
+
+                        item.SpawnCount--;
+
+                        spawnState = true;
+
+                        var spawnElement =
+                            _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController,
+                                _worldTransform); // pooling systeam
+
+                        spawnElement.transform.position = spawnPositions[Random.Range(0,spawnPositions.Count)];
+
+                        var model = new EyeCustomizeModel(); //this model too need pooling
+
+                        model._eyeColor = UnityEngine.Random.Range(0, _eyeColor.Colors.Length);
+                        model._eyeBackColor = UnityEngine.Random.Range(0, _eyeColor.Colors.Length);
+                        model._eyeSize = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length);
+                        model._eyeBibeSize = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length);
+                        model._eyeType = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length);
+
+                        spawnElement.SetCustomizeModel(new GameData { EyeCustomizeModel = model });
+
+                        if (spawnElement != null)
+                        {
+                            _spawnedEyes.Add(spawnElement);
+                            spawnElement.Activate(item.BotType, item.BotModel); //do this in the last
+                        }
+                    }
+
+                    if (!spawnState)
+                    {
+                        _spawnBotDisposable?.Dispose();
+                    }
                 }
             }).AddTo(this);
         }
