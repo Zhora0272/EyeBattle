@@ -1766,6 +1766,7 @@ MonoBehaviour:
   _playerTransform: {fileID: 2895838331650394279}
   _mapIndicatorContent: {fileID: 1268954542}
   _distance: 4
+  _mapClamp: 135
 --- !u!1 &637602668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,7 +2254,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 2
+  m_Antialiasing: 1
   m_AntialiasingQuality: 1
   m_StopNaN: 0
   m_Dithering: 0
@@ -5731,7 +5732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _subEvents:
   - eventType: 0
-    pageType: 4
+    pageType: 3
   - eventType: 1
     pageType: 1
 --- !u!1001 &1651023144

@@ -87,13 +87,6 @@ public class MapController : MonoBehaviour
                     Mathf.Clamp(anchorPosition.x, -_mapClamp, _mapClamp),
                     Mathf.Clamp(anchorPosition.y, -_mapClamp, _mapClamp)
                 );
-
-                /*if (element.Key.Size.Value * 15 != element.Value.sizeDelta.x)
-                {
-                    var newSizeDelta = new Vector2(element.Key.Size.Value, element.Key.Size.Value);
-
-                    element.Value.DOSizeDelta(newSizeDelta * 15, 1);
-                }*/
             }
         }
     }
