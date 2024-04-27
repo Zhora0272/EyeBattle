@@ -89,12 +89,7 @@ public class BehaviourJuggernautController : BehaviourControllerBase
 
         return model;
     }
-
-    public BehaviourJuggernautController() : base()
-    {
-    }
 }
-
 public class BehaviourSoliderController : BehaviourControllerBase
 {
     public override BehaviourControllerModel SetBehaviourState
@@ -125,9 +120,5 @@ public class BehaviourSoliderController : BehaviourControllerBase
         model.MoveDirection = moveDirection;
         
         return model;
-    }
-
-    public BehaviourSoliderController() : base()
-    {
     }
 }

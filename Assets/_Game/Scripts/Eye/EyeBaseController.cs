@@ -57,11 +57,11 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     protected virtual void Awake()
     {
-        Rb = GetComponent<Rigidbody>();
+        Rb ??= GetComponent<Rigidbody>();
 
         _currentModelClone = GetEyeConfigModel();
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Eye, EyeAttackCheck);
-        _updateController.UpdateElementController.Subscribe(GetUpdate).AddTo(this);
+        //_updateController.UpdateElementController.Subscribe(GetUpdate).AddTo(this);
     }
 
     private void FixedUpdate()
@@ -189,16 +189,11 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     {
         if (other.gameObject.TryGetComponent<EyeBaseController>(out var result))
         {
-            result.Attack(Force, transform.position);
-        }
-    }
-
-    private void Attack(float force, Vector3 attackPosition)
-    {
-        if (Rb.mass * Rb.velocity.magnitude < force)
-        {
-            _brokenEyePartsController.Activate();
-            EyeDeadEvent();
+            if (result.Force > Force)
+            {
+                _brokenEyePartsController.Activate();
+                EyeDeadEvent();
+            }
         }
     }
 

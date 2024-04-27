@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ShopEyeDecorData", menuName = "Data/Shop/EyeDecorData")]
 public class ShopEyeDecorScriptable : ScriptableObject
 {
-    [field:SerializeField] public BaseEyeDecorParameters[] Decors { get; private set; }
+    [field:SerializeField] public BaseEyeDecorParameters[] DecorParameters { get; private set; }
 }
 
 [Serializable]

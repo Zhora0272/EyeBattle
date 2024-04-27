@@ -9,8 +9,7 @@ public class EyeCustomizeModel
     public int _eyeType;
     public int _eyeColor;
     public int _eyeBackColor;
-    public int _eyeHeadDecor;
-    public int _eyeBodyDecor;
+    public int _eyeDecor;
 
     public EyeCustomizeModel
     (
@@ -19,8 +18,7 @@ public class EyeCustomizeModel
         int eyeType = -1,
         int eyeColor = -1,
         int eyeBackColor = -1,
-        int eyeHeadDecor = -1,
-        int eyeBodyDecor = -1
+        int eyeDecor = -1
     )
     {
         _eyeBibeSize = eyeBibeSize;
@@ -31,7 +29,6 @@ public class EyeCustomizeModel
         _eyeColor = eyeColor;
         _eyeBackColor = eyeBackColor;
         
-        _eyeHeadDecor = eyeHeadDecor;
-        _eyeBodyDecor = eyeBodyDecor;
+        _eyeDecor = eyeDecor;
     }
 }

@@ -17,9 +17,6 @@ namespace Bot.BotController
         [Space] [SerializeField] private UpdateElementController _speedUpdate;
         [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
 
-        [SerializeField] private ShopEyeSizeScriptable _eyeSize;
-        [SerializeField] private ShopEyeColorScriptable _eyeColor;
-
         public List<EyeBaseController> _spawnedEyes { private set; get; }
         private EyePool _eyePool;
 
@@ -103,16 +100,8 @@ namespace Bot.BotController
                                 _worldTransform); // pooling systeam
 
                         spawnElement.transform.position = spawnPositions[Random.Range(0,spawnPositions.Count)];
-
-                        var model = new EyeCustomizeModel(); //this model too need pooling
-
-                        model._eyeColor = UnityEngine.Random.Range(0, _eyeColor.Colors.Length);
-                        model._eyeBackColor = UnityEngine.Random.Range(0, _eyeColor.Colors.Length);
-                        model._eyeSize = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length);
-                        model._eyeBibeSize = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length);
-                        model._eyeType = UnityEngine.Random.Range(0, _eyeSize.SizeParameters.Length);
-
-                        spawnElement.SetCustomizeModel(new GameData { EyeCustomizeModel = model });
+                        
+                        spawnElement.SetCustomizeModel(new GameData { EyeCustomizeModel = item.EyeCustomize });
 
                         if (spawnElement != null)
                         {

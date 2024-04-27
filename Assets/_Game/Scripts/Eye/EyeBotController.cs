@@ -44,6 +44,8 @@ namespace Bot.BotController
 
         protected override void Awake()
         {
+            base.Awake();
+            
             _moveableRigidbody = new MoveWithRbAddForce();
         }
 

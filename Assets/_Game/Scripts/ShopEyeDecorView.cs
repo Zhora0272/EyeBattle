@@ -4,29 +4,29 @@ namespace Shop
 {
     public class ShopEyeDecorView : ShopViewBase
     {
-        enum EyeDecorType
-        {
-            EyeHeadDecor,
-            EyeBodyDecor,
-        }
-
         [Header("Data")] [SerializeField] private ShopEyeDecorScriptable _eyeDecorScriptable;
-        [SerializeField] private EyeDecorType _eyeDecorType;
 
         protected override void Init()
         {
             base.Init();
             for (int i = 0; i < 3; i++)
             {
-                if(_eyeDecorScriptable.Decors[i] != null) continue;
+                if(_eyeDecorScriptable.DecorParameters[i] != null) continue;
                 
-                var configs = _eyeDecorScriptable.Decors[i];
-                var item = Instantiate(_prefabRectTransform, _deactiavtedContent);
+                var configs = _eyeDecorScriptable.DecorParameters[i];
+                
+                DeactivatedContentInit(out var item);
 
-                //
-                item.SetRaycastState(false);
-                item.HideItemElements();
-                //
+                if (configs != null) item.SetTexture(configs.EyeDecorTexture);
+                item.SetColor(Color.magenta);
+            }
+            
+            foreach (var configs in _eyeDecorScriptable.DecorParameters)
+            {
+                ActivatedContentInit(out var item, configs);
+
+                item.SetTexture(configs.EyeDecorTexture);
+                item.SelectAction(DecorSelectAction);
             }
         }
 
@@ -34,16 +34,8 @@ namespace Shop
         {
             EyeCustomizeModel item = null;
 
-            switch (_eyeDecorType)
-            {
-                case EyeDecorType.EyeHeadDecor:
-                    item = new EyeCustomizeModel(eyeHeadDecor: index);
-                    break;
-                case EyeDecorType.EyeBodyDecor:
-                    item = new EyeCustomizeModel(eyeBodyDecor: index);
-                    break;
-            }
-
+            item = new EyeCustomizeModel(eyeDecor: index);
+            
             _manager.CallBack.Value = item;
         }
 
