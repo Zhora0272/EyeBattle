@@ -24,7 +24,6 @@ namespace Data
 
                 new() { BaseEyeItems = EyeTexture.TextureParameters },
 
-                new() { BaseEyeItems = EyeSize.SizeParameters },
                 new() { BaseEyeItems = EyePupilSize.SizeParameters },
                 
                 new() { BaseEyeItems = EyeDecor.DecorParameters },

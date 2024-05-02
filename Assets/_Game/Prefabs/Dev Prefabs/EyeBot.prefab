@@ -258,6 +258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3deye
       objectReference: {fileID: 0}
+    - target: {fileID: 8082315759913241980, guid: 506d8d0e6ccbc1e47b4346539c759f48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8082315759913241986, guid: 506d8d0e6ccbc1e47b4346539c759f48, type: 3}
       propertyPath: _meshRenderer
       value: 

@@ -10,6 +10,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     //
     [SerializeField] private Transform _rotationTrasform;
     //
+    
     public IReactiveProperty<int> Mass => _hp;
     public IReactiveProperty<float> Speed => _speed;
     public float Force => Rb.mass * Rb.velocity.magnitude;
@@ -132,20 +133,33 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     #endregion
 
-    protected virtual void EyeDeadEvent()
+    internal virtual void EyeActivate()
     {
-        _isDeath.Value = true;
+        DisposeAll();
+        EyeStateChangeEvent(false);
+    }
+    
+    internal virtual void EyeDeadEvent()
+    {
+        DisposeAll();
+        EyeStateChangeEvent(true);
+        _brokenEyePartsController.Activate();
+    }
 
-        _brokenEyeCollector.enabled = false;
+    private void EyeStateChangeEvent(bool state)
+    {
+        Rb.isKinematic = state;
+        _brokenEyeCollector.enabled = !state;
+        _isDeath.Value = state;
+        _sphereCollider.enabled = !state;
+        _meshRenderer.SetActive(!state);
+    }
 
+    private void DisposeAll()
+    {
         _brokenEyeCollectorDisposable?.Dispose();
         _sizeDisposable?.Dispose();
         _everyUpdateDispose?.Dispose();
-
-        _sphereCollider.enabled = false;
-        _meshRenderer.SetActive(false);
-        Rb.isKinematic = true;
-
         _moveFixedDisposable?.Dispose();
         _moveUpdateDisposable?.Dispose();
     }
@@ -176,7 +190,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         Quaternion rotation = Quaternion.LookRotation(vectorOfPositions, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10);
         _rotationTrasform.Rotate((Rb.velocity.magnitude * Time.deltaTime * 80), 0, 0);
-        
     }
 
     #endregion
@@ -191,7 +204,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         {
             if (result.Force > Force)
             {
-                _brokenEyePartsController.Activate();
                 EyeDeadEvent();
             }
         }

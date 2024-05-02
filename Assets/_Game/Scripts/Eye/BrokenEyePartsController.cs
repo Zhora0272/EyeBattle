@@ -1,3 +1,6 @@
+using System;
+using DG.Tweening;
+using UniRx;
 using UnityEngine;
 
 public class BrokenEyePartsController : MonoBehaviour
@@ -11,22 +14,8 @@ public class BrokenEyePartsController : MonoBehaviour
 
     [SerializeField] private Vector3[] _partPositions;
 
-    [ContextMenu("set positions")]
-    private void SetPartsPositions()
-    {
-        
-    }
-    
-    /*[ContextMenu("get positions")]
-    private void GetPartsPositions()
-    {
-        _partPositions = new Vector3[_transforms.Length];
+    [SerializeField] private MeshCollider[] _collider;
 
-        for (int i = 0; i < _transforms.Length; i++)
-        {
-            _partPositions[i] = _transforms[i].position;
-        }
-    }*/
 
     [ContextMenu("Set Meshes")]
     private void Init()
@@ -36,16 +25,37 @@ public class BrokenEyePartsController : MonoBehaviour
             _transforms[i].GetComponent<MeshFilter>().mesh = _partsMeshs[i];
             _transforms[i].GetComponent<MeshCollider>().sharedMesh = _partsMeshs[i];
             _transforms[i].position = _partPositions[i];
+            _collider[i] = _transforms[i].GetComponent<MeshCollider>();
         }
+    }
+
+    internal void ReActivate()
+    {
+        float animTime = 1;
+        for (int i = 0; i < _transforms.Length; i++)
+        {
+            _transforms[i].DOLocalMove(_partPositions[i], animTime);
+            _transforms[i].DOLocalRotate(Vector3.zero, animTime);
+            _transforms[i].GetComponent<MeshCollider>().enabled = false;
+            _collider[i].enabled = false;
+            _partsRb[i].isKinematic = true;
+        }
+
+        Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+        {   
+            gameObject.SetActive(false);
+            
+        }).AddTo(this);
     }
 
     public void Activate()
     {
-        transform.SetParent(null);
+        //transform.SetParent(null);
         gameObject.SetActive(true);
-        
+
         for (int i = 0; i < _partsRb.Length; i++)
         {
+            _collider[i].enabled = true;
             _partsRb[i].isKinematic = false;
             _partsMaterial[i].material = _meshRenderer.material;
         }

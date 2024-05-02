@@ -13,7 +13,7 @@ public class Collectable : CachedMonoBehaviour
 
     private ITransform _target;
 
-    public bool CollectState { private set; get; }
+    [field: SerializeField] public bool CollectState { private set; get; }
     public float BrokenTime { private set; get; }
 
     private CollectableCollectAnimBase _collectAnimBase;
@@ -42,15 +42,12 @@ public class Collectable : CachedMonoBehaviour
     {
         if (CollectState) return 0;
         CollectState = true;
-        
+
         _collider.enabled = false;
         _rb.isKinematic = true;
 
         Observable.Timer(TimeSpan.FromSeconds(.5f))
-            .Subscribe(_ =>
-            {
-                _collectAnimBase.Activate(this, target, duration);
-            }).AddTo(this);
+            .Subscribe(_ => { _collectAnimBase.Activate(this, target, duration); }).AddTo(this);
         return _value;
     }
 }
@@ -58,7 +55,7 @@ public class Collectable : CachedMonoBehaviour
 public class CollectableCollectAnimation : CollectableCollectAnimBase
 {
     private IDisposable _everyUpdate;
-    
+
     public override void Deactivate(CachedMonoBehaviour mono)
     {
         mono.DOKill();
@@ -67,7 +64,7 @@ public class CollectableCollectAnimation : CollectableCollectAnimBase
 
     public override void Activate(CachedMonoBehaviour mono, ITransform target, float duration)
     {
-        mono.transform.DOMove(mono.IPosition + Vector3.up * 2, 2)  //jump up 
+        mono.transform.DOMove(mono.IPosition + Vector3.up * 2, 2) //jump up 
             .SetEase(Ease.OutBack)
             .onComplete = () =>
         {
@@ -77,7 +74,7 @@ public class CollectableCollectAnimation : CollectableCollectAnimBase
                     target.IPosition + Vector3.up,
                     Time.deltaTime * 10);
             }).AddTo(mono);
-            
+
             mono.transform.DOScale(0, 2).onComplete = () => //move scale to the zero 
             {
                 mono.gameObject.SetActive(false);

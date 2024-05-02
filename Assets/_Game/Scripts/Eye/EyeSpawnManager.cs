@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System;
-using System.Collections;
 using _Game.Scripts.Utility;
-using Shop;
 using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,6 +13,7 @@ namespace Bot.BotController
         [Space] [SerializeField] private EyeBaseController _botPrrefab;
         [SerializeField] private EyeBaseController _playerTransform;
         [Space] [SerializeField] private UpdateElementController _speedUpdate;
+        
         [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
 
         public List<EyeBaseController> _spawnedEyes { private set; get; }
@@ -45,6 +44,18 @@ namespace Bot.BotController
         }
 
         private Vector3 _randomPosition;
+
+        internal void CrushAllEyeBots()
+        {
+            if(_spawnedEyes.Count <= 0) return;
+
+            this.WaitAndDoCycle(_spawnedEyes.Count - 1, .2f, i =>
+            {
+                _spawnedEyes[i].EyeDeadEvent();
+            });
+            
+            _spawnBotDisposable?.Dispose();
+        }
 
         private void SpawnEnemies()
         {

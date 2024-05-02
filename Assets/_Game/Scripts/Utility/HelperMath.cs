@@ -131,20 +131,22 @@ namespace _Game.Scripts.Utility
             Action<int> action
         )
         {
-            var cycleCount = 0;
             IDisposable intervalDisposable = null;
             
+            
+            var i = 0;   
             intervalDisposable = Observable.Interval(TimeSpan.FromSeconds(waitTime)).Subscribe(_ =>
             {
-                if (cycleCount >= repeatCount)
+                if (i <= repeatCount)
                 {
-                    intervalDisposable.Dispose();
+                    action?.Invoke(i);
+                    i++;
                 }
                 else
                 {
-                    cycleCount++;
-                    action?.Invoke(cycleCount);
+                    intervalDisposable.Dispose();
                 }
+                
             }).AddTo(monoObject);
 
             return intervalDisposable;

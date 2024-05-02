@@ -7,16 +7,17 @@ public class EyePlayerController : EyeBaseController
 {
     [SerializeField] private InputController _inputController;
 
-    private IDisposable _pointerUpDisposable;
-
     private IMoveableRigidbody _moveableRigidbody;
-
     private ReactiveProperty<bool> _handlerState = new();
 
+    private IDisposable _pointerUpDisposable;
     private IDisposable _rotateUpdateDisposable;
     private IDisposable _moveBalanceDisposable;
     private IDisposable _pointerUpStreamDisposable;
     private IDisposable _pointerDownStreamDisposable;
+
+    public IReactiveProperty<bool> DeadState => _deadState;
+    public ReactiveProperty<bool> _deadState = new(false);
 
     protected override void Awake()
     {
@@ -24,7 +25,7 @@ public class EyePlayerController : EyeBaseController
         _moveableRigidbody = new MoveWithRbAddForce(xyzState: false);
     }
 
-    protected override void EyeDeadEvent()
+    internal override void EyeDeadEvent()
     {
         base.EyeDeadEvent();
 
@@ -32,10 +33,19 @@ public class EyePlayerController : EyeBaseController
         _moveBalanceDisposable?.Dispose();
         _pointerUpStreamDisposable?.Dispose();
         _pointerDownStreamDisposable?.Dispose();
+        _deadState.Value = true;
     }
 
-    protected void Start()
+    internal override void EyeActivate()
     {
+        base.EyeActivate();
+        ReadyToPlay();
+        _brokenEyePartsController.ReActivate();
+    }
+
+    private void ReadyToPlay()
+    {
+        _deadState.Value = false;
         _handlerState.Subscribe(state =>
         {
             if (state)

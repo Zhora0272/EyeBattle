@@ -170,6 +170,27 @@ MonoBehaviour:
   - {x: 0.4483602, y: 1.2239561, z: -0.56982136}
   - {x: 0.11613846, y: 1.6552994, z: -0.20446396}
   - {x: 0.30017447, y: 1.3404477, z: 0.7358818}
+  _collider:
+  - {fileID: 2482537911657148936}
+  - {fileID: 669967589429089414}
+  - {fileID: 717905454091477472}
+  - {fileID: 5953776545597831369}
+  - {fileID: 3473867858389515692}
+  - {fileID: 5911681487357151677}
+  - {fileID: 1594911656839165587}
+  - {fileID: 7228591413302268435}
+  - {fileID: 8510276438859240837}
+  - {fileID: 1843284720181146647}
+  - {fileID: 274006064363667389}
+  - {fileID: 2134938531015154838}
+  - {fileID: 7016718079988859316}
+  - {fileID: 9162141970546686925}
+  - {fileID: 7805795409989777529}
+  - {fileID: 4128952581963846301}
+  - {fileID: 4881448762033426641}
+  - {fileID: 1533208337501201739}
+  - {fileID: 7687472605748972243}
+  - {fileID: 2075660281174979301}
 --- !u!1001 &24954864915775870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,8 +254,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &3473867858389515692 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 24954864915775870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &7092096453993602720 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -313,8 +347,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &4128952581963846301 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 658084404243869263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &7716183694235382161 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -389,8 +436,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &2482537911657148936 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 1305691137424395994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &8082315759762477316 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -469,8 +529,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &1533208337501201739 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 2677967102859549081}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5124696786174314053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7076448553515720668, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -549,8 +622,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &1594911656839165587 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 2760499363284912705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &4934779696134722960 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7076448553515720657, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -629,8 +715,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &1843284720181146647 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 3024635094972254405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &5462076763437913876 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7076448553515720657, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -709,8 +808,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &2075660281174979301 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 3216478602885287479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &5663173486953026022 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7076448553515720657, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -789,8 +901,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &2134938531015154838 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 3300526581989957700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &5762719691711676309 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7076448553515720657, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -869,8 +994,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &274006064363667389 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 3720104307937231727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &5878586605033118897 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -949,8 +1087,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &669967589429089414 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 4116628439484541012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &6563340831210518405 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7076448553515720657, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -1029,8 +1180,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+--- !u!64 &717905454091477472 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 4151055572742774066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &6606529396282786531 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7076448553515720657, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
@@ -1109,6 +1273,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
 --- !u!23 &2612944422559053446 stripped
@@ -1124,6 +1296,11 @@ Rigidbody:
 --- !u!4 &2612944422559053451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7076448553515720668, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 5077689200235112791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8510276438859240837 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
   m_PrefabInstance: {fileID: 5077689200235112791}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5713792134703531807
@@ -1189,6 +1366,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
 --- !u!54 &3278602777941334209 stripped
@@ -1204,6 +1389,11 @@ Transform:
 --- !u!23 &3278602777941334222 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7076448553515720657, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 5713792134703531807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &9162141970546686925 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
   m_PrefabInstance: {fileID: 5713792134703531807}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5840434048777928038
@@ -1269,6 +1459,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
 --- !u!23 &3691258058717045431 stripped
@@ -1284,6 +1482,11 @@ Rigidbody:
 --- !u!4 &3691258058717045434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7076448553515720668, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 5840434048777928038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7016718079988859316 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
   m_PrefabInstance: {fileID: 5840434048777928038}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6069759036673175233
@@ -1349,6 +1552,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
 --- !u!23 &3893509041338364176 stripped
@@ -1364,6 +1575,11 @@ Transform:
 --- !u!54 &3893509041338364191 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 6069759036673175233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7228591413302268435 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
   m_PrefabInstance: {fileID: 6069759036673175233}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6539899160416220673
@@ -1429,6 +1645,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
 --- !u!23 &4104745005004515792 stripped
@@ -1444,6 +1668,11 @@ Transform:
 --- !u!54 &4104745005004515807 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 6539899160416220673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7687472605748972243 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
   m_PrefabInstance: {fileID: 6539899160416220673}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6646963034400851115
@@ -1509,6 +1738,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
 --- !u!54 &4470484393814399861 stripped
@@ -1524,6 +1761,11 @@ Transform:
 --- !u!23 &4470484393814399866 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7076448553515720657, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 6646963034400851115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7805795409989777529 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
   m_PrefabInstance: {fileID: 6646963034400851115}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7090779924870477167
@@ -1589,6 +1831,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
 --- !u!54 &23391777385982641 stripped
@@ -1604,6 +1854,11 @@ Transform:
 --- !u!23 &23391777385982654 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7076448553515720657, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 7090779924870477167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5911681487357151677 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
   m_PrefabInstance: {fileID: 7090779924870477167}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7119364184120493083
@@ -1669,6 +1924,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
 --- !u!54 &70237310033435589 stripped
@@ -1684,6 +1947,11 @@ Transform:
 --- !u!23 &70237310033435594 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7076448553515720657, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 7119364184120493083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5953776545597831369 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
   m_PrefabInstance: {fileID: 7119364184120493083}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8346124421572389891
@@ -1749,6 +2017,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere_part (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076448553515720670, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
 --- !u!23 &1290276372965061586 stripped
@@ -1764,5 +2040,10 @@ Rigidbody:
 --- !u!4 &1290276372965061599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7076448553515720668, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
+  m_PrefabInstance: {fileID: 8346124421572389891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &4881448762033426641 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3489445527560207570, guid: b5e19369461d00945b317ce9bb09e19b, type: 3}
   m_PrefabInstance: {fileID: 8346124421572389891}
   m_PrefabAsset: {fileID: 0}

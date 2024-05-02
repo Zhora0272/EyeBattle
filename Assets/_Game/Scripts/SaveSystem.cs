@@ -3,6 +3,7 @@ using Shop.Container;
 using System;
 using Data;
 using Saveing;
+using UniRx;
 using UnityEngine;
 
 public class SaveSystem : MonoManager
@@ -57,9 +58,9 @@ public class SaveSystem : MonoManager
         {
             var data = new GameData
             {
-                Money = 10000,
-                Gem = 15,
-                ContainerConfigIndexes = new int[6],
+                Money = 50,
+                Gem = 5,
+                ContainerConfigIndexes = new int[5],
                 EyeItemParameters = _dataManager.GetAllDataLists(),
                 EyeCustomizeModel = new EyeCustomizeModel(),
             };
@@ -97,6 +98,7 @@ public class SaveSystem : MonoManager
         _financeManagerGameDataSaveable.SetData(financeData);
         _eyeCustomizeGameDataSaveable.SetData(playerEyeData);
         _shopContainerGameDataSaveable.SetData(containerManager);
+
     }
 
     public void SaveData()

@@ -35,19 +35,22 @@ public class BattleParticipantsManager : MonoManager
         
         foreach (var value in _gameParticipants.Values)
         {
-            if(value[0] == null) continue;
-            if(value[0].ClanId == mineEyeParameters.ClanId) continue;
-            
-            foreach (var item in value)
+            if (value.Count > 0)
             {
-                if (item == mineEyeParameters) continue;
+                if (value[0] == null) continue;
+                if (value[0].ClanId == mineEyeParameters.ClanId) continue;
 
-                var distance = (item.EyeTransform.IPosition - mineEyeParameters.EyeTransform.IPosition).magnitude;
-
-                if (distance < minDistance)
+                foreach (var item in value)
                 {
-                    closestParticipant = item;
-                    minDistance = distance;
+                    if (item == mineEyeParameters) continue;
+
+                    var distance = (item.EyeTransform.IPosition - mineEyeParameters.EyeTransform.IPosition).magnitude;
+
+                    if (distance < minDistance)
+                    {
+                        closestParticipant = item;
+                        minDistance = distance;
+                    }
                 }
             }
         }
