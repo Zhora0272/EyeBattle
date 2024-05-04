@@ -86,6 +86,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     #region Updateable part
 
     private EyeModelBase _currentModelClone;
+    private IDisposable _cancelUpdateDisposable;
 
     public void GetUpdate(UpdateElementModel model)
     {
@@ -97,7 +98,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
         if (model.UpdateTime > 0)
         {
-            Observable.Timer(TimeSpan.FromSeconds(model.UpdateTime)).Subscribe(_ =>
+            _cancelUpdateDisposable = Observable.Timer(TimeSpan.FromSeconds(model.UpdateTime)).Subscribe(_ =>
             {
                 CancelUpdate();
             }).AddTo(this);
@@ -153,6 +154,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _isDeath.Value = state;
         _sphereCollider.enabled = !state;
         _meshRenderer.SetActive(!state);
+        _cancelUpdateDisposable?.Dispose();
     }
 
     private void DisposeAll()

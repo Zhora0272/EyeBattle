@@ -1,3 +1,4 @@
+using System;
 using Data;
 using UnityEngine;
 using UniRx;
@@ -28,6 +29,7 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
     private ShopViewBase[] _containers;
 
     private Material _material;
+    private SaveSystem _saveSystem;
 
     private void OnEnable()
     {
@@ -50,6 +52,7 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
 
     private void Start()
     {
+        _saveSystem = MainManager.GetManager<SaveSystem>();
         _dataManager = MainManager.GetManager<DataManager>();
         CallBack.Skip(1).Subscribe(data =>
         {
@@ -70,8 +73,13 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
 
     private void OnDisable()
     {
-        MainManager.GetManager<SaveSystem>().SaveData();
+        _saveSystem.SaveData();
         _decorContent.transform.SetParent(_playerObj.transform);
         _decorContent.transform.ResetLocal();
+    }
+
+    private void OnApplicationQuit()
+    {
+        _saveSystem.SaveData();
     }
 }

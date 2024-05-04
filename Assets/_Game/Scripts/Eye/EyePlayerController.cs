@@ -33,6 +33,7 @@ public class EyePlayerController : EyeBaseController
         _moveBalanceDisposable?.Dispose();
         _pointerUpStreamDisposable?.Dispose();
         _pointerDownStreamDisposable?.Dispose();
+        _pointerUpDisposable?.Dispose();
         _deadState.Value = true;
     }
 
@@ -41,6 +42,11 @@ public class EyePlayerController : EyeBaseController
         base.EyeActivate();
         ReadyToPlay();
         _brokenEyePartsController.ReActivate();
+    }
+
+    private void Start()
+    {
+        _inputController.RegisterJoysticData(data => { moveDirection = data; });
     }
 
     private void ReadyToPlay()
@@ -61,14 +67,13 @@ public class EyePlayerController : EyeBaseController
         }).AddTo(this);
 
         //joystick update subscribe
-        _inputController.RegisterJoysticData(data => { moveDirection = data; });
 
         _pointerDownStreamDisposable = _inputController.PointerDownStream.Subscribe(_ =>
         {
             //
             _eyeModelTransform.DOKill();
             moveDirection = Vector2.zero;
-
+ 
             _handlerState.Value = true;
             //
         }).AddTo(this);

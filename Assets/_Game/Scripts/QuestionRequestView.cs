@@ -58,10 +58,7 @@ public class QuestionRequestView : ElementalViewMonoBehaviour<QuestionRequestVie
         _cancelButton.onClick.RemoveAllListeners();
         _confirmButton.onClick.RemoveAllListeners();
 
-        if (confirmText == "")
-        {
-            _confirmButton.gameObject.SetActive(false);
-        }
+        _confirmButton.gameObject.SetActive(confirmText != "");
 
         _headerText.text = headerText;
         _cancelButtonText.text = cancelText;

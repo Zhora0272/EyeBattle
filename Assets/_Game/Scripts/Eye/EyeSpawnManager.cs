@@ -10,10 +10,11 @@ namespace Bot.BotController
     public class EyeSpawnManager : MonoManager
     {
         [SerializeField] private Transform _worldTransform;
-        [Space] [SerializeField] private EyeBaseController _botPrrefab;
+        [Space]
+        [SerializeField] private EyeBaseController _botPrrefab;
         [SerializeField] private EyeBaseController _playerTransform;
-        [Space] [SerializeField] private UpdateElementController _speedUpdate;
-        
+        [Space]
+        [SerializeField] private UpdateElementController _speedUpdate;
         [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
 
         public List<EyeBaseController> _spawnedEyes { private set; get; }
@@ -36,15 +37,7 @@ namespace Bot.BotController
             MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.InGame,
                 () => { _spawnBotDisposable?.Dispose(); });
         }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(_randomPosition + Vector3.up, 2);
-        }
-
-        private Vector3 _randomPosition;
-
+        
         internal void CrushAllEyeBots()
         {
             if(_spawnedEyes.Count <= 0) return;
@@ -88,7 +81,6 @@ namespace Bot.BotController
                         if (!state)
                         {
                             spawnPositions.Add(randomPosition);
-                            _randomPosition = randomPosition;
                         }
                     }
                 }

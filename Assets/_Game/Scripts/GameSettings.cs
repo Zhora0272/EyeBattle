@@ -65,6 +65,7 @@ public class GameSettings : MonoBehaviour
             var dateTime = new DateTime(
                 startTime.Year,
                 startTime.Month,
+                
                 startTime.Day,
                 startTime.Hour,
                 calculationTime.Minutes,

@@ -53,11 +53,13 @@ namespace Shop.Container
 
         internal void Activate()
         {
+            _activateCanvasGroup.gameObject.SetActive(true);
             _isActivated.Value = true;
 
             _deactivateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack).onComplete = () =>
             {
                 _deactivateCanvasGroup.blocksRaycasts = false;
+                _deactivateCanvasGroup.gameObject.SetActive(false);
             };
             _activateCanvasGroup.DOFade(1, 0.5f).SetEase(Ease.OutBack);
             _activateCanvasGroup.blocksRaycasts = true;
@@ -68,11 +70,13 @@ namespace Shop.Container
         }
         internal void Deactivate()
         {
+            _deactivateCanvasGroup.gameObject.SetActive(true);
             _isActivated.Value = false;
 
             _activateCanvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutBack).onComplete = () =>
             {
-                _deactivateCanvasGroup.blocksRaycasts = false;
+                _activateCanvasGroup.blocksRaycasts = false;
+                _activateCanvasGroup.gameObject.SetActive(false);
             };
             _deactivateCanvasGroup.DOFade(1, 0.5f).SetEase(Ease.OutBack);
             _deactivateCanvasGroup.blocksRaycasts = true;

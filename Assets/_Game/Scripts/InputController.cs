@@ -23,6 +23,11 @@ public class InputController : MonoManager, IDragHandler, IPointerDownHandler, I
         base.Awake();
     }
 
+    private void OnDisable()
+    {
+        _joystickDirection.Invoke(Vector2.zero);
+    }
+
     public void RegisterJoysticData(Action<Vector2> joystickDirection) 
     {
         _joystickDirection += joystickDirection;

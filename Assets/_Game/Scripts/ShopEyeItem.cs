@@ -16,7 +16,7 @@ namespace Shop
 
         [Header("Parameters")] [SerializeField]
         private Button _selectButton;
-
+        
         [SerializeField] private Image _buttonImage;
         [SerializeField] private RawImage _previewImage;
         [SerializeField] private TextMeshProUGUI _priceText;
