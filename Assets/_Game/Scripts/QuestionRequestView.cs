@@ -61,6 +61,7 @@ public class QuestionRequestView : ElementalViewMonoBehaviour<QuestionRequestVie
         _confirmButton.gameObject.SetActive(confirmText != "");
 
         _headerText.text = headerText;
+        
         _cancelButtonText.text = cancelText;
         _confirmButtonText.text = confirmText;
 
