@@ -157,7 +157,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _cancelUpdateDisposable?.Dispose();
     }
 
-    private void DisposeAll()
+    protected virtual void DisposeAll()
     {
         _brokenEyeCollectorDisposable?.Dispose();
         _sizeDisposable?.Dispose();

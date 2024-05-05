@@ -18,11 +18,6 @@ public class InputController : MonoManager, IDragHandler, IPointerDownHandler, I
 
     private Action<Vector2> _joystickDirection;
 
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
     private void OnDisable()
     {
         _joystickDirection.Invoke(Vector2.zero);

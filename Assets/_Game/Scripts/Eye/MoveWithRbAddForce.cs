@@ -10,6 +10,7 @@ public class MoveWithRbAddForce : IMoveableRigidbody
 
     public MoveWithRbAddForce(bool xyzState = true)
     {
+        _moveAction = null;
         InitDirectionMove(xyzState);
     }
 
