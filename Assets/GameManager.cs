@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
             _playerController.EyeActivate();
         });
 
+        _uiManager.SubscribeToPageActivate(UIPageType.TapToPlay, () =>
+        {
+            _spawnManager.CrushAllEyeBots();
+        });
+        
         _playerController.IsDeath.Subscribe(state =>
         {
             if (state)
@@ -30,7 +35,6 @@ public class GameManager : MonoBehaviour
                     
                 }).AddTo(this);
             }
-            
         }).AddTo(this);
     }
 }

@@ -15,43 +15,33 @@ public class EyePlayerController : EyeBaseController
     private IDisposable _moveBalanceDisposable;
     private IDisposable _pointerUpStreamDisposable;
     private IDisposable _pointerDownStreamDisposable;
-
-    public IReactiveProperty<bool> DeadState => _deadState;
-    public ReactiveProperty<bool> _deadState = new(false);
+    
 
     protected override void Awake()
     {
         base.Awake();
         _moveableRigidbody = new MoveWithRbAddForce(xyzState: false);
     }
-
-    internal override void EyeDeadEvent()
+    
+    protected override void DisposeAll()
     {
-        base.EyeDeadEvent();
-
-        _handlerState?.Dispose();
+        base.DisposeAll();
         _moveBalanceDisposable?.Dispose();
         _pointerUpStreamDisposable?.Dispose();
         _pointerDownStreamDisposable?.Dispose();
         _pointerUpDisposable?.Dispose();
-        _deadState.Value = true;
     }
 
     internal override void EyeActivate()
     {
         base.EyeActivate();
-        ReadyToPlay();
         _brokenEyePartsController.ReActivate();
+        ReadyToPlay();
     }
 
     private void Start()
     {
         _inputController.RegisterJoysticData(data => { moveDirection = data; });
-    }
-
-    private void ReadyToPlay()
-    {
-        _deadState.Value = false;
         _handlerState.Subscribe(state =>
         {
             if (state)
@@ -65,9 +55,11 @@ public class EyePlayerController : EyeBaseController
                     .Subscribe(_ => { MoveBalanceStop(); }).AddTo(this);
             }
         }).AddTo(this);
+    }
 
+    private void ReadyToPlay()
+    {
         //joystick update subscribe
-
         _pointerDownStreamDisposable = _inputController.PointerDownStream.Subscribe(_ =>
         {
             //
@@ -104,7 +96,7 @@ public class EyePlayerController : EyeBaseController
         }).AddTo(this);
     }
 
-    protected override void Move()
+    protected override void FixedMove()
     {
         if (_handlerState.Value)
         {

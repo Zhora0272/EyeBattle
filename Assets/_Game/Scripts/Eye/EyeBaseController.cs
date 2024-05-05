@@ -20,8 +20,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     public IReactiveProperty<bool> IsDeath => _isDeath;
     //
 
-    private IDisposable _moveFixedDisposable;
-    private IDisposable _moveUpdateDisposable;
 
     //readonly reactive properties
     private readonly ReactiveProperty<int> _hp = new(100);
@@ -52,8 +50,6 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     #region UnityEvents
 
-    private IDisposable _brokenEyeCollectorDisposable;
-    private IDisposable _sizeDisposable;
     private IDisposable _everyUpdateDispose;
 
     protected virtual void Awake()
@@ -67,7 +63,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     private void FixedUpdate()
     {
-        Move();
+        FixedMove();
     }
 
     protected virtual void Update()
@@ -136,11 +132,10 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     internal virtual void EyeActivate()
     {
-        DisposeAll();
         EyeStateChangeEvent(false);
     }
     
-    internal virtual void EyeDeadEvent()
+    internal virtual void EyeDeadEvent() 
     {
         DisposeAll();
         EyeStateChangeEvent(true);
@@ -154,16 +149,12 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _isDeath.Value = state;
         _sphereCollider.enabled = !state;
         _meshRenderer.SetActive(!state);
-        _cancelUpdateDisposable?.Dispose();
     }
 
     protected virtual void DisposeAll()
     {
-        _brokenEyeCollectorDisposable?.Dispose();
-        _sizeDisposable?.Dispose();
+        _cancelUpdateDisposable?.Dispose();
         _everyUpdateDispose?.Dispose();
-        _moveFixedDisposable?.Dispose();
-        _moveUpdateDisposable?.Dispose();
     }
     
     #region Eye Balance in Idle mode
@@ -171,10 +162,11 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
     protected void MoveBalanceStart()
     {
         MoveBalanceStop();
-        _everyUpdateDispose = Observable.EveryUpdate().Subscribe(_ =>
+        _everyUpdateDispose = Observable.EveryFixedUpdate().Subscribe(_ =>
         {
-            Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.deltaTime);
-            Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.deltaTime);
+            Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.fixedDeltaTime);
+            Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.fixedDeltaTime);
+            
         }).AddTo(this);
     }
 
@@ -196,7 +188,7 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
 
     #endregion
 
-    protected abstract void Move();
+    protected abstract void FixedMove();
 
     #region Attack Systeam
 

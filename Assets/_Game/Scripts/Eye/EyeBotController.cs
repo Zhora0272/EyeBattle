@@ -116,7 +116,7 @@ namespace Bot.BotController
             moveDirection = model.MoveDirection;
         }
 
-        protected override void Move()
+        protected override void FixedMove()
         {
             _currentMoveDirection = Vector3.Lerp(
                 _currentMoveDirection,
