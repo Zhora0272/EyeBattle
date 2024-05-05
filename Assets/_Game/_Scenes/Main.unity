@@ -1356,7 +1356,7 @@ MonoBehaviour:
       _eyeBackColor: 3
       _eyeDecor: 0
   - BotType: 0
-    SpawnCount: 25
+    SpawnCount: 10
     BotModel: {fileID: 11400000, guid: a5b16a13db1bbf745ba42601033eeb2d, type: 2}
     EyeCustomize:
       _eyeSize: 3

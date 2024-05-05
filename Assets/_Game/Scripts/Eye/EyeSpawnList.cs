@@ -9,5 +9,7 @@ namespace Bot.BotController
         public int SpawnCount;
         public BotBehaviourModel BotModel;
         public EyeCustomizeModel EyeCustomize;
+        
+        internal int localSpawnCount;
     }
 }

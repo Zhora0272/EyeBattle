@@ -17,6 +17,7 @@ namespace Bot.BotController
         [SerializeField] private UpdateElementController _speedUpdate;
         [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
 
+
         public List<EyeBaseController> _spawnedEyes { private set; get; }
         private EyePool _eyePool;
 
@@ -28,6 +29,14 @@ namespace Bot.BotController
             base.Awake();
             _eyePool = new EyePool();
             _spawnedEyes = new List<EyeBaseController>();
+        }
+
+        private void ReloadSpawnList()
+        {
+            foreach (var item in _eyeSpawnList)
+            {
+                item.localSpawnCount = item.SpawnCount;
+            }
         }
 
         //need pooling system
@@ -52,6 +61,8 @@ namespace Bot.BotController
 
         private void SpawnEnemies()
         {
+            ReloadSpawnList();
+            
             List<Vector3> spawnPositions = new();
             
             _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
@@ -92,9 +103,9 @@ namespace Bot.BotController
 
                     foreach (var item in _eyeSpawnList)
                     {
-                        if (item.SpawnCount < 1) continue;
-
-                        item.SpawnCount--;
+                        if (item.localSpawnCount < 1) continue;
+                        
+                        item.localSpawnCount--;
 
                         spawnState = true;
 
