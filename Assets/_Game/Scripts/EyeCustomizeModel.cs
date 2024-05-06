@@ -1,11 +1,9 @@
 ﻿using System;
-using UnityEngine;
 
 [Serializable]
 public class EyeCustomizeModel
 {
-    public int _eyeSize;
-    public int _eyeBibeSize;
+    public int _eyePupilSize;
     public int _eyeType;
     public int _eyeColor;
     public int _eyeBackColor;
@@ -13,17 +11,15 @@ public class EyeCustomizeModel
 
     public EyeCustomizeModel
     (
-        int eyeBibeSize = -1,
-        int eyeSize = -1,
+        int eyePupilSize = -1,
         int eyeType = -1,
         int eyeColor = -1,
         int eyeBackColor = -1,
         int eyeDecor = -1
     )
     {
-        _eyeBibeSize = eyeBibeSize;
+        this._eyePupilSize = eyePupilSize;
         
-        _eyeSize = eyeSize;
         _eyeType = eyeType;
         
         _eyeColor = eyeColor;

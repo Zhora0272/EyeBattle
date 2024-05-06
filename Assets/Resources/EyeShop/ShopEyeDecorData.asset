@@ -31,3 +31,9 @@ MonoBehaviour:
     PricePoint: 100
     <EyeDecorTexture>k__BackingField: {fileID: 0}
     <DecorObject>k__BackingField: {fileID: 6307069314135586562, guid: 1eea221e98d08044e8c74e704c5a13d2, type: 3}
+  - Index: 3
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 100
+    <EyeDecorTexture>k__BackingField: {fileID: 0}
+    <DecorObject>k__BackingField: {fileID: 5064804104974304696, guid: 0b5d18c2a0a1c574cbb82ae33b27dee2, type: 3}

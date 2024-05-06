@@ -18,6 +18,7 @@ public class AdsManager : MonoManager
         switch (type)
         {
             case AdsType.RewardedAd: return "ca-app-pub-9489260011896658/9925833817";
+            case AdsType.Test: return "ca-app-pub-3940256099942544/5224354917";
 
             default:
                 Debug.LogError("identifier not found");
@@ -25,16 +26,12 @@ public class AdsManager : MonoManager
         }
     }
 
-    // These ad units are configured to always serve test ads.
-    const string adUnitId = "ca-app-pub-3940256099942544/5224354917";
-
-
     private RewardedAd _rewardedAd;
 
     private bool LoadRewardedAd()
     {
         // Load a rewarded ad
-        RewardedAd.Load(adUnitId, new AdRequest(),
+        RewardedAd.Load(GetAdsIdentifier(AdsType.RewardedAd), new AdRequest(),
             (ad, loadError) =>
             {
                 if (loadError != null)

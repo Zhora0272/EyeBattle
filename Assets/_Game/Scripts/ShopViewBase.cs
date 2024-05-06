@@ -31,18 +31,14 @@ namespace Shop
             ItemData = data.Item2;
             SelectedIndex.Value = data.Item1;
 
-            var eyeItemsLenght = ItemData.BaseEyeItems.Length;
+            var eyeItemsLenght = _shopEyeItems.Count;
 
             for (int i = 0; i < eyeItemsLenght; i++)
             {
-                print(eyeItemsLenght);
-                print(_shopEyeItems);
-                print(_shopEyeItems.Count);
-                
                 _shopEyeItems[i].SetSelectedReactiveProperty(SelectedIndex);
                 _shopEyeItems[i].SetData(ItemData.BaseEyeItems[i]);
             }
-        }
+        } 
 
         public (int, EyeItemCollection) GetData()
         {

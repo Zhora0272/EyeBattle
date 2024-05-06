@@ -1,4 +1,5 @@
 ﻿using System;
+using Lofelt.NiceVibrations;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;

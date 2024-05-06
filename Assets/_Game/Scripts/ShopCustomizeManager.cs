@@ -13,12 +13,8 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
     private readonly ReactiveProperty<EyeCustomizeModel> _callBack = new();
     #endregion
 
-    [SerializeField] private MeshRenderer _vetrineEyeMeshRenderer;
     [SerializeField] private MeshRenderer _playerEyemeshRenderer;
 
-    [SerializeField] private GameObject _playerObj;
-    [SerializeField] private GameObject _vitrinePlayerObj;
-    
     [SerializeField] private GameObject _decorContent;
     [SerializeField] private GameObject _decor;
 
@@ -34,10 +30,6 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
     private void OnEnable()
     {
         _material = _playerEyemeshRenderer.material;
-        _vetrineEyeMeshRenderer.material = _material;
-        
-        _decorContent.transform.SetParent(_vitrinePlayerObj.transform);
-        _decorContent.transform.ResetLocal();
     }
 
     private void Awake()
@@ -74,8 +66,6 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
     private void OnDisable()
     {
         _saveSystem.SaveData();
-        _decorContent.transform.SetParent(_playerObj.transform);
-        _decorContent.transform.ResetLocal();
     }
 
     private void OnApplicationQuit()

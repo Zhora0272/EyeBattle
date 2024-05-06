@@ -11,13 +11,14 @@ namespace Shop
             base.Init();
             for (int i = 0; i < 3; i++)
             {
-                if(_eyeDecorScriptable.DecorParameters[i] != null) continue;
-                
                 var configs = _eyeDecorScriptable.DecorParameters[i];
                 
                 DeactivatedContentInit(out var item);
 
-                if (configs != null) item.SetTexture(configs.EyeDecorTexture);
+                if (configs != null)
+                {
+                    item.SetTexture(configs.EyeDecorTexture);
+                }
                 item.SetColor(Color.magenta);
             }
             

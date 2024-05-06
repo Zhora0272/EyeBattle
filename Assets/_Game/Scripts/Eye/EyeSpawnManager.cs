@@ -111,7 +111,7 @@ namespace Bot.BotController
 
                         var spawnElement =
                             _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController,
-                                _worldTransform); // pooling systeam
+                                _worldTransform); // pooling system
 
                         spawnElement.transform.position = spawnPositions[Random.Range(0,spawnPositions.Count)];
                         

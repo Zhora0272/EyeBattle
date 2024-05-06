@@ -44,11 +44,11 @@ namespace Shop
 
             switch (_eyeSizeType)
             {
-                case EyeSizeType.EyeSize:
+                /*case EyeSizeType.EyeSize:
                     item = new EyeCustomizeModel(eyeSize: index);
-                    break;
+                    break;*/
                 case EyeSizeType.EyeBibeSize:
-                    item = new EyeCustomizeModel(eyeBibeSize: index);
+                    item = new EyeCustomizeModel(eyePupilSize: index);
                     break;
             }
 

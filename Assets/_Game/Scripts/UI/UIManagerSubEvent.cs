@@ -7,16 +7,16 @@ public class UIManagerSubEvent : MonoBehaviour
     {
         Enable,
         Disable,
-        Delete
+        Delete,
+        EnableDisable,
+        DisableEnable
     }
-
-    
 
     [Serializable]
     public class UISubEvent
     {
-        public EventType eventType;
         public UIPageType pageType;
+        public EventType eventType;
     }
 
     [SerializeField] private UISubEvent[] _subEvents;
@@ -42,6 +42,23 @@ public class UIManagerSubEvent : MonoBehaviour
                     case EventType.Delete : break;
                 }
             });
+            /*MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(item.pageType, () =>
+            {
+                switch (item.eventType)
+                {
+                    case EventType.Enable:
+                    {
+                        gameObject.SetActive(false);
+                        break;
+                    }
+                    case EventType.Disable:
+                    {
+                        gameObject.SetActive(true);
+                        break;
+                    }
+                    case EventType.Delete : break;
+                }
+            });*/
         }
     }
 }

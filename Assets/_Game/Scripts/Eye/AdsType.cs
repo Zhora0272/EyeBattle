@@ -3,4 +3,5 @@
     Banner,
     RewardedInterstitial,
     RewardedAd,
+    Test,
 }

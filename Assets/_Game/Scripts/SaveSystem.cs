@@ -60,8 +60,8 @@ public class SaveSystem : MonoManager
             {
                 Money = 50,
                 Gem = 5,
-                ContainerConfigIndexes = new int[5],
                 EyeItemParameters = _dataManager.GetAllDataLists(),
+                ContainerConfigIndexes = new int[5],
                 EyeCustomizeModel = new EyeCustomizeModel(),
             };
             _dataSave.SaveData(data);
@@ -86,8 +86,8 @@ public class SaveSystem : MonoManager
             _eyeType = _gameData.ContainerConfigIndexes[0],
             _eyeColor = _gameData.ContainerConfigIndexes[1],
             _eyeBackColor = _gameData.ContainerConfigIndexes[2],
-            _eyeBibeSize = _gameData.ContainerConfigIndexes[3],
-            _eyeSize = _gameData.ContainerConfigIndexes[4],
+            _eyePupilSize = _gameData.ContainerConfigIndexes[3],
+            _eyeDecor = _gameData.ContainerConfigIndexes[4],
         };
         
         playerEyeData.EyeCustomizeModel = data;
