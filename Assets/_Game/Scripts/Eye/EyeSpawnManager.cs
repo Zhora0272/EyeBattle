@@ -51,7 +51,7 @@ namespace Bot.BotController
         {
             if(_spawnedEyes.Count <= 0) return;
 
-            this.WaitAndDoCycle(_spawnedEyes.Count - 1, .2f, i =>
+            this.WaitAndDoCycle(_spawnedEyes.Count - 1, .01f, i =>
             {
                 _spawnedEyes[i].EyeDeadEvent();
             });

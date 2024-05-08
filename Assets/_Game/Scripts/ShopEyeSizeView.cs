@@ -24,6 +24,8 @@ namespace Shop
                 
                 DeactivatedContentInit(out var item);
                 
+                item.SetTexture(configs.EyeSizeTexture);
+                item.SetColor(Color.white);
                 item.SetValue(value);
             }
 
@@ -33,7 +35,9 @@ namespace Shop
                 
                 var value = configs.EyeSize;
                 
+                item.SetColor(Color.white);
                 item.SetValue(value);
+                item.SetTexture(configs.EyeSizeTexture);
                 item.SelectAction(SizeSelectAction);
             }
         }

@@ -18,28 +18,28 @@ MonoBehaviour:
     BuyType: 0
     PricePoint: 0
     <EyeSize>k__BackingField: 1.5
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
+    <EyeSizeTexture>k__BackingField: {fileID: 2800000, guid: 06ba8a884d6c56d43bb745efb6f93017, type: 3}
   - Index: 1
     ItemState: 0
     BuyType: 0
     PricePoint: 50
     <EyeSize>k__BackingField: 1.7
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
+    <EyeSizeTexture>k__BackingField: {fileID: 2800000, guid: 050fe16cff92de44cbb0f700d10c5e43, type: 3}
   - Index: 2
     ItemState: 0
     BuyType: 0
-    PricePoint: 50
+    PricePoint: 70
     <EyeSize>k__BackingField: 2.1
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
+    <EyeSizeTexture>k__BackingField: {fileID: 2800000, guid: 4211ad0ca449e624e9d824374762fd28, type: 3}
   - Index: 3
     ItemState: 0
     BuyType: 0
-    PricePoint: 50
+    PricePoint: 100
     <EyeSize>k__BackingField: 2.3
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
+    <EyeSizeTexture>k__BackingField: {fileID: 2800000, guid: de50ed96461692c4db923b2f239e01bd, type: 3}
   - Index: 4
     ItemState: 0
-    BuyType: 0
+    BuyType: 2
     PricePoint: 100
     <EyeSize>k__BackingField: 2.6
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
+    <EyeSizeTexture>k__BackingField: {fileID: 2800000, guid: 3305d18b785df5444808950d2c79d0a1, type: 3}

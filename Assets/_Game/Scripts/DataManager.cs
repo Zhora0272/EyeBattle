@@ -1,5 +1,4 @@
-﻿using System;
-using Shop;
+﻿using Shop;
 
 namespace Data
 {
@@ -19,10 +18,10 @@ namespace Data
         {
             return new EyeItemCollection[]
             {
+                new() { BaseEyeItems = EyeTexture.TextureParameters },
+                
                 new() { BaseEyeItems = EyeColor.Colors },
                 new() { BaseEyeItems = EyeBackColor.Colors },
-
-                new() { BaseEyeItems = EyeTexture.TextureParameters },
 
                 new() { BaseEyeItems = EyePupilSize.SizeParameters },
                 
@@ -30,10 +29,4 @@ namespace Data
             };
         }
     }
-}
-
-[Serializable]
-public class EyeItemCollection
-{
-    public BaseEyeItemParameters[] BaseEyeItems;
 }

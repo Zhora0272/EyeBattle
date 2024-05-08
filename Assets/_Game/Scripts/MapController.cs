@@ -63,7 +63,7 @@ public class MapController : MonoBehaviour
                 {
                     if (_mapElements.TryGetValue(element, out var result))
                     {
-                        result.GetComponent<Image>().sprite = _indicatorSprite[1];
+                        result.GetComponent<Image>().enabled = false/*_indicatorSprite[1]*/;
                     }
                 }
             }

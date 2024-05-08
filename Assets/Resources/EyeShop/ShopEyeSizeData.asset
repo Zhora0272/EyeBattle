@@ -18,22 +18,22 @@ MonoBehaviour:
     BuyType: 0
     PricePoint: 0
     <EyeSize>k__BackingField: 1
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
+    <EyeSizeTexture>k__BackingField: {fileID: 2800000, guid: 050fe16cff92de44cbb0f700d10c5e43, type: 3}
   - Index: 1
     ItemState: 0
     BuyType: 0
     PricePoint: 0
     <EyeSize>k__BackingField: 2
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
+    <EyeSizeTexture>k__BackingField: {fileID: 2800000, guid: 06ba8a884d6c56d43bb745efb6f93017, type: 3}
   - Index: 2
     ItemState: 0
     BuyType: 0
     PricePoint: 0
     <EyeSize>k__BackingField: 3
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
+    <EyeSizeTexture>k__BackingField: {fileID: 2800000, guid: de50ed96461692c4db923b2f239e01bd, type: 3}
   - Index: 3
     ItemState: 0
     BuyType: 0
     PricePoint: 0
     <EyeSize>k__BackingField: 4
-    <EyeSizeTexture>k__BackingField: {fileID: 0}
+    <EyeSizeTexture>k__BackingField: {fileID: 2800000, guid: 3305d18b785df5444808950d2c79d0a1, type: 3}

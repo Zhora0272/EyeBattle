@@ -5,58 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/SkyBox.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/SkyBox.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Axe_hat.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Axe_hat.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Satrun.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Satrun.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/racket.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/racket.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/shield.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/shield.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/SkyBox.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/SkyBox/1675875357.noboddathegreat_map1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/SkyBox/1675875357.noboddathegreat_map1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Art Prefabs/PlayerDecors/AxeHat.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Art Prefabs/PlayerDecors/AxeHat.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Art Prefabs/PlayerDecors/Tree.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Art Prefabs/PlayerDecors/Tree.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeItemCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeItemCollection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ViewDataType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ViewDataType.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBibeSizeData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeBibeSizeData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeDecorData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeDecorData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Glass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Glass.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Gold.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Gold.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Light.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Light.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Transparently.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Transparently.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/UpdateElement.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/UpdateElement.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/untitled.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/untitled.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Satrun.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Satrun.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/racket.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/racket.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/shield.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/shield.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/ShaderGraph/EyeShaderGraph.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/ConfirmPage.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/ConfirmPage.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/Deactivate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/Deactivate.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/Shop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/Shop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeSizeData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeSizeData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeTextureData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EyeShop/ShopEyeTextureData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Silver.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Silver.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/untitled.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/untitled.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Art Prefabs/PlayerDecors/AxeHat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Art Prefabs/PlayerDecors/AxeHat.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/TapToPlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/TapToPlay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/DataManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/AdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/AdsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/AdsType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/AdsType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeShaderGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeShaderGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopCustomizeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopCustomizeManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeDecorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeDecorView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeSizeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeSizeView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopViewBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopViewBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/UI/UIManagerSubEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/UI/UIManagerSubEvent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,10 +127,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21636">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="21636" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -287,6 +259,8 @@
       <workItem from="1714940099149" duration="3000" />
       <workItem from="1714977645384" duration="3902000" />
       <workItem from="1715011540552" duration="7385000" />
+      <workItem from="1715062869426" duration="1300000" />
+      <workItem from="1715069845943" duration="8135000" />
     </task>
     <servers />
   </component>

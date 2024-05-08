@@ -8,6 +8,7 @@ namespace Shop
 {
     public class ShopViewBase : MonoBehaviour, IEyeItemCollectionSaveable
     {
+        [SerializeField] internal ViewDataType _dataType;
         [SerializeField] protected ShopEyeItem _prefabRectTransform;
         [SerializeField] protected RectTransform _actiavtedContent;
         [SerializeField] protected RectTransform _deactiavtedContent;
@@ -31,12 +32,16 @@ namespace Shop
             ItemData = data.Item2;
             SelectedIndex.Value = data.Item1;
 
-            var eyeItemsLenght = _shopEyeItems.Count;
-
+            var eyeItemsLenght = ItemData.BaseEyeItems.Length;
+            
+            
             for (int i = 0; i < eyeItemsLenght; i++)
             {
-                _shopEyeItems[i].SetSelectedReactiveProperty(SelectedIndex);
-                _shopEyeItems[i].SetData(ItemData.BaseEyeItems[i]);
+                if (_shopEyeItems != null)
+                {
+                    _shopEyeItems[i].SetSelectedReactiveProperty(SelectedIndex);
+                    _shopEyeItems[i].SetData(ItemData.BaseEyeItems[i]);
+                }
             }
         } 
 

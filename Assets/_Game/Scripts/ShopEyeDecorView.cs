@@ -15,11 +15,9 @@ namespace Shop
                 
                 DeactivatedContentInit(out var item);
 
-                if (configs != null)
-                {
-                    item.SetTexture(configs.EyeDecorTexture);
-                }
-                item.SetColor(Color.magenta);
+                item.SetTexture(configs.EyeDecorTexture);
+                item.SelectAction(DecorSelectAction);
+                item.SetColor(Color.white);
             }
             
             foreach (var configs in _eyeDecorScriptable.DecorParameters)
@@ -28,6 +26,7 @@ namespace Shop
 
                 item.SetTexture(configs.EyeDecorTexture);
                 item.SelectAction(DecorSelectAction);
+                item.SetColor(Color.white);
             }
         }
 

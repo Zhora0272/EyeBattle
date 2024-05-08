@@ -58,7 +58,7 @@ public class SaveSystem : MonoManager
         {
             var data = new GameData
             {
-                Money = 50,
+                Money = 150,
                 Gem = 5,
                 EyeItemParameters = _dataManager.GetAllDataLists(),
                 ContainerConfigIndexes = new int[5],
@@ -104,14 +104,12 @@ public class SaveSystem : MonoManager
     public void SaveData()
     {
         var financeData = _financeManagerGameDataSaveable.GetData();
-        //var playerEyeData = _eyeCustomizeGameDataSaveable.GetData();
+        var playerEyeData = _eyeCustomizeGameDataSaveable.GetData();
         var shopContainerData = _shopContainerGameDataSaveable.GetData();
 
         _gameData.Gem = financeData.Gem;
         _gameData.Money = financeData.Money;
-        
-        _gameData.EyeCustomizeModel = _eyeCustomizeGameDataSaveable.GetData().EyeCustomizeModel;
-
+        _gameData.EyeCustomizeModel = playerEyeData.EyeCustomizeModel;
         _gameData.EyeItemParameters = shopContainerData.EyeItemParameters;
         _gameData.ContainerConfigIndexes = shopContainerData.ContainerConfigIndexes;
 

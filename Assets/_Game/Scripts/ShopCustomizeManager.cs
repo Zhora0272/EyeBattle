@@ -1,9 +1,7 @@
-using System;
 using Data;
 using UnityEngine;
 using UniRx;
 using Shop;
-using SRF;
 
 public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager, EyeCustomizeModel>
 {

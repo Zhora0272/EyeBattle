@@ -21,19 +21,25 @@ MonoBehaviour:
     <DecorObject>k__BackingField: {fileID: 4969282376737575553, guid: b437d6fc27dcfdf4b8faa6be0e8a262f, type: 3}
   - Index: 1
     ItemState: 0
-    BuyType: 0
+    BuyType: 2
     PricePoint: 100
     <EyeDecorTexture>k__BackingField: {fileID: 0}
     <DecorObject>k__BackingField: {fileID: 6879595478124127133, guid: f0e844cd5d69f1b47a77a59e193c680b, type: 3}
   - Index: 2
     ItemState: 0
-    BuyType: 0
+    BuyType: 2
     PricePoint: 100
     <EyeDecorTexture>k__BackingField: {fileID: 0}
     <DecorObject>k__BackingField: {fileID: 6307069314135586562, guid: 1eea221e98d08044e8c74e704c5a13d2, type: 3}
   - Index: 3
     ItemState: 0
-    BuyType: 0
+    BuyType: 2
     PricePoint: 100
-    <EyeDecorTexture>k__BackingField: {fileID: 0}
+    <EyeDecorTexture>k__BackingField: {fileID: 2800000, guid: 4bfc5760b8f1fb54d8befe9ef1daf46c, type: 3}
     <DecorObject>k__BackingField: {fileID: 5064804104974304696, guid: 0b5d18c2a0a1c574cbb82ae33b27dee2, type: 3}
+  - Index: 4
+    ItemState: 0
+    BuyType: 0
+    PricePoint: 0
+    <EyeDecorTexture>k__BackingField: {fileID: 2800000, guid: b84be051be7abf648b327669a0f7df8b, type: 3}
+    <DecorObject>k__BackingField: {fileID: 4181628124636155974, guid: adb82b31c4e2b1849ac4fee94faf76d6, type: 3}

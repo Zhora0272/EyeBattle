@@ -3,13 +3,20 @@ using GoogleMobileAds.Api;
 using UnityEngine;
 
 public class AdsManager : MonoManager
-{  
+{
     private void Start()
     {
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
         MobileAds.Initialize(state =>
         {
-            LoadRewardedAd();
+            try
+            {
+                LoadRewardedAd();
+            }
+            catch
+            {
+                // ignored
+            }
         });
     }
 
