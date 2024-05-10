@@ -16,6 +16,11 @@ public class EyeCustomizeController : MonoBehaviour, IGameDataSaveable
 
     [SerializeField] private EyeCustomizeModel _model;
 
+    private void Start()
+    {
+        _dataManager ??= MainManager.GetManager<DataManager>();
+    }
+
     public void SetData(GameData data)
     {
         _eyeMaterial = EyeShaderGraph.GetMaterial(data.EyeCustomizeModel);
