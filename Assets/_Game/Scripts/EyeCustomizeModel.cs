@@ -18,7 +18,7 @@ public class EyeCustomizeModel
         int eyeDecor = -1
     )
     {
-        this._eyePupilSize = eyePupilSize;
+        _eyePupilSize = eyePupilSize;
         
         _eyeType = eyeType;
         

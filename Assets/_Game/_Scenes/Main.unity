@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &65628781 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 65628781, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
-  m_PrefabInstance: {fileID: 8382609805435347788}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &103481803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,11 +1476,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1433676788 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1433676788, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
-  m_PrefabInstance: {fileID: 8382609805435347788}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1453597020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,11 +2699,11 @@ PrefabInstance:
     - target: {fileID: 69192509048379451, guid: 37a290f2b89fa1e45be3dcbd76c7d935, type: 3}
       propertyPath: _playerObj
       value: 
-      objectReference: {fileID: 65628781}
+      objectReference: {fileID: 0}
     - target: {fileID: 69192509048379451, guid: 37a290f2b89fa1e45be3dcbd76c7d935, type: 3}
       propertyPath: _decorContent
       value: 
-      objectReference: {fileID: 1433676788}
+      objectReference: {fileID: 8382609805435347789}
     - target: {fileID: 69192509048379451, guid: 37a290f2b89fa1e45be3dcbd76c7d935, type: 3}
       propertyPath: _playerEyemeshRenderer
       value: 
@@ -3470,6 +3460,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1283510341}
     m_Modifications:
+    - target: {fileID: 1283160536728300500, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2509413003133941968, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3482,6 +3476,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2895838331650394285, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+      propertyPath: _dataManager
+      value: 
+      objectReference: {fileID: 1453597022}
     - target: {fileID: 6657752547082988523, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3528,6 +3526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+--- !u!1 &8382609805435347789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5288426285357989576, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+  m_PrefabInstance: {fileID: 8382609805435347788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9117480884409998995
 PrefabInstance:
   m_ObjectHideFlags: 0

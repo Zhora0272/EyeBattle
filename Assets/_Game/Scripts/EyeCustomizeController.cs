@@ -1,5 +1,7 @@
+using System;
+using Data;
 using Saveing;
-using Shop;
+using UniRx;
 using UnityEngine;
 
 public class EyeCustomizeController : MonoBehaviour, IGameDataSaveable
@@ -8,14 +10,16 @@ public class EyeCustomizeController : MonoBehaviour, IGameDataSaveable
     [SerializeField] private MeshRenderer _eyeMeshRenderer;
     [SerializeField] private GameObject _decorGamobject;
 
+    [SerializeField] private DataManager _dataManager;
     public Material GetMaterial() => _eyeMaterial;
-    public GameObject GetDecor() => _decorGamobject;
+    public ReactiveProperty<GameObject> ReactiveDecorGameObject => new();
 
     [SerializeField] private EyeCustomizeModel _model;
 
     public void SetData(GameData data)
     {
         _eyeMaterial = EyeShaderGraph.GetMaterial(data.EyeCustomizeModel);
+        ReactiveDecorGameObject.Value = _dataManager.EyeDecor.DecorParameters[data.EyeCustomizeModel._eyeDecor].DecorObject;
         _model = data.EyeCustomizeModel;
         _eyeMeshRenderer.material = _eyeMaterial;
     }

@@ -44,6 +44,7 @@ public class ShopCustomizeManager : MonoBehaviour, IManager<ShopCustomizeManager
     {
         _saveSystem = MainManager.GetManager<SaveSystem>();
         _dataManager = MainManager.GetManager<DataManager>();
+        
         CallBack.Skip(1).Subscribe(data =>
         {
             if (data._eyeDecor >= 0)

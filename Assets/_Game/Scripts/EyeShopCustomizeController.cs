@@ -1,3 +1,5 @@
+using System;
+using UniRx;
 using UnityEngine;
 
 public class EyeShopCustomizeController : MonoBehaviour
@@ -11,23 +13,25 @@ public class EyeShopCustomizeController : MonoBehaviour
     private Material _eyeMaterial;
     private GameObject _eyeDecor;
 
-    private void OnEnable()
+    private void Awake()
     {
         _eyeMaterial = _eyeCustomizeController.GetMaterial();
-        _eyeDecor = _eyeCustomizeController.GetDecor();
+        _eyeCustomizeController.ReactiveDecorGameObject.Subscribe(decor =>
+        {
+            if (decor)
+            {
+                var item = Instantiate(_eyeDecor, transform);
+                item.transform.localPosition = Vector3.zero;
+                item.transform.localRotation = _eyeDecor.transform.localRotation;
+            }
+            
+        }).AddTo(this);
 
-        Init();
+        Init(); 
     }
 
     private void Init()
     {
-        if (_eyeDecor)
-        {
-            var item = Instantiate(_eyeDecor, transform);
-            item.transform.localPosition = Vector3.zero;
-            item.transform.localRotation = _eyeDecor.transform.localRotation;
-        }
-
         _meshRenderer.material = _eyeMaterial;
     }
 }
