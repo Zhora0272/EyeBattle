@@ -128,7 +128,8 @@ namespace _Game.Scripts.Utility
             this MonoBehaviour monoObject,
             int repeatCount,
             float waitTime,
-            Action<int> action
+            Action<int> action,
+            Action finishCycleAction = null
         )
         {
             IDisposable intervalDisposable = null;
@@ -144,6 +145,7 @@ namespace _Game.Scripts.Utility
                 }
                 else
                 {
+                    finishCycleAction?.Invoke();
                     intervalDisposable.Dispose();
                 }
                 
