@@ -172,6 +172,7 @@ Transform:
   - {fileID: 8382609804046478189}
   - {fileID: 1328645474}
   - {fileID: 858147379475829603}
+  - {fileID: 6797810029720893960}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -243,8 +244,6 @@ MonoBehaviour:
   <Size>k__BackingField:
     value: 0
   _inputController: {fileID: 0}
-  _deadState:
-    value: 0
 --- !u!114 &2895838331650394285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,8 +260,7 @@ MonoBehaviour:
   _eyeMeshRenderer: {fileID: 4297366258155584576}
   _decorGamobject: {fileID: 0}
   _model:
-    _eyeSize: 0
-    _eyeBibeSize: 0
+    _eyePupilSize: 0
     _eyeType: 0
     _eyeColor: 0
     _eyeBackColor: 0
@@ -519,6 +517,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7017293378366308301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6797810029720893960}
+  m_Layer: 0
+  m_Name: Decor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6797810029720893960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7017293378366308301}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6657752547082988523}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7504300693401385834
 GameObject:
   m_ObjectHideFlags: 0
