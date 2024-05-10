@@ -149,7 +149,18 @@ public abstract class EyeBaseController : CachedMonoBehaviour,
         _brokenEyeCollector.enabled = !state;
         _isDeath.Value = state;
         _sphereCollider.enabled = !state;
-        _meshRenderer.SetActive(!state);
+        
+        if (!state)
+        {
+            Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+            {
+                _meshRenderer.SetActive(!state);
+            }).AddTo(this);
+        }
+        else
+        {
+            _meshRenderer.SetActive(!state);
+        }
     }
 
     protected virtual void DisposeAll()
