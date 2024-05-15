@@ -22,7 +22,11 @@ public class BotMiddleBehaviour : BotBehaviourBase, IBotMonoBehaviour
         {
             model.Distance = (mineBot.Position - closestElement.Position).magnitude;
 
-            if (model.Distance < model.AttackRadius)
+            if (model.Distance > 35)
+            {
+                return BotState.Attack;
+            }
+            else if (model.Distance < model.AttackRadius)
             {
                 if (mineBot.Force < (closestElement.Force * .5f))
                 {
@@ -33,11 +37,6 @@ public class BotMiddleBehaviour : BotBehaviourBase, IBotMonoBehaviour
                     return BotState.Attack;
                 }
             }
-
-            /*if (model.Distance > model.AttackRadius)
-            {
-                return BotState.RandomWalk;
-            }*/
         }
 
         return BotState.RandomWalk;

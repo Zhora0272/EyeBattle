@@ -11,7 +11,7 @@ public class EyeShopCustomizeController : MonoBehaviour
     private Material _eyeMaterial;
     private GameObject _eyeDecor;
 
-    private void OnEnable()
+    private void Start()
     {
         _eyeMaterial = _eyeCustomizeController.GetMaterial();
         _eyeDecor = _eyeCustomizeController.GetDecor();

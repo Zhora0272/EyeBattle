@@ -1,13 +1,15 @@
 using System;
+using Bot.BotController;
 using TMPro;
 using UniRx;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameSettings : MonoBehaviour
 {
+    [SerializeField] private EyeSpawnManager _spawnManager;
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private RenderTexture _renderTexture;
+    
     [SerializeField, Range(0.1f, 1)] private float _qualityCoeficient = .85f;
 
     private IDisposable _timerDisposable;
@@ -72,6 +74,7 @@ public class GameSettings : MonoBehaviour
                 calculationTime.Seconds);
 
             _timerText.text = dateTime.ToString("mm:ss");
+
         }).AddTo(this);
     }
 

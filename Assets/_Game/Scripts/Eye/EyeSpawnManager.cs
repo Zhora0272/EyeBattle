@@ -10,11 +10,9 @@ namespace Bot.BotController
     public class EyeSpawnManager : MonoManager
     {
         [SerializeField] private Transform _worldTransform;
-        [Space]
-        [SerializeField] private EyeBaseController _botPrrefab;
+        [Space] [SerializeField] private EyeBaseController _botPrrefab;
         [SerializeField] private EyeBaseController _playerTransform;
-        [Space]
-        [SerializeField] private UpdateElementController _speedUpdate;
+        [Space] [SerializeField] private UpdateElementController _speedUpdate;
         [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
 
 
@@ -42,33 +40,51 @@ namespace Bot.BotController
         //need pooling system
         private void Start()
         {
-            MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnEnemies);
             MainManager.GetManager<UIManager>().SubscribeToPageDeactivate(UIPageType.InGame,
                 () => { _spawnBotDisposable?.Dispose(); });
+            MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnStart);
         }
-        
+
         internal void CrushAllEyeBots()
         {
-            if(_spawnedEyes.Count <= 0) return;
-
-            this.WaitAndDoCycle(_spawnedEyes.Count - 1, .01f, i =>
-            {
-                _spawnedEyes[i].EyeDeadEvent();
-            });
+            _spawnCompositeDisposables?.Dispose();
             
+            if (_spawnedEyes.Count <= 0) return;
+
+            this.WaitAndDoCycle(_spawnedEyes.Count - 1, .01f, i => { _spawnedEyes[i].EyeDeadEvent(); });
+
             _spawnBotDisposable?.Dispose();
         }
 
-        private void SpawnEnemies()
+        private CompositeDisposable _spawnCompositeDisposables;
+
+        private void SpawnStart()
+        {
+            _spawnCompositeDisposables = new();
+
+            var count = _eyeSpawnList.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                var index = i;
+                var disposable = Observable.Interval(TimeSpan.FromSeconds(_eyeSpawnList[index].SpawnDelay))
+                    .Subscribe(
+                        _ => { SpawnEnemies(index); }).AddTo(this);
+
+                _spawnCompositeDisposables.Add(disposable);
+            }
+        }
+
+        private void SpawnEnemies(int index)
         {
             ReloadSpawnList();
-            
+
             List<Vector3> spawnPositions = new();
-            
+
             _spawnBotDisposable = Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
             {
                 spawnPositions.Clear();
-                
+
                 bool state = true;
 
                 int distance = 55;
@@ -99,29 +115,28 @@ namespace Bot.BotController
 
                 if (!state)
                 {
+                    var item = _eyeSpawnList[index];
+
                     bool spawnState = false;
 
-                    foreach (var item in _eyeSpawnList)
+                    if (item.localSpawnCount < 1) return;
+
+                    item.localSpawnCount--;
+
+                    spawnState = true;
+
+                    var spawnElement =
+                        _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController,
+                            _worldTransform); // pooling system
+
+                    spawnElement.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count)];
+
+                    spawnElement.SetCustomizeModel(new GameData { EyeCustomizeModel = item.EyeCustomize });
+
+                    if (spawnElement != null)
                     {
-                        if (item.localSpawnCount < 1) continue;
-                        
-                        item.localSpawnCount--;
-
-                        spawnState = true;
-
-                        var spawnElement =
-                            _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController,
-                                _worldTransform); // pooling system
-
-                        spawnElement.transform.position = spawnPositions[Random.Range(0,spawnPositions.Count)];
-                        
-                        spawnElement.SetCustomizeModel(new GameData { EyeCustomizeModel = item.EyeCustomize });
-
-                        if (spawnElement != null)
-                        {
-                            _spawnedEyes.Add(spawnElement);
-                            spawnElement.Activate(item.BotType, item.BotModel); //do this in the last
-                        }
+                        _spawnedEyes.Add(spawnElement);
+                        spawnElement.Activate(item.BotType, item.BotModel); //do this in the last
                     }
 
                     if (!spawnState)
