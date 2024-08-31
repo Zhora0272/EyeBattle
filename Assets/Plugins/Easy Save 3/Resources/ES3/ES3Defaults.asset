@@ -29,54 +29,54 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - Assembly-CSharp
     - Assembly-CSharp-firstpass
-    - StompyRobot.SRF
-    - Coffee.SoftMaskForUGUI
+    - InventoryFramework
+    - Assembly-CSharp
     - StompyRobot.SRDebugger
     - UniRx
-    - Tayx.Graphy
+    - PsdPlugin
     - Autodesk.Fbx
     - Cinemachine
+    - ToolbarExtender.Editor
+    - PPv2URPConverters
+    - StompyRobot.SRF
+    - StompyRobot.SRDebugger.Editor
+    - Tayx.Graphy
+    - ObjectPooling
     - Lofelt.NiceVibrations
     - Lofelt.NiceVibrations.Demo
-    - InjectionFramework
-    - InventoryFramework
-    - ScreenQueueManagerPlayModeTests
-    - UniRx.Examples
     - LogWrapper
+    - UniRx.Examples
     - UIFramework
-    - ObjectPooling
-    - PlayerPrefsEditor
-    - DataFramework
     - WebRequestUtility
     - AudioFramework
+    - InjectionFrameworkPlayModeTests
     - ScreenQueueManager
-    - TrustedTime
+    - Tayx.Graphy.Editor
+    - Coffee.SoftMaskForUGUI
+    - StompyRobot.SRF.Editor
+    - GoogleMobileAds.Editor
     - SignalHub
     - UIFrameworkPlayModeTests
-    - ObjectPoolingPlayModeTests
-    - FbxBuildTestAssets
-    - AudioFrameworkPlayModeTests
     - IdGeneration
-    - InjectionFrameworkPlayModeTests
-    - PsdPlugin
-    - StompyRobot.SRF.Editor
-    - Tayx.Graphy.Editor
-    - PPv2URPConverters
-    - StompyRobot.SRDebugger.Editor
-    - InjectionFrameworkEditModeTests
-    - ToolbarExtender.Editor
-    - PlayerPrefsEditor.Editor
-    - SignalHubEditModeTests
-    - ObjectPoolingEditModeTests
-    - InventoryFrameworkEditModeTests
+    - InjectionFramework
+    - TrustedTime
+    - AudioFrameworkPlayModeTests
     - DataFrameworkEditModeTests
-    - GoogleMobileAds.Editor
+    - PlayerPrefsEditor
     - Coffee.SoftMaskForUGUI.Editor
-    - Sirenix.OdinInspector.Modules.UnityMathematics
-    - Autodesk.Fbx.Editor
     - Lofelt.NiceVibrations.Editor
+    - InjectionFrameworkEditModeTests
+    - Autodesk.Fbx.Editor
+    - PlayerPrefsEditor.Editor
+    - ScreenQueueManagerPlayModeTests
+    - ObjectPoolingPlayModeTests
+    - ObjectPoolingEditModeTests
+    - DataFramework
+    - SignalHubEditModeTests
+    - InventoryFrameworkEditModeTests
+    - FbxBuildTestAssets
+    - Sirenix.OdinInspector.Modules.UnityMathematics
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
