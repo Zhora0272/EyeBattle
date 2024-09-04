@@ -12,7 +12,7 @@ public enum BotType
 
 namespace Bot.BotController
 {
-    public class NpcBotController : NpcBaseController, IPoolingMono
+    public class MovableBattleParticipantBotController : MovableBattleParticipantBaseController, IPoolingMono
     {
         [SerializeField] protected BotBattleParticipant battleParticipant;
         [SerializeField] private BotType type;
@@ -33,7 +33,7 @@ namespace Bot.BotController
 
         private IMoveableRigidbody _moveableRigidbody;
 
-        private INpcParameters _closestNpcElement;
+        private IBattleParticipantParameters _closestBattleParticipantElement;
         //
 
         private IDisposable _closestElementDisposable;
@@ -80,8 +80,8 @@ namespace Bot.BotController
             {
                 if (battleParticipant.GetClosestElement(out var result))
                 {
-                    _closestNpcElement = result;
-                    _closestEnemyTransform = result.EyeTransform;
+                    _closestBattleParticipantElement = result;
+                    _closestEnemyTransform = result.BotTransform;
                 }
                 
             }).AddTo(this);
@@ -107,7 +107,7 @@ namespace Bot.BotController
         private void UpdateBehaviourState()
         {
             _state.Value = _botBehaviour.BotBehaviourUpdate(this,
-                _closestNpcElement);
+                _closestBattleParticipantElement);
 
             var model = _behaviourController.SetBehaviourState(_state.Value,
                 this,

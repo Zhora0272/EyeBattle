@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class BattleParticipantsManager : MonoManager
 {
-    private List<INpcParameters> _participants = new();
-    private Dictionary<int, List<INpcParameters>> _gameParticipants = new();
+    private List<IBattleParticipantParameters> _participants = new();
+    private Dictionary<int, List<IBattleParticipantParameters>> _gameParticipants = new();
 
-    public void Register(INpcParameters param)
+    public void Register(IBattleParticipantParameters param)
     {
         if (_gameParticipants.TryGetValue(param.ClanId, out var result))
         {
@@ -19,7 +19,7 @@ public class BattleParticipantsManager : MonoManager
         }
     }
 
-    public void UnRegister(INpcParameters param)
+    public void UnRegister(IBattleParticipantParameters param)
     {
         if (_gameParticipants.TryGetValue(param.ClanId, out var result))
         {
@@ -27,24 +27,24 @@ public class BattleParticipantsManager : MonoManager
         }
     }
 
-    public bool GetClosest(INpcParameters mineNpcParameters, out INpcParameters result)
+    public bool GetClosest(IBattleParticipantParameters mineBattleParticipantParameters, out IBattleParticipantParameters result)
     {
         float minDistance = Mathf.Infinity;
 
-        INpcParameters closestParticipant = null;
+        IBattleParticipantParameters closestParticipant = null;
         
         foreach (var value in _gameParticipants.Values)
         {
             if (value.Count > 0)
             {
                 if (value[0] == null) continue;
-                if (value[0].ClanId == mineNpcParameters.ClanId) continue;
+                if (value[0].ClanId == mineBattleParticipantParameters.ClanId) continue;
 
                 foreach (var item in value)
                 {
-                    if (item == mineNpcParameters) continue;
+                    if (item == mineBattleParticipantParameters) continue;
 
-                    var distance = (item.EyeTransform.IPosition - mineNpcParameters.EyeTransform.IPosition).magnitude;
+                    var distance = (item.BotTransform.IPosition - mineBattleParticipantParameters.BotTransform.IPosition).magnitude;
 
                     if (distance < minDistance)
                     {

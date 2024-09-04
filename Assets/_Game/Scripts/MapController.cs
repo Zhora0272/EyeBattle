@@ -21,18 +21,18 @@ public class MapController : MonoBehaviour
 
     [SerializeField] private float _mapClamp = 150;
 
-    private Dictionary<NpcBaseController, RectTransform> _mapElements;
-    private List<NpcBaseController> _elements;
+    private Dictionary<MovableBattleParticipantBaseController, RectTransform> _mapElements;
+    private List<MovableBattleParticipantBaseController> _elements;
 
     public class EyeIndicator
     {
-        public NpcBaseController npcBase;
+        public MovableBattleParticipantBaseController movableBattleParticipantBase;
         public Image _image;
     }
 
     private void Awake()
     {
-        _mapElements = new Dictionary<NpcBaseController, RectTransform>();
+        _mapElements = new Dictionary<MovableBattleParticipantBaseController, RectTransform>();
     }
 
     //bad code need optimization

@@ -1,15 +1,16 @@
 using UniRx;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BotBattleParticipant : BaseBattleParticipant
 {
-    [SerializeField] private NpcBaseController npcBaseController;
+    [FormerlySerializedAs("moveableBattleParticipantBaseController")] [FormerlySerializedAs("battleParticipantBaseController")] [FormerlySerializedAs("npcBaseController")] [SerializeField] private MovableBattleParticipantBaseController movableBattleParticipantBaseController;
 
     private void Awake()
     {
-        npcParameters = npcBaseController;
+        battleParticipantParameters = movableBattleParticipantBaseController;
 
-        npcBaseController.IsDeath.Subscribe(value =>
+        movableBattleParticipantBaseController.IsDeath.Subscribe(value =>
         {
             if (value)
             {
@@ -19,9 +20,9 @@ public class BotBattleParticipant : BaseBattleParticipant
         }).AddTo(this);
     }
 
-    public bool GetClosestElement(out INpcParameters param)
+    public bool GetClosestElement(out IBattleParticipantParameters param)
     {
-        if (_manager.GetClosest(npcParameters, out var result))
+        if (_manager.GetClosest(battleParticipantParameters, out var result))
         {
             param = result;
             return true;

@@ -2,17 +2,10 @@
 using UnityEngine;
 using UniRx;
 
-public abstract class NpcBaseController : CachedMonoBehaviour,
-    INpcParameters, IEyebattleParameters, IUpdateable<UpdateElementModel>
+public abstract class MovableBattleParticipantBaseController : BattleParticipantBaseController, IBotBattleParameters
 {
-    [SerializeField] private int clanId;
-
-    public IReactiveProperty<int> Mass => _hp;
     public IReactiveProperty<float> Speed => _speed;
-    public float Force => Rb.mass * Rb.velocity.magnitude;
-    public ITransform EyeTransform => this;
     public IReactiveProperty<int> KillCount => _killCount;
-    public int ClanId => clanId;
     public IReactiveProperty<bool> IsDeath => _isDeath;
     //
 
@@ -24,15 +17,12 @@ public abstract class NpcBaseController : CachedMonoBehaviour,
 
     protected readonly ReactiveProperty<float> _speed = new(25);
     //
-    
-    [Space]
-    [SerializeField] protected BaseCollectionController collector;
+
+    [Space] [SerializeField] protected BaseCollectionController collector;
     [SerializeField] protected Rigidbody Rb;
-    [Space]
-    [SerializeField] protected Transform _eyeModelTransform;
-    [SerializeField] protected SphereCollider _sphereCollider;
-    [Space]
-    [SerializeField] protected TriggerCheckController _triggerCheckController;
+    [Space] [SerializeField] protected Transform _botModelTransform;
+    [SerializeField] protected Collider _sphereCollider;
+    [Space] [SerializeField] protected TriggerCheckController _triggerCheckController;
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
 
@@ -46,7 +36,7 @@ public abstract class NpcBaseController : CachedMonoBehaviour,
     protected virtual void Awake()
     {
         Rb ??= GetComponent<Rigidbody>();
-        
+
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Xp, AttackCheck);
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Coin, AttackCheck);
     }
@@ -74,8 +64,8 @@ public abstract class NpcBaseController : CachedMonoBehaviour,
     {
         BotStateChangeEvent(false);
     }
-    
-    internal virtual void DeadEvent() 
+
+    internal virtual void DeadEvent()
     {
         DisposeAll();
         BotStateChangeEvent(true);
@@ -92,7 +82,7 @@ public abstract class NpcBaseController : CachedMonoBehaviour,
     {
         _everyUpdateDispose?.Dispose();
     }
-    
+
     #region Eye Balance in Idle mode
 
     protected void MoveBalanceStart()
@@ -102,7 +92,6 @@ public abstract class NpcBaseController : CachedMonoBehaviour,
         {
             Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.fixedDeltaTime);
             Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.fixedDeltaTime);
-            
         }).AddTo(this);
     }
 
@@ -116,7 +105,7 @@ public abstract class NpcBaseController : CachedMonoBehaviour,
     private void Rotate()
     {
         var vectorOfPositions = transform.position - _lastPosition;
-        
+
         Quaternion rotation = Quaternion.LookRotation(vectorOfPositions, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10);
     }
@@ -129,9 +118,9 @@ public abstract class NpcBaseController : CachedMonoBehaviour,
 
     private void AttackCheck(Collider other)
     {
-        if (other.gameObject.TryGetComponent<NpcBaseController>(out var result))
+        if (other.gameObject.TryGetComponent<MovableBattleParticipantBaseController>(out var result))
         {
-            if (result.Force > Force)
+            //if (result.Force > Force)
             {
                 DeadEvent();
             }

@@ -1,6 +1,6 @@
 ﻿using UniRx;
 
-public interface IEyebattleParameters
+public interface IBotBattleParameters
 {
     public IReactiveProperty<int> KillCount { get; }
     

@@ -7,12 +7,12 @@ namespace EyeGunSystem
             Reload();
             if (ammoController.GetAmmo(out var result))
             {
-                battleManager.Value.GetClosest(battleParticipant.Value.npcParameters,
+                battleManager.Value.GetClosest(battleParticipant.Value.battleParticipantParameters,
                     out var enemy);
 
                 if (enemy != null)
                 {
-                    result.Attack(enemy.EyeTransform);
+                    result.Attack(enemy.BotTransform);
                 }
             }
         }

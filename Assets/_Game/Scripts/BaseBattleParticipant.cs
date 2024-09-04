@@ -5,7 +5,7 @@ public abstract class BaseBattleParticipant : MonoBehaviour
     [SerializeField] private bool _registerState;
     [SerializeField] private bool _canRegister;
     
-    public INpcParameters npcParameters;
+    public IBattleParticipantParameters battleParticipantParameters;
 
     protected BattleParticipantsManager _manager;
 
@@ -21,7 +21,7 @@ public abstract class BaseBattleParticipant : MonoBehaviour
         if(!_canRegister) return;
         
         _registerState = true;
-        _manager.Register(npcParameters);
+        _manager.Register(battleParticipantParameters);
     }
 
     protected void UnRegister()
@@ -29,6 +29,6 @@ public abstract class BaseBattleParticipant : MonoBehaviour
         if(!_canRegister) return;
         
         _registerState = false;
-        _manager.UnRegister(npcParameters);
+        _manager.UnRegister(battleParticipantParameters);
     }
 }

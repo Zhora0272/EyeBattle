@@ -3,7 +3,7 @@ using System;
 using UniRx;
 using UnityEngine;
 
-public class NpcPlayerController : NpcBaseController
+public class MovableBattleParticipantPlayerController : MovableBattleParticipantBaseController
 {
     [SerializeField] private InputController _inputController;
 
@@ -62,7 +62,7 @@ public class NpcPlayerController : NpcBaseController
         _pointerDownStreamDisposable = _inputController.PointerDownStream.Subscribe(_ =>
         {
             //
-            _eyeModelTransform.DOKill();
+            _botModelTransform.DOKill();
             moveDirection = Vector2.zero;
  
             _handlerState.Value = true;
@@ -82,7 +82,6 @@ public class NpcPlayerController : NpcBaseController
             {
                 if (!_handlerState.Value)
                 {
-                    //_eyeModelTransform.DORotate(new Vector3(65, 180, 0), 1);
                     transform.DORotate(new Vector3(0, 180, 0), 1);
 
                     Observable.Timer(TimeSpan.FromSeconds(.5f)).Subscribe(_ =>

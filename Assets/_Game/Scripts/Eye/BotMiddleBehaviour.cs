@@ -3,7 +3,7 @@ public class BotAggressiveBehaviour : BotBehaviourBase, IBotMonoBehaviour
 {
     public BotAggressiveBehaviour(BotBehaviourModel model) : base(model) { }
 
-    public BotState BotBehaviourUpdate(INpcParameters mineBot, INpcParameters closestElement)
+    public BotState BotBehaviourUpdate(IBattleParticipantParameters mineBot, IBattleParticipantParameters closestElement)
     {
         if (closestElement != null)
         {
@@ -16,7 +16,7 @@ public class BotAggressiveBehaviour : BotBehaviourBase, IBotMonoBehaviour
 
 public class BotMiddleBehaviour : BotBehaviourBase, IBotMonoBehaviour
 {
-    public BotState BotBehaviourUpdate(INpcParameters mineBot, INpcParameters closestElement)
+    public BotState BotBehaviourUpdate(IBattleParticipantParameters mineBot, IBattleParticipantParameters closestElement)
     {
         if (closestElement != null)
         {
@@ -28,11 +28,11 @@ public class BotMiddleBehaviour : BotBehaviourBase, IBotMonoBehaviour
             }
             else if (model.Distance < model.AttackRadius)
             {
-                if (mineBot.Force < (closestElement.Force * .5f))
+                //if (mineBot.Force < (closestElement.Force * .5f))
                 {
                     return BotState.GoAwayFromEnemy;
                 }
-                else
+                //else
                 {
                     return BotState.Attack;
                 }

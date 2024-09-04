@@ -5,79 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/New Terrain.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/New Terrain.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (1).png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (2).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (2).png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/StrongholdBattleParticipant.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/StrongholdBattleParticipant.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BattleParticipantBaseController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BattleParticipantBaseController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBotBattleParameters.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/StrongholdMoveableBattleParticipant.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Contrast.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Contrast.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/DragonEye.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/DragonEye.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye7.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Eye8.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyeLight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyeLight.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyePattern.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyePattern.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyeTriangle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/EyeTriangle.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Human.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Human/eye texture - normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Human/eye texture - normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Human/eye texture - occulusionMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Human/eye texture - occulusionMap.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Human/eye texture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Human/eye texture.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Snake.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Snake/eye texture - normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Snake/eye texture - normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Snake/eye texture - occulusionMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Snake/eye texture - occulusionMap.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Snake/eye texture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Snake/eye texture.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/World.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/World.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Yolka.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Eyetextures/Yolka.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeDecorTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeDecorTexture/photo_2024-05-08_15-45-15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeDecorTexture/photo_2024-05-08_15-45-15.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeDecorTexture/photo_2024-05-08_15-45-23.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeDecorTexture/photo_2024-05-08_15-45-23.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures/EyeSize1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures/EyeSize1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures/EyeSize2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures/EyeSize2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures/EyeSize3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures/EyeSize3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures/EyeSize4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures/EyeSize4.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures/EyeSize5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/Shop/EyeSizeTextures/EyeSize5.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/InGame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/InGame.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HeadGunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeadGunController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RocketJetpackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RocketJetpackController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BaseBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BaseBattleParticipant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BattleParticipantsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BattleParticipantsManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BotBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotBattleParticipant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BuyType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BuyType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BehaviourControllerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BehaviourControllerBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/FinanceTextSubscribe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/FinanceTextSubscribe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopEyeItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotMiddleBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotMiddleBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBotMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBotMonoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IEyebattleParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBotBattleParameters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IEyebattleParameters.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/INpcParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBattleParticipantParameters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/INpcParameters.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBattleParticipantParameters.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBaseController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBaseController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBotController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBotController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBotController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantPlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcPlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantPlayerController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/PlayerBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/PlayerBattleParticipant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/StrongholdBattleParticipant.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/StrongholdBattleParticipant.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/StrongholdMoveableBattleParticipant.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +68,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/RocketController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SmartButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StrongholdController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BattleParticipantBaseController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/FreeSpaceCheckManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/UI/LookAtWorldPosition.cs" root0="FORCE_HIGHLIGHTING" />
@@ -317,7 +274,7 @@
       <workItem from="1725176803229" duration="1879000" />
       <workItem from="1725380780877" duration="3268000" />
       <workItem from="1725388947309" duration="2513000" />
-      <workItem from="1725433426163" duration="8304000" />
+      <workItem from="1725433426163" duration="10838000" />
     </task>
     <servers />
   </component>
