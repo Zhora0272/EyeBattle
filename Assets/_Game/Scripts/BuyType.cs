@@ -1,6 +1,5 @@
 ﻿public enum BuyType
 {
     Money,
-    Gem,
-    Ads,
+    Xp,
 }

@@ -28,9 +28,9 @@ public class FinanceTextSubscribe : MonoBehaviour
                 reactiveProperty = _financeManager.Money;
                 priceSymbol = "$";
                 break;
-            case BuyType.Gem :
+            case BuyType.Xp :
                 reactiveProperty = _financeManager.Gem;
-                priceSymbol = "#";
+                priceSymbol = "Xp";
                 break;
         }
 

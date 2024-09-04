@@ -1,10 +1,9 @@
 using UniRx;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class BotBattleParticipant : BaseBattleParticipant
 {
-    [FormerlySerializedAs("_eyeBaseController")] [SerializeField] private NpcBaseController npcBaseController;
+    [SerializeField] private NpcBaseController npcBaseController;
 
     private void Awake()
     {
@@ -31,6 +30,4 @@ public class BotBattleParticipant : BaseBattleParticipant
         param = null;
         return false;
     }
-    
-    
 }

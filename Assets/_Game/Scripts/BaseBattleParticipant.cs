@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BaseBattleParticipant : MonoBehaviour
+public abstract class BaseBattleParticipant : MonoBehaviour
 {
     [SerializeField] private bool _registerState;
     [SerializeField] private bool _canRegister;
@@ -8,7 +8,6 @@ public class BaseBattleParticipant : MonoBehaviour
     public INpcParameters npcParameters;
 
     protected BattleParticipantsManager _manager;
-
 
     public virtual void Start()
     {

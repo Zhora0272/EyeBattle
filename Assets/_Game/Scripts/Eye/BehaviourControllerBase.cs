@@ -21,23 +21,6 @@ public class BehaviourControllerModel
         }
     }
     private float _speedPercentage;
-    
-    public float RotationSpeedPercentage
-    {
-        get => _rotationSpeedPercentage;
-        set
-        {
-            if (value > 1)
-            {
-                _rotationSpeedPercentage = 1;
-            }
-            else if (value < 0)
-            {
-                _rotationSpeedPercentage = 0;
-            }
-        }
-    }
-    private float _rotationSpeedPercentage;
 }
 
 public abstract class BehaviourControllerBase

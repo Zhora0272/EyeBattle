@@ -168,14 +168,11 @@ namespace Shop
         {
             switch (_buyType)
             {
-                case BuyType.Ads:
-                    _priceText.text = _financeManager.ConvertPricePointTo(BuyType.Ads, _pricePoint) + "Ad";
-                    break;
                 case BuyType.Money:
                     _priceText.text = _financeManager.ConvertPricePointTo(BuyType.Money, _pricePoint) + "$";
                     break;
-                case BuyType.Gem:
-                    _priceText.text = _financeManager.ConvertPricePointTo(BuyType.Gem, _pricePoint) + "#";
+                case BuyType.Xp:
+                    _priceText.text = _financeManager.ConvertPricePointTo(BuyType.Xp, _pricePoint) + "Xp";
                     break;
             }
         }
