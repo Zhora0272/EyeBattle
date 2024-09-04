@@ -6,8 +6,53 @@
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Scripts/Types/Unity Types/ES3Type_RenderTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Scripts/Types/Unity Types/ES3Type_RenderTexture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GunAmmoBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GunAmmoBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HeadGunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeadGunController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Resources/ES3/ES3Defaults.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Resources/ES3/ES3Defaults.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RocketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RocketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RocketJetpackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RocketJetpackController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Axe.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Axe.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/Ground.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Spherefbx.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Spherefbx.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/OIG4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/OIG4.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/OIG4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/OIG4.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/EyeBot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/Shop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/Shop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BaseBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BaseBattleParticipant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BattleParticipantsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BattleParticipantsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BotBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotBattleParticipant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BaseBrokenEyeCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BaseCollectionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BaseBrokenEyeCollection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BaseCollectionController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotBrokenEyeCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotCollectionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotBrokenEyeCollection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotCollectionController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotMiddleBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotMiddleBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBaseController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBaseController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBotController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBotController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyePlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcPlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyePlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcPlayerController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBotMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBotMonoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IEyeParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/INpcParameters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IEyeParameters.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/INpcParameters.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/PlayerBrokenEyeCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/CollectionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/PlayerBrokenEyeCollection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/CollectionController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/TriggerCheckController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/TriggerCheckController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/EyeCustomizeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/PlayerBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/PlayerBattleParticipant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SaveSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopContainerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopContainerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopViewBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopViewBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,14 +84,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/PlayerGunController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/RocketController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SmartButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StrongholdController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeBotController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/FreeSpaceCheckManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/UI/LookAtWorldPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.coffee.softmask-for-ugui@b870d64b57/Scripts/SoftMask.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.path@5.0.2/Editor/EditorTool/ScriptableData.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.8/Editor/Drawing/Colors/CustomColorData.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/Samples~/Tutorial/Asteroids/Scripts/Managers/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../bandit-base-manager/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Toolkit/ObjectPool.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -61,27 +104,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "TheLastStand",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;TheLastStand&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Zhora\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Zhora\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Zhora\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Zhora\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Zhora\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Zhora\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Unity.exe" />
@@ -245,7 +288,10 @@
       <workItem from="1715069845943" duration="8135000" />
       <workItem from="1715496497808" duration="3028000" />
       <workItem from="1715586426739" duration="8753000" />
-      <workItem from="1725176803229" duration="1024000" />
+      <workItem from="1725176803229" duration="1879000" />
+      <workItem from="1725380780877" duration="3268000" />
+      <workItem from="1725388947309" duration="2513000" />
+      <workItem from="1725433426163" duration="5441000" />
     </task>
     <servers />
   </component>

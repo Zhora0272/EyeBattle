@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PlayerBattleParticipant : BaseBattleParticipant
 {
-    [SerializeField] private EyePlayerController _playerController;
+    [SerializeField] private NpcPlayerController _playerController;
 
-    private void Awake() => EyeParameters = _playerController;
+    private void Awake() => npcParameters = _playerController;
 
     public override void Start()
     {

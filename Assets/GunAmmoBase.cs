@@ -15,8 +15,11 @@ public abstract class GunAmmoBase : CachedMonoBehaviour, IPoolingMono
     }
     public virtual void PoolDeactivate()
     {
-        _checkController.TriggerLayerExitRegister(Layer.Eye, _ => { Explosion(); });
-        _checkController.TriggerLayerExitRegister(Layer.Ground, _ => { Explosion(); });
+        Debug.LogWarning("Need continue this code");
+        /*_checkController.TriggerLayerExitRegister(Layer.Eye, _ => { Explosion(); });
+        _checkController.TriggerLayerExitRegister(Layer.Ground, _ => { Explosion(); });*/
+        
+        
         gameObject.SetActive(false);
     }
 

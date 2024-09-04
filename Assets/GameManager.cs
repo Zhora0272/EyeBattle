@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private EyePlayerController _playerController;
+    [SerializeField] private NpcPlayerController _playerController;
     [SerializeField] private EyeSpawnManager _spawnManager;
     [SerializeField] private UIManager _uiManager;
 

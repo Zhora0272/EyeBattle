@@ -3,7 +3,7 @@ public class BotAggressiveBehaviour : BotBehaviourBase, IBotMonoBehaviour
 {
     public BotAggressiveBehaviour(BotBehaviourModel model) : base(model) { }
 
-    public BotState BotBehaviourUpdate(IEyeParameters mineBot, IEyeParameters closestElement)
+    public BotState BotBehaviourUpdate(INpcParameters mineBot, INpcParameters closestElement)
     {
         if (closestElement != null)
         {
@@ -16,7 +16,7 @@ public class BotAggressiveBehaviour : BotBehaviourBase, IBotMonoBehaviour
 
 public class BotMiddleBehaviour : BotBehaviourBase, IBotMonoBehaviour
 {
-    public BotState BotBehaviourUpdate(IEyeParameters mineBot, IEyeParameters closestElement)
+    public BotState BotBehaviourUpdate(INpcParameters mineBot, INpcParameters closestElement)
     {
         if (closestElement != null)
         {

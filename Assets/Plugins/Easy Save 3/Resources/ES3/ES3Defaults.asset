@@ -31,7 +31,9 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp-firstpass
     - InventoryFramework
+    - Zenject
     - Assembly-CSharp
+    - Zenject-IntegrationTests
     - StompyRobot.SRDebugger
     - UniRx
     - PsdPlugin
@@ -56,6 +58,7 @@ MonoBehaviour:
     - Coffee.SoftMaskForUGUI
     - StompyRobot.SRF.Editor
     - GoogleMobileAds.Editor
+    - Zenject-TestFramework
     - SignalHub
     - UIFrameworkPlayModeTests
     - IdGeneration

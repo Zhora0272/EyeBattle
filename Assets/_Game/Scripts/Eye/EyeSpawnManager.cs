@@ -10,13 +10,13 @@ namespace Bot.BotController
     public class EyeSpawnManager : MonoManager
     {
         [SerializeField] private Transform _worldTransform;
-        [Space] [SerializeField] private EyeBaseController _botPrrefab;
-        [SerializeField] private EyeBaseController _playerTransform;
+        [Space] [SerializeField] private NpcBaseController _botPrrefab;
+        [SerializeField] private NpcBaseController _playerTransform;
         [Space] [SerializeField] private UpdateElementController _speedUpdate;
         [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
 
 
-        public List<EyeBaseController> _spawnedEyes { private set; get; }
+        public List<NpcBaseController> _spawnedEyes { private set; get; }
         private EyePool _eyePool;
 
         private IDisposable _spawnBotDisposable;
@@ -26,7 +26,7 @@ namespace Bot.BotController
         {
             base.Awake();
             _eyePool = new EyePool();
-            _spawnedEyes = new List<EyeBaseController>();
+            _spawnedEyes = new List<NpcBaseController>();
         }
 
         private void ReloadSpawnList()
@@ -51,7 +51,7 @@ namespace Bot.BotController
             
             if (_spawnedEyes.Count <= 0) return;
 
-            this.WaitAndDoCycle(_spawnedEyes.Count - 1, .01f, i => { _spawnedEyes[i].EyeDeadEvent(); });
+            this.WaitAndDoCycle(_spawnedEyes.Count - 1, .01f, i => { _spawnedEyes[i].DeadEvent(); });
 
             _spawnBotDisposable?.Dispose();
         }
@@ -126,7 +126,7 @@ namespace Bot.BotController
                     spawnState = true;
 
                     var spawnElement =
-                        _eyePool.GetPoolElement(item.BotType, _botPrrefab as EyeBotController,
+                        _eyePool.GetPoolElement(item.BotType, _botPrrefab as NpcBotController,
                             _worldTransform); // pooling system
 
                     spawnElement.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count)];

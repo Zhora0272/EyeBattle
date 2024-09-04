@@ -5,7 +5,7 @@ public class BaseBattleParticipant : MonoBehaviour
     [SerializeField] private bool _registerState;
     [SerializeField] private bool _canRegister;
     
-    public IEyeParameters EyeParameters;
+    public INpcParameters npcParameters;
 
     protected BattleParticipantsManager _manager;
 
@@ -22,7 +22,7 @@ public class BaseBattleParticipant : MonoBehaviour
         if(!_canRegister) return;
         
         _registerState = true;
-        _manager.Register(EyeParameters);
+        _manager.Register(npcParameters);
     }
 
     protected void UnRegister()
@@ -30,6 +30,6 @@ public class BaseBattleParticipant : MonoBehaviour
         if(!_canRegister) return;
         
         _registerState = false;
-        _manager.UnRegister(EyeParameters);
+        _manager.UnRegister(npcParameters);
     }
 }

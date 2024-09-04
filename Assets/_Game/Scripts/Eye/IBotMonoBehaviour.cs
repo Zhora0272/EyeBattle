@@ -1,4 +1,4 @@
 ﻿public interface IBotMonoBehaviour
 {
-    public BotState BotBehaviourUpdate(IEyeParameters mineBot, IEyeParameters closestElement);
+    public BotState BotBehaviourUpdate(INpcParameters mineBot, INpcParameters closestElement);
 }

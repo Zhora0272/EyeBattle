@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class BattleParticipantsManager : MonoManager
 {
-    private List<IEyeParameters> _participants = new();
-    private Dictionary<int, List<IEyeParameters>> _gameParticipants = new();
+    private List<INpcParameters> _participants = new();
+    private Dictionary<int, List<INpcParameters>> _gameParticipants = new();
 
-    public void Register(IEyeParameters param)
+    public void Register(INpcParameters param)
     {
         if (_gameParticipants.TryGetValue(param.ClanId, out var result))
         {
@@ -19,7 +19,7 @@ public class BattleParticipantsManager : MonoManager
         }
     }
 
-    public void UnRegister(IEyeParameters param)
+    public void UnRegister(INpcParameters param)
     {
         if (_gameParticipants.TryGetValue(param.ClanId, out var result))
         {
@@ -27,24 +27,24 @@ public class BattleParticipantsManager : MonoManager
         }
     }
 
-    public bool GetClosest(IEyeParameters mineEyeParameters, out IEyeParameters result)
+    public bool GetClosest(INpcParameters mineNpcParameters, out INpcParameters result)
     {
         float minDistance = Mathf.Infinity;
 
-        IEyeParameters closestParticipant = null;
+        INpcParameters closestParticipant = null;
         
         foreach (var value in _gameParticipants.Values)
         {
             if (value.Count > 0)
             {
                 if (value[0] == null) continue;
-                if (value[0].ClanId == mineEyeParameters.ClanId) continue;
+                if (value[0].ClanId == mineNpcParameters.ClanId) continue;
 
                 foreach (var item in value)
                 {
-                    if (item == mineEyeParameters) continue;
+                    if (item == mineNpcParameters) continue;
 
-                    var distance = (item.EyeTransform.IPosition - mineEyeParameters.EyeTransform.IPosition).magnitude;
+                    var distance = (item.EyeTransform.IPosition - mineNpcParameters.EyeTransform.IPosition).magnitude;
 
                     if (distance < minDistance)
                     {

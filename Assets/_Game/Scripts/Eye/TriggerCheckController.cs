@@ -82,13 +82,35 @@ public class TriggerCheckController : MonoBehaviour
     {
         Register(_onLayerEnterSubjectList, layer, subject);
     }
-
+    
+    public void TriggerLayerEnterRegister(
+        Layer[] layer,
+        UnityAction<Collider> subject
+    )
+    {
+        foreach (var item in layer)
+        {
+            Register(_onLayerExitSubjectList, item, subject);
+        }
+    }
+    
     public void TriggerLayerExitRegister(
         Layer layer,
         UnityAction<Collider> subject
     )
     {
-        Register(_onLayerExitSubjectList, layer, subject);
+        UnRegister(_onLayerExitSubjectList, layer, subject);
+    }
+
+    public void TriggerLayerExitRegister(
+        Layer[] layer,
+        UnityAction<Collider> subject
+    )
+    {
+        foreach (var item in layer)
+        {
+            UnRegister(_onLayerExitSubjectList, item, subject);
+        }
     }
 
     #endregion
@@ -158,9 +180,10 @@ public class TriggerCheckController : MonoBehaviour
 
 public enum Layer
 {
-    Eye,
-    BrokenEye,
-    Ground
+    Xp,
+    Coin,
+    Npc,
+    Stronghold
 }
 
 public enum Trigger

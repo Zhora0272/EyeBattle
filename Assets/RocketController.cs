@@ -70,8 +70,9 @@ public class RocketController : GunAmmoBase
 
             Observable.Timer(TimeSpan.FromSeconds(1f)).Subscribe(_ =>
             {
-                _checkController.TriggerLayerEnterRegister(Layer.Eye, _ => { Explosion(); });
-                _checkController.TriggerLayerEnterRegister(Layer.Ground, _ => { Explosion(); });
+                _checkController.TriggerLayerEnterRegister(new[] { Layer.Npc, Layer.Stronghold},
+                    _ =>
+                    { Explosion(); });
 
                 GoToTarget(target);
                 

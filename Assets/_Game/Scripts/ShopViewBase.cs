@@ -34,15 +34,6 @@ namespace Shop
 
             var eyeItemsLenght = ItemData.BaseEyeItems.Length;
             
-            
-            for (int i = 0; i < eyeItemsLenght; i++)
-            {
-                if (_shopEyeItems != null)
-                {
-                    _shopEyeItems[i].SetSelectedReactiveProperty(SelectedIndex);
-                    _shopEyeItems[i].SetData(ItemData.BaseEyeItems[i]);
-                }
-            }
         } 
 
         public (int, EyeItemCollection) GetData()

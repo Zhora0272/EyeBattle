@@ -43,13 +43,7 @@ namespace Shop.Container
 
         public void SetData(GameData data)
         {
-            var lenght = data.EyeItemParameters.Length;
-            for (int i = 0; i < lenght; i++)
-            {
-                _conShopViewBases[i].SetData(
-                    (data.ContainerConfigIndexes[i],
-                        data.EyeItemParameters[i]));
-            }
+            
         }
 
         public GameData GetData()

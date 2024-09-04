@@ -7,7 +7,7 @@ namespace EyeGunSystem
             Reload();
             if (ammoController.GetAmmo(out var result))
             {
-                battleManager.Value.GetClosest(battleParticipant.Value.EyeParameters,
+                battleManager.Value.GetClosest(battleParticipant.Value.npcParameters,
                     out var enemy);
 
                 if (enemy != null)

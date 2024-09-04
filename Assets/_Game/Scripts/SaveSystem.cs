@@ -75,7 +75,6 @@ public class SaveSystem : MonoManager
     private void SetData()
     {
         var financeData = _financeManagerGameDataSaveable.GetData();
-        var playerEyeData = _eyeCustomizeGameDataSaveable.GetData();
         var containerManager = _shopContainerGameDataSaveable.GetData();
 
         financeData.Money = _gameData.Money;
@@ -90,13 +89,11 @@ public class SaveSystem : MonoManager
             _eyeDecor = _gameData.ContainerConfigIndexes[4],
         };
         
-        playerEyeData.EyeCustomizeModel = data;
 
         containerManager.EyeItemParameters = _gameData.EyeItemParameters;
         containerManager.ContainerConfigIndexes = _gameData.ContainerConfigIndexes;
 
         _financeManagerGameDataSaveable.SetData(financeData);
-        _eyeCustomizeGameDataSaveable.SetData(playerEyeData);
         _shopContainerGameDataSaveable.SetData(containerManager);
 
     }

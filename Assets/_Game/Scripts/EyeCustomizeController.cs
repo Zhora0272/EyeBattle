@@ -4,7 +4,6 @@ using UnityEngine;
 public class EyeCustomizeController : MonoBehaviour, IGameDataSaveable
 {
     [SerializeField] private Material _eyeMaterial;
-    [SerializeField] private MeshRenderer _eyeMeshRenderer;
     [SerializeField] private GameObject _decorGamobject;
 
     public Material GetMaterial() => _eyeMaterial;
@@ -16,7 +15,6 @@ public class EyeCustomizeController : MonoBehaviour, IGameDataSaveable
     {
         _eyeMaterial = EyeShaderGraph.GetMaterial(data.EyeCustomizeModel);
         _model = data.EyeCustomizeModel;
-        _eyeMeshRenderer.material = _eyeMaterial;
     }
 
     public GameData GetData()
