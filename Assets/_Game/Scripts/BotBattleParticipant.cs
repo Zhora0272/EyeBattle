@@ -1,10 +1,9 @@
 using UniRx;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class BotBattleParticipant : BaseBattleParticipant
 {
-    [FormerlySerializedAs("moveableBattleParticipantBaseController")] [FormerlySerializedAs("battleParticipantBaseController")] [FormerlySerializedAs("npcBaseController")] [SerializeField] private MovableBattleParticipantBaseController movableBattleParticipantBaseController;
+    [SerializeField] private MovableBattleParticipantBaseController movableBattleParticipantBaseController;
 
     private void Awake()
     {

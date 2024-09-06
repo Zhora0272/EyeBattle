@@ -116,17 +116,6 @@ namespace Bot.BotController
             moveDirection = model.MoveDirection;
         }
 
-        protected override void FixedMove()
-        {
-            _currentMoveDirection = Vector3.Lerp(
-                _currentMoveDirection,
-                moveDirection,
-                Time.deltaTime);
-
-            _moveableRigidbody.Move(Rb,
-                _currentMoveDirection, 0.4f);
-        }
-
         public void PoolActivate()
         {
             gameObject.SetActive(true);

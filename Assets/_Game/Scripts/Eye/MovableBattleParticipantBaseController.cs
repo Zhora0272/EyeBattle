@@ -40,79 +40,47 @@ public abstract class MovableBattleParticipantBaseController : BattleParticipant
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Xp, AttackCheck);
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Coin, AttackCheck);
     }
-
-    private void FixedUpdate()
-    {
-        FixedMove();
-    }
-
-    //Beta / need update 
+    
     protected virtual void Update()
     {
-        if ((Position - _lastPosition).magnitude > .1f)
-        {
-            Rotate();
-        }
-
-        if (Time.frameCount % 10 == 0)
-        {
-            _lastPosition = Position;
-        }
+       
     }
 
     internal virtual void EyeActivate()
     {
-        BotStateChangeEvent(false);
+       
     }
 
     internal virtual void DeadEvent()
     {
-        DisposeAll();
-        BotStateChangeEvent(true);
+        
     }
 
     private void BotStateChangeEvent(bool state)
     {
-        Rb.isKinematic = state;
-        _isDeath.Value = state;
-        _sphereCollider.enabled = !state;
+        
     }
 
     protected virtual void DisposeAll()
     {
-        _everyUpdateDispose?.Dispose();
+       
     }
 
     #region Eye Balance in Idle mode
 
     protected void MoveBalanceStart()
     {
-        MoveBalanceStop();
-        _everyUpdateDispose = Observable.EveryFixedUpdate().Subscribe(_ =>
-        {
-            Rb.velocity = Vector3.Lerp(Rb.velocity, Vector3.zero, Time.fixedDeltaTime);
-            Rb.angularVelocity = Vector3.Lerp(Rb.angularVelocity, Vector3.zero, Time.fixedDeltaTime);
-        }).AddTo(this);
+        
     }
 
     protected void MoveBalanceStop()
     {
-        _everyUpdateDispose?.Dispose();
     }
 
     #endregion
-
-    private void Rotate()
-    {
-        var vectorOfPositions = transform.position - _lastPosition;
-
-        Quaternion rotation = Quaternion.LookRotation(vectorOfPositions, Vector3.up);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10);
-    }
+    
 
     #endregion
-
-    protected abstract void FixedMove();
 
     #region Attack Systeam
 

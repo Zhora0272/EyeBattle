@@ -27,7 +27,6 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-213413355-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-230670331-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1368244454-0
-        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-103481803-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1220294206-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1301025972-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-280009755-0
@@ -35,10 +34,8 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1869337464-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-180440894-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1453597020-0
-        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1952035010-0
         - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1283510340-0
-        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-2117798700-0
-        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1296901816-0
+        - GlobalObjectId_V1-2-e44a8bcb985284a468fa931433943b95-1144487270-0
         values:
         - iColor: 5
           icon: 
@@ -53,8 +50,6 @@ MonoBehaviour:
         - iColor: 0
           icon: Settings Icon
         - iColor: 0
-          icon: Settings Icon
-        - iColor: 0
           icon: PreMatSphere
         - iColor: 8
           icon: 
@@ -66,14 +61,10 @@ MonoBehaviour:
           icon: Canvas Icon
         - iColor: 9
           icon: PreMatCylinder
-        - iColor: 0
-          icon: Settings Icon
         - iColor: 2
           icon: Settings Icon
-        - iColor: 2
+        - iColor: 9
           icon: 
-        - iColor: 6
-          icon: Camera Icon
     - goDatasByGlobalId:
         keys: []
         values: []

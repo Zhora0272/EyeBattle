@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Bot.BotController
 {
-    public class EyeSpawnManager : MonoManager
+    public class BotSpawnManager : MonoManager
     {
         [SerializeField] private Transform _worldTransform;
         [Space] [SerializeField] private MovableBattleParticipantBaseController _botPrrefab;

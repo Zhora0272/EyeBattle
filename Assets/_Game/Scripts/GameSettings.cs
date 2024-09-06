@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
-    [SerializeField] private EyeSpawnManager _spawnManager;
+    [SerializeField] private BotSpawnManager _spawnManager;
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private RenderTexture _renderTexture;
     
@@ -64,18 +64,10 @@ public class GameSettings : MonoBehaviour
         {
             var calculationTime = DateTime.Now - startTime;
 
-            var dateTime = new DateTime(
-                startTime.Year,
-                startTime.Month,
-                
-                startTime.Day,
-                startTime.Hour,
-                calculationTime.Minutes,
-                calculationTime.Seconds);
-
-            _timerText.text = dateTime.ToString("mm:ss");
+            _timerText.text = $"{calculationTime.Minutes:D2}:{calculationTime.Seconds:D2}";
 
         }).AddTo(this);
+
     }
 
     private void ApplicationSettings()

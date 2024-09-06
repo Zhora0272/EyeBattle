@@ -1,4 +1,4 @@
-using System;
+using UniRx;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -11,16 +11,10 @@ public class CameraController : MonoBehaviour
     [Header("Configs")] 
     [SerializeField] private float _inGameDistance = 4f;
     [SerializeField] private float _outGameDistance = 1.5f;
+    
+    [SerializeField] private InputController _inputController;
 
     private UIManager uiManager;
-
-    private void FixedUpdate()
-    {
-        transform.position = Vector3.Lerp(
-            transform.position,
-            _target.position + ((_offset * 10) * _distance),
-            Time.deltaTime * _smooth);
-    }
 
     private void Awake()
     {
@@ -36,8 +30,30 @@ public class CameraController : MonoBehaviour
         });
     }
 
+    private bool _cameraMode;
     private void Start()
     {
-       
+        _inputController.SpacePressStream.Subscribe(_ =>
+        {
+            _cameraMode = !_cameraMode;
+
+            if (_cameraMode)
+            {
+                _distance = _inGameDistance;
+            }
+            else
+            {
+                _distance = _outGameDistance;
+            }
+            
+        }).AddTo(this);
+    }
+    
+    private void FixedUpdate()
+    {
+        transform.position = Vector3.Lerp(
+            transform.position,
+            _target.position + (_offset * (_distance * 10)),
+            Time.deltaTime * _smooth);
     }
 }

@@ -15,13 +15,7 @@ namespace EyeGunSystem
             
             MainManager.WaitManager<InputController>(manager =>
             {
-                _inputController = (InputController)manager;
-                
-                _inputController.SmartButtonState
-                (
-                    _gunController._gunType,
-                    _gunController._shotType,
-                    () => { _gunController.Shoot(); });
+               
             });
         }
     }

@@ -5,37 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BattleParticipantBaseController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BattleParticipantBaseController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBotBattleParameters.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/StrongholdMoveableBattleParticipant.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/BaseNavMeshAgentController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/BaseNavMeshAgentController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/CameraControll.inputactions" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/CameraControll.inputactions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MineNavMeshAgentController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MineNavMeshAgentController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ProjectContext.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ProjectContext/ProjectContext.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ProjectContext/ProjectContext.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (3).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (3).png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (4).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (4).png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenSelectionVector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenSelectionVector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SelectionSystemController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SelectionSystemController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SelectionSystemView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/SelectionSystemView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main/NavMesh.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main/NavMesh.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HeadGunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeadGunController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RocketJetpackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RocketJetpackController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerGunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerGunController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Animations/Armature_Armature.001_mixamo.com_Layer0.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Animations/Armature_Armature.001_mixamo.com_Layer0.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Animations/Loading.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Animations/Loading.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Animators/PlayerAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Animators/PlayerAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Materials/EyeMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Sphere.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (1).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Sphere.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (2).png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Sphere_Outline.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28 (2).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Sphere_Outline.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/OutLine.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/Rectangle 28.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/UIElements/OutLine.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BaseBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BaseBattleParticipant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BattleParticipantsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BattleParticipantsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/InGame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/InGame.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/TapToPlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/TapToPlay.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BotBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotBattleParticipant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotMiddleBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotMiddleBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBotMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBotMonoBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IEyebattleParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBotBattleParameters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IEyebattleParameters.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/INpcParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBattleParticipantParameters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/INpcParameters.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IBattleParticipantParameters.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBaseController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBaseController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBaseController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBotController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcBotController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBotController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantPlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/NpcPlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantPlayerController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotSpawnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/EyeSpawnManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotSpawnManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBotController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantPlayerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantPlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/GameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/GameSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/InputController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/InputController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/PlayerBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/PlayerBattleParticipant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/StrongholdBattleParticipant.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/StrongholdBattleParticipant.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/StrongholdMoveableBattleParticipant.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main/GameplayPostProcessing.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main/GameplayPostProcessing.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/vHierarchy/vHierarchy Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/vHierarchy/vHierarchy Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +88,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1055710892114537b403d5c089dd69383a00/b1/fa9f60a4/AdSize.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3b24cc7fa9794ed8ab04312c53e6dedd172c00/d0/31d95cba/Camera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/58/cc9a9413/Void.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8f80c2d02d314878872cb1183823de6f1a000/84/cfc0f5f3/Physics.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9537966803c44b2eb39e6845536c650f4000/19/ed5d08cf/IBannerClient.cs" root0="SKIP_HIGHLIGHTING" />
@@ -63,9 +97,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/cd/ae8ec4c9/Material.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GunController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/HeadGunController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MineNavMeshAgentController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/NotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PlayerGunController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/RocketController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SceneInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SmartButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StrongholdController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BattleParticipantBaseController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -97,6 +133,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -275,6 +312,11 @@
       <workItem from="1725380780877" duration="3268000" />
       <workItem from="1725388947309" duration="2513000" />
       <workItem from="1725433426163" duration="10838000" />
+      <workItem from="1725467737243" duration="4815000" />
+      <workItem from="1725529713427" duration="6907000" />
+      <workItem from="1725551259920" duration="11022000" />
+      <workItem from="1725636201848" duration="7203000" />
+      <workItem from="1725644765319" duration="5558000" />
     </task>
     <servers />
   </component>

@@ -1,56 +1,48 @@
-using UnityEngine;
 using System;
-using UnityEngine.EventSystems;
 using UniRx;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-public class InputController : MonoManager, IDragHandler, IPointerDownHandler, IPointerUpHandler
+public class InputController : MonoManager
 {
-    [SerializeField] private FloatingJoystick _joystick;
-    [SerializeField] private SmartButton _smartButtons;
-    
-    public IObservable<Unit> PointerDownStream => _pointerDownSubject;
-    public IObservable<Unit> PointerUpStream => _pointerUpSubject;
+    [SerializeField] private InputActionReference spaceAction;
+    [SerializeField] private InputAction scrollAction;
+    [FormerlySerializedAs("_selectionSystem")] [SerializeField] private SelectionSystemView selectionSystemView;
 
-    public IReactiveProperty<bool> TouchOnScreenState = new ReactiveProperty<bool>(false);
+    public IObservable<Unit> SpacePressStream => _spacePressSubject;
+    private Subject<Unit> _spacePressSubject = new();
 
-    private Subject<Unit> _pointerDownSubject = new();
-    private Subject<Unit> _pointerUpSubject = new();
+    private void OnEnable()
+    {
+        if (scrollAction != null)
+        {
+            scrollAction.performed += OnScrollPerformed;
+            scrollAction.Enable();
+        }
 
-    private Action<Vector2> _joystickDirection;
+        spaceAction.action.performed += OnSpacePressed;
+    }
 
     private void OnDisable()
     {
-        _joystickDirection.Invoke(Vector2.zero);
-    }
-
-    public void RegisterJoysticData(Action<Vector2> joystickDirection) 
-    {
-        _joystickDirection += joystickDirection;
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        _joystickDirection?.Invoke(_joystick.Direction);
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        TouchOnScreenState.Value = true;
-        _pointerDownSubject.OnNext(default);
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        TouchOnScreenState.Value = false;
-        _pointerUpSubject.OnNext(default);
-    }
-
-    public void SmartButtonState(GunType type, ShotType shotType, Action action)
-    {
-        _smartButtons.IPointerDownHandler.Subscribe(_ =>
+        if (scrollAction != null)
         {
-            action.Invoke();
-        }).AddTo(this);
+            scrollAction.performed -= OnScrollPerformed;
+            scrollAction.Disable();
+        }
+
+        spaceAction.action.performed -= OnSpacePressed;
+    }
+
+    private void OnSpacePressed(InputAction.CallbackContext context)
+    {
+        _spacePressSubject.OnNext(default);
+    }
+
+    private void OnScrollPerformed(InputAction.CallbackContext context)
+    {
+        Vector2 scrollDelta = context.ReadValue<Vector2>();
+        Debug.Log("Mouse scrolled: " + scrollDelta.y);
     }
 }
-
