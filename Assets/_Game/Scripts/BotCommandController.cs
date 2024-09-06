@@ -1,23 +1,23 @@
-﻿using UniRx;
-using UnityEngine;
+﻿using Bot.BotController;
+using UniRx;
 using Zenject;
 
 public class BotCommandController
 {
     private readonly ISelectedElements _selectedElements;
-    
+
     [Inject]
-    public BotCommandController(ISelectedElements selectedElements)
+    public BotCommandController(ISelectedElements selectedElements, IColliderToBotSearchable colliderToBotSearchable)
     {
-        Debug.Log("BotCommandController");
-        
         _selectedElements = selectedElements;
 
         _selectedElements.HitColliders.Subscribe(colliders =>
         {
+            if (colliders == null) return;
+
             foreach (var item in colliders)
             {
-                Debug.Log(item);
+                colliderToBotSearchable.SearchBotAnCollider(item);
             }
         });
     }

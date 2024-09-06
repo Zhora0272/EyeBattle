@@ -17,7 +17,7 @@ public class ShopIndicator : MonoBehaviour
     [SerializeField] private float _indicatorRepeatInterval;
     [SerializeField] Vector2 _notificationShowTimeMinMax = new Vector2(40,120);
 
-    //[SerializeField] private NotificationManager _notificationManager;
+    [SerializeField] private NotificationManager _notificationManager;
 
     [SerializeField] private Vector2 _activateSize;
     [SerializeField] private Vector2 _deActivateSize;
@@ -25,12 +25,10 @@ public class ShopIndicator : MonoBehaviour
     [SerializeField] private StringArray[] _messages;
 
     private RectTransform _rectTransform;
-    private Outline _outline;
 
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
-        _outline = GetComponent<Outline>();
     }
 
     private void Start()
@@ -63,21 +61,4 @@ public class ShopIndicator : MonoBehaviour
 
         }).AddTo(this);
     }
-
-    private void DeactivateIndicator()
-    {
-        _outline.DOFade(1, 0.5f);
-        //_notificationManager.Deactivate();
-        _rectTransform.DOSizeDelta(_deActivateSize, 0.5f);
-    }
-
-    private void Indicator()
-    {
-        _outline.DOFade(1, 0.5f).onComplete = () =>
-        {
-            _outline.DOFade(0, 0.5f);
-        };
-    }
-
-    
 }

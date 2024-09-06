@@ -7,17 +7,20 @@ using Random = UnityEngine.Random;
 
 namespace Bot.BotController
 {
-    public class BotSpawnManager : MonoManager
+    public class BotSpawnController
+    {
+        
+    }
+
+    public class BotSpawnManager : MonoManager, IColliderToBotSearchable
     {
         [SerializeField] private Transform _worldTransform;
         [Space] [SerializeField] private MovableBattleParticipantBaseController _botPrrefab;
         [SerializeField] private MovableBattleParticipantBaseController _playerTransform;
-        [Space] [SerializeField] private UpdateElementController _speedUpdate;
         [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
 
-
-        public List<MovableBattleParticipantBaseController> _spawnedEyes { private set; get; }
-        private EyePool _eyePool;
+        public List<MovableBattleParticipantBaseController> _spawnedBots { private set; get; }
+        private BotPool _botPool;
 
         private IDisposable _spawnBotDisposable;
         private int _index;
@@ -25,8 +28,8 @@ namespace Bot.BotController
         protected override void Awake()
         {
             base.Awake();
-            _eyePool = new EyePool();
-            _spawnedEyes = new List<MovableBattleParticipantBaseController>();
+            _botPool = new BotPool();
+            _spawnedBots = new List<MovableBattleParticipantBaseController>();
         }
 
         private void ReloadSpawnList()
@@ -37,6 +40,17 @@ namespace Bot.BotController
             }
         }
 
+        public void SearchBotAnCollider(Collider collider)
+        {
+            foreach (var item in _spawnedBots)
+            {
+                if (item.gameObject.GetHashCode() == collider.gameObject.GetHashCode())
+                {
+                    print(true);
+                }
+            }
+        }
+        
         //need pooling system
         private void Start()
         {
@@ -45,13 +59,13 @@ namespace Bot.BotController
             MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnStart);
         }
 
-        internal void CrushAllEyeBots()
+        internal void CrushAllBots()
         {
             _spawnCompositeDisposables?.Dispose();
             
-            if (_spawnedEyes.Count <= 0) return;
+            if (_spawnedBots.Count <= 0) return;
 
-            this.WaitAndDoCycle(_spawnedEyes.Count - 1, .01f, i => { _spawnedEyes[i].DeadEvent(); });
+            this.WaitAndDoCycle(_spawnedBots.Count - 1, .01f, i => { _spawnedBots[i].DeadEvent(); });
 
             _spawnBotDisposable?.Dispose();
         }
@@ -69,13 +83,13 @@ namespace Bot.BotController
                 var index = i;
                 var disposable = Observable.Interval(TimeSpan.FromSeconds(_eyeSpawnList[index].SpawnDelay))
                     .Subscribe(
-                        _ => { SpawnEnemies(index); }).AddTo(this);
+                        _ => { SpawnBots(index); }).AddTo(this);
 
                 _spawnCompositeDisposables.Add(disposable);
             }
         }
 
-        private void SpawnEnemies(int index)
+        private void SpawnBots(int index)
         {
             ReloadSpawnList();
 
@@ -126,7 +140,7 @@ namespace Bot.BotController
                     spawnState = true;
 
                     var spawnElement =
-                        _eyePool.GetPoolElement(item.BotType, _botPrrefab as MovableBattleParticipantBotController,
+                        _botPool.GetPoolElement(item.BotType, _botPrrefab as MovableBattleParticipantBotController,
                             _worldTransform); // pooling system
 
                     spawnElement.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count)];
@@ -135,7 +149,7 @@ namespace Bot.BotController
 
                     if (spawnElement != null)
                     {
-                        _spawnedEyes.Add(spawnElement);
+                        _spawnedBots.Add(spawnElement);
                         spawnElement.Activate(item.BotType, item.BotModel); //do this in the last
                     }
 

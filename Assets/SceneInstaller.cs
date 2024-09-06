@@ -1,3 +1,4 @@
+using Bot.BotController;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +9,8 @@ public class SceneInstaller : MonoInstaller
     
     [SerializeField] private BotCommandView _botCommandView;
     private BotCommandController _botCommandController;
+
+    [SerializeField] private BotSpawnManager _botSpawnManager;
     
     public override void InstallBindings()
     {
@@ -16,5 +19,7 @@ public class SceneInstaller : MonoInstaller
         
         Container.Bind<BotCommandView>().FromInstance(_botCommandView).AsSingle().NonLazy();
         Container.Bind<BotCommandController>().AsSingle();
+
+        Container.BindInterfacesTo<BotSpawnManager>().FromInstance(_botSpawnManager).AsSingle();
     }
 }

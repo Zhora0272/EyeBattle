@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using Bot.BotController;
 
-public class EyePool : BasePooling<BotType, MovableBattleParticipantBotController>
+public class BotPool : BasePooling<BotType, MovableBattleParticipantBotController>
 {
     
 }
