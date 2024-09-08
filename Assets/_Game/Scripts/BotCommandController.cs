@@ -1,24 +1,34 @@
 ﻿using Bot.BotController;
-using UniRx;
+using UnityEngine;
 using Zenject;
 
 public class BotCommandController
 {
-    private readonly ISelectedElements _selectedElements;
-
     [Inject]
-    public BotCommandController(ISelectedElements selectedElements, IColliderToBotSearchable colliderToBotSearchable)
+    public BotCommandController(IColliderToBotConvertable colliderToBotConvertable)
     {
-        _selectedElements = selectedElements;
-
         _selectedElements.HitColliders.Subscribe(colliders =>
         {
             if (colliders == null) return;
 
             foreach (var item in colliders)
             {
-                colliderToBotSearchable.SearchBotAnCollider(item);
+                var bot = colliderToBotConvertable.SearchBotAnCollider(item);
+
+                if (bot)
+                {
+                    var worldPos = _camera.ScreenPointToRay(vector2);
+                    Physics.Raycast(worldPos, out var raycastHit);
+                }
             }
         });
+    }
+
+
+    internal void SetParameters
+    (
+        Camera camera
+    )
+    {
     }
 }

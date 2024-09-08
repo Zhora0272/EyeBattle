@@ -1433,11 +1433,6 @@ MonoBehaviour:
   controller: {fileID: 0}
   _spawnManager: {fileID: 1368244455}
   _uiManager: {fileID: 1631124476}
---- !u!1 &1284500863 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2509413003133941968, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
-  m_PrefabInstance: {fileID: 8382609805435347788}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1301025972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,12 +1730,12 @@ GameObject:
   - component: {fileID: 1368244457}
   - component: {fileID: 1368244455}
   m_Layer: 0
-  m_Name: EyeSpawner
+  m_Name: BotSpawner
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1368244455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1755,7 +1750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _worldTransform: {fileID: 1283510341}
   _botPrrefab: {fileID: 767367345007416154, guid: 38d3f1061f9a6a749a18188b301aee13, type: 3}
-  _playerTransform: {fileID: 0}
+  _playerTransform: {fileID: 2895838331650394280}
   _eyeSpawnList:
   - SpawnDelay: 5
     BotType: 0
@@ -2171,7 +2166,7 @@ Transform:
   m_GameObject: {fileID: 1649253508}
   serializedVersion: 2
   m_LocalRotation: {x: 0.47715867, y: 0, z: 0, w: 0.8788172}
-  m_LocalPosition: {x: 0, y: 13.599299, z: -7.5}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2189,13 +2184,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13589706353d3fa4cabcb154c6a135e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 2895838331650394279}
-  _offset: {x: 0, y: 0.6, z: -0.38}
-  _distance: 4
-  _smooth: 5
-  _inGameDistance: 2.7
-  _outGameDistance: 1.5
   _inputController: {fileID: 2026497093}
+  _target: {fileID: 2895838331650394279}
+  _moveSpeed: 8
+  _scrollSpeed: 10
+  _freeSpaceSpeed: 0.25
+  _distanceMax: 2
+  _distanceMin: 1
+  _offset: {x: 0, y: 0.8, z: -0.5}
 --- !u!114 &1649253513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3730,24 +3726,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6657752547082988523, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
   m_PrefabInstance: {fileID: 8382609805435347788}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2895838331650394287
+--- !u!114 &2895838331650394280 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 455019536718915356, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
+  m_PrefabInstance: {fileID: 8382609805435347788}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284500863}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 93f3c30fc91877447955f3feca5287d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 3.72
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1001 &3476655730761719093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4142,10 +4131,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2509413003133941968, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2895838331650394287}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee08aaacc5ad57b4cb455117521c1cf9, type: 3}
 --- !u!1001 &9117480884409998995
 PrefabInstance:
@@ -4243,6 +4229,10 @@ PrefabInstance:
       propertyPath: _playerTransform
       value: 
       objectReference: {fileID: 2895838331650394279}
+    - target: {fileID: 9117480885004269405, guid: 159609ac45976d8499ff5b970928ecb3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

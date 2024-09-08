@@ -1,15 +1,19 @@
 ﻿using System;
+using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
 
-public class SelectionSystemView : MonoBehaviour,
-    IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class ScreenInputEventView : MonoBehaviour,
+    IPointerDownHandler, IPointerUpHandler, IDragHandler, IPointerClickHandler
 {
+    [Inject] private ScreenInputEventController _screenInputEventController;
+    
     [SerializeField] private RectTransform _selectionRectransform;
 
-    [Inject] private SelectionSystemController _selectionSystemController;
+    public IReactiveProperty<ScreenSelectRangePoint> SelectRangePoint => _selectRangePoint;
+    public ReactiveProperty<ScreenSelectRangePoint> _selectRangePoint;
 
     private Vector2 _pointerDownVector;
 
@@ -21,8 +25,7 @@ public class SelectionSystemView : MonoBehaviour,
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        _selectionSystemController.SelectionVectorsStreamInit(
-            new ScreenSelectionVector(_pointerDownVector, eventData.position));
+        _selectRangePoint.Value = new ScreenSelectRangePoint(_pointerDownVector, eventData.position);
         
         _pointerDownVector = Vector2.zero;
         _selectionRectransform.sizeDelta = Vector2.zero;
@@ -35,5 +38,10 @@ public class SelectionSystemView : MonoBehaviour,
 
         _selectionRectransform.eulerAngles = new Vector3(delta.y <= 0 ? 180 : 0, delta.x <= 0 ? 180 : 0);
         _selectionRectransform.sizeDelta = new Vector2(Math.Abs(delta.x), Math.Abs(delta.y));
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        
     }
 }

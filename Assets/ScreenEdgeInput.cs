@@ -1,8 +1,12 @@
+using UniRx;
 using UnityEngine;
 
 public class ScreenEdgeInput : MonoBehaviour
 {
     [SerializeField] private ScreenEdgeInputPart[] _inputParts;
+
+    public IReactiveProperty<Vector2> OutputValueProperty => _outputValueProperty;
+    private readonly ReactiveProperty<Vector2> _outputValueProperty = new();
 
     private void Start()
     {
@@ -16,6 +20,6 @@ public class ScreenEdgeInput : MonoBehaviour
 
     private void InputAction(Vector2 vector)
     {
-        print(vector);
+        _outputValueProperty.SetValueAndForceNotify(vector);
     }
 }

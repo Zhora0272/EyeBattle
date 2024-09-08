@@ -5,45 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Readme.txt.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineFill.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineFill.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineMask.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineMask.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineFill.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineFill.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineMask.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineMask.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials/Plane.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials/Plane.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Scenes.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Scenes/QuickOutline.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Scenes/QuickOutline.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Scripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Scripts/Outline.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Scripts/Outline.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScreenEdgeInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScreenEdgeInput.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScreenEdgeInputPart.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScreenEdgeInputPart.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IColliderToBotSearchable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IColliderToBotSearchable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IColliderToBotConvertable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ISelectedElements.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ISelectedElements.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenToWorldCastController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenToWorldCastController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenToWorldCastView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenToWorldCastView.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/SMART_BANNER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/SMART_BANNER.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SceneInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScreenEdgeInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScreenEdgeInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScreenEdgeInputPart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScreenEdgeInputPart.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/InGame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/InGame.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/CameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotSpawnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IColliderToBotSearchable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IColliderToBotSearchable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IColliderToBotConvertable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/InputController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/InputController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenSelectionVector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenSelectRangePoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenSelectionVector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenSelectRangePoint.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SelectionSystemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenInputEventController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SelectionSystemController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenInputEventController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SelectionSystemView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenInputEventView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/SelectionSystemView.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenInputEventView.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopIndicator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ShopIndicator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
@@ -294,7 +281,10 @@
       <workItem from="1725529713427" duration="6907000" />
       <workItem from="1725551259920" duration="11022000" />
       <workItem from="1725636201848" duration="7203000" />
-      <workItem from="1725644765319" duration="10720000" />
+      <workItem from="1725644765319" duration="11552000" />
+      <workItem from="1725725259902" duration="13503000" />
+      <workItem from="1725780250547" duration="11424000" />
+      <workItem from="1725806757806" duration="822000" />
     </task>
     <servers />
   </component>

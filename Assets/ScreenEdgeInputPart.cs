@@ -21,6 +21,7 @@ public class ScreenEdgeInputPart : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        _action.Invoke(Vector2.zero);
         _everyUpdate.Dispose();
     }
 

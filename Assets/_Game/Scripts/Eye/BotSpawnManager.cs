@@ -12,14 +12,14 @@ namespace Bot.BotController
         
     }
 
-    public class BotSpawnManager : MonoManager, IColliderToBotSearchable
+    public class BotSpawnManager : MonoManager, IColliderToBotConvertable
     {
         [SerializeField] private Transform _worldTransform;
         [Space] [SerializeField] private MovableBattleParticipantBaseController _botPrrefab;
-        [SerializeField] private MovableBattleParticipantBaseController _playerTransform;
+        [SerializeField] private MineNavMeshAgentController _playerTransform;
         [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
 
-        public List<MovableBattleParticipantBaseController> _spawnedBots { private set; get; }
+        public List<MineNavMeshAgentController> _spawnedBots { private set; get; }
         private BotPool _botPool;
 
         private IDisposable _spawnBotDisposable;
@@ -29,7 +29,9 @@ namespace Bot.BotController
         {
             base.Awake();
             _botPool = new BotPool();
-            _spawnedBots = new List<MovableBattleParticipantBaseController>();
+            _spawnedBots = new List<MineNavMeshAgentController>();
+            
+            _spawnedBots.Add(_playerTransform);
         }
 
         private void ReloadSpawnList()
@@ -40,15 +42,17 @@ namespace Bot.BotController
             }
         }
 
-        public void SearchBotAnCollider(Collider collider)
+        public MineNavMeshAgentController SearchBotAnCollider(Collider collider)
         {
             foreach (var item in _spawnedBots)
             {
                 if (item.gameObject.GetHashCode() == collider.gameObject.GetHashCode())
                 {
-                    print(true);
+                    return item;
                 }
             }
+
+            return null;
         }
         
         //need pooling system
@@ -58,17 +62,7 @@ namespace Bot.BotController
                 () => { _spawnBotDisposable?.Dispose(); });
             MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnStart);
         }
-
-        internal void CrushAllBots()
-        {
-            _spawnCompositeDisposables?.Dispose();
-            
-            if (_spawnedBots.Count <= 0) return;
-
-            this.WaitAndDoCycle(_spawnedBots.Count - 1, .01f, i => { _spawnedBots[i].DeadEvent(); });
-
-            _spawnBotDisposable?.Dispose();
-        }
+        
 
         private CompositeDisposable _spawnCompositeDisposables;
 
@@ -91,7 +85,7 @@ namespace Bot.BotController
 
         private void SpawnBots(int index)
         {
-            ReloadSpawnList();
+            /*ReloadSpawnList();
 
             List<Vector3> spawnPositions = new();
 
@@ -158,7 +152,7 @@ namespace Bot.BotController
                         _spawnBotDisposable?.Dispose();
                     }
                 }
-            }).AddTo(this);
+            }).AddTo(this);*/
         }
     }
 }

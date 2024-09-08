@@ -60,5 +60,5 @@ public class ShopIndicator : MonoBehaviour
             //_notificationManager.Activate(_messages[0].Mesages, DeactivateIndicator);
 
         }).AddTo(this);
-    }
+    } 
 }
