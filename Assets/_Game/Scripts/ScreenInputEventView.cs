@@ -14,6 +14,9 @@ public class ScreenInputEventView : MonoBehaviour,
 
     public IReactiveProperty<ScreenSelectRangePoint> SelectRangePoint => _selectRangePoint;
     public ReactiveProperty<ScreenSelectRangePoint> _selectRangePoint;
+    
+    public IReactiveProperty<Vector2> ScreenClickProperty => _screenClickProperty;
+    public ReactiveProperty<Vector2> _screenClickProperty;
 
     private Vector2 _pointerDownVector;
 
@@ -42,6 +45,6 @@ public class ScreenInputEventView : MonoBehaviour,
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
+        _screenClickProperty.SetValueAndForceNotify(eventData.position);
     }
 }

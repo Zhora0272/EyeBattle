@@ -879,6 +879,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533648db7faf419e99c9938ee51f5d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &819918558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3385197921862898955, guid: 159609ac45976d8499ff5b970928ecb3, type: 3}
+  m_PrefabInstance: {fileID: 9117480884409998995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8191de58c947e68b654a5b7cd03b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &870827237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,8 +2084,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea46687460cfb9a4a86831011a8ef832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectionSystemView: {fileID: 377348839}
+  screenInputEventView: {fileID: 377348839}
   _botCommandView: {fileID: 799805206}
+  screenToWorldCastView: {fileID: 819918558}
   _botSpawnManager: {fileID: 1368244455}
 --- !u!1 &1649253508
 GameObject:
@@ -4141,6 +4153,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1631124474}
     m_Modifications:
+    - target: {fileID: 807124597304794030, guid: 159609ac45976d8499ff5b970928ecb3, type: 3}
+      propertyPath: _inputController
+      value: 
+      objectReference: {fileID: 2026497093}
+    - target: {fileID: 3385197921862898955, guid: 159609ac45976d8499ff5b970928ecb3, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 1649253510}
     - target: {fileID: 9117480883616321064, guid: 159609ac45976d8499ff5b970928ecb3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4229,10 +4249,6 @@ PrefabInstance:
       propertyPath: _playerTransform
       value: 
       objectReference: {fileID: 2895838331650394279}
-    - target: {fileID: 9117480885004269405, guid: 159609ac45976d8499ff5b970928ecb3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

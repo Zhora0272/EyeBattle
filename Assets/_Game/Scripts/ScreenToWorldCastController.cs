@@ -1,35 +1,34 @@
-﻿using UniRx;
-using UnityEngine;
+﻿using UnityEngine;
+using UniRx;
 
-public class ScreenToWorldCastController
+public interface IScreenPointToWorldPoint
 {
-    private readonly ReactiveProperty<Collider[]> _hitColliders = new();
+    public Vector3 ScreenPointInWorld(Vector2 vector2);
+}
 
+public class ScreenToWorldCastController : IScreenPointToWorldPoint
+{
+    private ReactiveProperty<Collider[]> _colliderProperty;
+    
     private IScreenSelectRangePoint _screenSelectRangePoint;
     
     private Camera _camera;
-
-    public ScreenToWorldCastController()
-    {
-        _hitColliders.Subscribe(colliders => { });
-    }
-
+    
     public void Init
     (
         Camera camera,
-        IScreenSelectRangePoint screenSelectRangePoint
+        IScreenSelectRangePoint screenSelectRangePoint,
+        ReactiveProperty<Collider[]> colliderProperty
     )
     {
         _screenSelectRangePoint = screenSelectRangePoint;
+        _colliderProperty = colliderProperty;
         _camera = camera;
+
+        _screenSelectRangePoint.SelectRangePointProperty.Subscribe(SetSelectedScreenPoint);
     }
 
-    public void SetHitColliders(Collider[] colliders)
-    {
-        _hitColliders.SetValueAndForceNotify(colliders);
-    }
-
-    public void SetSelectedScreenPoint(ScreenSelectRangePoint rangePoints)
+    private void SetSelectedScreenPoint(ScreenSelectRangePoint rangePoints)
     {
         var startPos = ConvertScreenToWorldPoint(rangePoints.SelectionStartVector);
         var endPos = ConvertScreenToWorldPoint(rangePoints.SelectionEndVector);
@@ -39,8 +38,16 @@ public class ScreenToWorldCastController
             new Vector3(Mathf.Abs(endPos.x - startPos.x) / 2,
                 Mathf.Abs(endPos.y - startPos.y) / 2,
                 1f);
+        
+        _colliderProperty.Value = Physics.OverlapBox(center, halfExtents, Quaternion.identity);
+    }
+    
+    public Vector3 ScreenPointInWorld(Vector2 vector2)
+    {
+        var ray = _camera.ScreenPointToRay(vector2);
+        Physics.Raycast(ray, out var hit);
 
-        _hitColliders.Value = Physics.OverlapBox(center, halfExtents, Quaternion.identity);
+        return hit.point;
     }
 
     private Vector3 ConvertScreenToWorldPoint(Vector2 vector2)

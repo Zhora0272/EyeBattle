@@ -9,15 +9,17 @@ public enum MouseButton
     middleButton
 }
 
-public interface IScreenSelectRangePoint
+public class MouseInputData
 {
-    public IReactiveProperty<ScreenSelectRangePoint> SelectRangePointProperty { get; }
+    public MouseButton ButtonType;
+    public Vector2 Position;
 }
-public class InputController : MonoManager, IScreenSelectRangePoint
+
+public class InputController : MonoManager, IScreenSelectRangePoint, IScreenClickPoint
 {
     [SerializeField] private InputActionReference spaceAction;
     [SerializeField] private InputActionReference mouseClickAction;
-    
+
     [SerializeField] private InputAction scrollAction;
     [SerializeField] private ScreenInputEventView screenInputEventView;
     [SerializeField] private ScreenEdgeInput _screenEdgeInput;
@@ -25,18 +27,37 @@ public class InputController : MonoManager, IScreenSelectRangePoint
     public IReactiveProperty<Unit> SpacePressProperty => _spacePressProperty;
     private readonly ReactiveProperty<Unit> _spacePressProperty = new();
 
+    #region MouseProperty
+
     public IReactiveProperty<float> MouseScrollProperty => _mouseScrollProperty;
     private readonly ReactiveProperty<float> _mouseScrollProperty = new();
     
-    public IReactiveProperty<MouseButton> MouseButtonProperty => _mouseButtonProperty;
-    private readonly ReactiveProperty<MouseButton> _mouseButtonProperty = new();
-    
-    public IReactiveProperty<ScreenSelectRangePoint> SelectRangePointProperty => screenInputEventView.SelectRangePoint;
+    public IReactiveProperty<MouseInputData> MouseButtonProperty => _mouseButtonProperty;
+    private readonly ReactiveProperty<MouseInputData> _mouseButtonProperty = new();
 
-    public IReactiveProperty<Vector2> ScreenEdgeInputProperty => _screenEdgeInput.OutputValueProperty;
+    #endregion
+
+    #region ScreenProperty
+
+    public IReactiveProperty<ScreenSelectRangePoint> SelectRangePointProperty =>
+        screenInputEventView.SelectRangePoint;
+    
+    public IReactiveProperty<Vector2> ScreenClickPointProperty =>
+        screenInputEventView.ScreenClickProperty;
+
+    public IReactiveProperty<Vector2> ScreenEdgeInputProperty =>
+        _screenEdgeInput.OutputValueProperty;
+
+    #endregion
 
     private void OnEnable()
     {
+        if (mouseClickAction)
+        {
+            mouseClickAction.action.performed += OnMouseClick;
+            mouseClickAction.action.Enable();
+        }
+
         if (scrollAction != null)
         {
             scrollAction.performed += OnScrollPerformed;
@@ -47,16 +68,16 @@ public class InputController : MonoManager, IScreenSelectRangePoint
         {
             spaceAction.action.performed += OnSpacePressed;
         }
-        
-        mouseClickAction.action.performed += OnMouseClick;
-        mouseClickAction.action.Enable();
     }
 
     private void OnDisable()
     {
-        mouseClickAction.action.performed -= OnMouseClick;
-        mouseClickAction.action.Disable();
-        
+        if (mouseClickAction)
+        {
+            mouseClickAction.action.performed -= OnMouseClick;
+            mouseClickAction.action.Disable();
+        }
+
         if (scrollAction != null)
         {
             scrollAction.performed -= OnScrollPerformed;
@@ -84,19 +105,24 @@ public class InputController : MonoManager, IScreenSelectRangePoint
     {
         var control = context.control;
 
-        string buttonPrefix = "<Mouse>/";
-
+        var inputData = new MouseInputData();
+        
+        string buttonPrefix = "/Mouse/";
+        
         if (control.path == buttonPrefix + MouseButton.leftButton)
         {
-            _mouseButtonProperty.SetValueAndForceNotify(MouseButton.leftButton);
+            inputData.ButtonType = MouseButton.leftButton;
         }
         else if (control.path == buttonPrefix + MouseButton.rightButton)
         {
-            _mouseButtonProperty.SetValueAndForceNotify(MouseButton.rightButton);
+            inputData.ButtonType = MouseButton.rightButton;
         }
         else if (control.path == buttonPrefix + MouseButton.middleButton)
         {
-            _mouseButtonProperty.SetValueAndForceNotify(MouseButton.middleButton);
+            inputData.ButtonType = MouseButton.middleButton;
         }
+
+        inputData.Position = Input.mousePosition;
+        _mouseButtonProperty.SetValueAndForceNotify(inputData);
     }
 }
