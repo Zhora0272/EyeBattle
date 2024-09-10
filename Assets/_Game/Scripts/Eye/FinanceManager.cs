@@ -47,17 +47,6 @@ public class FinanceManager : MonoManager, IGameDataSaveable, ICollectionFinanse
         return default;
     }
 
-    public int ConvertFinanceToPricePoint(BuyType type, int value)
-    {
-        switch (type)
-        {
-            case BuyType.Money: return value * _moneyCoefficient;
-            case BuyType.Xp: return value * _gemCoefficient;
-        }
-
-        return default;
-    }
-
     public void TryBuy
     (
         BuyType type,

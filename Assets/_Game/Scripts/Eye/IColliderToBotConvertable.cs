@@ -4,6 +4,6 @@ namespace Bot.BotController
 {
     public interface IColliderToBotConvertable
     {
-        public MineNavMeshAgentController SearchBotAnCollider(Collider collider);
+        public MineNavMeshAgentController SearchBotWithCollider(Collider collider);
     }
 }

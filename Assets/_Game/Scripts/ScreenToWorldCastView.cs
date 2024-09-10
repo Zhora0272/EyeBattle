@@ -4,13 +4,11 @@ using UniRx;
 
 public class ScreenToWorldCastView : MonoBehaviour, ISelectedElements
 {
-    //SerializeField
-    [SerializeField] private InputController _inputController;
-    [Space]
     [SerializeField] private Camera _camera;
 
     //inject
     [Inject] private ScreenToWorldCastController _castController;
+    [Inject] private InputController _inputController;
 
     //ReactiveProperty
     public ReactiveProperty<Collider[]> HitColliders => _hitColliders;

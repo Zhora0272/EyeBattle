@@ -1,12 +1,12 @@
-﻿using Bot.BotController;
-using UniRx;
+﻿using Zenject;
+using Bot.BotController;
 using UnityEngine;
-using Zenject;
+using UniRx;
 
 public class BotCommandController
 {
-    private IColliderToBotConvertable _colliderToBotConvertable;
-    private IScreenPointToWorldPoint _screenPointToWorldPoint;
+    private readonly IColliderToBotConvertable _colliderToBotConvertable;
+    private readonly IScreenPointToWorldPoint _screenPointToWorldPoint;
 
     private InputController _inputController;
     private ReactiveProperty<Collider[]> _hitColliderProperty;
@@ -47,7 +47,7 @@ public class BotCommandController
                     {
                         foreach (var item in _hitColliderProperty.Value)
                         {
-                            var bot = _colliderToBotConvertable.SearchBotAnCollider(item);
+                            var bot = _colliderToBotConvertable.SearchBotWithCollider(item);
                             if (bot != null)
                             {
                                 var position = _screenPointToWorldPoint.ScreenPointInWorld(mouseButton.Position);
@@ -55,6 +55,10 @@ public class BotCommandController
                             }
                         }
                     }
+                }
+                else if (mouseButton.ButtonType == MouseButton.rightButton)
+                {
+                    _hitColliderProperty = null;
                 }
             }
         });

@@ -1,7 +1,10 @@
 ﻿public enum BotState
 {
-    RandomWalk,
     Idle,
     Attack,
-    GoAwayFromEnemy,
+    Protect,
+    Run,
+    Walk,
+    RandomWalk,
+    GoAwayFromEnemy
 }

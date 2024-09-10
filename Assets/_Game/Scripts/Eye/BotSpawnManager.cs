@@ -1,21 +1,12 @@
 using System.Collections.Generic;
 using System;
-using _Game.Scripts.Utility;
 using UniRx;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Bot.BotController
 {
-    public class BotSpawnController
-    {
-        
-    }
-
     public class BotSpawnManager : MonoManager, IColliderToBotConvertable
     {
-        [SerializeField] private Transform _worldTransform;
-        [Space] [SerializeField] private MovableBattleParticipantBaseController _botPrrefab;
         [SerializeField] private MineNavMeshAgentController _playerTransform;
         [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
 
@@ -42,7 +33,7 @@ namespace Bot.BotController
             }
         }
 
-        public MineNavMeshAgentController SearchBotAnCollider(Collider collider)
+        public MineNavMeshAgentController SearchBotWithCollider(Collider collider)
         {
             foreach (var item in _spawnedBots)
             {
