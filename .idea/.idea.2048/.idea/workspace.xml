@@ -5,81 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/BaseBotController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BaseBotController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BotParameters.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BotParameters.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BotSpawnController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BotSpawnController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BotSpawnView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BotSpawnView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SanctuaryController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SanctuaryController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SanctuaryView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SanctuaryView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/PersonIdle.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/PersonIdle.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/PersonRun.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/PersonRun.anim.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MineNavMeshAgentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MineNavMeshAgentController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonPrototype/Models/Character_FPSHands_01.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonPrototype/Models/Character_FPSHands_01.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonPrototype/Models/Character_FPSHands_02.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonPrototype/Models/Character_FPSHands_02.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonPrototype/Models/Characters.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonPrototype/Models/Characters.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SceneInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Animators/PlayerAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Animators/PlayerAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/3deye.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/3deye.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/3deye.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/3deye.obj.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Asterix.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Asterix.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Asterx.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Asterx.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Axe_hat.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Axe_hat.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Satrun.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/Satrun.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/racket.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/racket.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/shield.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeDecor/shield.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeRuzo.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/EyeRuzo.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/NewEye.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/NewEye.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Plane.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Plane.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Player 1.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Player 1.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Player.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/Player.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Player.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Models/Player.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Vanguard By T. Choonyung@Running (4).fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/Vanguard By T. Choonyung@Running (4).fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/hat.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/hat.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/headphones.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/headphones.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/headphones.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/headphones.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/king.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/king.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/sunglass.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/sunglass.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/upgrade.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Models/upgrade.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/InGame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/InGame.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotSpawnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/BotState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/FinanceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IColliderToBotConvertable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/IColliderToBotConvertable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenToWorldCastView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenToWorldCastView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +262,8 @@
       <workItem from="1725806757806" duration="10783000" />
       <workItem from="1725864151105" duration="7973000" />
       <workItem from="1725896957680" duration="2952000" />
-      <workItem from="1725954048485" duration="12362000" />
+      <workItem from="1725954048485" duration="12965000" />
+      <workItem from="1725983825899" duration="457000" />
     </task>
     <servers />
   </component>
