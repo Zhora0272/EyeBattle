@@ -9,17 +9,17 @@ public class ScreenInputEventView : MonoBehaviour,
     IPointerDownHandler, IPointerUpHandler, IDragHandler, IPointerClickHandler
 {
     [Inject] private ScreenInputEventController _screenInputEventController;
-    
+
     [SerializeField] private RectTransform _selectionRectransform;
 
     public IReactiveProperty<ScreenSelectRangePoint> SelectRangePoint => _selectRangePoint;
     public ReactiveProperty<ScreenSelectRangePoint> _selectRangePoint;
-    
+
     public IReactiveProperty<Vector2> ScreenClickProperty => _screenClickProperty;
     public ReactiveProperty<Vector2> _screenClickProperty;
 
     private Vector2 _pointerDownVector;
-
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         _pointerDownVector = eventData.position;
@@ -29,13 +29,15 @@ public class ScreenInputEventView : MonoBehaviour,
     public void OnPointerUp(PointerEventData eventData)
     {
         _selectRangePoint.Value = new ScreenSelectRangePoint(_pointerDownVector, eventData.position);
-        
+
         _pointerDownVector = Vector2.zero;
         _selectionRectransform.sizeDelta = Vector2.zero;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        print(eventData.position);
+        
         var vector = new Vector2(eventData.position.x, eventData.position.y);
         var delta = new Vector2(vector.x - _pointerDownVector.x, vector.y - _pointerDownVector.y);
 

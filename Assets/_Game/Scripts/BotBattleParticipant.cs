@@ -1,15 +1,16 @@
 using UniRx;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BotBattleParticipant : BaseBattleParticipant
 {
-    [SerializeField] private MovableBattleParticipantBaseController movableBattleParticipantBaseController;
+    [FormerlySerializedAs("movableBattleParticipantBaseController")] [SerializeField] private MoveableBattleParticipantBaseController moveableBattleParticipantBaseController;
 
     private void Awake()
     {
-        battleParticipantParameters = movableBattleParticipantBaseController;
+        battleParticipantParameters = moveableBattleParticipantBaseController;
 
-        movableBattleParticipantBaseController.IsDeath.Subscribe(value =>
+        moveableBattleParticipantBaseController.IsDeath.Subscribe(value =>
         {
             if (value)
             {

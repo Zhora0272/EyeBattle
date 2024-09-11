@@ -1,12 +1,10 @@
 using System;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Zenject;
 
 public class CameraController : CachedMonoBehaviour
 {
-    [SerializeField] private InputController _inputController;
-    [Space]
     [SerializeField] private Transform _target;
     [Space]
     [SerializeField] private float _moveSpeed;
@@ -17,6 +15,8 @@ public class CameraController : CachedMonoBehaviour
     [SerializeField] private float _distanceMin = 1.5f;
     [Space] 
     [SerializeField] private Vector3 _offset;
+    
+    [Inject] private InputController _inputController;
     
     private readonly ReactiveProperty<bool> _cameraTargetModeProperty = new(true);
 

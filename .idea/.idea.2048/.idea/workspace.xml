@@ -5,7 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a061de14-d467-40be-b213-90866701a6e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/GameInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/GameInstaller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MoveableBattleParticipantController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2048/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BotController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BotSpawnView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BotSpawnView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerGunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerGunController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SceneInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScreenInputInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScreenInputInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/Textures/GamePlayTexture.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/TapToPlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Dev Prefabs/UI/TapToPlay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BotBattleParticipant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotBattleParticipant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/BotCommandView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MoveableBattleParticipantBaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBaseController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MoveableBattleParticipantBaseController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MoveableBattleParticipantBotController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantBotController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MoveableBattleParticipantBotController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MovableBattleParticipantController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Eye/MoveableBattleParticipantController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/BasePooling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/MapController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenInputEventView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/ScreenInputEventView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/_Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +101,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -263,7 +290,9 @@
       <workItem from="1725864151105" duration="7973000" />
       <workItem from="1725896957680" duration="2952000" />
       <workItem from="1725954048485" duration="12965000" />
-      <workItem from="1725983825899" duration="457000" />
+      <workItem from="1725983825899" duration="5435000" />
+      <workItem from="1725989548386" duration="2062000" />
+      <workItem from="1726035194861" duration="3528000" />
     </task>
     <servers />
   </component>

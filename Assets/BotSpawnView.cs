@@ -6,7 +6,7 @@ public class BotSpawnView : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
 {
     [SerializeField] private Transform _spawnTransform;
     [SerializeField] private BotParameters _botParameters;
-    [SerializeField] private MovableBattleParticipantBaseController _botPrrefab;
+    [SerializeField] private MoveableBattleParticipantBaseController _botPrrefab;
 
     [Inject] private BotSpawnController _botSpawnController;
 

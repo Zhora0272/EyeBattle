@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private MovableBattleParticipantController controller;
+    [SerializeField] private MoveableBattleParticipantController controller;
     [SerializeField] private BotSpawnManager _spawnManager;
     [SerializeField] private UIManager _uiManager;
 

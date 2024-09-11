@@ -6,7 +6,6 @@ namespace EyeGunSystem
     {
         [SerializeField] private BaseBattleParticipant _battleParticipant;
         [SerializeField] private GunController _gunController;
-        private InputController _inputController = new();
 
         private void Awake()
         {

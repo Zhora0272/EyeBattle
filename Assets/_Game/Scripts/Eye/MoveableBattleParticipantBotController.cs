@@ -12,7 +12,7 @@ public enum BotType
 
 namespace Bot.BotController
 {
-    public class MovableBattleParticipantBotController : MovableBattleParticipantBaseController, IPoolingMono
+    public class MoveableBattleParticipantBotController : MoveableBattleParticipantBaseController
     {
         [SerializeField] protected BotBattleParticipant battleParticipant;
         [SerializeField] private BotType type;
@@ -41,13 +41,7 @@ namespace Bot.BotController
 
         private ITransform _closestEnemyTransform;
         private Vector3 _currentMoveDirection;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            
-            _moveableRigidbody = new MoveWithRbAddForce();
-        }
+        
 
         internal void Activate(BotType botType, BotBehaviourModel model)
         {
@@ -95,12 +89,13 @@ namespace Bot.BotController
             {
                 if (state == BotState.Idle)
                 {
-                    MoveBalanceStop();
+                    
                 }
                 else
                 {
-                    MoveBalanceStart();
+                    
                 }
+                
             }).AddTo(this);
         }
 
@@ -131,11 +126,6 @@ namespace Bot.BotController
         public void PoolDestroy()
         {
             Destroy(gameObject);
-        }
-
-        public void SetCustomizeModel(GameData data)
-        {
-            
         }
     }
 }

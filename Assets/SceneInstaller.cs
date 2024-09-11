@@ -4,6 +4,15 @@ using Zenject;
 
 public class SceneInstaller : MonoInstaller
 {
+    [SerializeField] private InputController _inputController;
+    
+    [SerializeField] private ScreenInputEventView screenInputEventView;
+    private ScreenInputEventController _screenInputEventController;
+    
+    [SerializeField] private ScreenToWorldCastView screenToWorldCastView;
+    
+    [Space]
+    
     [SerializeField] private BotCommandView _botCommandView;
     private BotCommandController _botCommandController;
 
@@ -13,6 +22,15 @@ public class SceneInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        //controller
+        Container.Bind<InputController>().FromInstance(_inputController).AsSingle();
+        Container.Bind<ScreenInputEventController>().AsSingle();
+        Container.Bind<ScreenInputEventView>().FromInstance(screenInputEventView).AsSingle().NonLazy();
+        
+        //view
+        Container.BindInterfacesAndSelfTo<ScreenToWorldCastView>().FromInstance(screenToWorldCastView).AsSingle();
+        Container.BindInterfacesAndSelfTo<ScreenToWorldCastController>().AsSingle();
+        
         //controller
         Container.Bind<BotCommandController>().AsSingle();
         Container.Bind<SanctuaryController>().AsSingle();

@@ -2,7 +2,8 @@
 using UnityEngine;
 using UniRx;
 
-public abstract class MovableBattleParticipantBaseController : BattleParticipantBaseController, IBotBattleParameters
+
+public abstract class MoveableBattleParticipantBaseController : BattleParticipantBaseController, IBotBattleParameters
 {
     public IReactiveProperty<float> Speed => _speed;
     public IReactiveProperty<int> KillCount => _killCount;
@@ -32,6 +33,18 @@ public abstract class MovableBattleParticipantBaseController : BattleParticipant
     #region UnityEvents
 
     private IDisposable _everyUpdateDispose;
+    
+    public void OnSpawned()
+    {
+        // Логика при активации из пула
+        Debug.Log("Object Spawned");
+    }
+
+    public void OnDespawned()
+    {
+        // Логика при деактивации (возврат в пул)
+        Debug.Log("Object Despawned");
+    }
 
     protected virtual void Awake()
     {
@@ -45,39 +58,6 @@ public abstract class MovableBattleParticipantBaseController : BattleParticipant
     {
        
     }
-
-    internal virtual void EyeActivate()
-    {
-       
-    }
-
-    internal virtual void DeadEvent()
-    {
-        
-    }
-
-    private void BotStateChangeEvent(bool state)
-    {
-        
-    }
-
-    protected virtual void DisposeAll()
-    {
-       
-    }
-
-    #region Eye Balance in Idle mode
-
-    protected void MoveBalanceStart()
-    {
-        
-    }
-
-    protected void MoveBalanceStop()
-    {
-    }
-
-    #endregion
     
 
     #endregion
@@ -86,11 +66,11 @@ public abstract class MovableBattleParticipantBaseController : BattleParticipant
 
     private void AttackCheck(Collider other)
     {
-        if (other.gameObject.TryGetComponent<MovableBattleParticipantBaseController>(out var result))
+        if (other.gameObject.TryGetComponent<MoveableBattleParticipantBaseController>(out var result))
         {
             //if (result.Force > Force)
             {
-                DeadEvent();
+                //DeadEvent();
             }
         }
     }

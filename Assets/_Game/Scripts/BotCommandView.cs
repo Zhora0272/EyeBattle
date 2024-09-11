@@ -3,9 +3,7 @@ using Zenject;
 
 public class BotCommandView : MonoBehaviour
 {
-    [SerializeField] private InputController _inputController;
     private BotCommandController _botCommandController;
-    
     private ISelectedElements _selectedElements;
 
     [Inject]
@@ -15,9 +13,9 @@ public class BotCommandView : MonoBehaviour
         BotCommandController botCommandController
     )
     {
-        _botCommandController = botCommandController;
         _selectedElements = selectedElements;
+        _botCommandController = botCommandController;
 
-        _botCommandController.SetParameters(_selectedElements.HitColliders, _inputController);
+        _botCommandController.SetParameters(_selectedElements.HitColliders);
     }
 }

@@ -7,17 +7,19 @@ public class BotCommandController
 {
     private readonly IColliderToBotConvertable _colliderToBotConvertable;
     private readonly IScreenPointToWorldPoint _screenPointToWorldPoint;
-
-    private InputController _inputController;
+    private readonly InputController _inputController;
+    
     private ReactiveProperty<Collider[]> _hitColliderProperty;
 
     [Inject]
     public BotCommandController
     (
         IColliderToBotConvertable colliderToBotConvertable,
-        IScreenPointToWorldPoint screenPointToWorldPoint
+        IScreenPointToWorldPoint screenPointToWorldPoint,
+        InputController inputController
     )
     {
+        _inputController = inputController;
         _colliderToBotConvertable = colliderToBotConvertable;
         _screenPointToWorldPoint = screenPointToWorldPoint;
     }
@@ -25,11 +27,9 @@ public class BotCommandController
 
     internal void SetParameters
     (
-        ReactiveProperty<Collider[]> hitColliderProperty,
-        InputController inputController
+        ReactiveProperty<Collider[]> hitColliderProperty
     )
     {
-        _inputController = inputController;
         _hitColliderProperty = hitColliderProperty;
 
         Init();
