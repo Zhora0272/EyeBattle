@@ -3,13 +3,12 @@ using UnityEngine;
 using UniRx;
 
 
-public abstract class MoveableBattleParticipantBaseController : BattleParticipantBaseController, IBotBattleParameters
+public abstract class MoveableBattleParticipantBaseController : BattleParticipantBaseController
 {
     public IReactiveProperty<float> Speed => _speed;
-    public IReactiveProperty<int> KillCount => _killCount;
+
     public IReactiveProperty<bool> IsDeath => _isDeath;
     //
-
 
     //readonly reactive properties
     private readonly ReactiveProperty<int> _hp = new(100);
@@ -21,8 +20,6 @@ public abstract class MoveableBattleParticipantBaseController : BattleParticipan
 
     [Space] [SerializeField] protected BaseCollectionController collector;
     [SerializeField] protected Rigidbody Rb;
-    [Space] [SerializeField] protected Transform _botModelTransform;
-    [SerializeField] protected Collider _sphereCollider;
     [Space] [SerializeField] protected TriggerCheckController _triggerCheckController;
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
@@ -33,14 +30,14 @@ public abstract class MoveableBattleParticipantBaseController : BattleParticipan
     #region UnityEvents
 
     private IDisposable _everyUpdateDispose;
-    
-    public void OnSpawned()
+
+    public virtual void OnSpawned()
     {
         // Логика при активации из пула
         Debug.Log("Object Spawned");
     }
 
-    public void OnDespawned()
+    public virtual void OnDespawned()
     {
         // Логика при деактивации (возврат в пул)
         Debug.Log("Object Despawned");
@@ -53,12 +50,6 @@ public abstract class MoveableBattleParticipantBaseController : BattleParticipan
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Xp, AttackCheck);
         _triggerCheckController.TriggerLayerEnterRegister(Layer.Coin, AttackCheck);
     }
-    
-    protected virtual void Update()
-    {
-       
-    }
-    
 
     #endregion
 

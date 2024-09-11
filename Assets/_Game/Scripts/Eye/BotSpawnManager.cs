@@ -7,11 +7,13 @@ namespace Bot.BotController
 {
     public class BotSpawnManager : MonoManager, IColliderToBotConvertable
     {
+        [SerializeField] private BattleEnemyParticipantPooling _enemyParticipantPooling;
+        [SerializeField] private BattleEnemyParticipantPooling _teammateParticipantPooling;
+        
         [SerializeField] private MineNavMeshAgentController _playerTransform;
         [SerializeField] private List<EyeSpawnList> _eyeSpawnList;
 
         public List<MineNavMeshAgentController> _spawnedBots { private set; get; }
-        private BotPool _botPool;
 
         private IDisposable _spawnBotDisposable;
         private int _index;
@@ -19,10 +21,7 @@ namespace Bot.BotController
         protected override void Awake()
         {
             base.Awake();
-            _botPool = new BotPool();
-            _spawnedBots = new List<MineNavMeshAgentController>();
-            
-            _spawnedBots.Add(_playerTransform);
+            _spawnedBots = new List<MineNavMeshAgentController> { _playerTransform };
         }
 
         private void ReloadSpawnList()
@@ -54,7 +53,6 @@ namespace Bot.BotController
             MainManager.GetManager<UIManager>().SubscribeToPageActivate(UIPageType.InGame, SpawnStart);
         }
         
-
         private CompositeDisposable _spawnCompositeDisposables;
 
         private void SpawnStart()

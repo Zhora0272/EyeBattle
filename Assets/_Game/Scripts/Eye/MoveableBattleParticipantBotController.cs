@@ -1,13 +1,13 @@
 using Random = UnityEngine.Random;
 using UnityEngine;
 using System;
-using Pooling;
 using UniRx;
 
 public enum BotType
 {
     Soldier,
     Juggernaut,
+    Boss
 }
 
 namespace Bot.BotController
@@ -18,16 +18,9 @@ namespace Bot.BotController
         [SerializeField] private BotType type;
         [Space] 
         [SerializeField] private BotBehaviourModel _model;
-        [SerializeField] private EyeCustomizeController _customizeController;
-
-        public bool ActiveInHierarchy => gameObject.activeInHierarchy;
 
         private ReactiveProperty<BotState> _state = new(BotState.Idle);
 
-        //
-        public MonoBehaviour PoolMonoObj => this;
-
-        //
         private IBotMonoBehaviour _botBehaviour;
         private BehaviourControllerBase _behaviourController;
 
@@ -110,7 +103,7 @@ namespace Bot.BotController
 
             moveDirection = model.MoveDirection;
         }
-
+        
         public void PoolActivate()
         {
             gameObject.SetActive(true);

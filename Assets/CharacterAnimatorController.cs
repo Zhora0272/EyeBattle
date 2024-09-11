@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterAnimatorController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Animator _animator;
 
-    // Update is called once per frame
-    void Update()
+    private static readonly int IdleHash = Animator.StringToHash("Idle");
+    private static readonly int RunHash = Animator.StringToHash("Run");
+    
+    internal void UpdateAnimations(BotState state)
     {
-        
+        _animator.SetBool(IdleHash, state == BotState.Idle);
+        _animator.SetBool(RunHash, state == BotState.Run);
     }
 }

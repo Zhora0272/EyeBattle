@@ -31,7 +31,7 @@ public class InputController : MonoManager, IScreenSelectRangePoint, IScreenClic
 
     public IReactiveProperty<float> MouseScrollProperty => _mouseScrollProperty;
     private readonly ReactiveProperty<float> _mouseScrollProperty = new();
-    
+
     public IReactiveProperty<MouseInputData> MouseButtonProperty => _mouseButtonProperty;
     private readonly ReactiveProperty<MouseInputData> _mouseButtonProperty = new();
 
@@ -41,7 +41,7 @@ public class InputController : MonoManager, IScreenSelectRangePoint, IScreenClic
 
     public IReactiveProperty<ScreenSelectRangePoint> SelectRangePointProperty =>
         screenInputEventView.SelectRangePoint;
-    
+
     public IReactiveProperty<Vector2> ScreenClickPointProperty =>
         screenInputEventView.ScreenClickProperty;
 
@@ -103,12 +103,17 @@ public class InputController : MonoManager, IScreenSelectRangePoint, IScreenClic
 
     private void OnMouseClick(InputAction.CallbackContext context)
     {
+        if (context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
+
         var control = context.control;
 
         var inputData = new MouseInputData();
-        
+
         string buttonPrefix = "/Mouse/";
-        
+
         if (control.path == buttonPrefix + MouseButton.leftButton)
         {
             inputData.ButtonType = MouseButton.leftButton;
