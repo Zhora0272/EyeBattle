@@ -1,7 +1,6 @@
-using System.Collections.Generic;
-using UnityEngine;
+using Zenject;
 
 public class EyeManager : MonoManager
 {
-    List<Transform> _eyes;
+    
 }

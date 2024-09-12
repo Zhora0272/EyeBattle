@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
@@ -18,24 +17,11 @@ public class GameInstaller : MonoInstaller
         Container.Bind<BarracksView[]>().FromInstance(_barracksView);
 
         Container.BindMemoryPool<MoveableBattleParticipantBaseController, BattleEnemyParticipantPooling>()
-            .WithInitialSize(20)
             .FromComponentInNewPrefab(EnemyBotPrefab)
-            .UnderTransform(_enemyPoolTransform);
-        
-        Container.BindMemoryPool<MoveableBattleParticipantBaseController, BattleTeammateParticipantPooling>()
-            .WithInitialSize(20)
-            .FromComponentInNewPrefab(TeammateBotPrefab)
-            .UnderTransform(_teammatePoolTransform);
-    }
-}
+            .UnderTransform(_enemyPoolTransform).WhenInjectedInto<BotSpawnManager>();
 
-[Serializable]
-public class BattleEnemyParticipantPooling : BaseBattleParticipantPooling<MoveableBattleParticipantBaseController>
-{
-    
-}
-[Serializable]
-public class BattleTeammateParticipantPooling : BaseBattleParticipantPooling<MoveableBattleParticipantBaseController>
-{
-        
+        Container.BindMemoryPool<MoveableBattleParticipantBaseController, BattleTeammateParticipantPooling>()
+            .FromComponentInNewPrefab(TeammateBotPrefab)
+            .UnderTransform(_teammatePoolTransform).WhenInjectedInto<BotSpawnManager>();
+    }
 }

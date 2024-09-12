@@ -21,6 +21,8 @@ public abstract class MoveableBattleParticipantBaseController : BattleParticipan
     [Space] [SerializeField] protected BaseCollectionController collector;
     [SerializeField] protected Rigidbody Rb;
     [Space] [SerializeField] protected TriggerCheckController _triggerCheckController;
+    [SerializeField] private UnityEngine.AI.NavMeshAgent _agent;
+
 
     [field: SerializeField] public ReactiveProperty<float> Size { protected set; get; }
 
@@ -31,6 +33,12 @@ public abstract class MoveableBattleParticipantBaseController : BattleParticipan
 
     private IDisposable _everyUpdateDispose;
 
+    
+    public void SetTargetPosition(Vector3 position)
+    {
+        _agent.SetDestination(position);
+    }
+    
     public virtual void OnSpawned()
     {
         // Логика при активации из пула

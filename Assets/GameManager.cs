@@ -13,6 +13,5 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _uiManager = MainManager.GetManager<UIManager>();
-        _spawnManager = MainManager.GetManager<BotSpawnManager>();
     }
 }
